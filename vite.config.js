@@ -11,7 +11,7 @@ export default defineConfig({
       input: {
         404: resolve(__dirname, '_site', '404.html'),
         main: resolve(__dirname, '_site', 'index.html'),
-        about: resolve(__dirname, '_site', 'about', 'index.html'),
+        toolbox: resolve(__dirname, '_site', 'toolbox', 'index.html'),
       },
     },
     emptyOutDir: true,
