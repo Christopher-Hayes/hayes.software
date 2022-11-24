@@ -11,66 +11,42 @@
   style="display: none"
 >
   <div class="mx-auto max-w-2xl px-2 sm:px-6 lg:px-8">
-    <div class="rounded-lg bg-gray-600 p-2 shadow-lg sm:p-3">
+    <div class="bg-bg py-4 px-6 text-white">
       <div class="flex flex-wrap items-center justify-between">
         <div class="flex w-0 flex-1 items-center">
-          <span class="flex rounded-lg bg-gray-800 p-2">
+          <span class="flex rounded-lg p-2">
+            <!-- mastodon svg logo -->
             <svg
-              class="h-6 text-white"
+              class="h-6"
+              fill="currentColor"
               aria-hidden="true"
               focusable="false"
               role="img"
+              viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 576 512"
             >
+              <title>Mastodon</title>
               <path
-                fill="currentColor"
-                d="M576 240c0-23.63-12.95-44.04-32-55.12V32.01C544 23.26 537.02
-                0 512 0c-7.12 0-14.19 2.38-19.98 7.02l-85.03 68.03C364.28 109.19
-                310.66 128 256 128H64c-35.35 0-64 28.65-64 64v96c0 35.35 28.65
-                64 64 64h33.7c-1.39 10.48-2.18 21.14-2.18 32 0 39.77 9.26 77.35
-                25.56 110.94 5.19 10.69 16.52 17.06 28.4 17.06h74.28c26.05 0
-                41.69-29.84 25.9-50.56-16.4-21.52-26.15-48.36-26.15-77.44
-                0-11.11 1.62-21.79 4.41-32H256c54.66 0 108.28 18.81 150.98
-                52.95l85.03 68.03a32.023 32.023 0 0 0 19.98 7.02c24.92 0
-                32-22.78 32-32V295.13C563.05 284.04 576 263.63 576 240zm-96
-                141.42l-33.05-26.44C392.95 311.78 325.12 288 256 288v-96c69.12 0
-                136.95-23.78 190.95-66.98L480 98.58v282.84z"
+                d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.5 2.962 1.498l.638 1.06.638-1.06c.66-.999 1.65-1.498 2.96-1.498 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z"
               />
             </svg>
           </span>
-          <p class="ml-3 truncate font-medium text-white">
-            Alpine.js is up and running!
-          </p>
+          <p class="ml-3 truncate font-medium">Hey I'm on Fosstodon now!</p>
         </div>
-        <div class="order-2 flex-shrink-0 sm:order-3 sm:ml-2">
+        <div
+          class="order-2 flex flex-shrink-0 flex-row gap-x-4 sm:order-3 sm:ml-2"
+        >
+          <a
+            href="https://fosstodon.org/@chris_hayes"
+            class="-mr-1 flex rounded-md bg-bg-dark p-2 font-bold text-white hover:bg-white hover:text-black focus:bg-white focus:text-black focus:outline-none focus:ring-1 focus:ring-white"
+          >
+            <span><span class="text-blue-500">goto</span> fosstodon</span>
+          </a>
           <button
             @click="open = false"
-            type="button"
-            class="-mr-1 flex rounded-md p-2 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-white"
+            class="-mr-1 flex rounded-md bg-bg-dark p-2 font-bold text-white hover:bg-white hover:text-black focus:bg-white focus:text-black focus:outline-none focus:ring-2 focus:ring-white"
           >
-            <span class="sr-only"> Dismiss </span>
-            <svg
-              class="h-6 w-6 text-white"
-              aria-hidden="true"
-              focusable="false"
-              data-prefix="fas"
-              data-icon="times"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 352 512"
-            >
-              <path
-                fill="currentColor"
-                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19
-                0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28
-                75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28
-                12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28
-                12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28
-                44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48
-                0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
-              />
-            </svg>
+            <span>dismiss</span>
           </button>
         </div>
       </div>

@@ -1,33 +1,29 @@
 ---
-layout: 'layouts/home.html'
-title: 'Home'
+layout: layouts/home.html
+title: Home
 meta:
-  desc:
-    '11st-Starter-Kit is a minimal starting point for building static websites
-    with 11ty, powered by Vite with Tailwind CSS and Alpine.js.'
+  desc: Personal site of software engineer, Chris Hayes.
 intro:
-  title: 'Welcome to Your Eleventy App'
-  desc:
-    'For a guide and recipes on how to configure / customize this project, check
-    out the <a href="https://www.11ty.dev/docs/" class="text-gray-900
-    font-medium underline">Eleventy</a> and <a href="https://vitejs.dev/"
-    class="text-gray-900 font-medium underline">Vite</a> documentation.'
+  title: Chris Hayes
+  desc: 🌊 I'm a full-stack engineer, with a passion for frontend design
 ---
 
-## Community
+## <span class="text-fg inline-block py-1 px-2 bg-bg rounded-md">whoami</span>
 
-[Eleventy](https://www.11ty.dev/news/discord/) -
-[Vite](https://chat.vitejs.dev/) - [Tailwind
-CSS](https://tailwindcss.com/discord) - [Alpine.js](https://discord.gg/CGmj5nq)
+🚧 **I build sites with..** React/Next, Alpine, Tailwind, Shopify, and WebGL.
 
-## Awesome
+🔥 **Big fan of..** FOSS, design, AI art, F1, and nuclear energy.
 
-[Eleventy](https://github.com/scottishstoater/awesome-eleventy) -
-[Vite](https://github.com/vitejs/awesome-vite) - [Tailwind
-CSS](https://github.com/aniftyco/awesome-tailwindcss) -
-[Alpine.js](https://github.com/alpine-collective/awesome)
+🔭 **Lastest hobby project..** is a [slack bot](https://dollybot.digitalsurgeons.com) to generate Dall-e images from Slack (Bolt, Next, Upstash, Vercel).
 
-## Ecosystem
+🌱 **Currently learning..** how to live in the Fediverse. ([fosstodon](https://fosstodon.org), [peertube](https://joinpeertube.org/), [nextcloud](https://nextcloud.com/))
 
-[Eleventy](https://www.11ty.dev/) - [Vite](https://vitejs.dev/) -
-[Tailwind CSS](https://tailwindcss.com/) - [Alpine.js](https://github.com/alpinejs/alpine/)
+## <span class="text-fg inline-block py-1 px-2 bg-bg rounded-md">goto</span>
+
+[🐙 github](https://github.com/christopher-hayes) - [🐘 fosstodon](https://fosstodon.org/@chris_hayes) - [📄 poly.work](https://poly.work/chris-hayes) - [👨 stackoverflow](https://stackoverflow.com/users/2096769/chris-hayes) - [🤖 flickr](https://www.flickr.com/people/chris-hayes)
+
+## <span class="text-fg inline-block py-1 px-2 bg-bg rounded-md">this</span>
+
+Static generation with 11ty, hosted on Netlify, coded by Copilot.
+
+[11ty](https://www.11ty.dev/) - [vite](https://vitejs.dev/) - [tailwindcss](https://tailwindcss.com/) - [alpine](https://github.com/alpinejs/alpine/) - [11st starter-kit](https://github.com/stefanfrede/11st-starter-kit/)

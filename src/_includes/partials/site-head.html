@@ -5,6 +5,27 @@ site_title = site.name %} {% assign current_url = site.url | append: page.url %}
 '/images/social-share.png' %} {% endunless %} {% if meta.title %} {% assign
 page_title = meta.title %} {% endif %}
 
+<style>
+  html {
+    background-color: #0a0908;
+  }
+  body {
+    /* smooth fade in animation */
+    animation: fadeInAnimation ease 200ms;
+  }
+  @keyframes fadeInAnimation {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+</style>
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
