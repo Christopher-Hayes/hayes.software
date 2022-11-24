@@ -20,7 +20,7 @@ intro:
 
 ## <span class="text-fg inline-block py-1 px-2 bg-bg rounded-md">goto</span>
 
-[🐙 github](https://github.com/christopher-hayes) - [🐘 fosstodon](https://fosstodon.org/@chris_hayes) - [📄 poly.work](https://poly.work/chris-hayes) - [👨 stackoverflow](https://stackoverflow.com/users/2096769/chris-hayes) - [🤖 flickr](https://www.flickr.com/people/chris-hayes)
+[🐙 github](https://github.com/christopher-hayes) - <a rel="me" href="https://fosstodon.org/@chris_hayes">🐘 fosstodon</a> - [📄 poly.work](https://poly.work/chris-hayes) - [👨 stackoverflow](https://stackoverflow.com/users/2096769/chris-hayes) - [🤖 flickr](https://www.flickr.com/people/chris-hayes)
 
 ## <span class="text-fg inline-block py-1 px-2 bg-bg rounded-md">this</span>
 
