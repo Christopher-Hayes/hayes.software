@@ -11,8 +11,8 @@
       if (sessionStorage.getItem('banner-shown') === null) {
         setTimeout(() => {
           open = true
+          sessionStorage.setItem('banner-shown', true)
         }, 5000)
-        sessionStorage.setItem('banner-shown', true)
       }
     }"
   >
