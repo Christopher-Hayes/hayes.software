@@ -1,7 +1,7 @@
 {
-  "name": "11st-starter-kit",
-  "description": "11ty, powered by Vite with Tailwind CSS and Alpine.js.",
-  "version": "2.0.0",
+  "name": "hayes-software",
+  "description": "Personal site for Chris Hayes running 11ty",
+  "version": "1.0.0",
   "engines": {
     "node": "16.x.x",
     "npm": "8.x.x"
