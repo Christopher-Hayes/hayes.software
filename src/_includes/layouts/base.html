@@ -4,15 +4,15 @@
     {% include "partials/site-head.html" %}
   </head>
   <body
-    class="min-h-screen bg-bg-dark"
+    class="min-h-screen bg-bg"
     data-env="{{ node.env }}"
     x-data="{ open: false }"
     x-init="() => {
-      if (localStorage.getItem('banner-shown') === null) {
+      if (sessionStorage.getItem('banner-shown') === null) {
         setTimeout(() => {
-          open = false
+          open = true
         }, 5000)
-        localStorage.setItem('banner-shown', true)
+        sessionStorage.setItem('banner-shown', true)
       }
     }"
   >

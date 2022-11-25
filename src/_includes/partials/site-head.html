@@ -6,8 +6,9 @@ site_title = site.name %} {% assign current_url = site.url | append: page.url %}
 page_title = meta.title %} {% endif %}
 
 <style>
+  /* Critical css */
   html {
-    background-color: #0a0908;
+    background-color: #3d5a80;
   }
   body {
     /* smooth fade in animation */
@@ -23,6 +24,20 @@ page_title = meta.title %} {% endif %}
     100% {
       opacity: 1;
     }
+  }
+  header > nav {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 42rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  #main-content > div {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 48rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 </style>
 
