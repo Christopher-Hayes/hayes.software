@@ -5,10 +5,11 @@ meta:
   desc: Personal site of software engineer, Chris Hayes. My personal setup.
 intro:
   title: Setup
-  desc: 🧰 My personal setup.
+  desc: My personal setup.
+  emoji: 🧰
 ---
 
-## <span class="text-fg inline-block py-1 px-2 bg-bg rounded-md">Ubuntu 20.04</span>
+## <span class="text-fg-dark inline-block py-1 px-2 bg-secondary bg-opacity-30 rounded-md">Ubuntu 22.04</span>
 
 - I've used Ubuntu since 16.04 and continue to use it due to its stability and wide software support.
 - **Desktop**: GNOME
@@ -43,7 +44,8 @@ intro:
 
 </details>
 
-## <span class="text-fg inline-block py-1 px-2 bg-bg rounded-md">MacOS</span>
+<!-- 
+## <span class="text-fg-dark inline-block py-1 px-2 bg-secondary bg-opacity-30 rounded-md">macos</span>
 
 <details><summary>Mac software</summary>
 
@@ -55,9 +57,11 @@ intro:
 
 </details>
 
-## <span class="text-fg inline-block py-1 px-2 bg-bg rounded-md">Hardware</span>
+## <span class="text-fg-dark inline-block py-1 px-2 bg-secondary bg-opacity-30 rounded-md">hardware</span>
 
 - **Laptop**: Lenovo ThinkPad P1 Gen3
   - Happy with it - great performance
 - **Desktop**: Ryzen 9 5950X, 64GB RAM, 1TB NVMe, 2TB external SSD, RTX 3090
   - Built for AI/ML work with the 3090's 24GB VRAM
+
+ -->
