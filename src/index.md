@@ -19,11 +19,15 @@ intro:
 
 🌱 **Currently learning..** how to live in the Fediverse. ([fosstodon](https://fosstodon.org), [peertube](https://joinpeertube.org/), [nextcloud](https://nextcloud.com/))
 
-## <span class="text-bg dark:text-fg inline-block py-1 px-2 bg-fg-dark bg-opacity-40 dark:bg-opacity-30 rounded-md font-bold">goto</span>
+## <span class="text-bg dark:text-fg inline-block py-1 px-2 bg-fg-dark bg-opacity-40 dark:bg-opacity-30 rounded-md font-bold">say hi</span>
 
-[🐙 github](https://github.com/christopher-hayes) - <a rel="me" href="https://fosstodon.org/@chris_hayes">🐘 fosstodon</a> - [📄 poly.work](https://poly.work/chris-hayes) - [👨 stackoverflow](https://stackoverflow.com/users/2096769/chris-hayes) - [🤖 flickr](https://www.flickr.com/people/chris-hayes) - [📸 pixelfed](pixelfed.social/chris-hayes)
+<a rel="me" href="https://fosstodon.org/@chris_hayes">🐘 fosstodon</a> - [📸 pixelfed](pixelfed.social/chris-hayes) - [🤖 flickr](https://www.flickr.com/people/chris-hayes) - [🐉 bookwyrm](https://bookwyrm.social/user/chris-hayes)
 
-## <span class="text-bg dark:text-fg inline-block py-1 px-2 bg-fg-dark bg-opacity-40 dark:bg-opacity-30 rounded-md font-bold">this</span>
+## <span class="text-bg dark:text-fg inline-block py-1 px-2 bg-fg-dark bg-opacity-40 dark:bg-opacity-30 rounded-md font-bold">see work</span>
+
+[🐙 github](https://github.com/christopher-hayes) - [📄 poly.work](https://poly.work/chris-hayes) - [👨 stackoverflow](https://stackoverflow.com/users/2096769/chris-hayes)
+
+## <span class="text-bg dark:text-fg inline-block py-1 px-2 bg-fg-dark bg-opacity-40 dark:bg-opacity-30 rounded-md font-bold">this site</span>
 
 Static generation with 11ty, hosted on Netlify, coded by Copilot.
 
