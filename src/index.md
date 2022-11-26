@@ -21,7 +21,7 @@ intro:
 
 ## <span class="text-bg dark:text-fg inline-block py-1 px-2 bg-fg-dark bg-opacity-40 dark:bg-opacity-30 rounded-md font-bold">goto</span>
 
-[🐙 github](https://github.com/christopher-hayes) - <a rel="me" href="https://fosstodon.org/@chris_hayes">🐘 fosstodon</a> - [📄 poly.work](https://poly.work/chris-hayes) - [👨 stackoverflow](https://stackoverflow.com/users/2096769/chris-hayes) - [🤖 flickr](https://www.flickr.com/people/chris-hayes)
+[🐙 github](https://github.com/christopher-hayes) - <a rel="me" href="https://fosstodon.org/@chris_hayes">🐘 fosstodon</a> - [📄 poly.work](https://poly.work/chris-hayes) - [👨 stackoverflow](https://stackoverflow.com/users/2096769/chris-hayes) - [🤖 flickr](https://www.flickr.com/people/chris-hayes) - [📸 pixelfed](pixelfed.social/chris-hayes)
 
 ## <span class="text-bg dark:text-fg inline-block py-1 px-2 bg-fg-dark bg-opacity-40 dark:bg-opacity-30 rounded-md font-bold">this</span>
 
