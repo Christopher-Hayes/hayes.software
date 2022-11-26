@@ -1,12 +1,12 @@
 <header class="top-4 sticky px-2">
-  <nav class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 bg-secondary text-secondary-fg rounded-xl bg-opacity-80 backdrop-blur-sm backdrop-brightness-75">
+  <nav class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 bg-bg dark:bg-secondary text-secondary-fg rounded-xl bg-opacity-80 dark:bg-opacity-80 backdrop-blur-sm backdrop-brightness-75">
     <div class="flex h-16 items-center justify-between">
       <a href="/" class="flex flex-shrink-0 items-center" aria-label="Home">
         <h1 class="space-x-1 font-bold">Chris Hayes</h1>
       </a>
       <ul class="flex space-x-4">
         {% for item in navigation.items %} {% if item.url == page.url %} {%
-        assign highlight = 'cursor-default text-fg bg-fg-dark bg-opacity-5' %} {% assign current =
+        assign highlight = 'cursor-default text-fg bg-bg-dark dark:bg-fg-dark bg-opacity-20 dark:bg-opacity-5' %} {% assign current =
         'aria-current="page"' %} {% else %} {% assign highlight = 'underline hover:bg-fg-dark hover:bg-opacity-10' %}
         {% assign current = '' %} {% endif %}
         <li>
