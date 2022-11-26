@@ -9,7 +9,7 @@ intro:
   emoji: 🧰
 ---
 
-## <span class="text-fg-dark inline-block py-1 px-2 bg-secondary bg-opacity-30 rounded-md">Ubuntu 22.04</span>
+## <span class="text-bg dark:text-fg inline-block py-1 px-2 bg-fg-dark bg-opacity-40 dark:bg-opacity-30 rounded-md font-bold">ubuntu 22.04</span>
 
 - I've used Ubuntu since 16.04 and continue to use it due to its stability and wide software support.
 - **Desktop**: GNOME
