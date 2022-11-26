@@ -25,7 +25,7 @@ intro:
 
 ## <span class="text-bg dark:text-fg inline-block py-1 px-2 bg-fg-dark bg-opacity-40 dark:bg-opacity-30 rounded-md font-bold">see work</span>
 
-[🐙 github](https://github.com/christopher-hayes) - [📄 poly.work](https://poly.work/chris-hayes) - [👨 stackoverflow](https://stackoverflow.com/users/2096769/chris-hayes)
+[🐙 github](https://github.com/christopher-hayes) - [📄 poly.work](https://poly.work/web_dev) - [👨 stackoverflow](https://stackoverflow.com/users/2096769/chris-hayes)
 
 ## <span class="text-bg dark:text-fg inline-block py-1 px-2 bg-fg-dark bg-opacity-40 dark:bg-opacity-30 rounded-md font-bold">this site</span>
 
