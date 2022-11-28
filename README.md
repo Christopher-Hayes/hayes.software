@@ -4,7 +4,7 @@
 
 **:zap: Speedlify performance stats:** [https://web-perf.netlify.app](https://web-perf.netlify.app/personal-site/)
 
-**:art: Palette:** https://coolors.co/user/palettes/63814115d3fe15000aba91a5
+**:art: Palette:** https://coolors.co/3d5a80-98c1d9-e0fbfc-ee6c4d-293241
 
 ## :package: 11ty template: [11st-Starter-Kit](https://github.com/stefanfrede/11st-starter-kit)
 
