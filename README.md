@@ -1,18 +1,22 @@
-# 📦 Personal site: [hayes.software](https://hayes.software)
+# Personal site: [hayes.software](https://hayes.software)
 
-## 11ty template: `11st-Starter-Kit`
+**:iphone: Website URL:** https://hayes.software
 
-[11ty](https://www.11ty.dev/), powered by [Vite](https://vitejs.dev/)
-with [Tailwind CSS](https://tailwindcss.com) and
-[Alpine.js](https://github.com/alpinejs/alpine/).
+**:zap: Speedlify performance stats:** [https://web-perf.netlify.app](https://web-perf.netlify.app/personal-site/)
 
-## Install Dependencies
+**:art: Palette:** https://coolors.co/user/palettes/63814115d3fe15000aba91a5
 
-First, make sure you have `npm` (packaged with
-[Node.js](https://nodejs.org)) installed, then run `npm run setup` to install
-the dependencies and validate that everything is running correctly.
+## :package: 11ty template: [11st-Starter-Kit](https://github.com/stefanfrede/11st-starter-kit)
+
+[11ty](https://www.11ty.dev/) - [Vite](https://vitejs.dev/) - [Tailwind CSS](https://tailwindcss.com) - [Alpine.js](https://github.com/alpinejs/alpine/)
 
 ## Scripts
+
+### Install
+
+```bash
+npm run setup
+```
 
 ### Development
 
@@ -44,17 +48,3 @@ npm install -g netlify-cli
 # run a local server with some added Netlify sugar
 netlify dev
 ```
-
-## Code Quality
-
-By default `CSS` and `JavaScript` is getting linted with every commit.
-
-You can lint manually by running `npm run lint` and if errors occur you can try to fix them automatically by running `npm run format`.
-
-With every pull request it is checked if the code can be build without errors and afterwards `CSS` and `JavaScript` is getting linted.
-
-Additionally each page is audited by Lighthouse which can take some time. You can find the performance budget for this audit in the file `./budget.json`.
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
