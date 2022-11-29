@@ -45,6 +45,7 @@ int main()
   // Monitor 1 on bus 6 -> DisplayPort
   system("ddcutil -b 6 setvcp 0x60 0x0f");
   // Monitor 2 on bus 7 -> DisplayPort
+  // Comment out the line below if you only have one monitor
   system("ddcutil -b 7 setvcp 0x60 0x0f");
   return 0;
 }
@@ -86,9 +87,10 @@ For example, if you want to switch the display source back to HDMI 1, you can us
 int main()
 {
   setuid(0);
-  // Monitor 1 on bus 6 -> DisplayPort
+  // Monitor 1 on bus 6 -> HDMI 1
   system("ddcutil -b 6 setvcp 0x60 0x11");
-  // Monitor 2 on bus 7 -> DisplayPort
+  // Monitor 2 on bus 7 -> HDMIM 1
+  // Comment out the line below if you only have one monitor
   system("ddcutil -b 7 setvcp 0x60 0x11");
   return 0;
 }
@@ -107,4 +109,4 @@ sudo chown root:root show_hdmi1
 sudo chmod 4755 show_hdmi1
 ```
 
-Now you can switch between the two display sources with just a few button pushes on your phone!
+Add that executable as a command in KDE Connect, and now you can switch between the two display sources with just a few button pushes on your phone!
