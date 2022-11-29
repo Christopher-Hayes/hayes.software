@@ -1,7 +1,7 @@
 {
   "name": "hayes-software",
   "description": "Personal site for Chris Hayes running 11ty",
-  "version": "1.1.6",
+  "version": "1.2.0",
   "engines": {
     "node": "16.x.x",
     "npm": "8.x.x"
@@ -61,40 +61,40 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
-    "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.5",
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.20.5",
     "@babel/eslint-parser": "^7.19.1",
     "@babel/preset-env": "^7.20.2",
     "@tailwindcss/typography": "^0.5.8",
-    "autoprefixer": "^10.2.4",
+    "autoprefixer": "^10.4.13",
     "browserslist": "^4.21.4",
     "cross-env": "^7.0.3",
-    "eslint": "^8.0.1",
+    "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-compat": "^4.0.0",
     "eslint-plugin-import": "^2.23.2",
     "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-promise": "^6.1.1",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.2.14",
     "postcss-cli": "^10.0.0",
     "prettier": "^2.8.0",
-    "prettier-plugin-tailwindcss": "^0.1.7",
+    "prettier-plugin-tailwindcss": "^0.2.0",
     "rimraf": "^3.0.2",
     "stylelint": "^14.15.0",
-    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-standard": "^29.0.0",
     "stylelint-no-unsupported-browser-features": "^6.0.1",
     "stylelint-order": "^5.0.0",
     "tailwindcss": "^3.2.4",
-    "vite": "^3.1.0",
+    "vite": "^3.2.4",
     "vite-plugin-pwa": "^0.13.3"
   },
   "dependencies": {
     "alpinejs": "^3.0.1",
-    "core-js": "^3.20.2"
+    "core-js": "^3.26.1"
   }
 }

@@ -1,0 +1,22 @@
+{% layout "layouts/base.html" %}
+{% block content %}
+<main id="main-content" tabindex="-1">
+  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <div class="py-8 leading-8 mt-4 mb-4 font-bold flex flex-wrap flex-row gap-4 text-secondary dark:text-fg">
+      <p style="font-size: 48px; line-height: 100%;">{{ intro.emoji }}</p>
+      <p class="text-xl self-center pt-1">{{ intro.desc }}</p>
+    </div>
+    <!-- grid of blog posts made in 11ty -->
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {% for post in collections.blog %}
+        <div class="bg-bg-dark rounded-xl p-4">
+          <a href="{{ post.url }}" class="text-fg">
+            <h2 class="text-2xl font-bold">{{ post.data.title }}</h2>
+            <p class="text-base">{{ post.data.description }}</p>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</main>
+{% endblock %}

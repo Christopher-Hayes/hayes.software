@@ -11,6 +11,12 @@ module.exports = function (config) {
   config.addPassthroughCopy('./src/styles');
   config.addPassthroughCopy('./src/main.js');
 
+  config.addCollection("blog", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("./src/blog/*.md").sort(function(a, b) {
+      return b.date - a.date;
+    });
+  });
+
   return {
     dir: {
       input: 'src',
