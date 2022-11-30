@@ -9,8 +9,8 @@
     <!-- grid of blog posts made in 11ty -->
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {% for post in collections.blog %}
-        <div class="bg-bg-dark rounded-xl p-4">
-          <a href="{{ post.url }}" class="text-fg">
+        <div class="bg-bg-dark rounded-xl p-4 text-fg hover:text-secondary hover:bg-primary transition duration-300 hover:duration-100 ease-out">
+          <a href="{{ post.url }}">
             <h2 class="text-2xl font-bold">{{ post.data.title }}</h2>
             <p class="text-base">{{ post.data.description }}</p>
           </a>

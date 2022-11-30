@@ -1,6 +1,10 @@
 const fs = require('fs');
 
 module.exports = function (config) {
+  if (fs.existsSync('_site')) {
+    fs.rmdirSync('_site/', { recursive: true });
+  }
+
   config.setLiquidOptions({
     dynamicPartials: true,
   });
