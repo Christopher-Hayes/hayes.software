@@ -1,7 +1,7 @@
 {
   "name": "hayes-software",
   "description": "Personal site for Chris Hayes running 11ty",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "engines": {
     "node": "16.x.x",
     "npm": "8.x.x"
