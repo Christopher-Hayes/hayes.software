@@ -4,7 +4,7 @@ title: Switching monitor display source from your phone
 meta:
   desc: Using ddcutil to switch monitor display source from your phone
   tag: 
-date: 2021-09-12
+date: 2022-11-28
 intro:
   title: Switching monitor display source from your phone
   emoji: 📱

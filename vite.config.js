@@ -1,18 +1,41 @@
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
+const fs = require('fs');
 
 const { resolve } = require('path');
+
+const getPosts = () => {
+  if (fs.existsSync('_site')) {
+    const pages = {
+      404: resolve(__dirname, '_site', '404.html'),
+      main: resolve(__dirname, '_site', 'index.html'),
+      toolbox: resolve(__dirname, '_site', 'toolbox', 'index.html'),
+    };
+    // Blog posts
+    const posts = fs
+      .readdirSync(resolve(__dirname, '_site', 'blog'))
+      .map((post) => {
+        return {
+          [post.replace('.html', '')]:
+            post === 'index.html'
+              ? resolve(__dirname, '_site', 'blog', 'index.html')
+              : resolve(__dirname, '_site', 'blog', post, 'index.html'),
+        };
+      });
+    return { ...pages, ...Object.assign({}, ...posts) };
+  } else {
+    return {};
+  }
+};
+
+const posts = getPosts();
 
 export default defineConfig({
   root: '_site',
   build: {
     outDir: '../dist',
     rollupOptions: {
-      input: {
-        404: resolve(__dirname, '_site', '404.html'),
-        main: resolve(__dirname, '_site', 'index.html'),
-        toolbox: resolve(__dirname, '_site', 'toolbox', 'index.html'),
-      },
+      input: posts,
     },
     emptyOutDir: true,
   },
