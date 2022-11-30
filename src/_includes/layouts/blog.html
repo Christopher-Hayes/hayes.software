@@ -6,13 +6,17 @@
       <p style="font-size: 48px; line-height: 100%;">{{ intro.emoji }}</p>
       <p class="text-xl self-center pt-1">{{ intro.desc }}</p>
     </div>
-    <!-- grid of blog posts made in 11ty -->
+    <header class="mb-4">
+      <h2 class="text-3xl text-bg dark:text-fg py-1 px-2 inline-block bg-fg-dark bg-opacity-40 dark:bg-opacity-30 rounded-md font-bold">latest</h2>
+    </header>
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {% for post in collections.blog %}
         <div class="bg-bg-dark rounded-xl p-4 text-fg hover:text-secondary hover:bg-primary transition duration-300 hover:duration-100 ease-out">
           <a href="{{ post.url }}">
             <h2 class="text-2xl font-bold">{{ post.data.title }}</h2>
             <p class="text-base">{{ post.data.description }}</p>
+            <!-- show date -->
+            <p class="mt-2 text-sm opacity-50">{{ post.date | date: "%B %d, %Y" }}</p>
           </a>
         </div>
       {% endfor %}

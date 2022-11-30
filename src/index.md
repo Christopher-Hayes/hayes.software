@@ -38,3 +38,5 @@ Static generation with 11ty, hosted on Netlify, coded by Copilot.
 🚧 I recently [rebuilt this site with 11ty](https://fosstodon.org/@chris_hayes/109397203151251787). From boilerplate to live site was a single evening thanks to 11ty. There's still some `todo` items left, so please pardon the lack of content.
 
 </span>
+
+Edit this site [on github](https://github.com/Christopher-Hayes/hayes.software)
