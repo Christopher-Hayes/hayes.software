@@ -5,3 +5,7 @@
 .prose a {
   @apply underline font-bold;
 }
+
+.prose ol li::marker{
+  @apply font-bold;
+}
