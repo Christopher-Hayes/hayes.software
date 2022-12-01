@@ -14,11 +14,6 @@ intro:
 - I've used Ubuntu since 16.04 and continue to use it due to its stability and wide software support.
 - **Desktop**: GNOME
 
-- **Terminal**: [WezTerm](https://wezfurlong.org/wezterm/) <details><summary>Details</summary>
-  - WezTerm is a GPU-accelerated cross-platform terminal written in Rust.
-  - **Editor:** Vim
-  - **[my dotfiles](https://github.com/christopher-hayes/dotfiles)** - Not exhaustive, Slowly moving my private dotfiles into this repo
-
 </details>
 
 - **Browser**: [Chrome](https://www.google.com/chrome/)<details><summary>Not Firefox?</summary>
@@ -44,34 +39,32 @@ intro:
 
 </details>
 
-## <span class="text-fg-dark inline-block py-1 px-2 bg-secondary bg-opacity-30 rounded-md">terminal sanity</span>
+## <span class="text-bg dark:text-fg inline-block py-1 px-2 bg-fg-dark bg-opacity-40 dark:bg-opacity-30 rounded-md font-bold">terminal sanity</span>
 
-### Node: `nvm`
+**Terminal:** [WezTerm](https://wezfurlong.org/wezterm/) - WezTerm is a GPU-accelerated cross-platform terminal written in Rust.
 
-Using the `nvm` utility and `.nvmrc` files is a great way for developers to manage and switch between different versions of Node.js. nvm stands for Node Version Manager and is a tool used to switch between different versions of Node.js. A `.nvmrc` file is a simple text file that contains the version of Node.js to be used, and running nvm in the same directory as the `.nvmrc` file will automatically switch to that version. I talk more about how to use `nvm` in [this blog post](https://christopherhayes.dev/blog/nvm/).
+**Editor (when in terminal):** Vim
 
-### Python: `venv`
+**[my dotfiles](https://github.com/christopher-hayes/dotfiles)** - Not exhaustive, Slowly moving my private dotfiles into this repo
 
-Python's `venv` module is a great way to manage virtual environments. A virtual environment is a tool that helps to keep dependencies required by different projects separate by creating isolated Python environments for them. This is a great way to avoid dependency conflicts and keep your system clean. I talk more about how to use `venv` in [this blog post](https://christopherhayes.dev/blog/python-venv/).
+### Node
 
-<!-- 
-## <span class="text-fg-dark inline-block py-1 px-2 bg-secondary bg-opacity-30 rounded-md">macos</span>
+`nvm` is a tool used to switch between different versions of Node.js. A `.nvmrc` file is a simple text file that contains the version of Node.js to be used, and running nvm in the same directory as the `.nvmrc` file will automatically switch to that version. I talk more about using `nvm` in [this blog post](https://christopherhayes.dev/blog/nvm/).
 
-<details><summary>Mac software</summary>
+### Python
 
-- **In use** - for work. But, the software for Mac isn't half bad.
-- [DevUtils](https://devutils.app/) - A collection of developer tools.
-- [Yabai](https://github.com/koekeishiya/yabai) - Tiling window manager for tiling + focus on hover
-- [Transmit](https://panic.com/transmit/) - A really solid FTP/SFTP client
-- [Alfred](https://www.alfredapp.com/) - Spotlight on steroids
+`venv` is a module that comes with Python 3. It provides an easy way to create and manage virtual environments for different Python projects. Using virtual environments is a great way to keep your projects isolated from each other, and to ensure that everyone on a team is using the same version of Python and packages. I talk more about using `venv` in [this blog post](https://christopherhayes.dev/blog/python-venv/).
 
-</details>
+### Misc utilites
 
-## <span class="text-fg-dark inline-block py-1 px-2 bg-secondary bg-opacity-30 rounded-md">hardware</span>
+`exiftool` - _**The**_ CLI utility for reading image metadata. [get](https://exiftool.org/)
 
-- **Laptop**: Lenovo ThinkPad P1 Gen3
-  - Happy with it - great performance
-- **Desktop**: Ryzen 9 5950X, 64GB RAM, 1TB NVMe, 2TB external SSD, RTX 3090
-  - Built for AI/ML work with the 3090's 24GB VRAM
+## <span class="text-bg dark:text-fg inline-block py-1 px-2 bg-fg-dark bg-opacity-40 dark:bg-opacity-30 rounded-md font-bold">mac</span>
 
- -->
+I'm not a fan of Apple, but there's still a few nice tools I've I like.
+
+[DevUtils](https://devutils.app/) - A collection of developer utilities.
+
+[Yabai](https://github.com/koekeishiya/yabai) - Tiling window manager for tiling + focus on hover. I'm a big fan of "focus on hover", so Yabai enables that for me.
+
+[Transmit](https://panic.com/transmit/) - A really solid FTP/SFTP client.

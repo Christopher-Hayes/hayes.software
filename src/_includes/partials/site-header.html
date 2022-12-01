@@ -1,14 +1,147 @@
-<header class="top-4 sticky px-2">
-  <nav class="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 bg-bg dark:bg-secondary text-secondary-fg rounded-xl bg-opacity-80 dark:bg-opacity-80 backdrop-blur-sm backdrop-brightness-75">
-    <div class="flex h-16 items-center justify-between">
-      <a href="/" class="flex flex-shrink-0 items-center" aria-label="Home">
-        <h1 class="space-x-1 font-bold">Chris Hayes</h1>
-      </a>
+<header class="sticky top-8 px-2">
+  <nav
+    class="mx-auto max-w-2xl rounded-xl bg-bg bg-opacity-80 px-4 text-secondary-fg backdrop-blur-sm backdrop-brightness-75 dark:bg-secondary dark:bg-opacity-80 sm:px-6 lg:px-8"
+  >
+    <div class="flex flex-row flex-wrap gap-y-2 min-h-[4rem] items-center justify-between py-4 md:py-0">
+      <div class="flex flex-row">
+          <!-- dragon.svg icon. on right click show a dropdown menu with links to the other pages -->
+          <div class="ml-4 mr-6 absolute right-0 md:relative">
+            <div
+              x-data="{
+            open: false,
+            toggle() {
+                if (this.open) {
+                    return this.close()
+                }
+ 
+                this.$refs.button.focus()
+ 
+                this.open = true
+            },
+            close(focusAfter) {
+                if (! this.open) return
+ 
+                this.open = false
+ 
+                focusAfter && focusAfter.focus()
+            }
+        }"
+              x-on:keydown.escape.prevent.stop="close($refs.button)"
+              x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+              x-id="['dropdown-button']"
+              class="relative"
+            >
+              <img
+                x-ref="button"
+                x-on:contextmenu="$event.preventDefault(); toggle()"
+                :aria-expanded="open"
+                :aria-controls="$id('dropdown-button')"
+                type="button"
+                src="/images/dragon.svg"
+                alt="dragon"
+                class="h-8 w-8 scale-[300%]"
+                aria-hidden="true"
+                focusable="false"
+              />
+              <!-- Panel -->
+              <div
+                x-ref="panel"
+                x-show="open"
+                x-transition.origin.top.left
+                x-on:click.outside="close($refs.button)"
+                :id="$id('dropdown-button')"
+                style="display: none"
+                class="absolute left-0 mt-2 w-64 rounded-md bg-secondary text-fg shadow-md"
+              >
+                <!-- copy svg button -->
+                <button
+                  @click="(e) => {
+                e.preventDefault()
+                fetch('/images/dragon.svg')
+                  .then(response => response.text())
+                  .then(svg => {
+                    // Create a temporary element to hold the SVG
+                    const temp = document.createElement('div')
+                    temp.innerHTML = svg
+                    // Get the SVG element
+                    const svgElement = temp.querySelector('svg')
+                    // Add a class to the SVG element
+                    svgElement.classList.add('svg-class')
+                    // Get the SVG as a string
+                    const svgString = new XMLSerializer().serializeToString(svgElement)
+                    // Copy the SVG to the clipboard
+                    navigator.clipboard.writeText(svgString)
+                    // Close the dropdown
+                    close($refs.button)
+                  })
+              }"
+                  class="flex w-full items-center gap-2 px-4 py-2.5 text-left text-sm first-of-type:rounded-t-md last-of-type:rounded-b-md hover:bg-primary hover:text-secondary focus:bg-primary focus:text-secondary"
+                >
+                  Copy SVG
+                </button>
+                <a
+                  href="https://openmoji.org/library/emoji-1F409/"
+                  @click="close($refs.button)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex w-full items-center gap-2 px-4 py-2.5 text-left text-sm first-of-type:rounded-t-md last-of-type:rounded-b-md hover:bg-primary hover:text-secondary focus:bg-primary focus:text-secondary"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" id="emoji" viewBox="0 0 72 72" class="w-5 h-5 mr-1 fill-current stroke-current" aria-hidden="true" focusable="false">
+                    <g id="color">
+                      <polygon fill="current" stroke="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" points="35.134,14.0387 59.3629,13.1416 58.4658,37.3705 52.9078,37.1647 53.4324,23.0048 17.5399,58.8973 13.6073,54.9646 49.4998,19.0721 35.3399,19.5967"/>
+                    </g>
+                    <g id="hair"/>
+                    <g id="skin"/>
+                    <g id="skin-shadow"/>
+                    <g id="line">
+                      <polygon fill="none" stroke="current" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" points="35.134,14.0387 59.3629,13.1416 58.4658,37.3705 52.9078,37.1647 53.4324,23.0048 17.5399,58.8973 13.6073,54.9646 49.4998,19.0721 35.3399,19.5967"/>
+                    </g>
+                  </svg>
+                  View on OpenMoji
+                </a>
+                <a
+                  href="https://openmoji.org/library/#author=Selina%20Bauder"
+                  @click="close($refs.button)"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex w-full items-center gap-2 px-4 py-2.5 text-left text-sm first-of-type:rounded-t-md last-of-type:rounded-b-md hover:bg-primary hover:text-secondary focus:bg-primary focus:text-secondary"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" id="emoji" viewBox="0 0 72 72" class="w-5 h-5 mr-1 fill-current stroke-current" aria-hidden="true" focusable="false">
+                    <g id="color">
+                      <polygon fill="current" stroke="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" points="35.134,14.0387 59.3629,13.1416 58.4658,37.3705 52.9078,37.1647 53.4324,23.0048 17.5399,58.8973 13.6073,54.9646 49.4998,19.0721 35.3399,19.5967"/>
+                    </g>
+                    <g id="hair"/>
+                    <g id="skin"/>
+                    <g id="skin-shadow"/>
+                    <g id="line">
+                      <polygon fill="none" stroke="current" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" points="35.134,14.0387 59.3629,13.1416 58.4658,37.3705 52.9078,37.1647 53.4324,23.0048 17.5399,58.8973 13.6073,54.9646 49.4998,19.0721 35.3399,19.5967"/>
+                    </g>
+                  </svg>
+                  More emojis from Selina Bauder
+                </a>
+              </div>
+            </div>
+          </div>
+
+        <a
+          href="/"
+          class="flex flex-shrink-0 items-center gap-4 group"
+          aria-label="Home"
+        >
+          <h1
+            class="block space-x-1 rounded-md px-2 py-2 font-bold underline group-focus-within:bg-fg-dark group-focus-within:bg-opacity-10 group-hover:bg-fg-dark group-hover:bg-opacity-10"
+          >
+            Chris Hayes
+          </h1>
+        </a>
+      </div>
       <ul class="flex space-x-4">
         {% for item in navigation.items %} {% if item.url == page.url %} {%
-        assign highlight = 'cursor-default text-fg bg-bg-dark dark:bg-fg-dark bg-opacity-20 dark:bg-opacity-5' %} {% assign current =
-        'aria-current="page"' %} {% else %} {% assign highlight = 'underline hover:bg-fg-dark hover:bg-opacity-10' %}
-        {% assign current = '' %} {% endif %}
+        assign highlight = 'cursor-default text-fg bg-bg-dark dark:bg-fg-dark
+        bg-opacity-20 dark:bg-opacity-5' %} {% assign current =
+        'aria-current="page"' %} {% else %} {% assign highlight = 'underline
+        hover:bg-fg-dark hover:bg-opacity-10 focus:bg-fg-dark
+        focus:bg-opacity-10' %} {% assign current = '' %} {% endif %}
         <li>
           <a
             href="{{ item.url }}"
