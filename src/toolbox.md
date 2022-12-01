@@ -44,6 +44,16 @@ intro:
 
 </details>
 
+## <span class="text-fg-dark inline-block py-1 px-2 bg-secondary bg-opacity-30 rounded-md">terminal sanity</span>
+
+### Node: `nvm`
+
+Using the `nvm` utility and `.nvmrc` files is a great way for developers to manage and switch between different versions of Node.js. nvm stands for Node Version Manager and is a tool used to switch between different versions of Node.js. A `.nvmrc` file is a simple text file that contains the version of Node.js to be used, and running nvm in the same directory as the `.nvmrc` file will automatically switch to that version. I talk more about how to use `nvm` in [this blog post](https://christopherhayes.dev/blog/nvm/).
+
+### Python: `venv`
+
+Python's `venv` module is a great way to manage virtual environments. A virtual environment is a tool that helps to keep dependencies required by different projects separate by creating isolated Python environments for them. This is a great way to avoid dependency conflicts and keep your system clean. I talk more about how to use `venv` in [this blog post](https://christopherhayes.dev/blog/python-venv/).
+
 <!-- 
 ## <span class="text-fg-dark inline-block py-1 px-2 bg-secondary bg-opacity-30 rounded-md">macos</span>
 
