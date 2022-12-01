@@ -4,7 +4,7 @@ title: 🐍 Python Virtual Environments
 meta:
   desc: How to manage Python virtual environments.
   tag:
-date: 2022-12-1
+date: 2022-12-01
 intro:
   title: Python Virtual Environments
   emoji: 🐍
