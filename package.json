@@ -94,6 +94,7 @@
     "vite-plugin-pwa": "^0.13.3"
   },
   "dependencies": {
+    "@alpinejs/collapse": "^3.10.5",
     "alpinejs": "^3.0.1",
     "core-js": "^3.26.1"
   }
