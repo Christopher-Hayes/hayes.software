@@ -19,7 +19,7 @@ module.exports = {
           dark: '#5e503f',
         },
       },*/
-      // Palette grabbed from coolors.co: https://coolors.co/palette/3d5a80-98c1d9-e0fbfc-ee6c4d-293241
+      /* Palette grabbed from coolors.co: https://coolors.co/palette/3d5a80-98c1d9-e0fbfc-ee6c4d-293241
       colors: {
         // Main background colors
         bg: {
@@ -31,6 +31,36 @@ module.exports = {
         fg: {
           DEFAULT: '#e0fbfc',
           dark: '#98c1d9',
+        },
+        // Accents - ie for buttons / ctas
+        // Ornage accent
+        primary: {
+          bg: '#ee6c4d',
+          DEFAULT: '#ee6c4d',
+          dark: '#bf2303',
+          fg: 'white',
+        },
+        // Midnight blue accent
+        secondary: {
+          bg: '#293241',
+          DEFAULT: '#293241',
+          fg: '#e0fbfc',
+        },
+      },
+      */
+      // Palette v3
+
+      colors: {
+        // Main background colors
+        bg: {
+          light: '#271d58',
+          DEFAULT: '#100c24',
+          dark: '#080612',
+        },
+        // Main forground text content colors
+        fg: {
+          DEFAULT: '#81dbff',
+          dark: '#17b0ed',
         },
         // Accents - ie for buttons / ctas
         // Ornage accent
