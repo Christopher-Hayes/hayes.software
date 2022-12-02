@@ -1,8 +1,5 @@
 import './styles/main.css';
 
-//import Alpine from 'alpinejs'
-//import collapse from '@alpinejs/collapse'
-
 const env = document.querySelector('body').dataset.env;
 
 const loadAlpine = async () => {

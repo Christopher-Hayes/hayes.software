@@ -5,17 +5,19 @@
     x-init="() => {
       // When to collapse the header
 
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 60 && !collapsed) {
-          collapsed = true
-        } else if (window.scrollY < 10 && collapsed) {
-          collapsed = false
-        }
-      })
+      if (window.innerWidth < 768) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 60 && !collapsed) {
+            collapsed = true
+          } else if (window.scrollY < 10 && collapsed) {
+            collapsed = false
+          }
+        })
+      }
     }"
   >
     <nav
-      class="mx-auto max-w-2xl rounded-xl bg-bg bg-opacity-80 px-4 text-secondary-fg backdrop-blur-sm backdrop-brightness-75 dark:bg-secondary dark:bg-opacity-80 sm:px-6 lg:px-8"
+      class="mx-auto max-w-2xl rounded-xl bg-secondary bg-opacity-80 px-4 text-secondary-fg backdrop-blur-sm backdrop-brightness-75 dark:bg-secondary dark:bg-opacity-80 sm:px-6 lg:px-8"
     >
       <div class="flex flex-row flex-wrap min-h-[4rem] items-center justify-between pt-3 pb-4 md:py-0">
         <div
@@ -61,7 +63,19 @@
                 type="button"
                 src="/images/dragon.svg"
                 alt="dragon"
-                class="h-8 w-8 scale-[300%]"
+                class="h-8 w-8 scale-[300%] hidden dark:block"
+                aria-hidden="true"
+                focusable="false"
+              />
+              <img
+                x-ref="button"
+                x-on:contextmenu="$event.preventDefault(); toggle()"
+                :aria-expanded="open"
+                :aria-controls="$id('dropdown-button')"
+                type="button"
+                src="/images/dragon-light.svg"
+                alt="dragon"
+                class="h-8 w-8 scale-[300%] dark:hidden"
                 aria-hidden="true"
                 focusable="false"
               />
@@ -158,7 +172,7 @@
         </div>
         <ul class="flex space-x-4">
           {% for item in navigation.items %} {% if item.url == page.url %} {%
-          assign highlight = 'cursor-default text-fg bg-bg-dark dark:bg-fg-dark
+          assign highlight = 'cursor-default text-white bg-bg-dark dark:bg-fg-dark
           bg-opacity-20 dark:bg-opacity-5' %} {% assign current =
           'aria-current="page"' %} {% else %} {% assign highlight = 'underline
           hover:bg-fg-dark hover:bg-opacity-10 focus:bg-fg-dark
