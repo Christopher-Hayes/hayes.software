@@ -4,7 +4,7 @@ title: 🎠 Top 5 JavaScript Sliders
 meta:
   desc: Top 5 JavaScript Sliders for 2022
   tag:
-date: 2022-11-28
+date: 2021-11-28
 intro:
   title: Top 5 JavaScript Sliders
   emoji: 🎠
