@@ -1,7 +1,7 @@
 {
   "name": "hayes-software",
   "description": "Personal site for Chris Hayes running 11ty",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "engines": {
     "node": "16.x.x",
     "npm": "8.x.x"
@@ -94,6 +94,7 @@
     "vite-plugin-pwa": "^0.13.3"
   },
   "dependencies": {
+    "@alpinejs/collapse": "^3.10.5",
     "alpinejs": "^3.0.1",
     "core-js": "^3.26.1"
   }

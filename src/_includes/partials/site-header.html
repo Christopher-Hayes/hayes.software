@@ -1,11 +1,35 @@
-<header class="sticky top-8 px-2">
-  <nav
-    class="mx-auto max-w-2xl rounded-xl bg-bg bg-opacity-80 px-4 text-secondary-fg backdrop-blur-sm backdrop-brightness-75 dark:bg-secondary dark:bg-opacity-80 sm:px-6 lg:px-8"
+<header-container class="relative top-10">
+  <header
+    class="sticky top-4 px-2"
+    x-data="{ collapsed: false }"
+    x-init="() => {
+      // When to collapse the header
+
+      if (window.innerWidth < 768) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 60 && !collapsed) {
+            collapsed = true
+          } else if (window.scrollY < 10 && collapsed) {
+            collapsed = false
+          }
+        })
+      }
+    }"
   >
-    <div class="flex flex-row flex-wrap gap-y-2 min-h-[4rem] items-center justify-between py-4 md:py-0">
-      <div class="flex flex-row">
+    <nav
+      class="mx-auto max-w-2xl rounded-xl bg-secondary bg-opacity-80 px-4 text-secondary-fg backdrop-blur-sm backdrop-brightness-75 dark:bg-secondary dark:bg-opacity-80 sm:px-6 lg:px-8"
+    >
+      <div class="flex flex-row flex-wrap min-h-[4rem] items-center justify-between pt-3 pb-4 md:py-0">
+        <div
+          class="flex flex-row"
+            x-show="!collapsed"
+            x-collapse.duration.200ms
+          >
           <!-- dragon.svg icon. on right click show a dropdown menu with links to the other pages -->
-          <div class="ml-4 mr-6 absolute right-0 md:relative">
+          <div
+            class="ml-4 mr-6 absolute right-0 md:relative transition-opacity"
+            :class="{ 'opacity-0': collapsed }"
+          >
             <div
               x-data="{
             open: false,
@@ -13,16 +37,16 @@
                 if (this.open) {
                     return this.close()
                 }
- 
+
                 this.$refs.button.focus()
- 
+
                 this.open = true
             },
             close(focusAfter) {
                 if (! this.open) return
- 
+
                 this.open = false
- 
+
                 focusAfter && focusAfter.focus()
             }
         }"
@@ -39,7 +63,23 @@
                 type="button"
                 src="/images/dragon.svg"
                 alt="dragon"
-                class="h-8 w-8 scale-[300%]"
+                width="32"
+                height="32"
+                class="h-8 w-8 scale-[300%] hidden dark:block"
+                aria-hidden="true"
+                focusable="false"
+              />
+              <img
+                x-ref="button"
+                x-on:contextmenu="$event.preventDefault(); toggle()"
+                :aria-expanded="open"
+                :aria-controls="$id('dropdown-button')"
+                type="button"
+                src="/images/dragon-light.svg"
+                alt="dragon"
+                width="32"
+                height="32"
+                class="h-8 w-8 scale-[300%] dark:hidden"
                 aria-hidden="true"
                 focusable="false"
               />
@@ -122,39 +162,39 @@
               </div>
             </div>
           </div>
-
-        <a
-          href="/"
-          class="flex flex-shrink-0 items-center gap-4 group"
-          aria-label="Home"
-        >
-          <h1
-            class="block space-x-1 rounded-md px-2 py-2 font-bold underline group-focus-within:bg-fg-dark group-focus-within:bg-opacity-10 group-hover:bg-fg-dark group-hover:bg-opacity-10"
-          >
-            Chris Hayes
-          </h1>
-        </a>
-      </div>
-      <ul class="flex space-x-4">
-        {% for item in navigation.items %} {% if item.url == page.url %} {%
-        assign highlight = 'cursor-default text-fg bg-bg-dark dark:bg-fg-dark
-        bg-opacity-20 dark:bg-opacity-5' %} {% assign current =
-        'aria-current="page"' %} {% else %} {% assign highlight = 'underline
-        hover:bg-fg-dark hover:bg-opacity-10 focus:bg-fg-dark
-        focus:bg-opacity-10' %} {% assign current = '' %} {% endif %}
-        <li>
           <a
-            href="{{ item.url }}"
-            class="text-base font-bold {{ highlight }} block px-4 py-2 rounded-md"
-            {{
-            current
-            }}
+            href="/"
+            class="flex flex-shrink-0 items-center gap-4 group"
+            aria-label="Home"
           >
-            {{ item.text }}
+            <h1
+              class="block space-x-1 rounded-md px-4 md:px-3 py-2.5 font-bold underline group-focus-within:bg-fg-dark group-focus-within:bg-opacity-10 group-hover:bg-fg-dark group-hover:bg-opacity-10"
+            >
+              Chris Hayes
+            </h1>
           </a>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-  </nav>
-</header>
+        </div>
+        <ul class="flex space-x-4">
+          {% for item in navigation.items %} {% if item.url == page.url %} {%
+          assign highlight = 'cursor-default text-white bg-bg-dark dark:bg-fg-dark
+          bg-opacity-20 dark:bg-opacity-5' %} {% assign current =
+          'aria-current="page"' %} {% else %} {% assign highlight = 'underline
+          hover:bg-fg-dark hover:bg-opacity-10 focus:bg-fg-dark
+          focus:bg-opacity-10' %} {% assign current = '' %} {% endif %}
+          <li>
+            <a
+              href="{{ item.url }}"
+              class="text-base font-bold {{ highlight }} block px-4 py-2 rounded-md"
+              {{
+              current
+              }}
+            >
+              {{ item.text }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
+  </header>
+</header-container>

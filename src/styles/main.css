@@ -9,3 +9,10 @@
 .prose ol li::marker{
   @apply font-bold;
 }
+
+/* word-wrap: break-work; */
+.prose li,
+.prose p,
+.prose span {
+  @apply break-words;
+}
