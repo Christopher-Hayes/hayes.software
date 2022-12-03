@@ -9,6 +9,8 @@ intro:
   title: Top 5 JavaScript Sliders
   emoji: 🎠
   desc: Top 5 JavaScript Sliders for 2022
+aiassist:
+devto: This post was originally published on <a href='https://dev.to/chris_hayes/top-5-modern-js-sliders-for-2022-1f3k' target='_blank'>dev.to</a>.
 ---
 
 I find I'm always looking for a new JS slider library for one reason or another. Here's a roughly ordered list of the top libraries that I've come across going into 2022.

@@ -9,6 +9,8 @@ intro:
   title: Recovering Files from a Corrupt Linux Partition
   emoji: 💾
   desc: How to recover files from a corrupt Linux partition
+aiassist: This post was Slack thread on <a href='https://newhaven.io' target='_blank'>newhaven.io</a> that was converted to a blog post using GPT-3.
+devto:
 ---
 
 A few days ago, I encountered a strange issue with my Windows computer. After restarting, I noticed that my Linux partition had been corrupted and was now a “Sun” type partition. I was at a loss and wasn’t sure how to fully recover the partition's filesystem structure.
