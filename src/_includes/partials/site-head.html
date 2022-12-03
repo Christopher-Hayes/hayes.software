@@ -6,8 +6,12 @@
     font-style: normal;
     font-weight: 100 900;
     font-display: swap;
-    src: url('../../fonts/inter.var.woff2') format('woff2');
+    src: url('/fonts/inter.var.woff2') format('woff2');
     font-named-instance: 'Regular';
+  }
+
+  html, body {
+    font-family: 'Inter var', sans-serif;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -43,7 +47,7 @@
   }
 </style>
 
-<link rel="stylesheet" href="../../styles/main.css">
+<link type="text/css" href="/styles/main.css"/>
 
 {% assign page_title = title | append: ' :: ' | append: site.name %} {% if
 site.name == title %} {% assign page_title = title %} {% endif %} {% assign
@@ -83,21 +87,5 @@ page_title = meta.title %} {% endif %}
 <link rel="mask-icon" href="/favicon.svg" color="#4a5568" />
 
 <meta name="theme-color" content="#4a5568" />
-
-<!-- Preconnect to the font file origin
-<link rel="preconnect" href="https://rsms.me" crossorigin /> -->
-
-<!-- Preload the font stylesheet asynchronously with low priority
-<link rel="preload" href="https://rsms.me/inter/inter.css" as="style" defer async/>
-
-https://www.filamentgroup.com/lab/load-css-simpler/
-<link
-  crossorigin="anonymous"
-  rel="stylesheet"
-  href="https://rsms.me/inter/inter.css"
-  media="print"
-  onload="this.media='all'; this.onload=null;"
-/>
--->
 
 <meta name="generator" content="Eleventy">

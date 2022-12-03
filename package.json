@@ -43,7 +43,7 @@
     "predev": "run-s clean",
     "dev": "cross-env NODE_ENV=development run-p dev:*",
     "dev:eleventy": "npx @11ty/eleventy --incremental --watch",
-    "dev:vite": "npx vite --host",
+    "dev:vite": "npx vite",
     "prebuild": "run-s clean",
     "build": "cross-env NODE_ENV=production run-s build:*",
     "build:eleventy": "npx @11ty/eleventy",
