@@ -29,14 +29,8 @@ intro:
 
 ## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">this site</span>
 
-Static generation with 11ty, hosted on Netlify, coded by Copilot.
+Static generation with **11ty**, hosted on **Netlify**, coded by **Copilot**. As of Dec 3 2022, this site has a perfect Lighthouse score of x4 💯.
 
 [11ty](https://www.11ty.dev/) - [vite](https://vitejs.dev/) - [tailwindcss](https://tailwindcss.com/) - [alpine](https://github.com/alpinejs/alpine/) - [11st starter-kit](https://github.com/stefanfrede/11st-starter-kit/)
-
-<span class="mt-12 px-4 py-0.5 rounded-lg bg-primary dark:bg-fg-dark bg-opacity-10 dark:bg-opacity-10 block">
-
-🚧 I recently [rebuilt this site with 11ty](https://fosstodon.org/@chris_hayes/109397203151251787). From boilerplate to live site was a single evening thanks to 11ty. There's still some `todo` items left, so please pardon the lack of content.
-
-</span>
 
 Edit this site [on github](https://github.com/Christopher-Hayes/hayes.software)

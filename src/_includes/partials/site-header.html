@@ -35,7 +35,7 @@
     <nav
       class="mx-auto max-w-2xl rounded-xl bg-secondary bg-opacity-80 px-4 sm:px-6 lg:px-8 md:py-4 text-secondary-fg backdrop-blur-sm backdrop-brightness-75 dark:bg-secondary dark:bg-opacity-80"
     >
-      <div class="flex flex-col md:flex-row md:flex-wrap md:items-center gap-y-2 pt-3 pb-4 md:py-0">
+      <div class="flex flex-col md:flex-row md:flex-wrap md:items-center justify-between gap-y-2 pt-3 pb-4 md:py-0">
         <div
           class="flex flex-row"
             x-show="!collapsed"
@@ -71,34 +71,34 @@
               x-id="['dropdown-button']"
               class="relative"
             >
-              <img
+              <a href="/"
                 x-ref="button"
                 x-on:contextmenu="$event.preventDefault(); toggle()"
                 :aria-expanded="open"
                 :aria-controls="$id('dropdown-button')"
-                type="button"
-                src="/images/dragon.svg"
-                alt="dragon"
-                width="32"
-                height="32"
-                class="h-8 w-8 scale-[300%] hidden dark:block"
-                aria-hidden="true"
-                focusable="false"
-              />
-              <img
-                x-ref="button"
-                x-on:contextmenu="$event.preventDefault(); toggle()"
-                :aria-expanded="open"
-                :aria-controls="$id('dropdown-button')"
-                type="button"
-                src="/images/dragon-light.svg"
-                alt="dragon"
-                width="32"
-                height="32"
-                class="h-8 w-8 scale-[300%] dark:hidden"
-                aria-hidden="true"
-                focusable="false"
-              />
+                aria-label="Navigate home"
+              >
+                <img
+                  src="/images/dragon.svg"
+                  alt="dragon"
+                  width="32"
+                  height="32"
+                  class="h-8 w-8 scale-[300%] hidden dark:block"
+                  aria-hidden="true"
+                  focusable="false"
+                  loading="lazy"
+                />
+                <img
+                  src="/images/dragon-light.svg"
+                  alt="dragon"
+                  width="32"
+                  height="32"
+                  class="h-8 w-8 scale-[300%] dark:hidden"
+                  aria-hidden="true"
+                  focusable="false"
+                  loading="lazy"
+                />
+              </a>
               <!-- Panel -->
               <div
                 x-ref="panel"
