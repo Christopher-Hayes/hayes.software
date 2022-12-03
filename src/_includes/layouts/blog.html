@@ -12,7 +12,12 @@
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {% for post in collections.blog %}
         <div class="border-2 border-primary border-opacity-10 dark:border-opacity-40 rounded-xl text-secondary-dark dark:bg-primary-dark dark:text-white hover:text-white hover:bg-primary transition duration-300 hover:transition-none ease-out">
-          <a class="flex flex-col justify-between h-full w-full p-3" href="{{ post.url }}">
+          <a
+            class="flex flex-col justify-between h-full w-full p-3"
+            href="{{ post.url }}"
+            rel="prefetch"
+            onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ post.url }}') }"
+            >
             <header>
               <h2 class="text-2xl font-bold">{{ post.data.title }}</h2>
               <p class="text-base">{{ post.data.description }}</p>

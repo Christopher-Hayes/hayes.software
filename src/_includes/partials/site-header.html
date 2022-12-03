@@ -204,6 +204,8 @@
               {{
               current
               }}
+              rel="prefetch"
+              onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ item.url }}') }"
             >
               {{ item.text }}
             </a>

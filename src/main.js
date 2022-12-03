@@ -1,3 +1,4 @@
+/* eslint-disable compat/compat */
 // This import is only needed for running in dev mode
 import.meta.env.DEV && import('./styles/main.css');
 
@@ -11,6 +12,15 @@ const loadAlpine = async () => {
   }
 
   window.Alpine.start();
+
+  window.htmlPreload = function (url) {
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+      },
+    });
+  };
 };
 
 // Check that service workers are supported
