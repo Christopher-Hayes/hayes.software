@@ -13,6 +13,7 @@ const loadAlpine = async () => {
 
   window.Alpine.start();
 
+  // Adds capability to load HTML pages when hovering over a link
   window.htmlPreload = function (url) {
     fetch(url, {
       method: 'GET',
@@ -23,22 +24,15 @@ const loadAlpine = async () => {
   };
 };
 
-// Check that service workers are supported
-if ('serviceWorker' in navigator && import.meta.env.PROD) {
-  window.addEventListener('DOMContentLoaded', async () => {
-    loadAlpine();
-  });
+window.addEventListener('DOMContentLoaded', async () => {
+  loadAlpine();
 
-  // use the window load event to keep the page load performant
-  window.addEventListener('load', async () => {
+  // Check that service workers are supported
+  if ('serviceWorker' in navigator && import.meta.env.PROD) {
     try {
       navigator.serviceWorker.register('/sw.js');
     } catch (error) {
       console.error('Service worker registration failed: ', error);
     }
-  });
-} else {
-  window.addEventListener('DOMContentLoaded', async () => {
-    loadAlpine();
-  });
-}
+  }
+});

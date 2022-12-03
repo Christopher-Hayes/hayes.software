@@ -6,22 +6,10 @@
   <body
     class="min-h-screen bg-fg-light dark:bg-bg"
     data-env="{{ node.env }}"
-    x-data="{ open: false }"
-    x-init="() => {
-      if (sessionStorage.getItem('banner-shown') === null) {
-        setTimeout(() => {
-          open = true
-          sessionStorage.setItem('banner-shown', true)
-        }, 5000)
-      }
-    }"
   >
     {% include "partials/site-header.html" %}
-
     <div class="pt-4 md:pt-10 pb-12 md:pb-24">{% block content %}{% endblock %}</div>
-
-    {% include "partials/banner.html" %}
-
     <script type="module" src="/main.js" defer async></script>
+    <script type="module" src="/scripts/deferred.js" defer async></script>
   </body>
 </html>

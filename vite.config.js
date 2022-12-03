@@ -48,13 +48,13 @@ export default defineConfig({
         'apple-touch-icon.png',
       ],
       manifest: {
-        name: '11st-Starter-Kit',
-        short_name: '11st-Starter-Kit',
-        description: '11ty, powered by Vite with Tailwind CSS and Alpine.js.',
+        name: 'hayes.software',
+        short_name: 'hayes.software',
+        description: 'hayes.software - A dev blog by Chris Hayes',
         scope: '/',
         start_url: '/',
         display: 'standalone',
-        theme_color: '#4a5568',
+        theme_color: '#340099',
         background_color: '#fff',
         icons: [
           {
@@ -99,9 +99,9 @@ export default defineConfig({
           },
           {
             src: 'maskable_icon.png',
-            sizes: '196x196',
+            sizes: '1024x1024',
             type: 'image/png',
-            purpose: 'any maskable',
+            purpose: 'maskable',
           },
         ],
       },

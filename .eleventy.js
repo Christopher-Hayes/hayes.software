@@ -14,6 +14,7 @@ module.exports = function (config) {
   config.addPassthroughCopy('./src/images');
   config.addPassthroughCopy('./src/public');
   config.addPassthroughCopy('./src/styles');
+  config.addPassthroughCopy('./src/scripts');
   config.addPassthroughCopy('./src/main.js');
 
   config.addCollection("blog", function(collectionApi) {
