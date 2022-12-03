@@ -1,7 +1,7 @@
 {
   "name": "hayes-software",
   "description": "Personal site for Chris Hayes running 11ty",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "engines": {
     "node": "16.x.x",
     "npm": "8.x.x"
@@ -43,7 +43,7 @@
     "predev": "run-s clean",
     "dev": "cross-env NODE_ENV=development run-p dev:*",
     "dev:eleventy": "npx @11ty/eleventy --incremental --watch",
-    "dev:vite": "npx vite",
+    "dev:vite": "npx vite --host",
     "prebuild": "run-s clean",
     "build": "cross-env NODE_ENV=production run-s build:*",
     "build:eleventy": "npx @11ty/eleventy",
