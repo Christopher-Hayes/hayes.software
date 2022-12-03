@@ -33,6 +33,6 @@ Once the environment is activated, you can start installing packages as needed. 
 deactivate
 ```
 
-Using virtual environments is important because without it you can have dependeices conflicts. It also makes it easier to switch between projects that use different versions of Python and packages. 
+Using virtual environments is important because without it you can have dependency conflicts. It also makes it easier to switch between projects that use different versions of Python and packages.
 
 Thanks for reading! 🙌
