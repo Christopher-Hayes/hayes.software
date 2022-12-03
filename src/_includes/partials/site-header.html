@@ -1,25 +1,41 @@
 <header-container class="relative top-10">
   <header
-    class="sticky top-4 px-2"
-    x-data="{ collapsed: false }"
+    class="sticky top-4 px-4"
+    x-data="{ collapsed: false, startedGoingUp: 0, goingUp: false }"
     x-init="() => {
       // When to collapse the header
 
       if (window.innerWidth < 768) {
         window.addEventListener('scroll', () => {
-          if (window.scrollY > 60 && !collapsed) {
-            collapsed = true
-          } else if (window.scrollY < 10 && collapsed) {
-            collapsed = false
+          const goingUpNow = window.scrollY <= window.scrollYPrev
+
+          if ((goingUpNow && !goingUp) || (!goingUpNow && goingUp)) {
+            // Just reverse direction
+            startedGoingUp = window.scrollY
+          } else if (goingUpNow) {
+            // Scrolling up
+            if (!goingUp) {
+              startedGoingUp = window.scrollY
+            } else if ((window.scrollY - startedGoingUp < -100 || window.scrollY < 100) && collapsed) {
+              collapsed = false
+            }
+          } else if (!goingUpNow && window.scrollY > 150) {
+            // Scrolling down
+            if (window.scrollY - startedGoingUp > 20) {
+              collapsed = true
+            }
           }
+
+          goingUp = goingUpNow
+          window.scrollYPrev = window.scrollY
         })
       }
     }"
   >
     <nav
-      class="mx-auto max-w-2xl rounded-xl bg-secondary bg-opacity-80 px-4 text-secondary-fg backdrop-blur-sm backdrop-brightness-75 dark:bg-secondary dark:bg-opacity-80 sm:px-6 lg:px-8"
+      class="mx-auto max-w-2xl rounded-xl bg-secondary bg-opacity-80 px-4 sm:px-6 lg:px-8 md:py-4 text-secondary-fg backdrop-blur-sm backdrop-brightness-75 dark:bg-secondary dark:bg-opacity-80"
     >
-      <div class="flex flex-row flex-wrap min-h-[4rem] items-center justify-between pt-3 pb-4 md:py-0">
+      <div class="flex flex-col md:flex-row md:flex-wrap md:items-center gap-y-2 pt-3 pb-4 md:py-0">
         <div
           class="flex flex-row"
             x-show="!collapsed"
