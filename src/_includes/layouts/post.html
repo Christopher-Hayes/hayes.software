@@ -1,12 +1,21 @@
 {% layout "layouts/base.html" %}
 {% block content %}
   <main id="main-content" tabindex="-1">
-    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-      <div class="pt-16 pb-8 leading-8 font-bold flex flex-wrap flex-row gap-4 text-secondary dark:text-fg">
+    <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <header class="pt-16 pb-8 leading-8 font-bold flex flex-wrap flex-row gap-4 text-secondary dark:text-fg">
         <p style="font-size: 48px; line-height: 100%;">{{ intro.emoji }}</p>
         <p class="text-2xl self-center pt-1">{{ intro.desc }}</p>
-      </div>
-      <div class="prose prose-lg dark:prose-invert">{{ content }}</div>
-    </div>
+      </header>
+      <section class="prose prose-lg dark:prose-invert">{{ content }}</section>
+      <footer class="mt-16 text-sm text-primary-light text-opacity-85">
+        <style>a { text-decoration: underline; } a:hover { color: white; }</style>
+        {% if devto %}
+          <span class="text-lg mr-2">👨‍💻</span> {{ devto }}
+        {% endif %}
+        {% if aiassist%}
+          <span class="text-lg mr-2">🤖</span> {{ aiassist }}
+        {% endif %}
+      </footer>
+    </article>
   </main>
 {% endblock %}

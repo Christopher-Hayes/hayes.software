@@ -9,9 +9,9 @@ intro:
   title: Managing multiple node version.
   emoji: 📱
   desc: How to manage multiple node version.
+aiassist: This post was was written in part by <a href='https://beta.openai.com/playground' target='_blank'>GPT-3</a>.
+devto:
 ---
-
-🤩Hey everyone! Today I'm gonna talk about how developers can use `nvm` to manage node version and how to use `.nvmrc` for that.
 
 `nvm` stands for Node Version Manager and is a tool used to switch between different versions of Node.js. It's a great way to ensure that you are always running the latest version of Node.js, or to switch between different versions of Node.js for different projects.
 
