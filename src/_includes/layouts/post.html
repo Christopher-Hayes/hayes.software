@@ -140,7 +140,7 @@
               {% endfor %}
             </div>
             <p
-              class="pr-1 pb-0.5 pt-1 group-hover:flex flex-row items-center font-normal"
+              class="pr-1 pb-0.5 pt-0.5 group-hover:flex flex-row items-center font-normal"
               :class="{
                 'hidden': !credit && state === 'unset',
                 'flex': credit || state !== 'unset',
@@ -151,7 +151,7 @@
                 x-ref="credit"
                 @click="credit = !credit; $refs.credit.blur()"
                 type="button"
-                class="flex items-center gap-2 rounded-md text-white text-opacity-50 px-1 py-1 shadow focus-within:text-white hover:text-white"
+                class="flex items-center gap-2 rounded-md text-white text-opacity-60 px-1 py-1 shadow focus-within:text-white hover:text-white"
               >
                 <span class="sr-only">Toggle translate credit</span>
                 <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -164,14 +164,14 @@
               </button>
               <span
                 x-show="credit"
-                class="pb-[1px] text-xs text-gray-500 group-hover:text-white group-focus-within:text-white"
+                class="pb-[1px] text-xs text-gray-400"
                 x-html="`${r.translateCredit} <a href='https://libretranslate.com/' target='_blank' rel='noopener noreferrer'>LibreTranslate</a>`"
                 >
               </span>
             </p>
           </div>
           <div class="flex flex-row items-center gap-x-1">
-            <p class="text-xs text-gray-500 font-bold">
+            <p class="text-xs text-gray-400 font-bold">
               {{ page.date | date: "%B %d, %Y" }}
             </p>
           </div>
