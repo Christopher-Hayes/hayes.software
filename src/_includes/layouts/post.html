@@ -1,21 +1,246 @@
-{% layout "layouts/base.html" %}
-{% block content %}
-  <main id="main-content" tabindex="-1">
-    <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-      <header class="pt-16 pb-8 leading-8 font-bold flex flex-wrap flex-row gap-4 text-secondary dark:text-fg">
-        <p class="flex items-center w-16 h-16 text-5xl leading-none">{{ intro.emoji }}</p>
-        <p class="text-2xl self-center pt-1">{{ intro.desc }}</p>
-      </header>
-      <section class="prose prose-lg dark:prose-invert">{{ content }}</section>
-      <footer class="mt-16 text-sm text-primary-light text-opacity-85">
-        <style>a { text-decoration: underline; } a:hover { color: white; }</style>
-        {% if devto %}
-          <span class="text-lg mr-2">👨‍💻</span> {{ devto }}
-        {% endif %}
-        {% if aiassist%}
-          <span class="text-lg mr-2">🤖</span> {{ aiassist }}
-        {% endif %}
-      </footer>
-    </article>
-  </main>
+{% layout "layouts/base.html" %} {% block content %}
+<main id="main-content" tabindex="-1">
+  <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+    <header
+      class="flex flex-row flex-wrap gap-4 pt-16 pb-8 font-bold leading-8 text-secondary dark:text-fg"
+    >
+      <p class="flex h-16 w-16 items-center text-5xl leading-none">
+        {{ intro.emoji }}
+      </p>
+      <div class="flex flex-col gap-y-3 items-start">
+        <p class="self-center pt-1 text-2xl">{{ intro.desc }}</p>
+        <div class="flex flex-row justify-center gap-x-2 text-xs">
+          <div
+            x-data="{
+          open: false,
+          credit: false,
+          lang: 'en',
+          r: {
+            translateCredit: 'Translation thanks to',
+          },
+          fullLang: 'English',
+          state: 'unset',
+          translations: {},
+          init() {
+            const articleContent = document.querySelector('#main-content article > section')
+
+            this.translations['en'] = {
+              article: articleContent.innerHTML,
+              translateCredit: 'Translation thanks to',
+            }
+          },
+          toggle() {
+              if (this.open) {
+                  return this.close()
+              }
+
+              this.$refs.button.focus()
+
+              this.open = true
+          },
+          close(focusAfter) {
+              if (! this.open) return
+
+              this.open = false
+
+              focusAfter && focusAfter.focus()
+          },
+          translate(lang, fullLang) {
+            this.state = 'translating'
+
+            this.lang = lang
+            this.fullLang = fullLang
+            this.close(this.$refs.button)
+
+            const articleContent = document.querySelector('#main-content article > section')
+
+            if (this.translations[lang]) {
+              articleContent.innerHTML = this.translations[this.lang].article
+              this.r.translateCredit = this.translations[this.lang].translateCredit
+              this.state = 'translated'
+            } else {
+              try {
+                fetch('https://translate.hayes.software/translate', {
+                  method: 'POST',
+                  body: JSON.stringify({
+                    q: `${this.translations['en'].article}<hr/><hr/><hr/>${this.translations['en'].translateCredit}`,
+                    source: 'en',
+                    target: this.lang,
+                    format: 'html',
+                  }),
+                  headers: { 'Content-Type': 'application/json' }
+                }).then(res => res.json()).then(res => {
+                  if (res.error) {
+                    throw new Error(res.error)
+                  }
+
+                  const translatedItems = res.translatedText.split('<hr/><hr/><hr/>')
+
+                  const translated = {
+                    article: translatedItems[0],
+                    translateCredit: translatedItems[1],
+                  }
+
+                  articleContent.innerHTML = translated.article
+                  this.r.translateCredit = translated.translateCredit
+                  this.translations[this.lang] = translated
+                  this.state = 'translated'
+                  this.credit = true
+                  this.$refs.button.blur()
+                })
+              } catch (err) {
+                console.error(err)
+                this.state = 'error'
+              }
+            }
+          }
+        }"
+            x-on:keydown.escape.prevent.stop="close($refs.button)"
+            x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+            x-id="['dropdown-button']"
+            class="relative px-1 group flex flex-row items-center gap-x-0.5 rounded-md text-fg shadow"
+            :class="{
+              'bg-red-600 text-white': state === 'error',
+              'bg-fg-light dark:bg-secondary': state !== 'unset' && state !== 'error',
+            }"
+          >
+            <button
+              x-ref="button"
+              x-on:click="toggle()"
+              :aria-expanded="open"
+              :aria-controls="$id('dropdown-button')"
+              aria-describedby="translate-desc"
+              type="button"
+              class="h-8 rounded-md px-2 py-1 focus-within:bg-fg focus-within:text-white hover:bg-fg hover:text-white focus-within:dark:bg-primary hover:dark:bg-primary"
+              :class="{
+                'animate-pulse': state === 'translating',
+              }"
+              x-html="state === 'error' ? 'Error' : (state === 'translating' ? 'Translating..' : fullLang)"
+            ></button>
+            <div
+              x-ref="panel"
+              x-show="open"
+              x-transition.origin.top.left
+              x-on:click.outside="close($refs.button)"
+              :id="$id('dropdown-button')"
+              style="display: none"
+              class="absolute top-10 left-0 mt-2 w-40 rounded-md bg-fg-light shadow-md dark:bg-secondary"
+            >
+              {% assign langList = "en,ar,zh,fr,de,hi,it,ja,ko,pl,ru,es,uk" | split: "," %}
+              {% assign fullLangList = "English,Arabic,Chinese,French,German,Hindi,Italian,Japanese,Korean,Polish,Russian,Spanish,Ukranian" | split: "," %}
+              {% assign len = langList | size | minus: 1 %}
+              {% for i in (0..len) %}
+                <button
+                  class="flex w-full items-center gap-2 px-4 py-2.5 text-left text-sm first-of-type:rounded-t-md last-of-type:rounded-b-md focus-within:bg-bg-light focus-within:text-white hover:bg-bg-light hover:text-white focus-within:dark:bg-secondary-bg hover:dark:bg-secondary-bg"
+                  :class="{ 'bg-bg-light dark:bg-primary text-white pointer-events-none': lang === '{{ langList[i] }}' }"
+                  @click="translate('{{ langList[i] }}', '{{ fullLangList[i] }}')"
+                >
+                  {{ fullLangList[i] }}
+                </button>
+              {% endfor %}
+            </div>
+            <p
+              class="pr-1 pb-0.5 pt-1 group-hover:flex flex-row items-center font-normal"
+              :class="{
+                'hidden': !credit && state === 'unset',
+                'flex': credit || state !== 'unset',
+              }"
+              id="translate-desc"
+              >
+              <button
+                x-ref="credit"
+                @click="credit = !credit; $refs.credit.blur()"
+                type="button"
+                class="flex items-center gap-2 rounded-md text-white text-opacity-50 px-1 py-1 shadow focus-within:text-white hover:text-white"
+              >
+                <span class="sr-only">Toggle translate credit</span>
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12zm1-9a1 1 0 11-2 0 1 1 0 012 0zm-1 4a1 1 0 00-1 1v2a1 1 0 102 0v-2a1 1 0 00-1-1z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <span
+                x-show="credit"
+                class="pb-[1px] text-xs text-gray-500 group-hover:text-white group-focus-within:text-white"
+                x-html="`${r.translateCredit} <a href='https://libretranslate.com/' target='_blank' rel='noopener noreferrer'>LibreTranslate</a>`"
+                >
+              </span>
+            </p>
+          </div>
+          <div class="flex flex-row items-center gap-x-1">
+            <p class="text-xs text-gray-500 font-bold">
+              {{ page.date | date: "%B %d, %Y" }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="prose prose-lg dark:prose-invert">{{ content }}</section>
+    <footer class="text-opacity-85 mt-16 text-sm text-primary-light">
+      <style>
+        a {
+          text-decoration: underline;
+        }
+        a:hover,
+        a:focus {
+          color: white;
+        }
+      </style>
+      {% if devto %}
+      <span class="mr-2 text-lg">👨‍💻</span>{{ devto }} {% endif %} {% if
+      aiassist%} <span class="mr-2 text-lg">🤖</span>{{ aiassist }} {% endif %}
+      {% if edits %}
+      <div class="bg-opacity-20 py-2" x-data="{ show: false }">
+        <header class="mb-4">
+          <button
+            @click="show = !show"
+            class="text-primary-light focus-within:text-white hover:text-white"
+          >
+            <h2 class="text">
+              <span class="mr-2 text-lg">⬇️</span>
+              <span class="underline"
+                >Last edit on {{ edits[0].datetime | date: '%B %d, %Y'
+                }}..</span
+              >
+            </h2>
+          </button>
+        </header>
+        <ul class="text-xs" x-show="show">
+          {% for edit in edits %}
+          <li class="my-1 flex gap-x-2">
+            <!-- {% if edit.datetime %}
+                    <time datetime="{{ edit.datetime }}">{{ edit.datetime | date: "%b %d, %Y" }}</time>
+                  {% endif %} -->
+            {% if edit.message %}
+            <span class=""> {{ edit.message }} </span>
+            {% endif %} {% if edit.hash %} {% if edit.previousCommit %}
+            <a
+              href="https://github.com/christopher-hayes/hayes.software/compare/{{ edit.previousCommit.shortHash }}..{{ edit.shortHash }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="opacity-60 hover:opacity-100"
+            >
+              {{ edit.shortHash }}
+            </a>
+            {% else %}
+            <a
+              href="https://github.com/christopher-hayes/hayes.software/commit/{{ edit.hash }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="opacity-60 hover:opacity-100"
+            >
+              {{ edit.shortHash }}
+            </a>
+            {% endif %} {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </footer>
+  </article>
+</main>
 {% endblock %}

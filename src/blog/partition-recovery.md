@@ -13,7 +13,7 @@ aiassist: This post was Slack thread on <a href='https://newhaven.io' target='_b
 devto:
 ---
 
-A few days ago, I encountered a strange issue with my Windows computer. After restarting, I noticed that my Linux partition had been corrupted and was now a “Sun” type partition. I was at a loss and wasn’t sure how to fully recover the partition's filesystem structure.
+A few days ago, I encountered a strange issue with my Ubuntu/Windows dual-boot computer. After restarting, I noticed that my Linux partition had been corrupted and was now a “Sun” type partition. I was at a loss and wasn’t sure how to fully recover the partition's filesystem structure.
 
 I decided to take a step back and try to recover my files instead. Here’s how I went about it:
 
