@@ -1,35 +1,27 @@
-{% assign page_title = title | append: ' :: ' | append: site.name %} {% if
-site.name == title %} {% assign page_title = title %} {% endif %} {% assign
-site_title = site.name %} {% assign current_url = site.url | append: page.url %}
-{% unless social_image %} {% assign social_image = site.url | append:
-'/images/social-share.png' %} {% endunless %} {% if meta.title %} {% assign
-page_title = meta.title %} {% endif %}
-
+<meta charset="UTF-8" />
 <style>
   /* Critical css */
+  @font-face {
+    font-family: 'Inter var';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/fonts/inter.var.woff2') format('woff2');
+    font-named-instance: 'Regular';
+  }
+
+  html, body {
+    font-family: 'Inter var', sans-serif;
+  }
+
   @media (prefers-color-scheme: dark) {
     html {
-      background-color: #3d5a80;
+      background-color: #100c24;
     }
   }
   @media (prefers-color-scheme: light) {
     html {
-      background-color: #98c1d9;
-    }
-  }
-  body {
-    /* smooth fade in animation */
-    animation: fadeInAnimation ease 100ms;
-  }
-  @keyframes fadeInAnimation {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
+      background-color: #e7f8ff;
     }
   }
   header > nav {
@@ -55,7 +47,16 @@ page_title = meta.title %} {% endif %}
   }
 </style>
 
-<meta charset="UTF-8" />
+<link type="text/css" href="/styles/main.css"/>
+
+{% assign page_title = title | append: ' :: ' | append: site.name %} {% if
+site.name == title %} {% assign page_title = title %} {% endif %} {% assign
+site_title = site.name %} {% assign current_url = site.url | append: page.url %}
+{% unless social_image %} {% assign social_image = site.url | append:
+'/images/social-share.png' %} {% endunless %} {% if meta.title %} {% assign
+page_title = meta.title %} {% endif %}
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
@@ -83,23 +84,9 @@ page_title = meta.title %} {% endif %}
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="alternate icon" href="/favicon.ico" type="image/png" sizes="48x48" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="192x192" />
-<link rel="mask-icon" href="/favicon.svg" color="#4a5568" />
+<link rel="mask-icon" href="/favicon.svg" color="#340099" />
 
-<meta name="theme-color" content="#4a5568" />
-
-<!-- Preconnect to the font file origin -->
-<link rel="preconnect" href="https://rsms.me" crossorigin />
-
-<!-- Preload the font stylesheet asynchronously with low priority -->
-<link rel="preload" href="https://rsms.me/inter/inter.css" as="style" />
-
-<!-- https://www.filamentgroup.com/lab/load-css-simpler/ -->
-<link
-  crossorigin="anonymous"
-  rel="stylesheet"
-  href="https://rsms.me/inter/inter.css"
-  media="print"
-  onload="this.media='all'; this.onload=null;"
-/>
+<meta name="theme-color" content="#340099" />
+<meta name="msapplication-TileColor" content="#340099" />
 
 <meta name="generator" content="Eleventy">

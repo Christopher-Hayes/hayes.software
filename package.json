@@ -1,7 +1,7 @@
 {
   "name": "hayes-software",
   "description": "Personal site for Chris Hayes running 11ty",
-  "version": "1.4.0",
+  "version": "1.6.2",
   "engines": {
     "node": "16.x.x",
     "npm": "8.x.x"
@@ -77,10 +77,10 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-promise": "^6.1.1",
     "husky": "^8.0.2",
-    "lint-staged": "^13.0.3",
+    "lint-staged": "^13.0.4",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.2.14",
-    "postcss-cli": "^10.0.0",
+    "postcss-cli": "^10.1.0",
     "prettier": "^2.8.0",
     "prettier-plugin-tailwindcss": "^0.2.0",
     "rimraf": "^3.0.2",
@@ -94,7 +94,8 @@
     "vite-plugin-pwa": "^0.13.3"
   },
   "dependencies": {
-    "alpinejs": "^3.0.1",
+    "@alpinejs/collapse": "^3.10.5",
+    "alpinejs": "^3.10.5",
     "core-js": "^3.26.1"
   }
 }

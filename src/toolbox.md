@@ -9,7 +9,7 @@ intro:
   emoji: 🧰
 ---
 
-## <span class="text-bg dark:text-fg inline-block py-1 px-2 bg-fg-dark bg-opacity-40 dark:bg-opacity-30 rounded-md font-bold">ubuntu 22.04</span>
+## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">ubuntu 22.04</span>
 
 - I've used Ubuntu since 16.04 and continue to use it due to its stability and wide software support.
 - **Desktop**: GNOME
@@ -39,7 +39,7 @@ intro:
 
 </details>
 
-## <span class="text-bg dark:text-fg inline-block py-1 px-2 bg-fg-dark bg-opacity-40 dark:bg-opacity-30 rounded-md font-bold">terminal sanity</span>
+## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">terminal sanity</span>
 
 **Terminal:** [WezTerm](https://wezfurlong.org/wezterm/) - WezTerm is a GPU-accelerated cross-platform terminal written in Rust.
 
@@ -59,7 +59,7 @@ intro:
 
 `exiftool` - _**The**_ CLI utility for reading image metadata. [get](https://exiftool.org/)
 
-## <span class="text-bg dark:text-fg inline-block py-1 px-2 bg-fg-dark bg-opacity-40 dark:bg-opacity-30 rounded-md font-bold">mac</span>
+## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">mac</span>
 
 I'm not a fan of Apple, but there's still a few nice tools I've I like.
 
