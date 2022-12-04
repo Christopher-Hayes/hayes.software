@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   content: ['./src/**/*.html', './src/**/*.md'],
@@ -120,4 +120,4 @@ module.exports = {
   },
   variants: {},
   plugins: [require('@tailwindcss/typography')],
-};
+}
