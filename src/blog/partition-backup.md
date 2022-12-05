@@ -1,13 +1,13 @@
 ---
 layout: layouts/post.html
-title: 💾 Manage Partition Tables on Linux
+title: 💽 Manage Partition Tables on Linux
 meta:
   desc: How to backup, restore and manage Linux partition tables
   tag: 
 date: 2022-12-05
 intro:
   title: Managing Disk Partitions on Linux
-  emoji: 💾
+  emoji: 💽
   desc: How to manage disk partitions on Linux
 aiassist: This post was was written in part by <a href='https://chat.openai.com/chat' target='_blank'>ChatGPT</a>.
 devto:
@@ -19,7 +19,7 @@ devto:
   </figcaption>
 </figure>
 
-First, let's talk about the `fdisk` and `sfdisk` commands. These tools allow you to view and manage partitions on a disk. 💾
+First, let's talk about the `fdisk` and `sfdisk` commands. These tools allow you to view and manage partitions on a disk. 💽
 
 ### <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">fdisk</span>
 
