@@ -29,4 +29,5 @@ The biggest takeaway from this experience is to make partition table backups. Fo
 
 I’m glad I was able to recover my files and learn a few new commands along the way. Always remember to keep a backup of your partition table to avoid any potential data loss. 📁
 
-💾 **Update 2022-12-05:** I've since written a blog post about [partition table management here](/blog/partition-backup)
+💾 **Update 2022-12-05:** I've since written a blog post about [partition table management here](/blog/partition-backup/)
+
