@@ -8,7 +8,7 @@
         {{ intro.emoji }}
       </p>
       <div class="flex flex-col gap-y-2 items-start">
-        <p class="self-center text-3xl">{{ intro.desc }}</p>
+        <h2 class="self-center text-3xl">{{ intro.desc }}</h2>
         <div class="flex flex-row flex-wrap gap-y-2 gap-x-4 text-xs">
           <div
             x-data="{
@@ -116,7 +116,9 @@
                 'animate-pulse': state === 'translating',
               }"
               x-html="state === 'error' ? 'Error' : (state === 'translating' ? 'Translating..' : fullLang)"
-            ></button>
+            >
+              English
+            </button>
             <div
               x-ref="panel"
               x-show="open"
