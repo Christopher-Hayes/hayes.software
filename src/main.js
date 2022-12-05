@@ -13,13 +13,32 @@ const loadAlpine = async () => {
   window.Alpine.start()
 
   // Adds capability to load HTML pages when hovering over a link
-  window.htmlPreload = function (url) {
-    fetch(url, {
-      method: 'GET',
-      headers: {
-        'X-Requested-With': 'XMLHttpRequest',
-      },
-    })
+  window.htmlPreload = async function (url) {
+    // Check if the URL is already loaded in session storage
+    if (!sessionStorage.getItem(url)) {
+      const resp = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+      })
+
+      // Load all images in the page as well
+      const html = await resp.text()
+      const parser = new DOMParser()
+      const doc = parser.parseFromString(html, 'text/html')
+      const images = doc.querySelectorAll('img')
+      images.forEach((image) => {
+        const src = image.getAttribute('src')
+        if (src) {
+          const img = new Image()
+          img.src = src
+        }
+      })
+
+      // Add to session storage
+      sessionStorage.setItem(url, await resp.text())
+    }
   }
 }
 
@@ -63,38 +82,45 @@ window.addEventListener('DOMContentLoaded', async () => {
           // Prevent the browser from navigating to the link
           event.preventDefault()
 
-          // Get the HTML from the link
-          const response = await fetch(link.href, {
-            method: 'GET',
-            headers: {
-              'X-Requested-With': 'XMLHttpRequest',
-            },
-          })
+          let html = ''
 
-          // Get the HTML from the response
-          const html = await response.text()
+          // Check if the link is already loaded in session storage
+          if (sessionStorage.getItem(link.href)) {
+            html = sessionStorage.getItem(link.href)
+          } else {
+            // Get the HTML from the link
+            const response = await fetch(link.href, {
+              method: 'GET',
+              headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+              },
+            })
+
+            // Get the HTML from the response
+            html = await response.text()
+          }
 
           // Create a new document from the HTML
           const newDocument = new DOMParser().parseFromString(html, 'text/html')
-
-          // Get the new page title
-          const newTitle = newDocument.querySelector('title').innerText
 
           // Get the new page content
           const newContent =
             newDocument.querySelector('#main-content').innerHTML
 
-          // Update the page title
-          document.querySelector('title').innerText = newTitle
-
           // Update the page content
           document.querySelector('#main-content').innerHTML = newContent
 
-          // Update the URL in the browser
-          window.history.pushState({}, newTitle, link.href)
-
           // Scroll to the top of the page
           window.scrollTo(0, 0)
+
+          // Get the new page title
+          const newTitle = newDocument.querySelector('title').innerText
+
+          // Update the page title
+          document.querySelector('title').innerText = newTitle
+
+          // Update the URL in the browser
+          window.history.pushState({}, newTitle, link.href)
 
           // Load Alpine
           loadAlpine()
@@ -107,34 +133,41 @@ window.addEventListener('DOMContentLoaded', async () => {
   // If the user clicks the back button, then load the page via XHR
   // and then update the page content in #main-content
   window.addEventListener('popstate', async () => {
-    // Get the HTML from the link
-    const response = await fetch(window.location.href, {
-      method: 'GET',
-      headers: {
-        'X-Requested-With': 'XMLHttpRequest',
-      },
-    })
+    let html = ''
 
-    // Get the HTML from the response
-    const html = await response.text()
+    // Check if the link is already loaded in session storage
+    if (sessionStorage.getItem(window.location.href)) {
+      html = sessionStorage.getItem(window.location.href)
+    } else {
+      // Get the HTML from the link
+      const response = await fetch(window.location.href, {
+        method: 'GET',
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+      })
+
+      // Get the HTML from the response
+      html = await response.text()
+    }
 
     // Create a new document from the HTML
     const newDocument = new DOMParser().parseFromString(html, 'text/html')
 
-    // Get the new page title
-    const newTitle = newDocument.querySelector('title').innerText
-
     // Get the new page content
     const newContent = newDocument.querySelector('#main-content').innerHTML
-
-    // Update the page title
-    document.querySelector('title').innerText = newTitle
 
     // Update the page content
     document.querySelector('#main-content').innerHTML = newContent
 
     // Scroll to the top of the page
     window.scrollTo(0, 0)
+
+    // Get the new page title
+    const newTitle = newDocument.querySelector('title').innerText
+
+    // Update the page title
+    document.querySelector('title').innerText = newTitle
 
     // Load Alpine
     loadAlpine()
