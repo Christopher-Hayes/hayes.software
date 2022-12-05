@@ -190,26 +190,35 @@
             </h1>
           </a>
         </div>
-        <ul class="flex space-x-4">
-          {% for item in navigation.items %} {% if item.url == page.url %} {%
-          assign highlight = 'cursor-default text-white bg-bg-dark dark:bg-fg-dark
-          bg-opacity-20 dark:bg-opacity-5' %} {% assign current =
-          'aria-current="page"' %} {% else %} {% assign highlight = 'underline
-          hover:bg-fg-dark hover:bg-opacity-10 focus:bg-fg-dark
-          focus:bg-opacity-10' %} {% assign current = '' %} {% endif %}
-          <li>
-            <a
-              href="{{ item.url }}"
-              class="text-base font-bold {{ highlight }} block px-4 py-2 rounded-md"
-              {{
-              current
-              }}
-              rel="prefetch"
-              onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ item.url }}') }"
-            >
-              {{ item.text }}
-            </a>
-          </li>
+        <ul class="flex space-x-4"
+          x-data="{
+            activeLink: 'home',
+            init() {
+              this.activeLink = window.location.pathname.split('/')[1] || 'home'
+
+              // on path update, update active link
+              window.addEventListener('popstate', () => {
+                this.activeLink = window.location.pathname.split('/')[1] || 'home'
+              })
+            },
+          }"
+          >
+          {% for item in navigation.items %}
+            <li>
+              <a
+                href="{{ item.url }}"
+                class="text-base font-bold {{ highlight }} block px-4 py-2 rounded-md"
+                :class="{
+                  'text-white bg-bg-dark dark:bg-fg-dark bg-opacity-20 dark:bg-opacity-5': activeLink === '{{ item.url | slugify }}',
+                  'underline hover:bg-fg-dark hover:bg-opacity-10 focus:bg-fg-dark focus:bg-opacity-10': activeLink !== '{{ item.url | slugify }}',
+                }"
+                :aria-current="activeLink === '{{ item.url | slugify }}' ? 'page' : null"
+                rel="prefetch"
+                onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ item.url }}') }"
+              >
+                {{ item.text }}
+              </a>
+            </li>
           {% endfor %}
         </ul>
       </div>
