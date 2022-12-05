@@ -2,16 +2,19 @@
 <main id="main-content" tabindex="-1">
   <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
     <header
-      class="flex flex-col md:flex-row gap-4 pt-16 pb-8 font-bold leading-8 text-secondary dark:text-fg"
+      class="flex flex-col gap-4 pt-16 pb-8 font-bold leading-8 text-secondary dark:text-fg md:flex-row"
     >
-      <p class="flex h-16 w-16 items-center text-5xl leading-none justify-center">
+      <p
+        class="flex h-16 w-16 items-center justify-center text-5xl leading-none"
+      >
         {{ intro.emoji }}
       </p>
-      <div class="flex flex-col gap-y-2 items-start">
+      <div class="flex flex-col items-start gap-y-2">
         <h2 class="self-center text-3xl">{{ intro.desc }}</h2>
-        <div class="flex flex-row flex-wrap gap-y-2 gap-x-4 text-xs">
-          <div
-            x-data="{
+        <div class="w-full flex flex-col md:flex-row justify-between">
+          <div class="flex flex-row flex-wrap gap-y-2 gap-x-4 text-xs">
+            <div
+              x-data="{
           open: false,
           credit: false,
           lang: 'en',
@@ -95,43 +98,44 @@
             }
           }
         }"
-            x-on:keydown.escape.prevent.stop="close($refs.button)"
-            x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
-            x-id="['dropdown-button']"
-            class="relative group flex flex-row items-center rounded-md text-fg shadow"
-            :class="{
+              x-on:keydown.escape.prevent.stop="close($refs.button)"
+              x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+              x-id="['dropdown-button']"
+              class="group relative flex flex-row items-center rounded-md text-fg shadow"
+              :class="{
               'bg-red-600 text-white': state === 'error',
               'bg-fg-light dark:bg-secondary': state !== 'unset' && state !== 'error',
             }"
-          >
-            <button
-              x-ref="button"
-              x-on:click="toggle()"
-              :aria-expanded="open"
-              :aria-controls="$id('dropdown-button')"
-              aria-describedby="translate-desc"
-              type="button"
-              class="h-8 rounded-md px-2 py-1 focus-within:bg-fg focus-within:text-white hover:bg-fg hover:text-white focus-within:dark:bg-primary hover:dark:bg-primary"
-              :class="{
+            >
+              <button
+                x-ref="button"
+                x-on:click="toggle()"
+                :aria-expanded="open"
+                :aria-controls="$id('dropdown-button')"
+                aria-describedby="translate-desc"
+                type="button"
+                class="h-8 rounded-md px-2 py-1 focus-within:bg-fg focus-within:text-white hover:bg-fg hover:text-white focus-within:dark:bg-primary hover:dark:bg-primary"
+                :class="{
                 'animate-pulse': state === 'translating',
               }"
-              x-html="state === 'error' ? 'Error' : (state === 'translating' ? 'Translating..' : fullLang)"
-            >
-              English
-            </button>
-            <div
-              x-ref="panel"
-              x-show="open"
-              x-transition.origin.top.left
-              x-on:click.outside="close($refs.button)"
-              :id="$id('dropdown-button')"
-              style="display: none"
-              class="absolute top-10 left-0 mt-2 w-40 rounded-md bg-fg-light shadow-md dark:bg-secondary"
-            >
-              {% assign langList = "en,ar,zh,fr,de,hi,it,ja,ko,pl,ru,es,uk" | split: "," %}
-              {% assign fullLangList = "English,Arabic,Chinese,French,German,Hindi,Italian,Japanese,Korean,Polish,Russian,Spanish,Ukranian" | split: "," %}
-              {% assign len = langList | size | minus: 1 %}
-              {% for i in (0..len) %}
+                x-html="state === 'error' ? 'Error' : (state === 'translating' ? 'Translating..' : fullLang)"
+              >
+                English
+              </button>
+              <div
+                x-ref="panel"
+                x-show="open"
+                x-transition.origin.top.left
+                x-on:click.outside="close($refs.button)"
+                :id="$id('dropdown-button')"
+                style="display: none"
+                class="absolute top-10 left-0 mt-2 w-40 rounded-md bg-fg-light shadow-md dark:bg-secondary"
+              >
+                {% assign langList = "en,ar,zh,fr,de,hi,it,ja,ko,pl,ru,es,uk" |
+                split: "," %} {% assign fullLangList =
+                "English,Arabic,Chinese,French,German,Hindi,Italian,Japanese,Korean,Polish,Russian,Spanish,Ukranian"
+                | split: "," %} {% assign len = langList | size | minus: 1 %} {%
+                for i in (0..len) %}
                 <button
                   class="flex w-full items-center gap-2 px-4 py-2.5 text-left text-sm first-of-type:rounded-t-md last-of-type:rounded-b-md focus-within:bg-bg-light focus-within:text-white hover:bg-bg-light hover:text-white focus-within:dark:bg-secondary-bg hover:dark:bg-secondary-bg"
                   :class="{ 'bg-bg-light dark:bg-primary text-white pointer-events-none': lang === '{{ langList[i] }}' }"
@@ -139,28 +143,41 @@
                 >
                   {{ fullLangList[i] }}
                 </button>
-              {% endfor %}
-            </div>
-            <p
-              class="px-2 pt-0.5 flex-row items-center font-normal"
-              :class="{
+                {% endfor %}
+              </div>
+              <p
+                class="flex-row items-center px-2 pt-0.5 font-normal"
+                :class="{
                 'hidden': !credit,
                 'flex': credit,
               }"
-              id="translate-desc"
+                id="translate-desc"
               >
-              <span
-                class="pb-[1px] text-xs text-gray-400"
-                x-html="`${r.translateCredit} <a href='https://libretranslate.com/' target='_blank' rel='noopener noreferrer'>LibreTranslate</a>`"
+                <span
+                  class="pb-[1px] text-xs text-gray-400"
+                  x-html="`${r.translateCredit} <a href='https://libretranslate.com/' target='_blank' rel='noopener noreferrer'>LibreTranslate</a>`"
                 >
-              </span>
-            </p>
+                </span>
+              </p>
+            </div>
+            <div class="flex flex-row items-center gap-x-1">
+              <p class="text-xs font-bold text-gray-400">
+                {{ page.date | date: "%B %d, %Y" }}
+              </p>
+            </div>
           </div>
-          <div class="flex flex-row items-center gap-x-1">
-            <p class="text-xs text-gray-400 font-bold">
-              {{ page.date | date: "%B %d, %Y" }}
-            </p>
+          {% if tags.size > 0 %}
+          <div class="flex flex-row items-center gap-x-1 justify-self-end pb-[2px]">
+            {% for tag in tags %}
+            <a
+              href="{{ site.baseurl }}/blog/?tags={{ tag | slugify }}"
+              class="text-xs font-light p-1 no-underline rounded-md text-white opacity-60 hover:opacity-100 hover:font-bold focus-within:opacity-100 focus-within:font-bold"
+            >
+              {{ tag }}
+            </a>
+            {% endfor %}
           </div>
+          {% endif %}
         </div>
       </div>
     </header>

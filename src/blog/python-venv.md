@@ -11,6 +11,8 @@ intro:
   desc: How to manage Python virtual environments.
 aiassist: This post was was written in part by <a href='https://beta.openai.com/playground' target='_blank'>GPT-3</a>.
 devto:
+tags:
+  - python
 ---
 
 `venv` is a module that comes with Python 3. It provides an easy way to create and manage virtual environments for different Python projects. Using virtual environments is a great way to keep your projects isolated from each other, and to ensure that everyone on a team is using the same version of Python and packages.

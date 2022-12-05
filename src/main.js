@@ -22,9 +22,9 @@ const loadAlpine = async () => {
           'X-Requested-With': 'XMLHttpRequest',
         },
       })
+      const html = await resp.text()
 
       // Load all images in the page as well
-      const html = await resp.text()
       const parser = new DOMParser()
       const doc = parser.parseFromString(html, 'text/html')
       const images = doc.querySelectorAll('img')
@@ -37,7 +37,7 @@ const loadAlpine = async () => {
       })
 
       // Add to session storage
-      sessionStorage.setItem(url, await resp.text())
+      sessionStorage.setItem(url, html)
     }
   }
 }
@@ -63,12 +63,12 @@ window.addEventListener('DOMContentLoaded', async () => {
     // Determine if the user clicked on a link
     let clickedLink = false
     let link = target
-    if (target.tagName === 'A') {
+    if (target?.tagName === 'A') {
       clickedLink = true
-    } else if (target.parentElement.tagName === 'A') {
+    } else if (target?.parentElement?.tagName === 'A') {
       clickedLink = true
       link = target.parentElement
-    } else if (target.parentElement.parentElement.tagName === 'A') {
+    } else if (target?.parentElement?.parentElement?.tagName === 'A') {
       clickedLink = true
       link = target.parentElement.parentElement
     }

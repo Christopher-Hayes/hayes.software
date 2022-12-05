@@ -1,5 +1,5 @@
 ---
-layout: layouts/home.html
+layout: layouts/plain.html
 title: Setup
 meta:
   desc: Personal site of software engineer, Chris Hayes. My personal setup.

@@ -1,31 +1,44 @@
 {% layout "layouts/base.html" %} {% block content %}
 <main id="main-content" tabindex="-1">
   <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-    <header class="py-8 leading-8 mt-4 mb-4 font-bold flex flex-wrap flex-row gap-4 text-secondary dark:text-fg">
-      <p class="flex items-center w-16 h-16 text-5xl leading-none">{{ intro.emoji }}</p>
-      <p class="text-xl self-center pt-1">{{ intro.desc }}</p>
+    <header
+      class="mt-4 mb-4 flex flex-row flex-wrap gap-4 py-8 font-bold leading-8 text-secondary dark:text-fg"
+    >
+      <p class="flex h-16 w-16 items-center text-5xl leading-none">
+        {{ intro.emoji }}
+      </p>
+      <p class="self-center pt-1 text-xl">{{ intro.desc }}</p>
     </header>
     <section class="mb-8">
       <header class="mb-4">
-        <h2 class="text-3xl text-primary dark:text-fg py-1 px-2 inline-block bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">latest</h2>
+        <h2
+          class="inline-block rounded-md bg-primary bg-opacity-10 py-1 px-2 text-3xl font-bold text-primary dark:bg-fg-dark dark:bg-opacity-10 dark:text-fg"
+        >
+          latest
+        </h2>
       </header>
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2">
-        <!-- limit to 2 posts -->
-        {% for post in collections.blog limit:2 %}
-          <div class="border-2 border-primary border-opacity-10 dark:border-opacity-40 rounded-xl text-secondary-dark dark:bg-primary-dark dark:text-white hover:text-white hover:bg-primary transition duration-300 hover:transition-none ease-out">
-            <a
-              class="flex flex-col justify-between h-full w-full p-3"
-              href="{{ post.url }}"
-              rel="prefetch"
-              onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ post.url }}') }"
-              >
-              <header>
-                <h2 class="text-2xl font-bold">{{ post.data.title }}</h2>
-                <p class="text-base">{{ post.data.description }}</p>
-              </header>
-              <p class="mt-2 text-sm opacity-50">{{ post.date | date: "%B %d, %Y" }}</p>
-            </a>
-          </div>
+        {% assign taglist = collections['featured'] %}
+        {% assign taglist = taglist | sort: 'date' | reverse %}
+        {% for post in taglist %}
+        <div
+          class="text-secondary-dark rounded-xl border-2 border-primary border-opacity-10 transition duration-300 ease-out hover:bg-primary hover:text-white hover:transition-none dark:border-opacity-40 dark:bg-primary-dark dark:text-white"
+        >
+          <a
+            class="flex h-full w-full flex-col justify-between p-3"
+            href="{{ post.url }}"
+            rel="prefetch"
+            onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ post.url }}') }"
+          >
+            <header>
+              <h2 class="text-2xl font-bold">{{ post.data.title }}</h2>
+              <p class="text-base">{{ post.data.description }}</p>
+            </header>
+            <p class="mt-2 text-sm opacity-50">
+              {{ post.date | date: "%B %d, %Y" }}
+            </p>
+          </a>
+        </div>
         {% endfor %}
       </div>
     </section>

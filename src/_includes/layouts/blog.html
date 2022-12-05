@@ -1,17 +1,59 @@
 {% layout "layouts/base.html" %}
 {% block content %}
-<main id="main-content" tabindex="-1">
-  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+<main id="main-content" tabindex="-1"
+>
+  <div
+    class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8"
+    x-data="{
+      tags: [],
+      init() {
+        // Check URL for tags
+        const url = new URL(window.location.href)
+        const tags = url.searchParams.get('tags')
+
+        if (tags) {
+          this.tags = Array.from(new Set(tags.split(',')))
+        }
+      },
+    }"
+    >
     <div class="py-8 leading-8 mt-4 mb-4 font-bold flex flex-wrap flex-row gap-4 text-secondary dark:text-fg">
       <p class="flex items-center w-16 h-16 text-5xl leading-none">{{ intro.emoji }}</p>
       <p class="text-xl self-center pt-1">{{ intro.desc }}</p>
     </div>
-    <header class="mb-4">
-      <h2 class="text-3xl text-primary dark:text-fg py-1 px-2 inline-block bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">latest</h2>
+    <header class="mb-4 flex flex-col md:flex-row gap-4">
+      <h2 class="text-2xl text-primary dark:text-fg py-1 px-2 inline-block bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">latest</h2>
+      <!--<div
+        x-show="tags.length > 0"
+        >
+        <div
+          x-for="tagBadge in this.tags"
+          >
+          <button
+            class="text-2xl text-primary dark:text-fg py-1 px-2 inline-block bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold hover:bg-primary hover:bg-opacity-20 dark:hover:bg-fg-dark dark:hover:bg-opacity-20"
+            @click="tags = tags.filter(t => t !== tagBadge)"
+            x-show="tagBadge "
+          >
+            <h2 x-text="tagBadge "></h2>
+          </button>
+        </div>
+      </div> -->
+      <button
+        class="text-2xl text-primary dark:text-fg py-1 px-2 inline-block bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold hover:bg-primary hover:bg-opacity-20 dark:hover:bg-fg-dark dark:hover:bg-opacity-20"
+        @click="tags = []"
+        x-show="tags[0]"
+      >
+        <h2 x-text="tags[0]"></h2>
+      </button>
     </header>
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <div
+      class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {% for post in collections.blog %}
-        <div class="border-2 border-primary border-opacity-10 dark:border-opacity-40 rounded-xl text-secondary-dark dark:bg-primary-dark dark:text-white hover:text-white hover:bg-primary transition duration-300 hover:transition-none ease-out">
+        <div
+          class="border-2 border-primary border-opacity-10 dark:border-opacity-40 rounded-xl text-secondary-dark dark:bg-primary-dark dark:text-white hover:text-white hover:bg-primary transition duration-300 hover:transition-none ease-out"
+          x-data="{ postTags: '{{ post.data.tags }}' }"
+          x-show="tags.length === 0 || tags.some(tag => postTags.includes(tag))"
+          >
           <a
             class="flex flex-col justify-between h-full w-full p-3"
             href="{{ post.url }}"

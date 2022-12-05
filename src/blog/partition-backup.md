@@ -1,16 +1,19 @@
 ---
 layout: layouts/post.html
-title: 💽 Manage Partition Tables on Linux
+title: 💽 How to backup and restore Linux partition tables
 meta:
-  desc: How to backup, restore and manage Linux partition tables
+  desc: How to backup and restore Linux partition tables
   tag: 
 date: 2022-12-05
 intro:
-  title: Managing Disk Partitions on Linux
+  title: How to backup, restore, and partition tables
   emoji: 💽
-  desc: How to manage disk partitions on Linux
+  desc: How to backup and restore Linux partition tables
 aiassist: This post was was written in part by <a href='https://chat.openai.com/chat' target='_blank'>ChatGPT</a>.
 devto:
+tags:
+  - featured
+  - linux
 ---
 
 <figure class="group">

@@ -11,6 +11,7 @@ intro:
   desc: How to use a GIF as your cursor in Chrome
 aiassist:
 devto: This post was originally published on <a href='https://dev.to/chris_hayes/make-a-gif-your-cursor-in-chrome-4odo' target='_blank'>dev.to</a>.
+tags:
 ---
 
 Using "AniTuner" to create a special `.ani` cursor file and the Chrome extension, "Animated Cursors Forever!". One can use a GIF as their cursor inside Chrome.
