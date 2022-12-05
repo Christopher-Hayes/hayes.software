@@ -11,6 +11,8 @@ intro:
   desc: How to manage multiple node version.
 aiassist: This post was was written in part by <a href='https://beta.openai.com/playground' target='_blank'>GPT-3</a>.
 devto:
+tags:
+  - node
 ---
 
 <figure class="group">
