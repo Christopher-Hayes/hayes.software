@@ -13,6 +13,11 @@ aiassist: This post was was written in part by <a href='https://beta.openai.com/
 devto:
 ---
 
+<figure class="group">
+  <img src="/images/blog/nvm/cgi-technology.jpg" alt="cgi technology" width="100%" class="h-52 md:h-72 object-cover object-center rounded-2xl md:rounded-xl" loading="lazy">
+  <figcaption class="opacity-0 group-hover:opacity-100 transition-opacity text-white text-opacity-60 text-xs text-right -mt-10 mb-12 mr-8">Credit: <a class="opacity-60 hover:opacity-100" href="https://www.cgi.com/en" target="_blank" rel="noopener">CGI</a></figcaption>
+</figure>
+
 `nvm` stands for Node Version Manager and is a tool used to switch between different versions of Node.js. It's a great way to ensure that you are always running the latest version of Node.js, or to switch between different versions of Node.js for different projects.
 
 ## Installation

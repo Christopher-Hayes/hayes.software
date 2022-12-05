@@ -1,7 +1,7 @@
 {
   "name": "hayes-software",
   "description": "Personal site for Chris Hayes running 11ty",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "engines": {
     "node": "16.x.x",
     "npm": "8.x.x"
@@ -57,7 +57,8 @@
     "format:stylelint": "npx stylelint \"src/**/*.css\" --fix",
     "format:eslint": "npx eslint --ext .js src/ --fix",
     "validate": "run-s build lint",
-    "setup": "npm install && npm run validate"
+    "setup": "npm install && npm run validate",
+    "unsplash": "node scripts/getUnsplashPhoto.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.0",
@@ -67,6 +68,7 @@
     "@babel/preset-env": "^7.20.2",
     "@tailwindcss/typography": "^0.5.8",
     "autoprefixer": "^10.4.13",
+    "axios": "^1.2.0",
     "browserslist": "^4.21.4",
     "cross-env": "^7.0.3",
     "eslint": "^8.28.0",
@@ -96,6 +98,7 @@
   "dependencies": {
     "@alpinejs/collapse": "^3.10.5",
     "alpinejs": "^3.10.5",
-    "core-js": "^3.26.1"
+    "core-js": "^3.26.1",
+    "dotenv": "^16.0.3"
   }
 }

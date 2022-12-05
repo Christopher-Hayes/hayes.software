@@ -2,14 +2,14 @@
 <main id="main-content" tabindex="-1">
   <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
     <header
-      class="flex flex-row flex-wrap gap-4 pt-16 pb-8 font-bold leading-8 text-secondary dark:text-fg"
+      class="flex flex-col md:flex-row gap-4 pt-16 pb-8 font-bold leading-8 text-secondary dark:text-fg"
     >
-      <p class="flex h-16 w-16 items-center text-5xl leading-none">
+      <p class="flex h-16 w-16 items-center text-5xl leading-none justify-center">
         {{ intro.emoji }}
       </p>
-      <div class="flex flex-col gap-y-3 items-start">
-        <p class="self-center pt-1 text-2xl">{{ intro.desc }}</p>
-        <div class="flex flex-row justify-center gap-x-2 text-xs">
+      <div class="flex flex-col gap-y-2 items-start">
+        <h2 class="self-center text-3xl">{{ intro.desc }}</h2>
+        <div class="flex flex-row flex-wrap gap-y-2 gap-x-4 text-xs">
           <div
             x-data="{
           open: false,
@@ -98,7 +98,7 @@
             x-on:keydown.escape.prevent.stop="close($refs.button)"
             x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
             x-id="['dropdown-button']"
-            class="relative px-1 group flex flex-row items-center gap-x-0.5 rounded-md text-fg shadow"
+            class="relative group flex flex-row items-center rounded-md text-fg shadow"
             :class="{
               'bg-red-600 text-white': state === 'error',
               'bg-fg-light dark:bg-secondary': state !== 'unset' && state !== 'error',
@@ -116,7 +116,9 @@
                 'animate-pulse': state === 'translating',
               }"
               x-html="state === 'error' ? 'Error' : (state === 'translating' ? 'Translating..' : fullLang)"
-            ></button>
+            >
+              English
+            </button>
             <div
               x-ref="panel"
               x-show="open"
@@ -140,30 +142,14 @@
               {% endfor %}
             </div>
             <p
-              class="pr-1 pb-0.5 pt-0.5 group-hover:flex flex-row items-center font-normal"
+              class="px-2 pt-0.5 flex-row items-center font-normal"
               :class="{
-                'hidden': !credit && state === 'unset',
-                'flex': credit || state !== 'unset',
+                'hidden': !credit,
+                'flex': credit,
               }"
               id="translate-desc"
               >
-              <button
-                x-ref="credit"
-                @click="credit = !credit; $refs.credit.blur()"
-                type="button"
-                class="flex items-center gap-2 rounded-md text-white text-opacity-60 px-1 py-1 shadow focus-within:text-white hover:text-white"
-              >
-                <span class="sr-only">Toggle translate credit</span>
-                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12zm1-9a1 1 0 11-2 0 1 1 0 012 0zm-1 4a1 1 0 00-1 1v2a1 1 0 102 0v-2a1 1 0 00-1-1z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </button>
               <span
-                x-show="credit"
                 class="pb-[1px] text-xs text-gray-400"
                 x-html="`${r.translateCredit} <a href='https://libretranslate.com/' target='_blank' rel='noopener noreferrer'>LibreTranslate</a>`"
                 >

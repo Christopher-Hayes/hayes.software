@@ -109,6 +109,10 @@ module.exports = {
 
       // Iterate over the commit messages and replace github emoji with their unicode equivalent
       const commitsWithUnicodeEmoji = commits.map((commit) => {
+        if (!commit.message) {
+          commit.message = ''
+        }
+
         const unicodeMessage = commit.message.replace(
           /:([a-z0-9_]+):/g,
           (match, p1) => {
