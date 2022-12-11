@@ -112,7 +112,11 @@ window.addEventListener('DOMContentLoaded', async () => {
             newDocument.querySelector('#main-content').innerHTML
 
           // Update the page content
-          document.querySelector('#main-content').innerHTML = newContent
+          const contentElem = document.querySelector('#main-content')
+          const newContentElem = document.createElement('div')
+          newContentElem.innerHTML = newContent
+          newContentElem.id = 'main-content'
+          window.Alpine.mutateDom(() => contentElem.replaceWith(newContentElem))
 
           // Scroll to the top of the page
           window.scrollTo(0, 0)
@@ -162,7 +166,11 @@ window.addEventListener('DOMContentLoaded', async () => {
     const newContent = newDocument.querySelector('#main-content').innerHTML
 
     // Update the page content
-    document.querySelector('#main-content').innerHTML = newContent
+    const contentElem = document.querySelector('#main-content')
+    const newContentElem = document.createElement('div')
+    newContentElem.innerHTML = newContent
+    newContentElem.id = 'main-content'
+    window.Alpine.mutateDom(() => contentElem.replaceWith(newContentElem))
 
     // Scroll to the top of the page
     window.scrollTo(0, 0)
