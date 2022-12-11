@@ -1,10 +1,10 @@
 ---
 layout: layouts/post.html
-title: AI is changing how I use Wikipedia
+title: 📚 AI is changing how I use Wikipedia
 meta:
   desc: How AI is changing how I use Wikipedia
   tag:
-date: 2022-11-29
+date: 2022-12-11
 intro:
   title: AI is changing how I use Wikipedia
   emoji: 📚
