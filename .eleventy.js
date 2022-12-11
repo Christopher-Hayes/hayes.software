@@ -12,6 +12,7 @@ module.exports = function (config) {
   // Static assets to pass through
   config.addPassthroughCopy('./src/fonts')
   config.addPassthroughCopy('./src/images')
+  config.addPassthroughCopy('./src/videos')
   config.addPassthroughCopy('./src/public')
   config.addPassthroughCopy('./src/styles')
   config.addPassthroughCopy('./src/scripts')

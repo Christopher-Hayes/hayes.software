@@ -12,14 +12,33 @@ intro:
 aiassist: This post was was written in part by <a href='https://chat.openai.com/chat' target='_blank'>ChatGPT</a>.
 devto:
 tags:
-  - featured
   - linux
 ---
 
-<figure class="group">
-  <img src="/images/blog/partition-backup/3d-data-backup.webp" alt="null" width="100%" class="h-52 md:h-72 object-cover object-center rounded-2xl md:rounded-xl" loading="lazy">
-  <figcaption class="opacity-0 group-hover:opacity-100 transition-opacity text-white text-opacity-60 text-xs text-right -mt-10 mb-12 mr-8">Credit: <a class="opacity-60 hover:opacity-100" href="https://unsplash.com/@brechtcorbeel?utm_source=blog&utm_medium=referral&utm_campaign=api-credit" target="_blank" rel="noopener noreferrer">Brecht Corbeel</a>
-  </figcaption>
+<figure
+  x-data="{
+    imageSrc: '/images/blog/partition-backup/3d-data-backup.webp',
+    imageAlt: 'Credit: <a class=\'opacity-60 hover:opacity-100\' href=\'https://unsplash.com/@brechtcorbeel?utm_source=blog&utm_medium=referral&utm_campaign=api-credit\' target=\'_blank\' rel=\'noopener\'>Brecht Corbeel</a>',
+    showImageOverlay: function (imageElem) {
+      this.$dispatch('show-image-overlay', imageElem.src);
+    },
+    }"
+  class="group">
+  <button
+    @click="showImageOverlay($event.target)"
+    class="h-52 md:h-96 w-full"
+    >
+    <img
+      :src="imageSrc"
+      :alt="imageAlt"
+      width="100%"
+      class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0"
+      loading="lazy">
+    <figcaption
+      class="opacity-0 group-hover:opacity-100 transition-opacity text-white font-bold text-xs text-right -mt-10 mb-12 mr-8"
+      x-html="imageAlt"
+    ></figcaption>
+  </button>
 </figure>
 
 First, let's talk about the `fdisk` and `sfdisk` commands. These tools allow you to view and manage partitions on a disk. 💽

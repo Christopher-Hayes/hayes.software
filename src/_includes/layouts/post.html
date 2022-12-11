@@ -11,7 +11,7 @@
       </p>
       <div class="flex flex-col items-start gap-y-2">
         <h2 class="self-center text-3xl">{{ intro.desc }}</h2>
-        <div class="w-full flex flex-col md:flex-row justify-between">
+        <div class="flex w-full flex-col justify-between md:flex-row">
           <div class="flex flex-row flex-wrap gap-y-2 gap-x-4 text-xs">
             <div
               x-data="{
@@ -167,11 +167,13 @@
             </div>
           </div>
           {% if tags.size > 0 %}
-          <div class="flex flex-row items-center gap-x-1 justify-self-end pb-[2px]">
+          <div
+            class="flex flex-row items-center gap-x-1 justify-self-end pb-[2px]"
+          >
             {% for tag in tags %}
             <a
               href="{{ site.baseurl }}/blog/?tags={{ tag | slugify }}"
-              class="text-xs font-light p-1 no-underline rounded-md text-white opacity-60 hover:opacity-100 hover:font-bold focus-within:opacity-100 focus-within:font-bold"
+              class="rounded-md p-1 text-xs font-light text-white no-underline opacity-60 focus-within:font-bold focus-within:opacity-100 hover:font-bold hover:opacity-100"
             >
               {{ tag }}
             </a>
@@ -182,6 +184,73 @@
       </div>
     </header>
     <section class="prose prose-lg dark:prose-invert">{{ content }}</section>
+    <div
+      id="image-overlay"
+      x-data="{
+    showImage: false,
+    showVideo: false,
+    imgSrc: '',
+    videoSrc: '',
+    init() {
+      this.$watch('showVideo', (value) => {
+        if (!value) {
+          this.$dispatch('hide-video-overlay');
+        }
+      });
+    },
+  }"
+      @show-image-overlay.window="imgSrc = $event.detail; showImage = true"
+      @show-video-overlay.window="// add source element to video
+      $refs.video.innerHTML = `<source src='${$event.detail}' type='video/${$event.detail.split('.').pop()}'>`;
+      showVideo = true;"
+      x-show="showImage || showVideo"
+      x-trap="showImage || showVideo"
+      class="fixed top-0 left-0 z-50 h-full w-full bg-black bg-opacity-50 p-16"
+      style="display: none"
+      @click="showImage = false; showVideo = false"
+    >
+      <div class="w-full h-full flex items-center justify-center">
+        <img
+          x-show="showImage"
+          x-ref="img"
+          x-bind:src="imgSrc"
+          alt=""
+          class="h-full w-full rounded-2xl object-contain object-center md:rounded-xl"
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 transform scale-90"
+          x-transition:enter-end="opacity-100 transform scale-100"
+          x-transition:leave="transition ease-in duration-300"
+          x-transition:leave-start="opacity-100 transform scale-100"
+          x-transition:leave-end="opacity-0 transform scale-90"
+        />
+        <!-- html5 video player -->
+        <div
+          x-show="showVideo"
+          x-ref="video"
+          class="w-full rounded-2xl object-contain object-center md:rounded-xl"
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 transform scale-90"
+          x-transition:enter-end="opacity-100 transform scale-100"
+          x-transition:leave="transition ease-in duration-300"
+          x-transition:leave-start="opacity-100 transform scale-100"
+          x-transition:leave-end="opacity-0 transform scale-90"
+        >
+          <video
+            class="h-full w-full rounded-2xl object-contain object-center md:rounded-xl font-bold"
+            controls
+            autoplay
+            playsinline
+            x-ref="video"
+          ></video>
+        </div>
+      </div>
+      <button
+        class="z-60 absolute top-8 right-8 m-4 rounded-full p-4 text-lg text-white focus-within:bg-gray-800 focus-within:text-gray-300 focus-within:outline-2 focus-within:outline-gray-300 hover:bg-gray-800 hover:text-gray-300 hover:outline-2"
+        @click="showImage = false; showVideo = false"
+      >
+        close
+      </button>
+    </div>
     <footer class="text-opacity-85 mt-16 text-sm text-primary-light">
       <style>
         a {
