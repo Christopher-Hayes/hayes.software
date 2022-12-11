@@ -10,6 +10,10 @@ const loadAlpine = async () => {
     window.Alpine.plugin(collapse)
   }
 
+  // Load focus alpine plugin
+  const focusTrap = (await import('@alpinejs/focus')).default
+  window.Alpine.plugin(focusTrap)
+
   window.Alpine.start()
 
   // Adds capability to load HTML pages when hovering over a link
