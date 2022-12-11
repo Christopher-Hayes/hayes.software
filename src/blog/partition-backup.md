@@ -12,7 +12,6 @@ intro:
 aiassist: This post was was written in part by <a href='https://chat.openai.com/chat' target='_blank'>ChatGPT</a>.
 devto:
 tags:
-  - featured
   - linux
 ---
 
