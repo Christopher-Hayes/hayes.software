@@ -84,7 +84,7 @@
     "postcss": "^8.2.14",
     "postcss-cli": "^10.1.0",
     "prettier": "^2.8.0",
-    "prettier-plugin-tailwindcss": "^0.2.0",
+    "prettier-plugin-tailwindcss": "^0.2.1",
     "rimraf": "^3.0.2",
     "stylelint": "^14.15.0",
     "stylelint-config-prettier": "^9.0.4",
