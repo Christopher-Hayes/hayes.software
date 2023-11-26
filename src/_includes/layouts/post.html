@@ -13,6 +13,7 @@
         <h2 class="self-center text-3xl">{{ intro.desc }}</h2>
         <div class="flex w-full flex-col justify-between md:flex-row">
           <div class="flex flex-row flex-wrap gap-y-2 gap-x-4 text-xs">
+            {% comment %}
             <div
               x-data="{
           open: false,
@@ -160,6 +161,7 @@
                 </span>
               </p>
             </div>
+            {% endcomment %}
             <div class="flex flex-row items-center gap-x-1">
               <p class="text-xs font-bold text-gray-400">
                 {{ page.date | date: "%B %d, %Y" }}

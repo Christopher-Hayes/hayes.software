@@ -18,3 +18,5 @@ report.html
 
 # Local Netlify folder
 .netlify
+.obsidian
+.husky

@@ -23,20 +23,19 @@ tags:
     showImageOverlay: function (imageElem) {
       this.$dispatch('show-image-overlay', imageElem.src);
     },
-    }"
-  class="group">
+    }">
   <button
     @click="showImageOverlay($event.target)"
-    class="h-52 md:h-96 w-full"
+    class="group h-52 md:h-96 w-full"
     >
     <img
       :src="imageSrc"
       :alt="imageAlt"
       width="100%"
-      class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0"
+      class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity group-hover:opacity-50 group-focus:opacity-50"
       loading="lazy">
     <figcaption
-      class="opacity-0 group-hover:opacity-100 transition-opacity text-white font-bold text-xs text-right -mt-10 mb-12 mr-8"
+      class="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity text-white font-bold text-xs text-right -mt-10 mb-12 mr-8"
       x-text="imageAlt"
     ></figcaption>
   </button>
@@ -57,20 +56,19 @@ Wikipedia's default user interface (UI) can be plain and unappealing. Luckily, t
     showImageOverlay: function (imageElem) {
       this.$dispatch('show-image-overlay', imageElem.src);
     },
-    }"
-  class="group">
+    }">
   <button
     @click="showImageOverlay($event.target)"
-    class="h-52 md:h-96 w-full"
+    class="group h-52 md:h-96 w-full"
     >
     <img
       :src="imageSrc"
       :alt="imageAlt"
       width="100%"
-      class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0"
+      class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity group-hover:opacity-50 group-focus:opacity-50"
       loading="lazy">
     <figcaption
-      class="opacity-0 group-hover:opacity-100 transition-opacity text-white font-bold text-xs text-right -mt-10 mb-12 mr-8"
+      class="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity text-white font-bold text-xs text-right -mt-10 mb-12 mr-8"
       x-text="imageAlt"
     ></figcaption>
   </button>

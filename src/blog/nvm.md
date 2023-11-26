@@ -42,7 +42,6 @@ tags:
 </figure>
 
 `nvm` stands for Node Version Manager and is a tool used to switch between different versions of Node.js. It's a great way to ensure that you are always running the latest version of Node.js, or to switch between different versions of Node.js for different projects.
-
 ## Installation
 
 To install `nvm`, you can use the following command:
