@@ -1,10 +1,10 @@
 {
   "name": "hayes-software",
   "description": "Personal site for Chris Hayes running 11ty",
-  "version": "1.8.3",
+  "version": "1.8.4",
   "engines": {
-    "node": "16.x.x",
-    "npm": "8.x.x"
+    "node": "20.x.x",
+    "yarn": "1.x.x"
   },
   "main": "index.js",
   "repository": {
