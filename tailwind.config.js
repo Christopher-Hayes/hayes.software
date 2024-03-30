@@ -5,51 +5,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ['Helvetica', ...defaultTheme.fontFamily.sans],
       },
-      /* v1 palette - black/blue bg, light brown fg
-      colors: {
-        bg: {
-          light: '#eae0d5',
-          DEFAULT: '#22333b',
-          dark: '#0a0908',
-        },
-        fg: {
-          DEFAULT: '#c6ac8f',
-          dark: '#5e503f',
-        },
-      },*/
-      /* Palette grabbed from coolors.co: https://coolors.co/palette/3d5a80-98c1d9-e0fbfc-ee6c4d-293241
-      colors: {
-        // Main background colors
-        bg: {
-          light: '#98c1d9',
-          DEFAULT: '#3d5a80',
-          dark: '#293241',
-        },
-        // Main forground text content colors
-        fg: {
-          DEFAULT: '#e0fbfc',
-          dark: '#98c1d9',
-        },
-        // Accents - ie for buttons / ctas
-        // Ornage accent
-        primary: {
-          bg: '#ee6c4d',
-          DEFAULT: '#ee6c4d',
-          dark: '#bf2303',
-          fg: 'white',
-        },
-        // Midnight blue accent
-        secondary: {
-          bg: '#293241',
-          DEFAULT: '#293241',
-          fg: '#e0fbfc',
-        },
-      },
-      */
-      // Palette v3
-
       colors: {
         // Mignight blues - background
         bg: {
