@@ -1,5 +1,6 @@
 // This import is only needed for running in dev mode
 import.meta.env.DEV && import('./styles/main.css')
+import { inject } from '@vercel/analytics'
 
 const loadAlpine = async () => {
   window.Alpine = (await import('alpinejs')).default
@@ -184,4 +185,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     // Load Alpine
     loadAlpine()
   })
+
+  inject()
 })
