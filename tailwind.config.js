@@ -4,9 +4,6 @@ module.exports = {
   content: ['./src/**/*.html', './src/**/*.md'],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Helvetica', ...defaultTheme.fontFamily.sans],
-      },
       colors: {
         // Mignight blues - background
         bg: {
@@ -34,6 +31,12 @@ module.exports = {
           DEFAULT: '#181a38',
           fg: '#95e1ff',
         },
+      },
+      fontFamily: {
+        sans: ['Helvetica', ...defaultTheme.fontFamily.sans],
+      },
+      fontSize: {
+        '2xs': '.625rem',
       },
       typography: ({ theme }) => ({
         DEFAULT: {

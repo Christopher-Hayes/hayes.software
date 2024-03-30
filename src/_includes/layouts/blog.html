@@ -6,6 +6,7 @@
     class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8"
     x-data="{
       tags: [],
+      showAllTags: true,
       init() {
         // Check URL for tags
         const url = new URL(window.location.href)
@@ -21,30 +22,43 @@
       <p class="flex items-center w-16 h-16 text-5xl leading-none">{{ intro.emoji }}</p>
       <p class="text-xl self-center pt-1">{{ intro.desc }}</p>
     </div>
-    <header class="mb-4 flex flex-col md:flex-row gap-4">
-      <h2 class="text-2xl text-primary dark:text-fg py-1 px-2 inline-block bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">latest</h2>
-      <!--<div
-        x-show="tags.length > 0"
+    <header class="mb-4 flex flex-col md:flex-row gap-4 text-white">
+      <!-- ALL TAGS -->
+      <div
+        class="flex gap-2"
+        x-show="showAllTags"
         >
-        <div
-          x-for="tagBadge in this.tags"
-          >
-          <button
-            class="text-2xl text-primary dark:text-fg py-1 px-2 inline-block bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold hover:bg-primary hover:bg-opacity-20 dark:hover:bg-fg-dark dark:hover:bg-opacity-20"
-            @click="tags = tags.filter(t => t !== tagBadge)"
-            x-show="tagBadge "
-          >
-            <h2 x-text="tagBadge "></h2>
-          </button>
-        </div>
-      </div> -->
-      <button
-        class="text-2xl text-primary dark:text-fg py-1 px-2 inline-block bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold hover:bg-primary hover:bg-opacity-20 dark:hover:bg-fg-dark dark:hover:bg-opacity-20"
-        @click="tags = []"
-        x-show="tags[0]"
-      >
-        <h2 x-text="tags[0]"></h2>
-      </button>
+        {% assign tagList = collections | postTags %}
+        {%- for tag in tagList -%}
+          {% if tag.name != 'featured' %}
+            <button
+              class="py-1 px-2 inline-flex dark:bg-opacity-10 rounded-md font-bold dark:hover:bg-fg-dark dark:hover:bg-opacity-20"
+              @click="
+                tags = tags.includes('{{ tag.name }}') || '{{ tag.name }}' == 'blog' ? [] : ['{{ tag.name }}']
+                // Update URL
+                const url = new URL(window.location.href)
+                url.searchParams.set('tags', tags.join(','))
+                window.history.pushState({}, '', url)
+              "
+              :class="
+                tags.includes('{{ tag.name }}') || ('{{ tag.name }}' == 'blog' && tags.length === 0) ?
+                  'text-white dark:text-fg bg-primary dark:bg-fg-dark' :
+                  'text-bg dark:text-white hover:bg-primary-light hover:text-white focus:bg-primary-light focus:text-white'
+              "
+              x-show="showAllTags"
+              aria-label="Filter by {{ tag.name }}"
+            >
+              {% if tag.name == 'blog' %}
+                everything
+                <div class="text-2xs ml-1 -mt-0.5 opacity-60">{{ tag.count }}</div>
+              {% else %}
+                {{tag.name}}
+                <div class="text-2xs ml-1 -mt-0.5 opacity-60">{{ tag.count }}</div>
+              {% endif %}
+            </button>
+          {% endif %}
+        {%- endfor -%}
+      </div>
     </header>
     <div
       class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

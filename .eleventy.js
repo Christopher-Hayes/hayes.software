@@ -9,6 +9,13 @@ module.exports = function (config) {
     dynamicPartials: true,
   })
 
+  // Credit for filter: @sombriks - https://github.com/11ty/eleventy/issues/927#issuecomment-1438907829
+  config.addFilter('postTags', tags => Object.keys(tags)
+    .filter(k => k !== "posts")
+    .filter(k => k !== "all")
+    .map(k => ({ name: k, count: tags[k].length }))
+    .sort((a, b) => b.count - a.count));
+
   // Static assets to pass through
   config.addPassthroughCopy('./src/fonts')
   config.addPassthroughCopy('./src/images')
