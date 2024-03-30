@@ -1,19 +1,21 @@
 {% layout "layouts/base.html" %} {% block content %}
 <main id="main-content" tabindex="-1">
-  <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+  <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-12">
     <header
-      class="flex flex-col gap-4 pt-16 pb-8 font-bold leading-8 text-secondary dark:text-fg md:flex-row"
+      class="sticky z-10 top-[5.5rem] flex flex-col gap-4 px-4 py-8 mt-12 mb-8 font-bold leading-8 text-secondary dark:text-fg bg-fg-light dark:bg-bg md:flex-row rounded-b-xl bg-opacity-80 dark:bg-opacity-80 backdrop-blur dark:backdrop-brightness-75"
     >
       <p
         class="flex h-16 w-16 items-center justify-center text-5xl leading-none"
       >
         {{ intro.emoji }}
       </p>
-      <div class="flex flex-col items-start gap-y-2">
-        <h2 class="self-center text-3xl">{{ intro.desc }}</h2>
+      <div class="min-w-full flex flex-col items-start gap-y-2">
+        <h2 class="text-2xl">{{ intro.desc }}</h2>
         <div class="flex w-full flex-col justify-between md:flex-row">
           <div class="flex flex-row flex-wrap gap-y-2 gap-x-4 text-xs">
-            {% comment %}
+            <!--
+              Translation temp disabled - Site transitioned to serverless hosting.
+
             <div
               x-data="{
           open: false,
@@ -161,31 +163,33 @@
                 </span>
               </p>
             </div>
-            {% endcomment %}
-            <div class="flex flex-row items-center gap-x-1">
-              <p class="text-xs font-bold text-gray-400">
+            -->
+            <div class="flex flex-row items-center gap-x-4">
+              <p class="text-sm font-normal text-bg dark:text-fg">
                 {{ page.date | date: "%B %d, %Y" }}
               </p>
+              {% if tags.size > 0 %}
+                <div
+                  class="flex flex-row items-center gap-x-2 justify-self-end pb-[2px]"
+                >
+                  {% for tag in tags %}
+                    {% if tag != "featured" %}
+                      <a
+                        href="{{ site.baseurl }}/blog/?tags={{ tag | slugify }}"
+                        class="rounded-md py-0.5 px-2 text-sm font-normal border border-bg dark:border-fg dark:text-fg no-underline hover:bg-bg focus-within:bg-bg dark:hover:bg-fg dark:focus-within:bg-fg dark:hover:text-bg dark:focus-within:text-bg"
+                      >
+                        {{ tag }}
+                      </a>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              {% endif %}
             </div>
           </div>
-          {% if tags.size > 0 %}
-          <div
-            class="flex flex-row items-center gap-x-1 justify-self-end pb-[2px]"
-          >
-            {% for tag in tags %}
-            <a
-              href="{{ site.baseurl }}/blog/?tags={{ tag | slugify }}"
-              class="rounded-md p-1 text-xs font-light text-white no-underline opacity-60 focus-within:font-bold focus-within:opacity-100 hover:font-bold hover:opacity-100"
-            >
-              {{ tag }}
-            </a>
-            {% endfor %}
-          </div>
-          {% endif %}
         </div>
       </div>
     </header>
-    <section class="prose prose-lg dark:prose-invert">{{ content }}</section>
+    <section class="min-w-full prose prose-lg dark:prose-invert">{{ content }}</section>
     <div
       id="image-overlay"
       x-data="{

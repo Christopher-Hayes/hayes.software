@@ -33,7 +33,7 @@
     }"
   >
     <nav
-      class="mx-auto max-w-2xl rounded-xl bg-secondary bg-opacity-80 px-4 sm:px-6 lg:px-8 md:py-4 text-secondary-fg backdrop-blur-sm backdrop-brightness-75 dark:bg-secondary dark:bg-opacity-80"
+      class="mx-auto max-w-2xl rounded-t-xl bg-fg-light dark:bg-bg bg-opacity-80 px-4 sm:px-6 lg:px-8 md:py-4 text-secondary-fg backdrop-blur dark:bg-opacity-80"
     >
       <div class="flex flex-col md:flex-row md:flex-wrap md:items-center justify-between gap-y-2 pt-3 pb-4 md:py-0">
         <div
@@ -107,7 +107,7 @@
                 x-on:click.outside="close($refs.button)"
                 :id="$id('dropdown-button')"
                 style="display: none"
-                class="absolute left-0 mt-2 w-64 rounded-md bg-secondary text-fg shadow-md"
+                class="absolute left-0 mt-2 w-64 rounded-md bg-secondary text-white dark:text-fg shadow-md"
               >
                 <!-- copy svg button -->
                 <button
@@ -184,7 +184,7 @@
             aria-label="Home"
           >
             <h1
-              class="block space-x-1 rounded-md px-4 md:px-3 py-2.5 font-bold underline group-focus-within:bg-fg-dark group-focus-within:bg-opacity-10 group-hover:bg-fg-dark group-hover:bg-opacity-10"
+              class="block space-x-1 rounded-md px-4 md:px-3 py-2.5 font-bold underline text-bg dark:text-white group-focus-within:text-white group-hover:text-white group-focus-within:bg-bg group-hover:bg-bg"
             >
               Chris Hayes
             </h1>
@@ -209,8 +209,8 @@
                 href="{{ item.url }}"
                 class="text-base font-bold {{ highlight }} block px-4 py-2 rounded-md"
                 :class="{
-                  'text-white bg-bg-dark dark:bg-fg-dark bg-opacity-20 dark:bg-opacity-5': activeLink === '{{ item.url | slugify }}',
-                  'underline hover:bg-fg-dark hover:bg-opacity-10 focus:bg-fg-dark focus:bg-opacity-10': activeLink !== '{{ item.url | slugify }}',
+                  'text-white dark:text-bg bg-bg dark:bg-fg-light': activeLink === '{{ item.url | slugify }}',
+                  'text-bg dark:text-white underline hover:bg-bg focus:bg-bg hover:text-white focus:text-white': activeLink !== '{{ item.url | slugify }}',
                 }"
                 :aria-current="activeLink === '{{ item.url | slugify }}' ? 'page' : null"
                 rel="prefetch"
