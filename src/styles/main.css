@@ -6,6 +6,10 @@
   @apply underline font-bold;
 }
 
+.prose a:hover, .prose a:focus {
+  @apply text-fg-dark dark:text-fg;
+}
+
 .prose ol li::marker{
   @apply font-bold;
 }
