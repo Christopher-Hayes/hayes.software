@@ -1,7 +1,7 @@
 {
   "name": "hayes-software",
   "description": "Personal site for Chris Hayes running 11ty",
-  "version": "1.8.6",
+  "version": "1.8.7",
   "engines": {
     "node": "20.x.x",
     "yarn": "1.x.x"
@@ -99,6 +99,7 @@
     "@alpinejs/collapse": "^3.10.5",
     "@alpinejs/focus": "^3.10.5",
     "@vercel/analytics": "^1.2.2",
+    "@vercel/speed-insights": "^1.0.10",
     "alpinejs": "^3.10.5",
     "core-js": "^3.26.1",
     "dotenv": "^16.0.3"

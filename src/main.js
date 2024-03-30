@@ -1,6 +1,10 @@
 // This import is only needed for running in dev mode
 import.meta.env.DEV && import('./styles/main.css')
 import { inject } from '@vercel/analytics'
+import { injectSpeedInsights } from '@vercel/speed-insights'
+
+// Vercel Speed Insights
+injectSpeedInsights()
 
 const loadAlpine = async () => {
   window.Alpine = (await import('alpinejs')).default
@@ -186,5 +190,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     loadAlpine()
   })
 
+  // Vercel Analytics
   inject()
 })
