@@ -3,16 +3,15 @@ layout: layouts/post.html
 title: 📚 AI is changing how I use Wikipedia
 meta:
   desc: How AI is changing how I use Wikipedia
-  tag:
+  tag: 
 date: 2022-12-11
 intro:
   title: AI is changing how I use Wikipedia
   emoji: 📚
   desc: How AI is changing how I use Wikipedia
 aiassist: This post was written with the help of <a href='https://chat.openai.com/chat' target='_blank'>ChatGPT</a>.
-devto:
+devto: 
 tags:
-  - featured
   - ai
 ---
 
