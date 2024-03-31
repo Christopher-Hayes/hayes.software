@@ -78,26 +78,29 @@
                 :aria-controls="$id('dropdown-button')"
                 aria-label="Navigate home"
               >
-                <img
-                  src="/images/dragon.svg"
-                  alt="dragon"
-                  width="32"
-                  height="32"
-                  class="h-8 w-8 scale-[300%] hidden dark:block"
-                  aria-hidden="true"
-                  focusable="false"
-                  loading="lazy"
-                />
-                <img
-                  src="/images/dragon-light.svg"
-                  alt="dragon"
-                  width="32"
-                  height="32"
-                  class="h-8 w-8 scale-[300%] dark:hidden"
-                  aria-hidden="true"
-                  focusable="false"
-                  loading="lazy"
-                />
+                <picture>
+                  <source
+                    srcset="/images/dragon.svg"
+                    media="(prefers-color-scheme: dark)"
+                    class="h-8 w-8 scale-[300%]"
+                  >
+                  <source
+                    srcset="/images/dragon-light.svg"
+                    media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+                    class="h-8 w-8 scale-[300%]"
+                  >
+                  <!-- Fallback img for browsers that do not support picture/srcset -->
+                  <img
+                    src="/images/dragon-light.svg"
+                    alt="dragon"
+                    width="32"
+                    height="32"
+                    class="h-8 w-8 scale-[300%]"
+                    aria-hidden="true"
+                    focusable="false"
+                    loading="lazy"
+                  />
+                </picture>
               </a>
               <!-- Panel -->
               <div
@@ -192,25 +195,34 @@
         </div>
         <ul class="flex space-x-4"
           x-data="{
-            activeLink: 'home',
+            activeLink: '',
             init() {
-              this.activeLink = window.location.pathname.split('/')[1] || 'home'
+              this.activeLink = window.location.pathname.split('/')[1]
 
               // on path update, update active link
               window.addEventListener('popstate', () => {
-                this.activeLink = window.location.pathname.split('/')[1] || 'home'
+                this.activeLink = window.location.pathname.split('/')[1]
               })
             },
           }"
           >
+          {% assign activeStyles = 'text-white dark:text-secondary-fg bg-bg dark:bg-fg-dark dark:bg-opacity-10 dark:hover:bg-opacity-20 hover:text-white dark:hover:text-white' %}
+          {% assign inactiveStyles = 'text-bg dark:text-white underline hover:bg-bg dark:hover:bg-fg-dark dark:hover:bg-opacity-10 focus:bg-bg hover:text-white focus:text-white' %}
           {% for item in navigation.items %}
             <li>
               <a
                 href="{{ item.url }}"
-                class="text-base font-bold {{ highlight }} block px-4 py-2 rounded-md"
+                class="
+                  text-base font-bold {{ highlight }} block px-4 py-2 rounded-md
+                  {% if page.url == item.url %}
+                    {{ activeStyles }}
+                  {% else %}
+                    {{ inactiveStyles }}
+                  {% endif %}
+                  "
                 :class="{
-                  'text-white dark:text-bg bg-bg dark:bg-fg-light hover:text-white dark:hover:text-bg': activeLink === '{{ item.url | slugify }}',
-                  'text-bg dark:text-white underline hover:bg-bg focus:bg-bg hover:text-white focus:text-white': activeLink !== '{{ item.url | slugify }}',
+                  '{{ activeStyles }}': activeLink === '{{ item.url | slugify }}',
+                  '{{ inactiveStyles }}': activeLink !== '{{ item.url | slugify }}',
                 }"
                 :aria-current="activeLink === '{{ item.url | slugify }}' ? 'page' : null"
                 rel="prefetch"
