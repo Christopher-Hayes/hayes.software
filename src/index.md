@@ -29,6 +29,6 @@ intro:
 
 ## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">this site</span>
 
-Site built with [11ty](https://www.11ty.dev/), styled by [tailwind](https://tailwindcss.com/), made dynamic with [alpine](https://github.com/alpinejs/alpine/), and hosted on [vercel](https://vercel.com).
+Built with [11ty](https://www.11ty.dev/), styled by [tailwind](https://tailwindcss.com/), made dynamic with [alpine](https://github.com/alpinejs/alpine/), hosted on [vercel](https://vercel.com).
 
 As of Mar 29, 2024, this site has a perfect [Lighthouse](https://pagespeed.web.dev/analysis/https-hayes-software) score of x4 💯. You can edit this site [on github](https://github.com/Christopher-Hayes/hayes.software).
