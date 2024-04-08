@@ -9,12 +9,35 @@ module.exports = function (config) {
     dynamicPartials: true,
   })
 
-  // Credit for filter: @sombriks - https://github.com/11ty/eleventy/issues/927#issuecomment-1438907829
-  config.addFilter('postTags', tags => Object.keys(tags)
-    .filter(k => k !== "posts")
-    .filter(k => k !== "all")
-    .map(k => ({ name: k, count: tags[k].length }))
-    .sort((a, b) => b.count - a.count));
+  // Blog tags
+  config.addFilter('postTags', posts => {
+    const blogPosts = posts.blog
+    const allTags = Array.from(new Set(blogPosts.map(post => post.data.tags).reduce((acc, val) => acc.concat(val), [])))
+
+    // Populate new array with tag info, sort by count
+    const tagList = allTags.map(tag => ({
+      name: tag,
+      count: posts[tag]?.length ?? 0,
+    })).filter(tag => tag.count > 0)
+    tagList.sort((a, b) => b.count - a.count)
+
+    return tagList
+  })
+
+  // Projects tags
+  config.addFilter('projectTags', posts => {
+    const projectPosts = posts.projects
+    const allTags = Array.from(new Set(projectPosts.map(post => post.data.tags).reduce((acc, val) => acc.concat(val), [])))
+
+    // Populate new array with tag info, sort by count
+    const tagList = allTags.map(tag => ({
+      name: tag,
+      count: posts[tag]?.length ?? 0,
+    })).filter(tag => tag.count > 0)
+    tagList.sort((a, b) => b.count - a.count)
+
+    return tagList
+  })
 
   // Static assets to pass through
   config.addPassthroughCopy('./src/fonts')
@@ -28,6 +51,14 @@ module.exports = function (config) {
   config.addCollection('blog', function (collectionApi) {
     return collectionApi
       .getFilteredByGlob('./src/blog/*.md')
+      .sort(function (a, b) {
+        return b.date - a.date
+      })
+  })
+
+  config.addCollection('projects', function (collectionApi) {
+    return collectionApi
+      .getFilteredByGlob('./src/projects/*.md')
       .sort(function (a, b) {
         return b.date - a.date
       })

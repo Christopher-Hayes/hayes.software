@@ -2,7 +2,7 @@
 <main id="main-content" tabindex="-1">
   <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-12">
     <header
-      class="sticky z-10 top-[5.5rem] flex flex-col gap-4 px-4 py-8 mt-12 mb-8 font-bold leading-8 text-secondary dark:text-fg bg-fg-light dark:bg-bg md:flex-row rounded-b-xl bg-opacity-80 dark:bg-opacity-80 backdrop-blur dark:backdrop-brightness-75"
+      class="sticky z-10 top-[5.5rem] flex flex-col gap-4 px-4 py-8 mt-12 mb-8 font-bold leading-8 text-secondary dark:text-fg bg-fg-light dark:bg-bg md:flex-row rounded-b-xl bg-opacity-80 dark:bg-opacity-80 backdrop-blur"
     >
       <p
         class="flex h-16 w-16 items-center justify-center text-5xl leading-none"
@@ -176,7 +176,7 @@
                     {% if tag != "featured" %}
                       <a
                         href="{{ site.baseurl }}/blog/?tags={{ tag | slugify }}"
-                        class="rounded-md py-0.5 px-2 text-sm font-normal border border-bg dark:border-fg dark:text-fg no-underline hover:bg-bg focus-within:bg-bg dark:hover:bg-fg dark:focus-within:bg-fg dark:hover:text-bg dark:focus-within:text-bg"
+                        class="rounded-md py-0.5 px-2 text-sm font-normal border border-bg dark:border-fg dark:text-fg no-underline hover:text-white focus-within:text-white hover:bg-bg focus-within:bg-bg dark:hover:bg-fg dark:focus-within:bg-fg dark:hover:text-bg dark:focus-within:text-bg"
                       >
                         {{ tag }}
                       </a>
