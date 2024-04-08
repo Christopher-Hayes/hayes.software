@@ -28,27 +28,27 @@
         class="flex gap-2"
         x-show="showAllTags"
         >
-        {% assign tagList = collections | postTags %}
+        {% assign tagList = collections | projectTags %}
         {%- for tag in tagList -%}
           {% if tag.name != 'featured' %}
             <button
               class="py-1 px-2 inline-flex dark:bg-opacity-10 rounded-md font-bold dark:hover:bg-fg-dark dark:focus:bg-fg-dark dark:hover:bg-opacity-20  dark:focus:bg-opacity-20"
               @click="
-                tags = tags.includes('{{ tag.name }}') || '{{ tag.name }}' == 'blog' ? [] : ['{{ tag.name }}']
+                tags = tags.includes('{{ tag.name }}') || '{{ tag.name }}' == 'projects' ? [] : ['{{ tag.name }}']
                 // Update URL
                 const url = new URL(window.location.href)
                 url.searchParams.set('tags', tags.join(','))
                 window.history.pushState({}, '', url)
               "
               :class="
-                tags.includes('{{ tag.name }}') || ('{{ tag.name }}' == 'blog' && tags.length === 0) ?
+                tags.includes('{{ tag.name }}') || ('{{ tag.name }}' == 'projects' && tags.length === 0) ?
                   'text-white dark:text-fg bg-primary dark:bg-fg-dark' :
                   'text-bg dark:text-white'
               "
               x-show="showAllTags"
               aria-label="Filter by {{ tag.name }}"
             >
-              {% if tag.name == 'blog' %}
+              {% if tag.name == 'projects' %}
                 everything
                 <div class="text-2xs ml-1 -mt-0.5 opacity-60">{{ tag.count }}</div>
               {% else %}
@@ -62,7 +62,7 @@
     </header>
     <div
       class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {% for post in collections.blog %}
+      {% for post in collections.projects %}
         <div
           class="border-2 border-primary border-opacity-10 dark:border-opacity-40 rounded-xl text-secondary-dark dark:bg-primary-dark dark:text-white hover:text-white hover:bg-primary transition duration-300 hover:transition-none ease-out"
           x-data="{ postTags: '{{ post.data.tags }}' }"
@@ -78,7 +78,48 @@
               <h2 class="text-2xl font-bold">{{ post.data.title }}</h2>
               <p class="text-base">{{ post.data.description }}</p>
             </header>
-            <p class="mt-2 text-sm opacity-50">{{ post.date | date: "%B %d, %Y" }}</p>
+
+            <!-- tags -->
+            <!-- <p class="mt-2 text-sm opacity-50">{{ post.date | date: "%B %d, %Y" }}</p> -->
+            <ul class="mt-2 text-sm opacity-50">
+              <!-- {% for tag in post.data.tags %}
+                <li class="inline-block mr-2">{{ tag }}</li>
+              {% endfor %} -->
+              <!-- show a special tag for each tech stack -->
+              {% for tag in post.data.tags %}
+                {% if tag == 'react' %}
+                  <li class="inline-block mr-2">React</li>
+                {% elsif tag == 'vue' %}
+                  <li class="inline-block mr-2">Vue</li>
+                {% elsif tag == 'svelte' %}
+                  <li class="inline-block mr-2">Svelte</li>
+                {% elsif tag == 'angular' %}
+                  <li class="inline-block mr-2">Angular</li>
+                {% elsif tag == 'node' %}
+                  <li class="inline-block mr-2">Node</li>
+                {% elsif tag == 'strapi' %}
+                  <li class="inline-block mr-2">Strapi</li>
+                {% elsif tag == 'wordpress' %}
+                  <li class="inline-block mr-2">Shopify</li>
+                {% elsif tag == 'next' %}
+                  <li class="inline-block mr-2">Next</li>
+                {% elsif tag == 'nuxt' %}
+                  <li class="inline-block mr-2">Nuxt</li>
+                {% elsif tag == 'eleventy' %}
+                  <li class="inline-block mr-2">Eleventy</li>
+                {% elsif tag == 'threejs' %}
+                  <li class="inline-block mr-2">THREE.js</li>
+                {% elsif tag == 'js' %}
+                  <li class="inline-block mr-2">JS</li>
+                {% elsif tag == 'tailwind' %}
+                  <li class="inline-block mr-2">Tailwind</li>
+                {% elsif tag == 'webgl' %}
+                  <li class="inline-block mr-2">WebGL</li>
+                {% elsif tag == 'webgpu' %}
+                  <li class="inline-block mr-2">WebGPU</li>
+                {% endif %}
+              {% endfor %}
+            </ul>
           </a>
         </div>
       {% endfor %}

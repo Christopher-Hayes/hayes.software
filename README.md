@@ -4,8 +4,6 @@
 
 **:zap: Speedlify performance stats:** [https://web-perf.netlify.app](https://web-perf.netlify.app/personal-site/)
 
-**:art: Palette:** https://coolors.co/3d5a80-98c1d9-e0fbfc-ee6c4d-293241
-
 ## :package: 11ty template: [11st-Starter-Kit](https://github.com/stefanfrede/11st-starter-kit)
 
 [11ty](https://www.11ty.dev/) - [Vite](https://vitejs.dev/) - [Tailwind CSS](https://tailwindcss.com) - [Alpine.js](https://github.com/alpinejs/alpine/)
@@ -15,36 +13,17 @@
 ### Install
 
 ```bash
-npm run setup
+yarn
 ```
 
 ### Development
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 ### Production
 
 ```bash
-npm run build
-```
-
-## Netlify
-
-To get your own instance of this 11st-Starter-Kit cloned and deploying to
-Netlify very quickly, just click the button below and follow the instructions.
-
-[<img src="https://www.netlify.com/img/deploy/button.svg" />](https://app.netlify.com/start/deploy?repository=https://github.com/stefanfrede/11st-starter-kit)
-
-### Add some Netlify helpers
-
-Netlify Dev adds the ability to use Netlify redirects, proxies, and serverless functions.
-
-```bash
-# install the Netlify CLI in order to get netlify dev
-npm install -g netlify-cli
-
-# run a local server with some added Netlify sugar
-netlify dev
+yarn build
 ```
