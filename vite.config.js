@@ -10,6 +10,8 @@ const getPosts = () => {
       404: resolve(__dirname, '_site', '404.html'),
       main: resolve(__dirname, '_site', 'index.html'),
       toolbox: resolve(__dirname, '_site', 'toolbox', 'index.html'),
+      // For some reason blog index.html not being generated further down
+      blog: resolve(__dirname, '_site', 'blog', 'index.html'),
     }
     // Blog posts
     const posts = fs
@@ -33,7 +35,11 @@ const getPosts = () => {
               : resolve(__dirname, '_site', 'projects', post, 'index.html'),
         }
       })
-    return { ...pages, ...Object.assign({}, ...posts, ...projects) }
+    return {
+      ...pages,
+      ...Object.assign({}, ...posts),
+      ...Object.assign({}, ...projects),
+    }
   } else {
     return {}
   }
