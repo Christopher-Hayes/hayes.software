@@ -22,7 +22,18 @@ const getPosts = () => {
               : resolve(__dirname, '_site', 'blog', post, 'index.html'),
         }
       })
-    return { ...pages, ...Object.assign({}, ...posts) }
+    // Projects
+    const projects = fs
+      .readdirSync(resolve(__dirname, '_site', 'projects'))
+      .map((post) => {
+        return {
+          [post.replace('.html', '')]:
+            post === 'index.html'
+              ? resolve(__dirname, '_site', 'projects', 'index.html')
+              : resolve(__dirname, '_site', 'projects', post, 'index.html'),
+        }
+      })
+    return { ...pages, ...Object.assign({}, ...posts, ...projects) }
   } else {
     return {}
   }
