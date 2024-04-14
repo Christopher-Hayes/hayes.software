@@ -1,6 +1,7 @@
-const { execSync } = require('child_process')
+// const { execSync } = require('child_process')
 
 // Convert gitmoji git commit emojis to unicode
+/*
 const gitmojiToUnicode = {
   art: '🎨',
   zap: '⚡',
@@ -62,8 +63,10 @@ const gitmojiToUnicode = {
   dizzy: '💫',
   wastebasket: '🗑',
 }
+*/
 
 // Get all commits on a file
+/*
 const getCommitsForPost = (post) => {
   // show both date and time
   const commits = execSync(
@@ -101,9 +104,11 @@ const getCommitsForPost = (post) => {
 
   return commitsWithPrevious
 }
+*/
 
 module.exports = {
   eleventyComputed: {
+    /* Disabled since this wouldn't build in CI/CD
     edits: (data) => {
       const commits = getCommitsForPost(data.page.inputPath)
 
@@ -128,5 +133,6 @@ module.exports = {
 
       return commitsWithUnicodeEmoji
     },
+    */
   },
 }
