@@ -12,7 +12,6 @@ intro:
 aiassist: This post was Slack thread on <a href='https://newhaven.io' target='_blank'>newhaven.io</a> that was converted to a blog post using GPT-3.
 devto:
 tags:
-  - featured
   - linux
   - automation
 ---

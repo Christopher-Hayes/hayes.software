@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 const fs = require('fs')
-import { watch } from 'chokidar'
 const { resolve } = require('path')
 
 const getPosts = () => {
@@ -123,32 +122,5 @@ export default defineConfig({
         ],
       },
     }),
-    // Homepage not getting rebuilt when blog posts are updated
-    rebuildHomeOnPostUpdate(),
   ],
 })
-
-function rebuildHomeOnPostUpdate() {
-  return {
-    name: 'markdown-watcher',
-    configureServer(server) {
-      // Define chokidar watcher inside the function scope
-      const watcher = watch('path/to/your/markdown/files/**/*.md', {
-        ignoreInitial: true,
-      })
-
-      watcher.on('change', (path) => {
-        console.log(`Markdown file changed: ${path}`)
-        server.ws.send({
-          type: 'full-reload',
-          path: '/', // This triggers a full reload of the homepage
-        })
-      })
-
-      // Perform cleanup upon server close
-      server.httpServer?.once('close', () => {
-        watcher.close()
-      })
-    },
-  }
-}

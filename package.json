@@ -57,7 +57,7 @@
     "unsplash": "node scripts/getUnsplashPhoto.js"
   },
   "devDependencies": {
-    "@11ty/eleventy": "2",
+    "@11ty/eleventy": "^2.0.1",
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.20.5",
     "@babel/eslint-parser": "^7.19.1",
