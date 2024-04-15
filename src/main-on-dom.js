@@ -191,14 +191,9 @@ const run = async () => {
     window.loadAlpine()
   })
 
-  // Defer - Vercel Analytics
-  const inject = (await import('@vercel/analytics')).inject
-  inject()
-
-  // Defer - Vercel Speed Insights
-  const injectSpeedInsights = (await import('@vercel/speed-insights'))
-    .injectSpeedInsights
-  injectSpeedInsights()
+  // Dynamically load speedlify-score.js from the 'speedlify-score' package
+  // This script will add a speedlify score to the page
+  import('speedlify-score')
 }
 
 export { run }

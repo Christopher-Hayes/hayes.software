@@ -90,10 +90,9 @@
   "dependencies": {
     "@alpinejs/collapse": "^3.10.5",
     "@alpinejs/focus": "^3.10.5",
-    "@vercel/analytics": "^1.2.2",
-    "@vercel/speed-insights": "^1.0.10",
     "alpinejs": "^3.10.5",
     "core-js": "^3.26.1",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "speedlify-score": "^4.0.4"
   }
 }
