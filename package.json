@@ -2,10 +2,6 @@
   "name": "hayes-software",
   "description": "Personal site for Chris Hayes running 11ty",
   "version": "1.9.6",
-  "engines": {
-    "node": "18.x.x",
-    "yarn": "1.x.x"
-  },
   "main": "index.js",
   "repository": {
     "type": "git",
