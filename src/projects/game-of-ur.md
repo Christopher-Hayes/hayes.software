@@ -8,7 +8,6 @@ intro:
   desc: "The classic Game of Ur recreated in the modern web."
 date: 2023-04-06
 tags: [angular, threejs, gaming, 3d modelling, javascript]
-note: "As early.games evolves, more ancient games will be added to the collection. Watch this space!"
 ---
 
 <figure

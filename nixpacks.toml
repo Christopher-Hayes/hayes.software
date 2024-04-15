@@ -1,0 +1,16 @@
+[phases.setup]
+nixPkgs = ["nodejs", "yarn"]
+
+[phases.build]
+cmds = [
+  "yarn install",
+  "yarn build"
+]
+
+# Specify the publish directory
+publish = "dist"
+
+# Specify environment variables for the image
+[variables]
+NODE_ENV = "production"
+NODE_VERSION = "20.x.x"  # Replace with the exact NodeJS version if needed.
