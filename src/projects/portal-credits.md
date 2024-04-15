@@ -1,11 +1,13 @@
 ---
-layout: layouts/post.html
-title: "Portal Ending Credits in JS"
+layout: layouts/project-post.html
+title: "🎶 Portal Ending Credits in JS"
 meta:
   desc: "An in-depth look into how I recreated the Portal series ending credits with web technologies."
 intro:
   title: "Portal Ending Credits in JS"
+  emoji: 🎶
   desc: "An in-depth look into how I recreated the Portal series ending credits with web technologies."
+projectlink: https://christopher-hayes.github.io/portal-1-credits/portal-1-ending.html
 date: 2018-02-27
 tags: [gaming, js]
 ---

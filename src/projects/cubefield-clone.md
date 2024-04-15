@@ -1,13 +1,15 @@
 ---
-layout: layouts/post.html
-title: "Cubefield with Three.JS"
+layout: layouts/project-post.html
+title: 🕹️ Cubefield with Three.JS
 meta:
   desc: "Classic flash game, Cubefield, recreated with THREE.js"
 intro:
   title: "Cubefield with Three.JS"
+  emoji: 🕹️
   desc: "Classic flash game, Cubefield, recreated with THREE.js"
+projectlink: https://christopher-hayes.github.io/cubefield/
 date: 2017-01-02
-tags: [threejs, gaming, js]
+tags: [three, gaming, js]
 note: "This project was developed in 2017 or earlier, so it may use Three.js methods that have since been updated or deprecated."
 ---
 

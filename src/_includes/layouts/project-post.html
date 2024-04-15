@@ -1,0 +1,336 @@
+{% layout "layouts/base.html" %} {% block content %}
+<main id="main-content" tabindex="-1">
+  <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-12">
+    <header
+      class="sticky z-10 top-[5.5rem] flex flex-col gap-4 px-4 py-8 mt-12 mb-8 font-bold leading-8 text-secondary dark:text-fg bg-fg-light dark:bg-bg md:flex-row rounded-b-xl bg-opacity-80 dark:bg-opacity-80 backdrop-blur"
+    >
+      <p
+        class="flex h-16 w-16 items-center justify-center text-5xl leading-none"
+      >
+        {{ intro.emoji }}
+      </p>
+      <div class="min-w-full flex flex-col items-start gap-y-2">
+        <h2 class="text-2xl">{{ intro.title }}</h2>
+        <div class="w-full flex flex-col justify-between md:flex-row">
+          <div class="w-full flex flex-row flex-wrap gap-y-2 gap-x-4 text-xs">
+            <!--
+              Translation temp disabled - Site transitioned to serverless hosting.
+
+            <div
+              x-data="{
+          open: false,
+          credit: false,
+          lang: 'en',
+          r: {
+            translateCredit: 'Translation thanks to',
+          },
+          fullLang: 'English',
+          state: 'unset',
+          translations: {},
+          init() {
+            const articleContent = document.querySelector('#main-content article > section')
+
+            this.translations['en'] = {
+              article: articleContent.innerHTML,
+              translateCredit: 'Translation thanks to',
+            }
+          },
+          toggle() {
+              if (this.open) {
+                  return this.close()
+              }
+
+              this.$refs.button.focus()
+
+              this.open = true
+          },
+          close(focusAfter) {
+              if (! this.open) return
+
+              this.open = false
+
+              focusAfter && focusAfter.focus()
+          },
+          translate(lang, fullLang) {
+            this.state = 'translating'
+
+            this.lang = lang
+            this.fullLang = fullLang
+            this.close(this.$refs.button)
+
+            const articleContent = document.querySelector('#main-content article > section')
+
+            if (this.translations[lang]) {
+              articleContent.innerHTML = this.translations[this.lang].article
+              this.r.translateCredit = this.translations[this.lang].translateCredit
+              this.state = 'translated'
+            } else {
+              try {
+                fetch('https://translate.hayes.software/translate', {
+                  method: 'POST',
+                  body: JSON.stringify({
+                    q: `${this.translations['en'].article}<hr/><hr/><hr/>${this.translations['en'].translateCredit}`,
+                    source: 'en',
+                    target: this.lang,
+                    format: 'html',
+                  }),
+                  headers: { 'Content-Type': 'application/json' }
+                }).then(res => res.json()).then(res => {
+                  if (res.error) {
+                    throw new Error(res.error)
+                  }
+
+                  const translatedItems = res.translatedText.split('<hr/><hr/><hr/>')
+
+                  const translated = {
+                    article: translatedItems[0],
+                    translateCredit: translatedItems[1],
+                  }
+
+                  articleContent.innerHTML = translated.article
+                  this.r.translateCredit = translated.translateCredit
+                  this.translations[this.lang] = translated
+                  this.state = 'translated'
+                  this.credit = true
+                  this.$refs.button.blur()
+                })
+              } catch (err) {
+                console.error(err)
+                this.state = 'error'
+              }
+            }
+          }
+        }"
+              x-on:keydown.escape.prevent.stop="close($refs.button)"
+              x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+              x-id="['dropdown-button']"
+              class="group relative flex flex-row items-center rounded-md text-fg shadow"
+              :class="{
+              'bg-red-600 text-white': state === 'error',
+              'bg-fg-light dark:bg-secondary': state !== 'unset' && state !== 'error',
+            }"
+            >
+              <button
+                x-ref="button"
+                x-on:click="toggle()"
+                :aria-expanded="open"
+                :aria-controls="$id('dropdown-button')"
+                aria-describedby="translate-desc"
+                type="button"
+                class="h-8 rounded-md px-2 py-1 focus-within:bg-fg focus-within:text-white hover:bg-fg hover:text-white focus-within:dark:bg-primary hover:dark:bg-primary"
+                :class="{
+                'animate-pulse': state === 'translating',
+              }"
+                x-html="state === 'error' ? 'Error' : (state === 'translating' ? 'Translating..' : fullLang)"
+              >
+                English
+              </button>
+              <div
+                x-ref="panel"
+                x-show="open"
+                x-transition.origin.top.left
+                x-on:click.outside="close($refs.button)"
+                :id="$id('dropdown-button')"
+                style="display: none"
+                class="absolute top-10 left-0 mt-2 w-40 rounded-md bg-fg-light shadow-md dark:bg-secondary"
+              >
+                {% assign langList = "en,ar,zh,fr,de,hi,it,ja,ko,pl,ru,es,uk" |
+                split: "," %} {% assign fullLangList =
+                "English,Arabic,Chinese,French,German,Hindi,Italian,Japanese,Korean,Polish,Russian,Spanish,Ukranian"
+                | split: "," %} {% assign len = langList | size | minus: 1 %} {%
+                for i in (0..len) %}
+                <button
+                  class="flex w-full items-center gap-2 px-4 py-2.5 text-left text-sm first-of-type:rounded-t-md last-of-type:rounded-b-md focus-within:bg-bg-light focus-within:text-white hover:bg-bg-light hover:text-white focus-within:dark:bg-secondary-bg hover:dark:bg-secondary-bg"
+                  :class="{ 'bg-bg-light dark:bg-primary text-white pointer-events-none': lang === '{{ langList[i] }}' }"
+                  @click="translate('{{ langList[i] }}', '{{ fullLangList[i] }}')"
+                >
+                  {{ fullLangList[i] }}
+                </button>
+                {% endfor %}
+              </div>
+              <p
+                class="flex-row items-center px-2 pt-0.5 font-normal"
+                :class="{
+                'hidden': !credit,
+                'flex': credit,
+              }"
+                id="translate-desc"
+              >
+                <span
+                  class="pb-[1px] text-xs text-gray-400"
+                  x-html="`${r.translateCredit} <a href='https://libretranslate.com/' target='_blank' rel='noopener noreferrer'>LibreTranslate</a>`"
+                >
+                </span>
+              </p>
+            </div>
+            -->
+            <div class="flex flex-row justify-between gap-x-8">
+              <div class="flex flex-row items-center gap-x-8">
+                {% if projectlink %}
+                  <div class="flex flex-row items-center gap-x-2">
+                    <a
+                      href="{{ projectlink }}"
+                      class="rounded-md py-0.5 px-2 text-sm font-normal border border-primary dark:border-primary-light no-underline text-primary dark:text-primary-light bg-primary hover:bg-primary dark:bg-primary-light dark:hover:bg-primary-light bg-opacity-10 hover:bg-opacity-100 dark:bg-opacity-10 dark:hover:bg-opacity-100 hover:text-white dark:hover:text-white"
+                    >
+                      Check it out
+                    </a>
+                  </div>
+                {% endif %}
+                {% if tags.size > 0 %}
+                  <div
+                    class="flex flex-row items-center gap-x-2 justify-self-end pb-[2px]"
+                  >
+                    {% for tag in tags %}
+                      {% if tag != "featured" %}
+                        <a
+                          href="{{ site.baseurl }}/projects/?tags={{ tag | slugify }}"
+                          class="rounded-md py-0.5 px-2 text-sm font-normal border border-bg dark:border-fg dark:text-fg no-underline hover:text-white focus-within:text-white hover:bg-bg focus-within:bg-bg dark:hover:bg-fg dark:focus-within:bg-fg dark:hover:text-bg dark:focus-within:text-bg"
+                        >
+                          {{ tag }}
+                        </a>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+                <p class="text-sm font-normal text-bg dark:text-fg">
+                  Built in {{ page.date | date: "%Y" }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="min-w-full prose prose-lg dark:prose-invert">{{ content }}</section>
+    <div
+      id="image-overlay"
+      x-data="{
+    showImage: false,
+    showVideo: false,
+    imgSrc: '',
+    videoSrc: '',
+    init() {
+      this.$watch('showVideo', (value) => {
+        if (!value) {
+          this.$dispatch('hide-video-overlay');
+        }
+      });
+    },
+  }"
+      @show-image-overlay.window="imgSrc = $event.detail; showImage = true"
+      @show-video-overlay.window="// add source element to video
+      $refs.video.innerHTML = `<source src='${$event.detail}' type='video/${$event.detail.split('.').pop()}'>`;
+      showVideo = true;"
+      x-show="showImage || showVideo"
+      x-trap="showImage || showVideo"
+      class="fixed top-0 left-0 z-50 h-full w-full bg-black bg-opacity-50 p-16"
+      style="display: none"
+      @click="showImage = false; showVideo = false"
+    >
+      <div class="w-full h-full flex items-center justify-center">
+        <img
+          x-show="showImage"
+          x-ref="img"
+          x-bind:src="imgSrc"
+          alt=""
+          class="h-full w-full rounded-2xl object-contain object-center md:rounded-xl"
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 transform scale-90"
+          x-transition:enter-end="opacity-100 transform scale-100"
+          x-transition:leave="transition ease-in duration-300"
+          x-transition:leave-start="opacity-100 transform scale-100"
+          x-transition:leave-end="opacity-0 transform scale-90"
+        />
+        <!-- html5 video player -->
+        <div
+          x-show="showVideo"
+          x-ref="video"
+          class="w-full rounded-2xl object-contain object-center md:rounded-xl"
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 transform scale-90"
+          x-transition:enter-end="opacity-100 transform scale-100"
+          x-transition:leave="transition ease-in duration-300"
+          x-transition:leave-start="opacity-100 transform scale-100"
+          x-transition:leave-end="opacity-0 transform scale-90"
+        >
+          <video
+            class="h-full w-full rounded-2xl object-contain object-center md:rounded-xl font-bold"
+            controls
+            autoplay
+            playsinline
+            x-ref="video"
+          ></video>
+        </div>
+      </div>
+      <button
+        class="z-60 absolute top-8 right-8 m-4 rounded-full p-4 text-lg text-white focus-within:bg-gray-800 focus-within:text-gray-300 focus-within:outline-2 focus-within:outline-gray-300 hover:bg-gray-800 hover:text-gray-300 hover:outline-2"
+        @click="showImage = false; showVideo = false"
+      >
+        close
+      </button>
+    </div>
+    <footer class="text-opacity-85 mt-16 text-sm text-primary dark:text-primary-light">
+      <style>
+        a {
+          text-decoration: underline;
+        }
+      </style>
+      {% if devto %}
+      <span class="prose mr-2 text-lg">👨‍💻</span>{{ devto }} {% endif %} {% if
+      aiassist %} <span class="prose mr-2 text-lg">🤖</span>{{ aiassist }} {% endif %} {% if
+      note %} <span class="prose mr-2 text-lg">🗒️</span>{{ note }} {% endif %}
+      {% if edits %}
+      <div class="bg-opacity-20 py-2" x-data="{ show: false }">
+        <header class="mb-4">
+          <button
+            @click="show = !show"
+            class="text-primary dark:text-primary-light focus:text-primary-light dark:focus:text-white hover:text-primary-light dark:hover:text-white"
+          >
+            <h2 class="text">
+              <span
+                class="inline-block mr-2 text-lg transform"
+                :class="{ 'rotate-180': show }"
+                >⬇️</span>
+              <span class="underline"
+                >Last edit on {{ edits[0].datetime | date: '%B %d, %Y'
+                }}..</span
+              >
+            </h2>
+          </button>
+        </header>
+        <ul class="text-xs" x-show="show">
+          {% for edit in edits %}
+          <li class="my-1 flex gap-x-2">
+            <!-- {% if edit.datetime %}
+                    <time datetime="{{ edit.datetime }}">{{ edit.datetime | date: "%b %d, %Y" }}</time>
+                  {% endif %} -->
+            {% if edit.message %}
+            <span class=""> {{ edit.message }} </span>
+            {% endif %} {% if edit.hash %} {% if edit.previousCommit %}
+            <a
+              href="https://github.com/christopher-hayes/hayes.software/compare/{{ edit.previousCommit.shortHash }}..{{ edit.shortHash }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="opacity-60 hover:opacity-100"
+            >
+              {{ edit.shortHash }}
+            </a>
+            {% else %}
+            <a
+              href="https://github.com/christopher-hayes/hayes.software/commit/{{ edit.hash }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="opacity-60 hover:opacity-100"
+            >
+              {{ edit.shortHash }}
+            </a>
+            {% endif %} {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </footer>
+  </article>
+</main>
+{% endblock %}

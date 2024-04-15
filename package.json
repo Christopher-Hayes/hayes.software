@@ -1,7 +1,7 @@
 {
   "name": "hayes-software",
   "description": "Personal site for Chris Hayes running 11ty",
-  "version": "1.9.7",
+  "version": "1.9.8",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -85,15 +85,15 @@
     "stylelint-order": "^5.0.0",
     "tailwindcss": "^3.2.4",
     "vite": "^3.2.4",
+    "vite-plugin-html": "^3.2.2",
     "vite-plugin-pwa": "^0.13.3"
   },
   "dependencies": {
     "@alpinejs/collapse": "^3.10.5",
     "@alpinejs/focus": "^3.10.5",
-    "@vercel/analytics": "^1.2.2",
-    "@vercel/speed-insights": "^1.0.10",
     "alpinejs": "^3.10.5",
     "core-js": "^3.26.1",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "speedlify-score": "^4.0.4"
   }
 }
