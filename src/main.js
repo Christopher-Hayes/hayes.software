@@ -1,10 +1,5 @@
-// Static import
-import 'speedlify-score'
-
 // This import is only needed for running in dev mode
-if (import.meta.env.DEV) {
-  import('./styles/main.css')
-}
+import.meta.env.DEV && import('./styles/main.css')
 
 // On DOM content loaded - not used atm
 // window.addEventListener('DOMContentLoaded', async () => {

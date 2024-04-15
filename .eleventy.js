@@ -1,3 +1,4 @@
+const { getSpeedlifyComponent } = require('./src/speedlify.js')
 const fs = require('fs')
 
 module.exports = function (config) {
@@ -62,6 +63,10 @@ module.exports = function (config) {
       .sort(function (a, b) {
         return b.date - a.date
       })
+  })
+
+  config.addGlobalData("speedlify", async () => {
+    return await getSpeedlifyComponent()
   })
 
   return {

@@ -93,7 +93,6 @@
     "@alpinejs/focus": "^3.10.5",
     "alpinejs": "^3.10.5",
     "core-js": "^3.26.1",
-    "dotenv": "^16.0.3",
-    "speedlify-score": "^4.0.4"
+    "dotenv": "^16.0.3"
   }
 }
