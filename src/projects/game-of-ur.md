@@ -7,7 +7,7 @@ intro:
   title: "The Game of Ur"
   desc: "The classic Game of Ur recreated in the modern web."
 date: 2023-04-06
-tags: [angular, threejs, gaming, 3d modelling, javascript]
+tags: [angular, threejs, gaming, js]
 ---
 
 <figure
