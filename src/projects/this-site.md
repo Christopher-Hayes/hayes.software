@@ -36,4 +36,6 @@ Implemented subtle page-preloading to make internal navigation feel seamless.
 
 ### A deeper dive
 
-I already wrote a [blog post](/blog/site-update-2024) about why I chose certain tech. You'll find more details there.
+I wrote a [blog post](/blog/site-update-2024) about the frontend tech choices in more detail.
+
+I more recently wrote about [switching from Vercel to Hetzner + Coolify](/blog/hetzner-with-coolify).
