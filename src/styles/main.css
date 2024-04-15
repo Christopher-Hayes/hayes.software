@@ -66,7 +66,7 @@
   @apply text-speedlify-light-good dark:text-speedlify-dark-good;
 }
 .speedlify .rank-change.up:before {
-  @apply text-2xl;
+  @apply text-xl;
 
 	content: "⬆";
 }
@@ -74,7 +74,7 @@
   @apply text-alert-error dark:text-red-500;
 }
 .speedlify .rank-change.down:before {
-  @apply text-2xl;
+  @apply text-xl;
 
 	content: "⬇";
 }
