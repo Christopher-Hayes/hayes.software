@@ -20,3 +20,61 @@
 .prose span {
   @apply break-words;
 }
+
+/* Speedlify styles */
+.speedlify {
+	--_circle: var(--speedlify-circle);
+	--speedlify-green: #0cce6b;
+}
+.speedlify a {
+  @apply dark:text-white;
+}
+.speedlify .circle {
+	font-size: 0.8125em; /* 13px /16 */
+	min-width: 2.6em;
+	height: 2.6em;
+	line-height: 1;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	border: 0.15384615em solid currentColor; /* 2px /13 */
+	color: var(--_circle, #666);
+}
+.speedlify .circle-good {
+  @apply text-speedlify-light-good dark:text-speedlify-dark-good border-current;
+}
+.speedlify .circle-ok {
+  @apply text-speedlify-light-ok dark:text-speedlify-dark-ok border-current;
+}
+.speedlify .circle-bad {
+  @apply text-speedlify-light-bad dark:text-speedlify-dark-bad border-current;
+}
+.speedlify .meta {
+  @apply flex items-center gap-2;
+}
+.speedlify .circle + .meta {
+  @apply ml-1;
+}
+.speedlify .rank:before {
+	content: "Rank #";
+}
+.speedlify .rank-change:before {
+	line-height: 1;
+}
+.speedlify .rank-change.up {
+  @apply text-speedlify-light-good dark:text-speedlify-dark-good;
+}
+.speedlify .rank-change.up:before {
+  @apply text-2xl;
+
+	content: "⬆";
+}
+.speedlify .rank-change.down {
+  @apply text-alert-error dark:text-red-500;
+}
+.speedlify .rank-change.down:before {
+  @apply text-2xl;
+
+	content: "⬇";
+}

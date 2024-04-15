@@ -1,7 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  content: ['./src/**/*.html', './src/**/*.md'],
+  content: ['./src/**/*.html', './src/**/*.md', './src/speedlify.js'],
   theme: {
     extend: {
       colors: {
@@ -30,6 +30,24 @@ module.exports = {
           bg: '#111240',
           DEFAULT: '#181a38',
           fg: '#95e1ff',
+        },
+        // error, warning, success
+        alert: {
+          error: '#ff0033',
+          warning: '#ffcc00',
+          success: '#00cc00',
+        },
+        speedlify: {
+          light: {
+            good: 'rgb(2, 100, 49)',
+            ok: '#ffa400',
+            bad: '#ff4e42',
+          },
+          dark: {
+            good: 'rgb(68, 225, 144)',
+            ok: '#ffa400',
+            bad: 'rgb(255, 134, 134)',
+          },
         },
       },
       fontFamily: {
