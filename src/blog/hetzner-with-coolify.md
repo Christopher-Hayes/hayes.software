@@ -1,12 +1,12 @@
 ---
 layout: layouts/post.html
-title: 🛠 My move from Vercel to Hetzener and Coolify
+title: 🛠 My move from Vercel to Coolify on Hetzener
 meta:
-  desc: My move from Vercel to Hetzener and Coolify
+  desc: My move from Vercel to Coolify on Hetzener
   tag:
 date: 2024-04-14
 intro:
-  title: My move from Vercel to Hetzener and Coolify
+  title: My move from Vercel to Coolify on Hetzener
   emoji: 🛠️
 devto:
 tags:
