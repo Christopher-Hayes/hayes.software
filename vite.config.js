@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 const fs = require('fs')
 const { resolve } = require('path')
+import { createHtmlPlugin } from 'vite-plugin-html'
 
 const getPosts = () => {
   if (fs.existsSync('_site')) {
@@ -50,6 +51,7 @@ export default defineConfig({
   root: '_site',
   build: {
     outDir: '../dist',
+    minify: 'esbuild',
     rollupOptions: {
       input: posts,
     },
@@ -57,12 +59,13 @@ export default defineConfig({
   },
   plugins: [
     VitePWA({
-      includeAssets: [
-        'favicon.svg',
-        'favicon.ico',
-        'robots.txt',
-        'apple-touch-icon.png',
-      ],
+      registerType: 'autoUpdate',
+      // Enable service worker for offline caching and faster repeat visits
+      workbox: {
+        // Precache important assets for instant loading
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+      },
+      includeAssets: ['favicon.ico', 'robots.txt'],
       manifest: {
         name: 'hayes.software',
         short_name: 'hayes.software',
@@ -121,6 +124,9 @@ export default defineConfig({
           },
         ],
       },
+    }),
+    createHtmlPlugin({
+      minify: true, // Enables HTML minification
     }),
   ],
 })
