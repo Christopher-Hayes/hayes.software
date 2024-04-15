@@ -1,13 +1,15 @@
 ---
-layout: layouts/post.html
-title: "The Game of Ur"
+layout: layouts/project-post.html
+title: "🎲 The Ancient Game of Ur"
 meta:
   desc: "The classic Game of Ur recreated in the modern web."
 intro:
-  title: "The Game of Ur"
+  title: "The Ancient Game of Ur"
+  emoji: 🎲
   desc: "The classic Game of Ur recreated in the modern web."
-date: 2023-04-06
-tags: [angular, threejs, gaming, js]
+projectlink: https://early.games/
+date: 2019-04-06
+tags: [angular, three, gaming, js]
 ---
 
 <figure

@@ -206,8 +206,8 @@
             },
           }"
           >
-          {% assign activeStyles = 'text-white dark:text-secondary-fg bg-bg dark:bg-fg-dark dark:bg-opacity-10 dark:hover:bg-opacity-20 hover:text-white dark:hover:text-white' %}
-          {% assign inactiveStyles = 'text-bg dark:text-white underline hover:bg-bg dark:hover:bg-fg-dark dark:hover:bg-opacity-10 focus:bg-bg hover:text-white focus:text-white' %}
+          {% assign activeStyles = 'text-primary dark:text-secondary-fg bg-primary dark:bg-fg-dark bg-opacity-10 hover:bg-opacity-20 dark:bg-opacity-10 dark:hover:bg-opacity-20 hover:text-primary dark:hover:text-white no-underline' %}
+          {% assign inactiveStyles = 'text-bg dark:text-white underline hover:bg-primary dark:hover:bg-fg-dark dark:hover:bg-opacity-10 focus:bg-bg hover:text-white focus:text-white' %}
           {% for item in navigation.items %}
             <li>
               <a

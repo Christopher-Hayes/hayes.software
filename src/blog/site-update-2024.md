@@ -12,7 +12,6 @@ intro:
 aiassist:
 devto:
 tags:
-  - featured
   - webdev 
 ---
 

@@ -25,7 +25,7 @@
     <header class="mb-4 flex flex-col md:flex-row gap-4 text-white">
       <!-- ALL TAGS -->
       <div
-        class="flex gap-2"
+        class="flex flex-wrap gap-2"
         x-show="showAllTags"
         >
         {% assign tagList = collections | postTags %}
@@ -43,7 +43,7 @@
               :class="
                 tags.includes('{{ tag.name }}') || ('{{ tag.name }}' == 'blog' && tags.length === 0) ?
                   'text-white dark:text-fg bg-primary dark:bg-fg-dark' :
-                  'text-bg dark:text-white'
+                  'text-bg dark:text-white hover:bg-primary hover:transition-none ease-out hover:bg-opacity-10 focus:bg-primary focus:transition-none focus:bg-opacity-10'
               "
               x-show="showAllTags"
               aria-label="Filter by {{ tag.name }}"

@@ -25,7 +25,7 @@
     <header class="mb-4 flex flex-col md:flex-row gap-4 text-white">
       <!-- ALL TAGS -->
       <div
-        class="flex gap-2"
+        class="flex flex-wrap gap-2"
         x-show="showAllTags"
         >
         {% assign tagList = collections | projectTags %}
@@ -43,7 +43,7 @@
               :class="
                 tags.includes('{{ tag.name }}') || ('{{ tag.name }}' == 'projects' && tags.length === 0) ?
                   'text-white dark:text-fg bg-primary dark:bg-fg-dark' :
-                  'text-bg dark:text-white'
+                  'text-bg dark:text-white hover:bg-primary hover:transition-none ease-out hover:bg-opacity-10 focus:bg-primary focus:transition-none focus:bg-opacity-10'
               "
               x-show="showAllTags"
               aria-label="Filter by {{ tag.name }}"
@@ -64,7 +64,7 @@
       class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {% for post in collections.projects %}
         <div
-          class="border-2 border-primary border-opacity-10 dark:border-opacity-40 rounded-xl text-secondary-dark dark:bg-primary-dark dark:text-white hover:text-white hover:bg-primary transition duration-300 hover:transition-none ease-out"
+          class="border-2 border-primary border-opacity-10 dark:border-opacity-40 rounded-xl text-secondary-dark dark:bg-primary-dark dark:text-white hover:text-white hover:bg-primary transition duration-300 hover:transition-none ease-out focus-within:bg-primary focus-within:transition-none focus-within:bg-opacity-10"
           x-data="{ postTags: '{{ post.data.tags }}' }"
           x-show="tags.length === 0 || tags.some(tag => postTags.includes(tag))"
           >
@@ -72,6 +72,7 @@
             class="flex flex-col justify-between h-full w-full p-3"
             href="{{ post.url }}"
             rel="prefetch"
+            tabindex="0"
             onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ post.url }}') }"
             >
             <header>
@@ -107,18 +108,20 @@
                   <li class="inline-block mr-2">Nuxt</li>
                 {% elsif tag == '11ty' %}
                   <li class="inline-block mr-2">Eleventy</li>
-                {% elsif tag == 'threejs' %}
+                {% elsif tag == 'three' %}
                   <li class="inline-block mr-2">THREE.js</li>
                 {% elsif tag == 'js' %}
                   <li class="inline-block mr-2">JS</li>
                 {% elsif tag == 'tailwind' %}
                   <li class="inline-block mr-2">Tailwind</li>
-                {% elsif tag == 'alpinejs' %}
+                {% elsif tag == 'alpine' %}
                   <li class="inline-block mr-2">Alpine.js</li>
                 {% elsif tag == 'webgl' %}
                   <li class="inline-block mr-2">WebGL</li>
                 {% elsif tag == 'webgpu' %}
                   <li class="inline-block mr-2">WebGPU</li>
+                {% elsif tag == 'playcanvas' %}
+                  <li class="inline-block mr-2">PlayCanvas3D</li>
                 {% endif %}
               {% endfor %}
             </ul>
