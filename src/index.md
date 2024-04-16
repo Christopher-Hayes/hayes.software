@@ -19,15 +19,17 @@ intro:
 
 🌱 **Currently learning..** to build NextJS sites with [builder.io](https://builder.io).
 
-## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">chat</span>
+## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">social</span>
 
 <a rel="me" href="https://fosstodon.org/@chris_hayes">🐘 fosstodon</a> - [📸 pixelfed](https://pixelfed.social/chris-hayes) - [🐉 bookwyrm](https://bookwyrm.social/user/chris-hayes)
 
-## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">work</span>
+I'm on Mastodon, but if you're in the New Haven CT area, join us on the [newhaven.io](https://newhaven.io) discord server.
 
-I wrote about a couple hobby projects in [💻 projects](/projects/). Most are on my [🐙 github](https://github.com/christopher-hayes), and some professional work highlighted on [📄 poly.work](https://poly.work/web_dev).
+## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">projects</span>
 
-## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">here</span>
+I wrote about a few hobby projects in [💻 projects](/projects/). Most are on my [🐙 github](https://github.com/christopher-hayes).
+
+## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">hayes.software</span>
 
 This site is built with [11ty](https://www.11ty.dev/), styled by [tailwind](https://tailwindcss.com/), made dynamic with [alpine](https://github.com/alpinejs/alpine/).
 
