@@ -40,6 +40,16 @@
 	animation: 120ms ease-in-out both view-in;
 }
 
+/* mobile only */
+@media (max-width: 1023px) {
+	.post-header .post-emo {
+		transition: max-width 300ms ease-out, opacity 300ms ease-out;
+	}
+	.post-header .post-tags {
+		transition: max-height 200ms ease-out, opacity 200ms ease-out;
+	}
+}
+
 /* custom scrollbar */
 @media (min-width: 1024px) {
 	/* left border on the body added to balance the scrollbar because
@@ -80,8 +90,16 @@
   @apply break-words;
 }
 
-.prose figure {
-	min-height: 417px;
+/* only on desktop */
+@media (min-width: 1024px) {
+	.prose figure {
+		min-height: 417px;
+	}
+}
+
+/* pretty text wrapping */
+h1, h2, h3, h4, h5, h6, p {
+	text-wrap: pretty;
 }
 
 /* Speedlify styles */

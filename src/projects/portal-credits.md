@@ -9,7 +9,7 @@ intro:
   desc: "An in-depth look into how I recreated the Portal series ending credits with web technologies."
 projectlink: https://christopher-hayes.github.io/portal-1-credits/portal-1-ending.html
 date: 2018-02-27
-tags: [gaming, js]
+tags: [js]
 ---
 
 <figure

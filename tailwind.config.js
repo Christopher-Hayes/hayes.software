@@ -21,6 +21,7 @@ module.exports = {
         primary: {
           fg: 'white',
           light: '#af86ff',
+          lightest: '#d4d5f3',
           bg: '#340099',
           DEFAULT: '#340099',
           dark: '#1d0240',

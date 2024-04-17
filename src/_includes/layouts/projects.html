@@ -38,7 +38,7 @@
     >
     <div class="py-8 leading-8 mt-4 mb-4 font-bold flex flex-wrap flex-row gap-4 text-secondary dark:text-fg">
       <p class="flex items-center w-16 h-16 text-5xl leading-none">{{ intro.emoji }}</p>
-      <p class="text-xl self-center pt-1">{{ intro.desc }}</p>
+      <p class="text-xl md:text-2xl self-center pt-1">{{ intro.desc }}</p>
     </div>
     <header class="mb-4 flex flex-col md:flex-row gap-4 text-white">
       <!-- ALL TAGS -->
@@ -100,7 +100,7 @@
 
             <!-- tags -->
             <!-- <p class="mt-2 text-sm opacity-50">{{ post.date | date: "%B %d, %Y" }}</p> -->
-            <ul class="mt-2 text-sm opacity-50">
+            <ul class="mt-2 text-sm opacity-70">
               <!-- {% for tag in post.data.tags %}
                 <li class="inline-block mr-2">{{ tag }}</li>
               {% endfor %} -->
@@ -129,7 +129,7 @@
                 {% elsif tag == 'three' %}
                   <li class="inline-block mr-2">THREE.js</li>
                 {% elsif tag == 'js' %}
-                  <li class="inline-block mr-2">JS</li>
+                  <li class="inline-block mr-2">Vanilla JS</li>
                 {% elsif tag == 'tailwind' %}
                   <li class="inline-block mr-2">Tailwind</li>
                 {% elsif tag == 'alpine' %}
