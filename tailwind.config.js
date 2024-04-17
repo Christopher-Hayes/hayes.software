@@ -31,6 +31,7 @@ module.exports = {
           DEFAULT: '#181a38',
           fg: '#95e1ff',
         },
+        fire: '#ea5a47',
         // error, warning, success
         alert: {
           error: '#ff0033',
