@@ -2,6 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
+/* View Animation API */
+:root {
+	--transition-direction: 1;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation: none;
+}
+#main-content-wrapper {
+	/* view-transition-name: main-content-wrapper; */
+}
+@keyframes view-out {
+	0% {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+	100% {
+		opacity: 0;
+		transform: translate3d(0, calc(var(--transition-direction) * -60px), 0);
+	}
+}
+@keyframes view-in {
+	0% {
+		opacity: 0;
+		transform: translate3d(0, calc(var(--transition-direction) * 60px), 0);
+	}
+	100% {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+::view-transition-old(main-content-wrapper) {
+	animation: 120ms ease-in-out both view-out;
+}
+::view-transition-new(main-content-wrapper) {
+	animation: 120ms ease-in-out both view-in;
+}
+
+/* custom scrollbar */
+@media (min-width: 1024px) {
+	/* left border on the body added to balance the scrollbar because
+	the transitions felt jumpy when some pages had a scrollbar and some didn't */
+	body {
+		@apply md:border-l-[16px] border-fg border-opacity-40 dark:border-[#0A0814] dark:border-opacity-70;
+		/* show scrollbar always to simplify the above */
+		overflow-y: scroll;
+	}
+	/* Custom scrollbar styling */
+	::-webkit-scrollbar {
+		@apply w-4 fixed right-0 top-0 border-2 dark:border-primary border-fg dark:border-opacity-60;
+	}
+	::-webkit-scrollbar-thumb {
+		@apply bg-fg-dark dark:bg-primary dark:bg-opacity-60 cursor-pointer;
+	}
+	::-webkit-scrollbar-track {
+		@apply px-1 bg-fg bg-opacity-40 dark:bg-bg-dark dark:bg-opacity-70;
+	}
+}
+
+/* Tailwind prose customization */
 .prose a {
   @apply underline font-bold;
 }
@@ -14,11 +74,14 @@
   @apply font-bold;
 }
 
-/* word-wrap: break-work; */
 .prose li,
 .prose p,
 .prose span {
   @apply break-words;
+}
+
+.prose figure {
+	min-height: 417px;
 }
 
 /* Speedlify styles */

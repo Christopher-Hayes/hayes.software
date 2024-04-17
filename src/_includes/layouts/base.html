@@ -8,7 +8,7 @@
     data-env="{{ node.env }}"
   >
     {% include "partials/site-header.html" %}
-    <div class="pt-4 md:pt-10 pb-12 md:pb-24">{% block content %}{% endblock %}</div>
+    <div id="main-content-wrapper" class="pt-4 md:pt-10 pb-12 md:pb-24">{% block content %}{% endblock %}</div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
