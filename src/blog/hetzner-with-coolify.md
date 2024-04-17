@@ -39,7 +39,7 @@ tags:
         :alt="imageAlt"
         width="100%"
         class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0"
-        loading="lazy">
+        loading="eager">
     </picture>
     <figcaption
       class="opacity-0 group-hover:opacity-100 transition-opacity text-white font-bold text-xs text-right -mt-10 mb-12 mr-8"
