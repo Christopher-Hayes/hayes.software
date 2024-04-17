@@ -63,7 +63,7 @@ export default defineConfig({
       // Enable service worker for offline caching and faster repeat visits
       workbox: {
         // Precache important assets for instant loading
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        globPatterns: ['**/*.{js,css,html,ico,png,jpg,webp,svg}'],
       },
       includeAssets: ['favicon.ico', 'robots.txt'],
       manifest: {
