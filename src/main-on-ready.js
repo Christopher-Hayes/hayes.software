@@ -1,8 +1,72 @@
 window.mainContentWrapper = document.querySelector('#main-content-wrapper')
+window.pageListeners = []
 
 const setupPage = () => {
   // Load Alpine
   window.loadAlpine()
+
+  // remove all old event listeners
+  window.pageListeners.forEach((listener) => {
+    window.removeEventListener('scroll', listener)
+  })
+
+  if (document.querySelector('.post-header')) {
+    // Mobile
+    if (window.innerWidth < 768) {
+      const showShortPostHeader = () => {
+        const postHeader = document.querySelector('.post-header')
+        const tagsElem = postHeader.querySelector('.post-tags')
+        const postEmo = postHeader.querySelector('.post-emo')
+
+        // Only on project posts
+        if (tagsElem) {
+          tagsElem.style.maxHeight = '0'
+          tagsElem.style.opacity = '0'
+        }
+
+        if (postEmo) {
+          postEmo.style.maxWidth = '0'
+          postEmo.style.opacity = '0'
+        }
+      }
+
+      const showFullPostHeader = () => {
+        const postHeader = document.querySelector('.post-header')
+        const tagsElem = postHeader.querySelector('.post-tags')
+        const postEmo = postHeader.querySelector('.post-emo')
+
+        // Only on project posts
+        if (tagsElem) {
+          tagsElem.style.maxHeight = '30px'
+          tagsElem.style.opacity = '1'
+        }
+
+        if (postEmo) {
+          postEmo.style.maxWidth = '80px'
+          postEmo.style.opacity = '1'
+        }
+      }
+
+      window.showFullPostHeader = true
+      const scrollListen = window.addEventListener(
+        'scroll',
+        async () => {
+          const y = window.scrollY
+
+          if (y > 200 && !window.showFullPostHeader) {
+            window.showFullPostHeader = true
+            showShortPostHeader()
+          } else if (y <= 100 && window.showFullPostHeader) {
+            window.showFullPostHeader = false
+            showFullPostHeader()
+          }
+        },
+        { passive: true },
+      )
+
+      window.pageListeners.push(scrollListen)
+    }
+  }
 }
 
 const showPage = async (link, { event, reverse, forget }) => {

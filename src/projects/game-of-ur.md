@@ -9,7 +9,7 @@ intro:
   desc: "The classic Game of Ur recreated in the modern web."
 projectlink: https://early.games/
 date: 2019-04-06
-tags: [angular, three, gaming, js]
+tags: [angular, three]
 ---
 
 <figure

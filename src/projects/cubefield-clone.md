@@ -9,7 +9,7 @@ intro:
   desc: "Classic flash game, Cubefield, recreated with THREE.js"
 projectlink: https://christopher-hayes.github.io/cubefield/
 date: 2017-01-02
-tags: [three, gaming, js]
+tags: [three, js]
 note: "This project was developed in 2017 or earlier, so it may use Three.js methods that have since been updated or deprecated."
 ---
 
