@@ -78,27 +78,9 @@
                 :aria-controls="$id('dropdown-button')"
                 aria-label="Navigate home"
               >
-                <picture>
-                  <source
-                    srcset="/images/dragon.svg"
-                    media="(prefers-color-scheme: dark)"
-                  >
-                  <source
-                    srcset="/images/dragon-light.svg"
-                    media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-                  >
-                  <!-- Fallback img for browsers that do not support picture/srcset -->
-                  <img
-                    src="/images/dragon-light.svg"
-                    alt="dragon"
-                    width="32"
-                    height="32"
-                    class="h-8 w-8 scale-[300%]"
-                    aria-hidden="true"
-                    focusable="false"
-                    loading="eager"
-                  />
-                </picture>
+                <div class="h-8 w-8 scale-[300%]">
+                  {% include "partials/dragon.html" %}
+                </div>
               </a>
               <!-- Panel -->
               <div
