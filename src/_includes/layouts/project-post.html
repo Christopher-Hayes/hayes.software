@@ -1,7 +1,34 @@
 {% layout "layouts/base.html" %} {% block content %}
+<script type="speculationrules">
+  {
+    "prerender": [
+      {
+        "urls": ["/", "/blog/"],
+        "eagerness": "eager"
+      },
+      {
+        "where": {
+          "href_matches": ["/projects/*"]
+        },
+        "eagerness": "immediate"
+      }
+    ],
+    "prefetch": [
+      {
+        "where": {
+          "href_matches": ["/blog/*"]
+        },
+        "eagerness": "moderate"
+      }
+    ]
+  }
+</script>
 <main id="main-content" tabindex="-1">
   <article class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-12">
-    <!-- Sticky does this jumpy thing with the Transition API, so adding it on delay -->
+    <!--
+      Sticky does this jumpy thing with the Transition API, so only adding after a delay.
+      When page is scrolled down, show anyway to avoid a late pop-in.
+    -->
     <header
       class="z-10 top-[5.5rem] flex flex-col gap-4 px-4 py-8 mt-12 mb-8 font-bold leading-8 text-secondary dark:text-fg bg-fg-light dark:bg-bg md:flex-row rounded-b-xl bg-opacity-80 dark:bg-opacity-80 backdrop-blur"
       x-init="if (window.scrollY > 50) { $el.classList.add('sticky') } else { setTimeout(() => { $el.classList.add('sticky') }, 500) }"

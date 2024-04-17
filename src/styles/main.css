@@ -6,6 +6,10 @@
 :root {
 	--transition-direction: 1;
 }
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation: none;
+}
 #main-content-wrapper {
 	/* view-transition-name: main-content-wrapper; */
 }
@@ -30,10 +34,10 @@
 	}
 }
 ::view-transition-old(main-content-wrapper) {
-	animation: 150ms ease-in-out both view-out;
+	animation: 120ms ease-in-out both view-out;
 }
 ::view-transition-new(main-content-wrapper) {
-	animation: 150ms ease-in-out both view-in;
+	animation: 120ms ease-in-out both view-in;
 }
 
 /* custom scrollbar */

@@ -1,5 +1,23 @@
 {% layout "layouts/base.html" %}
 {% block content %}
+<script type="speculationrules">
+  {
+    "prerender": [
+      {
+        "urls": ["/", "/blog/", "/projects/"],
+        "eagerness": "eager"
+      }
+    ],
+    "prefetch": [
+      {
+        "where": {
+          "href_matches": ["/blog/*", "/projects/*"]
+        },
+        "eagerness": "moderate"
+      }
+    ]
+  }
+</script>
 <main id="main-content" tabindex="-1"
 >
   <div
