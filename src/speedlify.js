@@ -112,7 +112,6 @@ module.exports = {
       const date = getResultsDate(data)
       // append the date to the content
       if (date) {
-        console.log(date)
         content.push(`<span class="italic">${date}</span>`)
       }
 

@@ -30,7 +30,7 @@ aiassist: In the process of writing this post, <a href='https://chat.openai.com'
       :alt="imageAlt"
       width="100%"
       class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity"
-      loading="lazy">
+      loading="eager">
     <figcaption
       class="w-full text-sm text-black dark:text-white text-right mt-2 -mb-2 pr-4"
       x-text="imageAlt"

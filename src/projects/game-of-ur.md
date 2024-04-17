@@ -29,7 +29,7 @@ tags: [angular, three, gaming, js]
       :alt="imageAlt"
       width="100%"
       class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity"
-      loading="lazy">
+      loading="eager">
     <figcaption
       class="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity text-black text-sm text-right -mt-10 mb-12 mr-8"
       x-text="imageAlt"

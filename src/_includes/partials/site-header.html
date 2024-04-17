@@ -82,12 +82,10 @@
                   <source
                     srcset="/images/dragon.svg"
                     media="(prefers-color-scheme: dark)"
-                    class="h-8 w-8 scale-[300%]"
                   >
                   <source
                     srcset="/images/dragon-light.svg"
                     media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
-                    class="h-8 w-8 scale-[300%]"
                   >
                   <!-- Fallback img for browsers that do not support picture/srcset -->
                   <img
@@ -98,6 +96,7 @@
                     class="h-8 w-8 scale-[300%]"
                     aria-hidden="true"
                     focusable="false"
+                    loading="eager"
                   />
                 </picture>
               </a>
