@@ -4,11 +4,25 @@
     {% include "partials/site-head.html" %}
   </head>
   <body
-    class="min-h-screen bg-fg-light dark:bg-bg"
+    class="min-h-screen flex flex-col bg-fg-light dark:bg-bg"
     data-env="{{ node.env }}"
   >
-    {% include "partials/site-header.html" %}
-    <div id="main-content-wrapper" class="pt-4 md:pt-10 pb-12 md:pb-24">{% block content %}{% endblock %}</div>
+    <div class="flex-grow relative">
+      {% include "partials/site-header.html" %}
+      <div id="main-content-wrapper" class="pt-4 md:pt-10 pb-8 md:pb-12">{% block content %}{% endblock %}</div>
+    </div>
+    <p class="mb-8 prose dark:text-primary-light mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8">
+      Edit this page 
+      <a
+        class="dark:text-primary-lightest"
+        href="https://github.com/Christopher-Hayes/hayes.software/edit/main/{{ page.inputPath }}"
+        target="_blank"
+        rel="noopener"
+        id="edit-link"
+        >
+        on github
+      </a>.
+    </p>
     <script rel="modulepreload" type="module" src="/main.js"></script>
   </body>
 </html>

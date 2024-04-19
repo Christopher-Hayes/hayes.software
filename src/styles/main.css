@@ -55,19 +55,30 @@
 	/* left border on the body added to balance the scrollbar because
 	the transitions felt jumpy when some pages had a scrollbar and some didn't */
 	body {
-		@apply md:border-l-[16px] border-fg border-opacity-40 dark:border-[#0A0814] dark:border-opacity-70;
+		@apply md:border-l-[16px] border-fg border-opacity-40 dark:border-[#0A0814];
 		/* show scrollbar always to simplify the above */
 		overflow-y: scroll;
 	}
-	/* Custom scrollbar styling */
+	/* Custom scrollbar styling for Safari */
 	::-webkit-scrollbar {
-		@apply w-4 fixed right-0 top-0 border-2 dark:border-primary border-fg dark:border-opacity-60;
+			@apply w-4 fixed right-0 top-0 border-2 dark:border-primary border-fg dark:border-opacity-60;
 	}
 	::-webkit-scrollbar-thumb {
-		@apply bg-fg-dark dark:bg-primary dark:bg-opacity-60 cursor-pointer;
+			@apply bg-fg-dark dark:bg-primary dark:bg-opacity-60 cursor-pointer;
 	}
 	::-webkit-scrollbar-track {
-		@apply px-1 bg-fg bg-opacity-40 dark:bg-bg-dark dark:bg-opacity-70;
+			@apply px-1 bg-fg bg-opacity-40 dark:bg-bg-dark dark:bg-opacity-70;
+	}
+
+	/* Custom scrollbar styling for Chrome and Firefox */
+	* {
+		scrollbar-width: thick;
+		scrollbar-color: #17b0ed #e7f8ff;
+	}
+	@media (prefers-color-scheme: dark) {
+		* {
+			scrollbar-color: #340099 #080612;
+		}
 	}
 }
 
