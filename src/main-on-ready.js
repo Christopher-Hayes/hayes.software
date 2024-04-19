@@ -10,6 +10,31 @@ const setupPage = () => {
     window.removeEventListener('scroll', listener)
   })
 
+  // Change the github #edit-link link to the current page
+  if (document.querySelector('#edit-link')) {
+    const editLink = document.querySelector('#edit-link')
+    const branch = 'main'
+    const repo = 'Christopher-Hayes/hayes.software'
+    let path = `/src${window.location.pathname}`
+
+    // tweak path
+    if (path === '/src/projects/') {
+      path = '/src/projects.md'
+    } else if (path === '/src/blog/') {
+      path = '/src/blog.md'
+    } else if (path === '/src/') {
+      path = '/src/index.md'
+    } else {
+      // replace the last / with .md
+      path = path.replace(/\/([^/]*)$/, '$1.md')
+    }
+
+    const editUrl = `https://github.com/${repo}/edit/${branch}${path}`
+
+    editLink.setAttribute('href', editUrl)
+  }
+
+  // Animate post header on scroll
   if (document.querySelector('.post-header')) {
     // Mobile
     if (window.innerWidth < 768) {

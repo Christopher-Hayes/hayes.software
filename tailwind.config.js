@@ -4,6 +4,11 @@ module.exports = {
   content: ['./src/**/*.html', './src/**/*.md', './src/speedlify.js'],
   theme: {
     extend: {
+      screens: {
+        '2xs': '320px',
+        xs: '460px',
+        sm: '640px',
+      },
       colors: {
         // Mignight blues - background
         bg: {
