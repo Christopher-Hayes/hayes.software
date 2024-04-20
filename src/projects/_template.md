@@ -9,8 +9,8 @@ intro:
   title: internal_site_title
   emoji: 📱
   image:
-    light: /images/blog/slug/screenshot-1-light.png
-    dark: /images/blog/slug/screenshot-1-dark.png
+    light: /images/projects/slug/screenshot-1-light.png
+    dark: /images/projects/slug/screenshot-1-dark.png
     alt: Screenshot of something
 projectlink: https://example.com
 note: Lorem ipsum dolor sit amet, consectetur adipiscing elit.

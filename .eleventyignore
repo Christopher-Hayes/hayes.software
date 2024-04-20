@@ -1,3 +1,6 @@
 # ignore template markdown posts
 # these are only meant to help with the creation of new posts
 **/_template.md
+
+# ignore wip posts
+**/*.wip.md
