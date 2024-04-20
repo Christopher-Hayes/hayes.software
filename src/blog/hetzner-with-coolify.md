@@ -8,45 +8,15 @@ date: 2024-04-14
 intro:
   title: My move from Vercel to Coolify on Hetzner
   emoji: 🛠️
+  image:
+    light: /images/blog/hetzner-with-coolify/screenshot-1-light.png
+    dark: /images/blog/hetzner-with-coolify/screenshot-1-dark.png
+    alt: Screenshot of the coolify.io dashboard
 devto:
 tags:
   - webdev
   - featured
 ---
-
-<figure
-  x-data="{
-    imageAlt: 'Screenshot of the coolify.io dashboard',
-    showImageOverlay: function (imageElem) {
-      // Use 'currentSrc' which reflects the current source in use by the browser
-      this.$dispatch('show-image-overlay', imageElem.currentSrc);
-    },
-  }"
-  class="group">
-  <button
-    @click="showImageOverlay($event.target)"
-    class="h-52 md:h-96 w-full"
-    >
-    <picture>
-      <source
-        media="(prefers-color-scheme: dark)"
-        srcset="/images/blog/hetzner-with-coolify/screenshot-1-dark.png">
-      <source
-        media="(prefers-color-scheme: light)"
-        srcset="/images/blog/hetzner-with-coolify/screenshot-1-light.png">
-      <img
-        src="/images/blog/hetzner-with-coolify/screenshot-1-light.png"
-        :alt="imageAlt"
-        width="100%"
-        class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0"
-        loading="eager">
-    </picture>
-    <figcaption
-      class="opacity-0 group-hover:opacity-100 transition-opacity text-white font-bold text-xs text-right -mt-10 mb-12 mr-8"
-      x-html="imageAlt"
-    ></figcaption>
-  </button>
-</figure>
 
 Experimenting with different hosts has been a pattern with this site. First GitHub Pages, then AWS EC2, then Netlify, then Surge.sh. More recently I set this site up with Vercel because I enjoy using their platform with Next.JS.
 

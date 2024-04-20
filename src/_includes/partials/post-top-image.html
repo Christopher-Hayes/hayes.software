@@ -1,0 +1,65 @@
+{% if intro.image.light %}
+  <figure x-data="{
+      showImageOverlay: function (imageElem) {
+        // Use 'currentSrc' which reflects the current source in use by the browser
+        this.$dispatch('show-image-overlay', imageElem.currentSrc);
+      },
+    }"
+    class="group">
+    <button @click="showImageOverlay($event.target)" class="h-52 md:h-96 w-full">
+      <picture>
+        {% if intro.image.dark %}
+          <source
+            media="(prefers-color-scheme: dark)"
+            srcset="{{ intro.image.dark }}"
+            {% if intro.image.alt.dark %}
+              alt="{{ intro.image.alt.dark }}"
+            {% endif %}
+            >
+        {% endif %}
+        {% if intro.image.light %}
+          <source
+            media="(prefers-color-scheme: light)"
+            srcset="{{ intro.image.light }}"
+            {% if intro.image.alt.light %}
+              alt="{{ intro.image.alt.light }}"
+            {% endif %}
+            >
+        {% endif %}
+        <img
+          {% if intro.image.light %}
+            src="{{ intro.image.light }}"
+          {% else %}
+            src="{{ intro.image.dark }}"
+          {% endif %}
+          {% if intro.image.alt.light %}
+            alt="{{ intro.image.alt.light }}"
+          {% elsif intro.image.alt.dark %}
+            alt="{{ intro.image.alt.dark }}"
+          {% else %}
+            alt="{{ intro.image.alt }}"
+          {% endif %}
+          width="100%"
+          class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0"
+          loading="eager">
+      </picture>
+      <figcaption
+        class="w-full text-sm text-black dark:text-white text-right -mt-4 -mb-2 pr-4"
+        >
+        <span class="hidden dark:block">
+          {% if intro.image.alt.dark %}
+            {{ intro.image.alt.dark }}
+          {% else %}
+            {{ intro.image.alt }}
+          {% endif %}
+        </span>
+        <span class="block dark:hidden">
+          {% if intro.image.alt.light %}
+            {{ intro.image.alt.light }}
+          {% else %}
+            {{ intro.image.alt }}
+          {% endif %}
+      </figcaption>
+    </button>
+  </figure>
+{% endif %}
