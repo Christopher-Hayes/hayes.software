@@ -12,16 +12,21 @@ intro:
     light: /images/blog/slug/screenshot-1-light.png
     dark: /images/blog/slug/screenshot-1-dark.png
     alt: Screenshot of something
+projectlink: https://example.com
+note: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 # Note when ai used to write post
 aiassist: This post was was written in part by <a href='https://chat.openai.com' target='_blank'>ChatGPT</a>.
 tags:
   - featured # Show on homepage
-#  - ai
-#  - automation
-#  - linux
+#  - vue
+#  - playcanvas
 #  - node
-#  - python
-#  - webdev
+#  - three
+#  - js
+#  - 11ty
+#  - alpine
+#  - tailwind
+
 ---
 
 Introduction paragraph goes here. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
