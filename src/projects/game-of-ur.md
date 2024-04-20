@@ -7,35 +7,14 @@ intro:
   title: "The Ancient Game of Ur"
   emoji: 🎲
   desc: "The classic Game of Ur recreated in the modern web."
+  image:
+    light: "/images/projects/game-of-ur/screenshot-1.png"
+    dark: "/images/projects/game-of-ur/screenshot-1.png"
+    alt: "Screenshot of the online Game of Ur"
 projectlink: https://early.games/
 date: 2019-04-06
 tags: [angular, three]
 ---
-
-<figure
-  x-data="{
-    imageSrc: '/images/projects/game-of-ur/screenshot-1.png',
-    imageAlt: 'Screenshot of the online Game of Ur',
-    showImageOverlay: function (imageElem) {
-      this.$dispatch('show-image-overlay', imageElem.src);
-    },
-  }">
-  <button
-    @click="showImageOverlay($event.target)"
-    class="group h-52 md:h-96 w-full"
-    >
-    <img
-      :src="imageSrc"
-      :alt="imageAlt"
-      width="100%"
-      class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity"
-      loading="eager">
-    <figcaption
-      class="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity text-black text-sm text-right -mt-10 mb-12 mr-8"
-      x-text="imageAlt"
-    ></figcaption>
-  </button>
-</figure>
 
 ## Bringing an ancient game to the modern web
 

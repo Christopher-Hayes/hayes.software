@@ -7,36 +7,15 @@ intro:
   title: "Cubefield with Three.JS"
   emoji: 🕹️
   desc: "Classic flash game, Cubefield, recreated with THREE.js"
+  image:
+    light: "/images/projects/cubefield-clone/screenshot-1.png"
+    dark: "/images/projects/cubefield-clone/screenshot-1.png"
+    alt: "Screenshot of the 3D Cubefield game scene"
 projectlink: https://christopher-hayes.github.io/cubefield/
 date: 2017-01-02
 tags: [three, js]
 note: "This project was developed in 2017 or earlier, so it may use Three.js methods that have since been updated or deprecated."
 ---
-
-<figure
-  x-data="{
-    imageSrc: '/images/projects/cubefield-clone/screenshot-1.png',
-    imageAlt: 'Screenshot of the 3D Cubefield game scene',
-    showImageOverlay: function (imageElem) {
-      this.$dispatch('show-image-overlay', imageElem.src);
-    },
-  }">
-  <button
-    @click="showImageOverlay($event.target)"
-    class="group h-52 md:h-96 w-full"
-    >
-    <img
-      :src="imageSrc"
-      :alt="imageAlt"
-      width="100%"
-      class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity"
-      loading="eager">
-    <figcaption
-      class="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity text-black text-sm text-right -mt-10 mb-12 mr-8"
-      x-text="imageAlt"
-    ></figcaption>
-  </button>
-</figure>
 
 ## Recreating a Classic: Cubefield in Three.JS
 

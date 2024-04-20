@@ -9,39 +9,18 @@ intro:
   title: Managing multiple node version.
   emoji: 📱
   desc: How to manage multiple node version.
+  image:
+    light: /images/blog/nvm/cgi-technology.jpg
+    dark: /images/blog/nvm/cgi-technology.jpg
+    alt: 'Credit: Unsplash'
 aiassist: This post was was written in part by <a href='https://beta.openai.com/playground' target='_blank'>GPT-3</a>.
 devto:
 tags:
   - node
 ---
 
-<figure
-  x-data="{
-    imageSrc: '/images/blog/nvm/cgi-technology.jpg',
-    imageAlt: 'Credit: <a class=\'opacity-60 hover:opacity-100\' href=\'https://www.cgi.com/en\' target=\'_blank\' rel=\'noopener\'>CGI</a>',
-    showImageOverlay: function (imageElem) {
-      this.$dispatch('show-image-overlay', imageElem.src);
-    },
-    }"
-  class="group">
-  <button
-    @click="showImageOverlay($event.target)"
-    class="h-52 md:h-96 w-full"
-    >
-    <img
-      :src="imageSrc"
-      :alt="imageAlt"
-      width="100%"
-      class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0"
-      loading="eager">
-    <figcaption
-      class="opacity-0 group-hover:opacity-100 transition-opacity text-white font-bold text-xs text-right -mt-10 mb-12 mr-8"
-      x-html="imageAlt"
-    ></figcaption>
-  </button>
-</figure>
-
 `nvm` stands for Node Version Manager and is a tool used to switch between different versions of Node.js. It's a great way to ensure that you are always running the latest version of Node.js, or to switch between different versions of Node.js for different projects.
+
 ## Installation
 
 To install `nvm`, you can use the following command:

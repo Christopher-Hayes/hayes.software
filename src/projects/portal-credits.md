@@ -7,35 +7,16 @@ intro:
   title: "Portal Ending Credits in JS"
   emoji: 🎶
   desc: "An in-depth look into how I recreated the Portal series ending credits with web technologies."
+  image:
+    light: "/images/projects/portal-credits/portal-2-screenshot.png"
+    dark: "/images/projects/portal-credits/portal-1-screenshot.png"
+    alt:
+      light: "Screenshot of the Portal 2 ending credits"
+      dark: "Screenshot of the Portal 1 ending credits"
 projectlink: https://christopher-hayes.github.io/portal-1-credits/portal-1-ending.html
 date: 2018-02-27
 tags: [js]
 ---
-
-<figure
-  x-data="{
-    imageSrc: '/images/projects/portal-credits/portal-1-screenshot.png',
-    imageAlt: 'Screenshot of the Portal 1 ending credits',
-    showImageOverlay: function (imageElem) {
-      this.$dispatch('show-image-overlay', imageElem.src);
-    },
-    }">
-  <button
-    @click="showImageOverlay($event.target)"
-    class="group h-52 md:h-96 w-full"
-    >
-    <img
-      :src="imageSrc"
-      :alt="imageAlt"
-      width="100%"
-      class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity"
-      loading="eager">
-    <figcaption
-      class="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity text-white font-bold text-xs text-right -mt-10 mb-12 mr-8"
-      x-text="imageAlt"
-    ></figcaption>
-  </button>
-</figure>
 
 ## Recreating the Portal Credits in the Web
 

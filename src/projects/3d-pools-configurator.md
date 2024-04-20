@@ -7,36 +7,15 @@ intro:
   title: My experience building the Endless Pools 3D pool configurator
   emoji: 🏊‍♂️
   desc: "An interactive 3d product configurator for endless pools, blending Vue.js and PlayCanvas3D."
+  image:
+    light: /images/projects/3d-pools-configurator/screenshot-1.webp
+    dark: /images/projects/3d-pools-configurator/screenshot-1.webp
+    alt: "Screenshot of the Endless Pools 3D Product Configurator"
 projectlink: https://www.endlesspools.com/build
 date: 2020-10-15
 tags: [vue, playcanvas, featured]
 aiassist: In the process of writing this post, <a href='https://chat.openai.com' target='_blank'>ChatGPT</a> was used to help verbalize my stream of consciousness. If some parts sound a little fancy, that would be why.
 ---
-
-<figure
-  x-data="{
-    imageSrc: '/images/projects/3d-pools-configurator/screenshot-1.webp',
-    imageAlt: 'Screenshot of the Endless Pools 3D Product Configurator',
-    showImageOverlay: function (imageElem) {
-      this.$dispatch('show-image-overlay', imageElem.src);
-    },
-  }">
-  <button
-    @click="showImageOverlay($event.target)"
-    class="group h-52 md:h-96 w-full"
-    >
-    <img
-      :src="imageSrc"
-      :alt="imageAlt"
-      width="100%"
-      class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity"
-      loading="eager">
-    <figcaption
-      class="w-full text-sm text-black dark:text-white text-right mt-2 -mb-2 pr-4"
-      x-text="imageAlt"
-    ></figcaption>
-  </button>
-</figure>
 
 ## Bringing Endless Pools to Life in 3D
 

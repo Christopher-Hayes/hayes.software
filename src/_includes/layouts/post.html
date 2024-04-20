@@ -212,7 +212,10 @@
         </div>
       </div>
     </header>
-    <section class="min-w-full prose prose-lg dark:prose-invert">{{ content }}</section>
+    <section class="min-w-full prose prose-lg dark:prose-invert">
+      {% include "partials/post-top-image.html" %}
+      {{ content }}
+    </section>
     <div
       id="image-overlay"
       x-data="{
