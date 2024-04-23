@@ -31,6 +31,8 @@ tags:
     <img
       :src="imageSrc"
       :alt="imageAlt"
+      src="/images/blog/partition-backup/3d-data-backup.webp"
+      alt="Credit: Brecht Corbeel"
       width="100%"
       class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0"
       loading="eager">

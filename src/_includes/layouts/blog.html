@@ -51,6 +51,7 @@
       <div
         class="flex flex-wrap gap-2"
         x-show="showAllTags"
+        x-cloak
         >
         {% assign tagList = collections | postTags %}
         {%- for tag in tagList -%}

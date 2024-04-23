@@ -35,7 +35,7 @@ Naturally, I want it to be MORE REALISTIC, so maybe when I'm next learning WebGP
 <figure
   x-data="{
     imageSrc: '/images/projects/portal-credits/portal-2-screenshot.png',
-    imageAlt: 'Screenshot of the Portal 2 ending credits',
+    imageAlt: 'A screenshot of the Portal 2 ending credits',
     showImageOverlay: function (imageElem) {
       this.$dispatch('show-image-overlay', imageElem.src);
     },
@@ -47,6 +47,8 @@ Naturally, I want it to be MORE REALISTIC, so maybe when I'm next learning WebGP
     <img
       :src="imageSrc"
       :alt="imageAlt"
+      src="/images/projects/portal-credits/portal-2-screenshot.png"
+      alt="A screenshot of the Portal 2 ending credits."
       width="100%"
       class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity"
       loading="lazy">

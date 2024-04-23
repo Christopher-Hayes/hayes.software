@@ -30,6 +30,8 @@ tags:
     <img
       :src="imageSrc"
       :alt="imageAlt"
+      src="/images/blog/wikiped-ai/wordtune-light.png"
+      alt="WordTune summary in Wikipedia"
       width="100%"
       class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity group-hover:opacity-50 group-focus:opacity-50"
       loading="eager">
@@ -63,6 +65,8 @@ Wikipedia's default user interface (UI) can be plain and unappealing. Luckily, t
     <img
       :src="imageSrc"
       :alt="imageAlt"
+      src="/images/blog/wikiped-ai/wordtune.png"
+      alt="WordTune summary in Wikipedia"
       width="100%"
       class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity group-hover:opacity-50 group-focus:opacity-50"
       loading="lazy">

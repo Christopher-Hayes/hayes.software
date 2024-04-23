@@ -1,0 +1,45 @@
+<!--
+  TODO: Get this working. Right now I can't just include this liquid partial
+  from a markdown file because it's not being processed by Eleventy.
+
+  Need to set something up with the markdown parser to render images
+  in a specific way.
+-->
+
+{% if image %}
+  <figure x-data="{
+      showImageOverlay: function (imageElem) {
+        // Use 'currentSrc' which reflects the current source in use by the browser
+        this.$dispatch('show-image-overlay', imageElem.currentSrc);
+      },
+    }"
+    class="group">
+    <button @click="showImageOverlay($event.target)" class="h-52 md:h-96 w-full">
+      <picture>
+        <source
+          srcset="{{ image }}"
+          {% if alt %}
+            alt="{{ alt }}"
+          {% endif %}
+          >
+        <img
+          {% if image %}
+            src="{{ image }}"
+          {% endif %}
+          {% if alt %}
+            alt="{{ alt }}"
+          {% endif %}
+          width="100%"
+          class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0"
+          loading="eager">
+      </picture>
+      <figcaption
+        class="w-full text-sm text-black dark:text-white text-right -mt-4 -mb-2 pr-4"
+        >
+        {% if alt %}
+          {{ alt }}
+        {% endif %}
+      </figcaption>
+    </button>
+  </figure>
+{% endif %}
