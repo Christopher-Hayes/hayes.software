@@ -30,9 +30,20 @@
       When page is scrolled down, show anyway to avoid a late pop-in.
     -->
     <header
-      class="post-header z-10 top-16 md:top-[5.5rem] flex gap-4 max-w-2xl mx-auto px-4 pt-8 pb-6 md:pt-8 md:pb-8 mt-12 mb-12 font-bold leading-8 text-secondary dark:text-fg bg-fg-light dark:bg-bg bg-opacity-80 dark:bg-opacity-80 backdrop-blur rounded-b-xl"
-      x-init="if (window.scrollY > 50) { $el.classList.add('sticky') } else { setTimeout(() => { $el.classList.add('sticky') }, 400) }"
-    >
+      class="post-header sticky z-10 top-16 md:top-[5.5rem] flex gap-4 max-w-2xl mx-auto px-4 pt-8 pb-6 md:pt-8 md:pb-8 mt-12 mb-12 font-bold leading-8 text-secondary dark:text-fg bg-fg-light dark:bg-bg bg-opacity-80 dark:bg-opacity-80 backdrop-blur rounded-b-xl"
+      x-init="
+      // If javascript disabled, we want sticky on by default
+      // But load behavior is not great with sticky, so if javascript is enabled
+      // we remove it immediately.
+      $el.classList.remove('sticky')
+      if (window.scrollY > 50) {
+        $el.classList.add('sticky')
+      } else {
+        setTimeout(() => {
+          $el.classList.add('sticky')
+        }, 400)
+      }
+      ">
       <p
         class="post-emo flex h-16 w-16 items-center justify-center text-5xl leading-none"
       >

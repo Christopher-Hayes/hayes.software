@@ -27,7 +27,7 @@ PlayCanvas3D won our favor with its robust scene editor and superior physically 
 <figure
   x-data="{
     imageSrc: '/images/projects/3d-pools-configurator/screenshot-2.webp',
-    imageAlt: 'Another screenshot, this time inside and with a resizeabl pool',
+    imageAlt: 'Another screenshot, this time inside and with a resizeable pool.',
     showImageOverlay: function (imageElem) {
       this.$dispatch('show-image-overlay', imageElem.src);
     },
@@ -39,6 +39,8 @@ PlayCanvas3D won our favor with its robust scene editor and superior physically 
     <img
       :src="imageSrc"
       :alt="imageAlt"
+      src="/images/projects/3d-pools-configurator/screenshot-2.webp"
+      alt="Another screenshot, this time inside and with a resizeable pool."
       width="100%"
       class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity"
       loading="lazy">
@@ -70,6 +72,8 @@ The development screenshot below shows the result of building a dynamic cubemap 
     <img
       :src="imageSrc"
       :alt="imageAlt"
+      src="/images/projects/3d-pools-configurator/screenshot-4.webp"
+      alt="A screenshot from when the dynamic cubemap lighting system was getting built."
       width="100%"
       class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity"
       loading="lazy">
@@ -101,6 +105,8 @@ Moreover, by judiciously controlling render cycles—suspending frame rendering 
     <img
       :src="imageSrc"
       :alt="imageAlt"
+      src="/images/projects/3d-pools-configurator/screenshot-3.webp"
+      alt="Screenshot of the Endless Pools 3D Product Configurator"
       width="100%"
       class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity"
       loading="lazy">
@@ -162,6 +168,8 @@ If you're planning to work with PlayCanvas3D, use the forum!
     <img
       :src="imageSrc"
       :alt="imageAlt"
+      src="/images/projects/3d-pools-configurator/screenshot-5.webp"
+      alt="Screenshot of my forum profile, 195 days on there and 5,000 posts read, the forum was my bible."
       width="100%"
       class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity"
       loading="lazy">

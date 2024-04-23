@@ -2,45 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-/* View Animation API */
-:root {
-	--transition-direction: 1;
-}
-::view-transition-old(root),
-::view-transition-new(root) {
-	animation: none;
-}
-#main-content-wrapper {
-	/* view-transition-name: main-content-wrapper; */
-}
-@keyframes view-out {
-	0% {
-		opacity: 1;
-		transform: translate3d(0, 0, 0);
-	}
-	100% {
-		opacity: 0;
-		transform: translate3d(0, calc(var(--transition-direction) * -60px), 0);
-	}
-}
-@keyframes view-in {
-	0% {
-		opacity: 0;
-		transform: translate3d(0, calc(var(--transition-direction) * 60px), 0);
-	}
-	100% {
-		opacity: 1;
-		transform: translate3d(0, 0, 0);
-	}
-}
-::view-transition-old(main-content-wrapper) {
-	animation: 120ms ease-in-out both view-out;
-}
-::view-transition-new(main-content-wrapper) {
-	animation: 120ms ease-in-out both view-in;
+/*
+Alpine feature that allows you to hide elements until Alpine is ready.
+Used for FOUC and to hide elements that require JavaScript to function.
+*/
+[x-cloak] {
+	display: none !important;
 }
 
-/* mobile only */
+/* (NEW) View Animation API */
+@supports (view-transition-name: new-name) {
+	:root {
+		--transition-direction: 1;
+	}
+	
+	::view-transition-old(root),
+	::view-transition-new(root) {
+		animation: none;
+	}
+	
+	::view-transition-old(main-content-wrapper) {
+		animation: 120ms ease-in-out both view-out;
+	}
+	::view-transition-new(main-content-wrapper) {
+		animation: 120ms ease-in-out both view-in;
+	}
+	
+	@keyframes view-out {
+		0% {
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+		}
+		100% {
+			opacity: 0;
+			transform: translate3d(0, calc(var(--transition-direction) * -60px), 0);
+		}
+	}
+	@keyframes view-in {
+		0% {
+			opacity: 0;
+			transform: translate3d(0, calc(var(--transition-direction) * 60px), 0);
+		}
+		100% {
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+		}
+	}
+}
+
+/*
+Post header transitions on mobile (the header changes when you scroll)
+*/
 @media (max-width: 1023px) {
 	.post-header .post-emo {
 		transition: max-width 300ms ease-out, opacity 300ms ease-out;
@@ -50,30 +62,28 @@
 	}
 }
 
-/* custom scrollbar */
-@media (min-width: 1024px) {
-	/* left border on the body added to balance the scrollbar because
-	the transitions felt jumpy when some pages had a scrollbar and some didn't */
-	body {
-		@apply md:border-l-[16px] border-fg border-opacity-40 dark:border-[#0A0814];
-		/* show scrollbar always to simplify the above */
-		overflow-y: scroll;
-	}
-	/* Custom scrollbar styling for Safari */
-	::-webkit-scrollbar {
-			@apply w-4 fixed right-0 top-0 border-2 dark:border-primary border-fg dark:border-opacity-60;
-	}
-	::-webkit-scrollbar-thumb {
+/* customize scrollbar for browsers that support WebKit scrollbar */
+@supports selector(::-webkit-scrollbar) {
+	@media (min-width: 1024px) {
+		::-webkit-scrollbar {
+			@apply w-4 border-2 dark:border-primary border-fg dark:border-opacity-60;
+		}
+		::-webkit-scrollbar-thumb {
 			@apply bg-fg-dark dark:bg-primary dark:bg-opacity-60 cursor-pointer;
-	}
-	::-webkit-scrollbar-track {
+		}
+		::-webkit-scrollbar-track {
 			@apply px-1 bg-fg bg-opacity-40 dark:bg-bg-dark dark:bg-opacity-70;
+		}
 	}
+}
 
-	/* Custom scrollbar styling for Chrome and Firefox */
+/* customize scrollbar for browsers that support the CSS scrollbar properties */
+@media (min-width: 1024px) {
 	* {
 		scrollbar-width: thick;
 		scrollbar-color: #17b0ed #e7f8ff;
+		/* Avoid jumps in layout from scrollbar showing or disappearing. */
+		scrollbar-gutter: stable both-edges;
 	}
 	@media (prefers-color-scheme: dark) {
 		* {
@@ -84,21 +94,21 @@
 
 /* Tailwind prose customization */
 .prose a {
-  @apply underline font-bold;
+	@apply underline font-bold;
 }
 
 .prose a:hover, .prose a:focus {
-  @apply text-fg-dark dark:text-fg;
+	@apply text-fg-dark dark:text-fg;
 }
 
 .prose ol li::marker{
-  @apply font-bold;
+	@apply font-bold;
 }
 
 .prose li,
 .prose p,
 .prose span {
-  @apply break-words;
+	@apply break-words;
 }
 
 /* only on desktop */
@@ -113,13 +123,17 @@ h1, h2, h3, h4, h5, h6, p {
 	text-wrap: pretty;
 }
 
-/* Speedlify styles */
+/*
+Speedlify styles
+(shamelessly copied from the Speedlify package)
+This was needed to fix a11y issues due to the background color.
+*/
 .speedlify {
 	--_circle: var(--speedlify-circle);
 	--speedlify-green: #0cce6b;
 }
 .speedlify a {
-  @apply dark:text-white;
+	@apply dark:text-white;
 }
 .speedlify .circle {
 	font-size: 0.8125em; /* 13px /16 */
@@ -134,19 +148,19 @@ h1, h2, h3, h4, h5, h6, p {
 	color: var(--_circle, #666);
 }
 .speedlify .circle-good {
-  @apply text-speedlify-light-good dark:text-speedlify-dark-good border-current;
+	@apply text-speedlify-light-good dark:text-speedlify-dark-good border-current;
 }
 .speedlify .circle-ok {
-  @apply text-speedlify-light-ok dark:text-speedlify-dark-ok border-current;
+	@apply text-speedlify-light-ok dark:text-speedlify-dark-ok border-current;
 }
 .speedlify .circle-bad {
-  @apply text-speedlify-light-bad dark:text-speedlify-dark-bad border-current;
+	@apply text-speedlify-light-bad dark:text-speedlify-dark-bad border-current;
 }
 .speedlify .meta {
-  @apply flex items-center gap-2;
+	@apply flex items-center gap-2;
 }
 .speedlify .circle + .meta {
-  @apply ml-1;
+	@apply ml-1;
 }
 .speedlify .rank:before {
 	content: "Rank #";
@@ -155,18 +169,18 @@ h1, h2, h3, h4, h5, h6, p {
 	line-height: 1;
 }
 .speedlify .rank-change.up {
-  @apply text-speedlify-light-good dark:text-speedlify-dark-good;
+	@apply text-speedlify-light-good dark:text-speedlify-dark-good;
 }
 .speedlify .rank-change.up:before {
-  @apply text-xl;
-
+	@apply text-xl;
+	
 	content: "⬆";
 }
 .speedlify .rank-change.down {
-  @apply text-alert-error dark:text-red-500;
+	@apply text-alert-error dark:text-red-500;
 }
 .speedlify .rank-change.down:before {
-  @apply text-xl;
-
+	@apply text-xl;
+	
 	content: "⬇";
 }

@@ -75,7 +75,7 @@ const setupPage = () => {
       window.showFullPostHeader = true
       const scrollListen = window.addEventListener(
         'scroll',
-        async () => {
+        () => {
           const y = window.scrollY
 
           if (y > 200 && !window.showFullPostHeader) {
@@ -283,7 +283,7 @@ const run = async () => {
   // Check that service workers are supported
   if ('serviceWorker' in navigator && import.meta.env.PROD) {
     try {
-      navigator.serviceWorker.register('/sw.js')
+      await navigator.serviceWorker.register('/sw.js')
     } catch (error) {
       console.error('Service worker registration failed: ', error)
     }
@@ -292,7 +292,7 @@ const run = async () => {
   // Add a navigation listener to the document
   // If the user clicks on an internal link, then load the page via XHR
   // and then update the page content in #main-content
-  document.addEventListener('click', async (event) => {
+  document.addEventListener('click', (event) => {
     const target = event.target
 
     // Determine if the user clicked on a link
@@ -315,7 +315,7 @@ const run = async () => {
   })
 
   // Load page if the user navigates back or forward
-  window.addEventListener('popstate', async (event) => {
+  window.addEventListener('popstate', (event) => {
     showPage(new URL(window.location), { reverse: true, forget: true, event })
   })
 

@@ -45,6 +45,7 @@
       <div
         class="flex flex-wrap gap-2"
         x-show="showAllTags"
+        x-cloak
         >
         {% assign tagList = collections | projectTags %}
         {%- for tag in tagList -%}
@@ -98,12 +99,10 @@
               <p class="text-base">{{ post.data.description }}</p>
             </header>
 
-            <!-- tags -->
-            <!-- <p class="mt-2 text-sm opacity-50">{{ post.date | date: "%B %d, %Y" }}</p> -->
-            <ul class="mt-2 text-sm opacity-70">
-              <!-- {% for tag in post.data.tags %}
-                <li class="inline-block mr-2">{{ tag }}</li>
-              {% endfor %} -->
+            <!-- card tags -->
+            <ul
+              class="mt-2 text-sm opacity-70"
+              >
               <!-- show a special tag for each tech stack -->
               {% for tag in post.data.tags %}
                 {% if tag == 'react' %}
