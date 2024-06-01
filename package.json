@@ -92,7 +92,7 @@
     "@alpinejs/collapse": "^3.10.5",
     "@alpinejs/focus": "^3.10.5",
     "alpinejs": "^3.10.5",
-    "core-js": "^3.26.1",
+    "core-js": "^3.37.1",
     "dotenv": "^16.0.3"
   }
 }
