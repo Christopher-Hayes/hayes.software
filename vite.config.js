@@ -64,8 +64,9 @@ export default defineConfig({
       // Enable service worker for offline caching and faster repeat visits
       workbox: {
         // Precache important assets for instant loading
+        // html purposefully omitted - caching issues
         globPatterns: [
-          '**/*.{js,css,html,ico,png,jpg,jpeg,webp,webm,svg,mp3,ttf,woff,woff2}',
+          '**/*.{js,css,ico,png,jpg,jpeg,webp,webm,svg,mp3,ttf,woff,woff2}',
         ],
         maximumFileSizeToCacheInBytes: 25097152,
       },
