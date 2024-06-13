@@ -60,13 +60,18 @@ export default defineConfig({
   plugins: [
     VitePWA({
       registerType: 'autoUpdate',
+      injectRegister: 'auto',
       // Enable service worker for offline caching and faster repeat visits
       workbox: {
         // Precache important assets for instant loading
-        globPatterns: ['**/*.{js,css,html,ico,png,jpg,webp,svg}'],
+        globPatterns: [
+          '**/*.{js,css,html,ico,png,jpg,jpeg,webp,webm,svg,mp3,ttf,woff,woff2}',
+        ],
+        maximumFileSizeToCacheInBytes: 25097152,
       },
       includeAssets: ['favicon.ico', 'robots.txt'],
       manifest: {
+        id: 'https://hayes.software/',
         name: 'hayes.software',
         short_name: 'hayes.software',
         description: 'hayes.software - A dev blog by Chris Hayes',

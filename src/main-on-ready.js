@@ -283,7 +283,9 @@ const run = async () => {
   // Check that service workers are supported
   if ('serviceWorker' in navigator && import.meta.env.PROD) {
     try {
-      await navigator.serviceWorker.register('/sw.js')
+      await navigator.serviceWorker.register('/sw.js', {
+        immediate: true, // Reload the page automatically after update was downloaded
+      })
     } catch (error) {
       console.error('Service worker registration failed: ', error)
     }
