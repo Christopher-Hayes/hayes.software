@@ -1,7 +1,7 @@
 {
   "name": "hayes-software",
   "description": "Personal site for Chris Hayes running 11ty",
-  "version": "1.9.18",
+  "version": "1.9.19",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -63,6 +63,7 @@
     "axios": "^1.2.0",
     "browserslist": "^4.21.4",
     "cross-env": "^7.0.3",
+    "eleventy-auto-cache-buster": "^0.3.0",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-compat": "^4.0.0",

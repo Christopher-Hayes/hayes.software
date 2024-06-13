@@ -1,7 +1,11 @@
 const { getSpeedlifyComponent } = require('./src/speedlify.js')
 const fs = require('fs')
+const eleventyAutoCacheBuster = require("eleventy-auto-cache-buster");
+
 
 module.exports = function (config) {
+  config.addPlugin(eleventyAutoCacheBuster);
+
   if (fs.existsSync('_site')) {
     fs.rmdirSync('_site/', { recursive: true })
   }
