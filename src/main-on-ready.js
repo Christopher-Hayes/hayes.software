@@ -283,8 +283,16 @@ const run = async () => {
   // Check that service workers are supported
   if ('serviceWorker' in navigator && import.meta.env.PROD) {
     try {
-      await navigator.serviceWorker.register('/sw.js', {
-        immediate: true, // Reload the page automatically after update was downloaded
+      const registration = await navigator.serviceWorker.register('/sw.js', {
+        immediate: true,
+      })
+
+      if (registration.waiting) {
+        registration.waiting.postMessage({ type: 'SKIP_WAITING' })
+      }
+
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        window.location.reload()
       })
     } catch (error) {
       console.error('Service worker registration failed: ', error)
