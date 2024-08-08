@@ -175,7 +175,7 @@ const showPage = async (link, { event, reverse, forget }) => {
       if (!document.startViewTransition) {
         console.warn('View Transition API not supported')
         const { newDocument, newContent } = await downloadNewPage()
-        swapContent(newContent, newDocument)
+        await swapContent(newContent, newDocument)
       } else {
         // set the direction of the transition
         const isTopLevelPage = ['/', '/blog/', '/projects/'].includes(
@@ -217,6 +217,11 @@ const showPage = async (link, { event, reverse, forget }) => {
             }
           }, 500)
         }
+      }
+
+      // If a blog page or project page is loaded, rebuild comment section.
+      if (document.querySelector('comment-section')) {
+        window.initUtterances()
       }
     }
   }
@@ -334,6 +339,9 @@ const run = async () => {
       window?.pageYOffset ?? document.documentElement?.scrollTop ?? 0
     history.replaceState({ scrollPosition: scrollPosition }, '')
   }
+
+  // Init the comment section
+  import('./utterances.min.js')
 }
 
 export { run }

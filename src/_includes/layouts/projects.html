@@ -40,12 +40,11 @@
       <p class="flex items-center w-16 h-16 text-5xl leading-none">{{ intro.emoji }}</p>
       <p class="text-xl md:text-2xl self-center pt-1">{{ intro.desc }}</p>
     </div>
-    <header class="mb-4 flex flex-col md:flex-row gap-4 text-white">
+    <header class="mb-4 flex flex-col md:flex-row gap-4 text-white min-h-[28px]">
       <!-- ALL TAGS -->
       <div
         class="flex flex-wrap gap-2"
         x-show="showAllTags"
-        x-cloak
         >
         {% assign tagList = collections | projectTags %}
         {%- for tag in tagList -%}

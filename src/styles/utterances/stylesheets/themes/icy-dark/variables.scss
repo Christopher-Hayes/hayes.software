@@ -1,0 +1,41 @@
+// Default light theme variables
+$gray-000: transparent;
+$gray-100: #051a1d;
+$gray-200: #0a3238;
+$gray-300: #10444d;
+$gray-400: #18606d;
+$gray-600: #278a97;
+$gray-700: #39a9b8;
+$bg-white: #ffffff;
+$bg-gray: #f0f0f0;
+$bg-gray-light: darken($bg-gray, 5%);
+$border-gray: $gray-300;
+$border-gray-dark: $border-gray;
+$text-gray: #000;
+$text-gray-dark: #000;
+$text-blue: rgb(38, 208, 231);
+$bg-blue-light: #d9f7fc;
+$black-fade-15: rgba(#000, 0.15);
+$black-fade-30: rgba(#000, 0.3);
+
+// Dark theme variables
+@media (prefers-color-scheme: dark) {
+  $gray-000: transparent;
+  $gray-100: #051a1d;
+  $gray-200: #0a3238;
+  $gray-300: #10444d;
+  $gray-400: #18606d;
+  $gray-600: #278a97;
+  $gray-700: #39a9b8;
+  $bg-white: transparent;
+  $bg-gray: transparent;
+  $bg-gray-light: darken($bg-gray, 5%);
+  $border-gray: $gray-300;
+  $border-gray-dark: $border-gray;
+  $text-gray: #fff;
+  $text-gray-dark: #fff;
+  $text-blue: rgb(38, 208, 231);
+  $bg-blue-light: #182c30;
+  $black-fade-15: rgba(#fff, 0.15);
+  $black-fade-30: rgba(#fff, 0.3);
+}

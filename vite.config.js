@@ -3,6 +3,65 @@ import { VitePWA } from 'vite-plugin-pwa'
 const fs = require('fs')
 const { resolve } = require('path')
 import { createHtmlPlugin } from 'vite-plugin-html'
+import sass from 'sass'
+
+// A vite plugin for utterances' scss theme
+function vitePluginForUtterances() {
+  return {
+    name: 'vite-plugin-sass',
+    handleHotUpdate({ file, server }) {
+      if (file.endsWith('.scss')) {
+        server.ws.send({
+          type: 'full-reload',
+        })
+      }
+    },
+    transform(src, id) {
+      if (id.endsWith('.scss')) {
+        const result = sass.renderSync({
+          file: resolve(
+            __dirname,
+            'src/styles/utterances/stylesheets/themes/icy-dark',
+            'index.scss',
+          ),
+          includePaths: [resolve(__dirname, 'node_modules')],
+          outFile: resolve(
+            __dirname,
+            'src',
+            'public',
+            'stylesheets',
+            'themes',
+            'icy-dark',
+            'utterances.css',
+          ),
+        })
+        return {
+          code: result.css.toString(),
+          map: result.map?.toString(),
+        }
+      }
+    },
+    buildEnd() {
+      sass.renderSync({
+        file: resolve(
+          __dirname,
+          'src/styles/utterances/stylesheets/themes/icy-dark',
+          'index.scss',
+        ),
+        includePaths: [resolve(__dirname, 'node_modules')],
+        outFile: resolve(
+          __dirname,
+          'src',
+          'public',
+          'stylesheets',
+          'themes',
+          'icy-dark',
+          'utterances.css',
+        ),
+      })
+    },
+  }
+}
 
 const getPosts = () => {
   if (fs.existsSync('_site')) {
@@ -58,6 +117,7 @@ export default defineConfig({
     emptyOutDir: true,
   },
   plugins: [
+    vitePluginForUtterances(),
     VitePWA({
       registerType: 'autoUpdate',
       injectRegister: 'auto',
