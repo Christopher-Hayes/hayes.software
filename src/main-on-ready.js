@@ -341,7 +341,7 @@ const run = async () => {
   }
 
   // Init the comment section
-  import('./utterances.min.js')
+  import('./setup-utterances.js')
 }
 
 export { run }
