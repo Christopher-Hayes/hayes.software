@@ -79,6 +79,7 @@
     "prettier": "^2.8.0",
     "prettier-plugin-tailwindcss": "^0.2.0",
     "rimraf": "^3.0.2",
+    "sass": "^1.77.6",
     "stylelint": "^14.15.0",
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-standard": "^29.0.0",
@@ -92,8 +93,11 @@
   "dependencies": {
     "@alpinejs/collapse": "^3.10.5",
     "@alpinejs/focus": "^3.10.5",
+    "@primer/css": "^21.3.3",
     "alpinejs": "^3.10.5",
     "core-js": "^3.26.1",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "github-syntax-dark": "^0.5.0",
+    "github-syntax-light": "^0.5.0"
   }
 }
