@@ -1,3 +1,4 @@
+const API_SERVER = 'https://comment.hayes.software'
 var e = /^([\w-_]+)\/([\w-_.]+)$/i
 const t = (function () {
     const t = Object.fromEntries(new URL(location.href).searchParams)
@@ -38,7 +39,7 @@ const t = (function () {
   })(),
   n = { value: null }
 function s(e) {
-  return `https://api.utteranc.es/authorize?${new URLSearchParams({
+  return `${API_SERVER}/authorize?${new URLSearchParams({
     redirect_uri: e,
   })}`
 }
@@ -622,7 +623,7 @@ function H() {
     await (async function () {
       if (n.value) return n.value
       if (!t.session) return null
-      const e = await fetch('https://api.utteranc.es/token', {
+      const e = await fetch(`${API_SERVER}/token`, {
         method: 'POST',
         mode: 'cors',
         credentials: 'include',
@@ -719,7 +720,7 @@ function H() {
       })(),
         e ||
           ((e = await (function (e, t, s, r, a) {
-            const l = `https://api.utteranc.es/repos/${i}/${o}/issues${
+            const l = `${API_SERVER}/repos/${i}/${o}/issues${
                 a ? `?label=${encodeURIComponent(a)}` : ''
               }`,
               c = new Request(l, {
@@ -770,4 +771,3 @@ function H() {
         ),
       b()
   })
-//# sourceMappingURL=utterances.6ec01640.js.map
