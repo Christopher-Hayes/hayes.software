@@ -15,7 +15,6 @@ intro:
 devto:
 tags:
   - webdev
-  - featured
 ---
 
 Experimenting with different hosts has been a pattern with this site. First GitHub Pages, then AWS EC2, then Netlify, then Surge.sh. More recently I set this site up with Vercel because I enjoy using their platform with Next.JS.

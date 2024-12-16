@@ -23,7 +23,6 @@ In 2020, I took on the illuminating challenge of crafting a [3D product configur
 
 PlayCanvas3D won our favor with its robust scene editor and superior physically based rendering (PBR) capabilities at the time. The configurator not only showcases various pool options but also permits users to adorn their chosen pools with accessories, toggle water display, and adjust dimensions and depths on select models – all in real-time 3D.
 
-
 <figure
   x-data="{
     imageSrc: '/images/projects/3d-pools-configurator/screenshot-2.webp',
