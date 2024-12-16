@@ -8,6 +8,30 @@ import.meta.env.DEV && import('./styles/main.css')
 //   run()
 // })
 
+// Service Worker
+async function createSW() {
+  // Check that service workers are supported
+  if ('serviceWorker' in navigator && import.meta.env.PROD) {
+    try {
+      const registration = await navigator.serviceWorker.register('/sw.js', {
+        immediate: true,
+      })
+
+      if (registration.waiting) {
+        registration.waiting.postMessage({ type: 'SKIP_WAITING' })
+      }
+
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        window.location.reload()
+      })
+    } catch (error) {
+      console.error('Service worker registration failed: ', error)
+    }
+  }
+}
+
+createSW()
+
 const runDeferredScripts = async () => {
   // Dynamic import after page load
   const run = (await import('../src/main-on-ready.js')).run

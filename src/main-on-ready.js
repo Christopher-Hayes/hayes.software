@@ -285,25 +285,6 @@ const run = async () => {
 
   window.loadAlpine()
 
-  // Check that service workers are supported
-  if ('serviceWorker' in navigator && import.meta.env.PROD) {
-    try {
-      const registration = await navigator.serviceWorker.register('/sw.js', {
-        immediate: true,
-      })
-
-      if (registration.waiting) {
-        registration.waiting.postMessage({ type: 'SKIP_WAITING' })
-      }
-
-      navigator.serviceWorker.addEventListener('controllerchange', () => {
-        window.location.reload()
-      })
-    } catch (error) {
-      console.error('Service worker registration failed: ', error)
-    }
-  }
-
   // Add a navigation listener to the document
   // If the user clicks on an internal link, then load the page via XHR
   // and then update the page content in #main-content
@@ -334,13 +315,24 @@ const run = async () => {
     showPage(new URL(window.location), { reverse: true, forget: true, event })
   })
 
-  window.onscroll = function () {
+  const debounce = (func, delay) => {
+    let timeoutId
+    return (...args) => {
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => func(...args), delay)
+    }
+  }
+
+  const handleScroll = debounce(() => {
     const scrollPosition =
       window?.pageYOffset ?? document.documentElement?.scrollTop ?? 0
     history.replaceState({ scrollPosition: scrollPosition }, '')
-  }
+  }, 200)
+
+  window.addEventListener('scroll', handleScroll, { passive: true })
 
   // Init the comment section
+  console.log('initUtterances')
   import('./setup-utterances.js')
 }
 
