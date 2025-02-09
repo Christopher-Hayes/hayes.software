@@ -6,7 +6,7 @@ meta:
 intro:
   title: Chris Hayes
   emoji: 👋
-  desc: I'm Chris Hayes, a creative frontend web developer.
+  desc: I'm Chris Hayes, a creative, freelance web developer.
 ---
 
 ## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">whoami</span>
@@ -21,11 +21,11 @@ intro:
 
 ## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">social</span>
 
-<a rel="me" href="https://fosstodon.org/@chris_hayes">🐘 fosstodon</a> - [📸 pixelfed](https://pixelfed.social/chris-hayes) - [🐉 bookwyrm](https://bookwyrm.social/user/chris-hayes)
+<a rel="me" href="https://fosstodon.org/@chris_hayes">🐘 fosstodon</a> - <a href="https://pixelfed.social/chris-hayes" rel="me">📸 pixelfed</a> - <a href="https://bookwyrm.social/user/chris-hayes" rel="me">🐉 bookwyrm</a>
 
 ## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">projects</span>
 
-I wrote about a few hobby projects in [💻 projects](/projects/). Most are on my [🐙 github](https://github.com/christopher-hayes).
+I wrote about a few hobby projects in [💻 projects](/projects/). Most are on my <a href="https://github.com/Christopher-Hayes" rel="me">🐙 github</a>.
 
 ## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">hayes.software</span>
 
