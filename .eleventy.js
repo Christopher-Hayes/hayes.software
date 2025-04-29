@@ -1,6 +1,7 @@
 const { getSpeedlifyComponent } = require('./src/speedlify.js')
 const fs = require('fs')
 const eleventyAutoCacheBuster = require("eleventy-auto-cache-buster");
+const filters = require('./.eleventy-filters.js')
 
 
 module.exports = function (config) {
@@ -42,6 +43,11 @@ module.exports = function (config) {
     tagList.sort((a, b) => b.count - a.count)
 
     return tagList
+  })
+  
+  // Additional filters
+  Object.keys(filters).forEach(filterName => {
+    config.addFilter(filterName, filters[filterName])
   })
 
   // Static assets to pass through

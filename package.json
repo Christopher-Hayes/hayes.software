@@ -28,6 +28,14 @@
     "*.css": "stylelint --cache --fix",
     "*.js": "eslint --cache --fix"
   },
+  "packageManager": "yarn@1.22.22",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "cacheDirectories": [
+    "node_modules/.cache",
+    "_cache"
+  ],
   "scripts": {
     "clean": "rimraf _site",
     "prepare": "npx husky install",
@@ -93,6 +101,7 @@
   "dependencies": {
     "@alpinejs/collapse": "^3.10.5",
     "@alpinejs/focus": "^3.10.5",
+    "@js-temporal/polyfill": "^0.4.4",
     "@primer/css": "^21.3.3",
     "alpinejs": "^3.10.5",
     "core-js": "^3.26.1",
