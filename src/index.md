@@ -21,7 +21,7 @@ intro:
 
 ## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">social</span>
 
-<a rel="me" href="https://fosstodon.org/@chris_hayes">🐘 fosstodon</a> - <a href="https://pixelfed.social/chris-hayes" rel="me">📸 pixelfed</a> - <a href="https://bookwyrm.social/user/chris-hayes" rel="me">🐉 bookwyrm</a>
+<a rel="me" href="https://floss.social/@chris">🐘 chris@floss.social</a> - <a href="https://pixelfed.social/chris-hayes" rel="me">📸 pixelfed</a> - <a href="https://bookwyrm.social/user/chris-hayes" rel="me">🐉 bookwyrm</a>
 
 ## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">projects</span>
 
