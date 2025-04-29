@@ -4,9 +4,11 @@ const SHOW_RANK = true
 const SHOW_RANK_CHANGE = true
 const SHOW_SCORE = true
 
-const SPEEDLIFY_URL = 'https://www.11ty.dev/speedlify'
+// Update for your site
 const SPEEDLIFY_HASH = '8ab34fe5'
 const RANK_URL = 'https://www.11ty.dev/speedlify/hayes-software/'
+
+const SPEEDLIFY_URL = 'https://www.11ty.dev/speedlify'
 
 module.exports = {
   getSpeedlifyComponent: async () => {
@@ -92,10 +94,13 @@ module.exports = {
         }
         if (SHOW_RANK_CHANGE) {
           let change = data.previousRanks?.cumulative - data.ranks?.cumulative
-          meta.push(
-            `<span class="rank-change ${change > 0 ? 'up' : change < 0 ? 'down' : 'same'
-            }">${change !== 0 ? Math.abs(change) : ''}</span>`,
-          )
+
+          if (!isNaN(change) && change !== 0) {
+            meta.push(
+              `<span class="rank-change ${change > 0 ? 'up' : change < 0 ? 'down' : 'same'
+              }">${change !== 0 ? Math.abs(change) : ''}</span>`,
+            )
+          }
         }
       }
       if (meta.length) {
