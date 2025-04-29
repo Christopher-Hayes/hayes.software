@@ -1,7 +1,7 @@
 {
   "name": "hayes-software",
   "description": "Personal site for Chris Hayes running 11ty",
-  "version": "1.10.1",
+  "version": "1.10.2",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
   ],
   "author": {
     "name": "Chris Hayes",
-    "email": "chris@hayes.software"
+    "email": "chris+git@hayes.software"
   },
   "license": "MIT",
   "private": true,

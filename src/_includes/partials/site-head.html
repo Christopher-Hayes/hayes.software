@@ -7,7 +7,8 @@
 <title>{{ page_title }}</title>
 
 <style>
-  html, body {
+  html,
+  body {
     font-family: 'Helvetica', sans-serif;
   }
 
@@ -49,29 +50,26 @@
 <script rel="modulepreload" type="module" src="/main.js"></script>
 
 <link rel="prerender" href="{{ site.domain }}/index.html" />
-<link rel="prerender" href="{{ site.domain }}/blog/index.html">
-<link rel="prerender" href="{{ site.domain }}/projects/index.html">
+<link rel="prerender" href="{{ site.domain }}/blog/index.html" />
+<link rel="prerender" href="{{ site.domain }}/projects/index.html" />
 
-<link rel="preconnect dns-prefetch" href="https://api.github.com">
-<link rel="preconnect dns-prefetch" href="https://avatars3.githubusercontent.com">
-<link rel="preconnect dns-prefetch" href="https://fosstodon.org">
-<link rel="preconnect dns-prefetch" href="https://github.com">
-<link rel="preconnect dns-prefetch" href="https://newhaven.io">
-<link rel="preconnect dns-prefetch" href="https://pixelfed.social">
-<link rel="preconnect dns-prefetch" href="https://bookwyrm.social">
+<link rel="preconnect dns-prefetch" href="https://api.github.com" />
+<link
+  rel="preconnect dns-prefetch"
+  href="https://avatars3.githubusercontent.com"
+/>
+<link rel="preconnect dns-prefetch" href="https://floss.social" />
+<link rel="preconnect dns-prefetch" href="https://github.com" />
+<link rel="preconnect dns-prefetch" href="https://newhaven.io" />
+<link rel="preconnect dns-prefetch" href="https://pixelfed.social" />
+<link rel="preconnect dns-prefetch" href="https://bookwyrm.social" />
 
-{% assign page_title = title | append: ' :: ' | append: site.name %}
-{% if site.name == title %}
-  {% assign page_title = title %}
-{% endif %}
-{% assign site_title = site.name %}
-{% assign current_url = site.url | append: page.url %}
-{% unless social_image %}
-  {% assign social_image = site.url | append: '/images/social-share.png' %}
-{% endunless %}
-{% if meta.title %}
-  {% assign page_title = meta.title %}
-{% endif %}
+{% assign page_title = title | append: ' :: ' | append: site.name %} {% if
+site.name == title %} {% assign page_title = title %} {% endif %} {% assign
+site_title = site.name %} {% assign current_url = site.url | append: page.url %}
+{% unless social_image %} {% assign social_image = site.url | append:
+'/images/social-share.png' %} {% endunless %} {% if meta.title %} {% assign
+page_title = meta.title %} {% endif %}
 
 <link rel="canonical" href="{{ current_url }}" />
 
@@ -86,8 +84,7 @@
 <meta name="twitter:image" content="{{ social_image }}" />
 <meta property="og:image:alt" content="Page image for {{ site.name }}" />
 <meta name="twitter:image:alt" content="Page image for {{ site.name }}" />
-{% endif %}
-{% if meta.desc %}
+{% endif %} {% if meta.desc %}
 <meta name="description" content="{{ meta.desc }}" />
 <meta name="twitter:description" content="{{ meta.desc }}" />
 <meta property="og:description" content="{{ meta.desc }}" />
@@ -101,7 +98,12 @@
 <meta name="theme-color" content="#340099" />
 <meta name="msapplication-TileColor" content="#340099" />
 
-<meta name="generator" content="Eleventy">
+<meta name="generator" content="Eleventy" />
 
 <!-- Yes, I've sold my soul. -->
-<script async defer type='text/javascript' src='https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=TigUZ4'></script>
+<script
+  async
+  defer
+  type="text/javascript"
+  src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=TigUZ4"
+></script>
