@@ -5,7 +5,7 @@ const SHOW_RANK_CHANGE = true
 const SHOW_SCORE = true
 
 const SPEEDLIFY_URL = 'https://www.11ty.dev/speedlify'
-const SPEEDLIFY_HASH = '579d941c'
+const SPEEDLIFY_HASH = '8ab34fe5'
 const RANK_URL = 'https://www.11ty.dev/speedlify/hayes-software/'
 
 module.exports = {
@@ -46,9 +46,8 @@ module.exports = {
     }
 
     const getScoreHtml = (title, value = '') => {
-      return `<span title="${title}" class="${getScoreClass(value)}">${
-        value ? parseInt(value * 100, 10) : '…'
-      }</span>`
+      return `<span title="${title}" class="${getScoreClass(value)}">${value ? parseInt(value * 100, 10) : '…'
+        }</span>`
     }
 
     const render = (data = {}) => {
@@ -87,16 +86,14 @@ module.exports = {
       if (data.ranks?.cumulative) {
         if (SHOW_RANK) {
           meta.push(
-            `<${RANK_URL ? `a href="${RANK_URL}"` : 'span'} class="rank">${
-              data.ranks?.cumulative
+            `<${RANK_URL ? `a href="${RANK_URL}"` : 'span'} class="rank">${data.ranks?.cumulative
             }</${RANK_URL ? 'a' : 'span'}>`,
           )
         }
         if (SHOW_RANK_CHANGE) {
           let change = data.previousRanks?.cumulative - data.ranks?.cumulative
           meta.push(
-            `<span class="rank-change ${
-              change > 0 ? 'up' : change < 0 ? 'down' : 'same'
+            `<span class="rank-change ${change > 0 ? 'up' : change < 0 ? 'down' : 'same'
             }">${change !== 0 ? Math.abs(change) : ''}</span>`,
           )
         }
