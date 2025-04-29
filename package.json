@@ -1,7 +1,7 @@
 {
   "name": "hayes-software",
   "description": "Personal site for Chris Hayes running 11ty",
-  "version": "1.10.3",
+  "version": "1.10.4",
   "main": "index.js",
   "repository": {
     "type": "git",
