@@ -4,6 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+{% if page_title == '' %} {% assign page_title = site.name %} {% endif %} {% if
+page_title == site.name %} {% assign page_title = site.name | append: ' :: ' |
+append: site.description %} {% endif %}
 <title>{{ page_title }}</title>
 
 <style>
