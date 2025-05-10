@@ -1,5 +1,4 @@
-// export const UTTERANCES_API = 'http://localhost:7000';
-// export const UTTERANCES_API = 'https://api.utteranc.es';
-
-// export const UTTERANCES_API = 'http://localhost:1243';
-export const UTTERANCES_API = 'https://comment.hayes.software';
+export const UTTERANCES_API =
+  process.env.NODE_ENV === 'production'
+    ? 'https://comment.hayes.software'
+    : 'http://localhost:1243'

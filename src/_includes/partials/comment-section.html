@@ -1,0 +1,85 @@
+<section
+  x-data="{
+    comments: [],
+    name: '',
+    comment: '',
+    submitting: false,
+    error: '',
+    addComment() {
+      if (!this.name.trim() || !this.comment.trim()) {
+        this.error = 'Please enter your name and comment.'
+        return
+      }
+      this.submitting = true
+      // Simulate async submit
+      setTimeout(() => {
+        this.comments.unshift({
+          name: this.name,
+          comment: this.comment,
+          date: new Date().toLocaleString(),
+        })
+        this.name = ''
+        this.comment = ''
+        this.error = ''
+        this.submitting = false
+      }, 400)
+    }
+  }"
+  class="prose prose-lg dark:prose-invert mt-12"
+>
+  <header class="mb-4">
+    <h2 class="inline-block rounded-md bg-primary bg-opacity-10 py-1 px-2 text-2xl font-bold text-primary dark:bg-fg-dark dark:bg-opacity-10 dark:text-fg">
+      Comments
+    </h2>
+  </header>
+  <form
+    @submit.prevent="addComment"
+    class="mb-6 flex flex-col gap-4 bg-white bg-opacity-60 dark:bg-bg dark:bg-opacity-40 rounded-xl p-4 shadow"
+  >
+    <div class="flex flex-col gap-2">
+      <label for="name" class="font-bold text-primary dark:text-fg">Name</label>
+      <input
+        id="name"
+        x-model="name"
+        type="text"
+        class="rounded-md border border-primary border-opacity-20 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary dark:bg-bg dark:text-fg"
+        placeholder="Your name"
+        required
+      />
+    </div>
+    <div class="flex flex-col gap-2">
+      <label for="comment" class="font-bold text-primary dark:text-fg">Comment</label>
+      <textarea
+        id="comment"
+        x-model="comment"
+        rows="3"
+        class="rounded-md border border-primary border-opacity-20 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary dark:bg-bg dark:text-fg"
+        placeholder="Write your comment..."
+        required
+      ></textarea>
+    </div>
+    <div class="flex items-center gap-4">
+      <button
+        type="submit"
+        class="rounded-md bg-primary text-white font-bold px-4 py-2 hover:bg-opacity-90 focus:bg-opacity-90 transition"
+        :disabled="submitting"
+        x-text="submitting ? 'Submitting...' : 'Post Comment'"
+      ></button>
+      <span class="text-red-600 text-sm" x-text="error"></span>
+    </div>
+  </form>
+  <ul class="space-y-6">
+    <template x-for="comment in comments" :key="comment.date">
+      <li class="bg-primary bg-opacity-5 dark:bg-fg-dark dark:bg-opacity-10 rounded-xl p-4">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="font-bold text-primary dark:text-fg" x-text="comment.name"></span>
+          <span class="text-xs text-gray-500" x-text="comment.date"></span>
+        </div>
+        <p class="text-secondary dark:text-fg" x-text="comment.comment"></p>
+      </li>
+    </template>
+    <template x-if="comments.length === 0">
+      <li class="text-gray-500 dark:text-gray-400 italic">No comments yet. Be the first!</li>
+    </template>
+  </ul>
+</section>
