@@ -51,15 +51,18 @@ window.initUtterances = function () {
   ;(config['og:title'] = pageTitle ? pageTitle.content : ''),
     (config.session =
       utterancesParam || localStorage.getItem('utterances-session') || ''),
-    document.head.insertAdjacentHTML(
-      'afterbegin',
-      '<style>\n    .utterances {\n      position: relative;\n      box-sizing: border-box;\n      width: 100%;\n      max-width: 760px;\n      margin-left: auto;\n      margin-right: auto;\n    }\n    .utterances-frame {\n      color-scheme: light;\n      position: absolute;\n      left: 0;\n      right: 0;\n      width: 1px;\n      min-width: 100%;\n      max-width: 100%;\n      height: 100%;\n      border: 0;\n    }\n  </style>',
-    )
+    // document.head.insertAdjacentHTML(
+    //   'afterbegin',
+    //   '<style>\n    .utterances {\n      position: relative;\n      box-sizing: border-box;\n      width: 100%;\n      max-width: 760px;\n      margin-left: auto;\n      margin-right: auto;\n    }\n    .utterances-frame {\n      color-scheme: light;\n      position: absolute;\n      left: 0;\n      right: 0;\n      width: 1px;\n      min-width: 100%;\n      max-width: 100%;\n      height: 100%;\n      border: 0;\n    }\n  </style>',
+    // )
 
   // const htmlTemplate = `/utterances.html`
 
   // Select the <comment-section> element
   // const commentSection = document.querySelector('comment-section')
+
+  // if (commentSection) {
+  // }
 
   // if (commentSection) {
   //   // Create the div element with the iframe inside it
@@ -97,5 +100,5 @@ window.initUtterances = function () {
 // This was done to allow AlpineJS to reinitialize Utterances when the view changes.
 {
   console.log('Initializing Utterances...')
-  // window.initUtterances()
+  window.initUtterances()
 }

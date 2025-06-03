@@ -1,18 +1,18 @@
 <!-- Filter the cached mentions to only include ones matching the post's url -->
-{% set mentions = webmentions | getWebmentionsForUrl(metadata.url +
+{% mentions = webmentions | getWebmentionsForUrl(metadata.url +
 webmentionUrl) %}
 <!-- Set reposts as mentions that are `repost-of`  -->
-{% set reposts = mentions | webmentionsByType('repost-of') %}
+{% reposts = mentions | webmentionsByType('repost-of') %}
 <!-- Count the total reposts -->
-{% set repostsSize = reposts | size %}
+{% repostsSize = reposts | size %}
 <!-- Set likes as mentions that are `like-of`  -->
-{% set likes = mentions | webmentionsByType('like-of') %}
+{% likes = mentions | webmentionsByType('like-of') %}
 <!-- Count the total likes -->
-{% set likesSize = likes | size %}
+{% likesSize = likes | size %}
 <!-- Set replies as mentions that are `in-reply-to`  -->
-{% set replies = mentions | webmentionsByType('in-reply-to') %}
+{% replies = mentions | webmentionsByType('in-reply-to') %}
 <!-- Count the total replies -->
-{% set repliesSize = replies | size %}
+{% repliesSize = replies | size %}
 
 <!-- _includes/webmentions.njk --><!-- ...setting variables and other markup -->{%
 if repliesSize > 0 %}
