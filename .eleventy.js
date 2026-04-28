@@ -61,6 +61,14 @@ module.exports = function (config) {
       })
   })
 
+  config.addCollection('blog-archives', function (collectionApi) {
+    return collectionApi
+      .getFilteredByGlob('./src/blog/archive/*.md')
+      .sort(function (a, b) {
+        return b.date - a.date
+      })
+  })
+
   config.addCollection('projects', function (collectionApi) {
     return collectionApi
       .getFilteredByGlob('./src/projects/*.md')

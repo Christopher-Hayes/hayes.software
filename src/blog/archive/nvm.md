@@ -1,14 +1,14 @@
 ---
-layout: layouts/post.html
-title: 📱 Managing multiple node version.
+layout: layouts/post-archived.html
+title: 📱 Managing multiple node versions
 meta:
-  desc: How to manage multiple node version.
+  desc: How to manage multiple node versions
   tag:
 date: 2022-11-30
 intro:
-  title: Managing multiple node version.
+  title: Managing multiple node versions
   emoji: 📱
-  desc: How to manage multiple node version.
+  desc: How to manage multiple node versions
   image:
     light: /images/blog/nvm/cgi-technology.jpg
     dark: /images/blog/nvm/cgi-technology.jpg
@@ -17,6 +17,13 @@ aiassist: This post was was written in part by <a href='https://beta.openai.com/
 devto:
 tags:
   - node
+archived:
+  title: Archived due to substantial ai writing.
+  desc:
+    As part of an effort to raise the quality of my blog, I'm distancing myself from posts that were partially written by AI. Besides devaluing the rest of the site, I want my site to show my best work and these posts read like a 300-word essay.
+  
+    I do use NVM, but I won't be rewriting this article as I'm no longer interested in writing tutorial-type articles.
+  date: 2026-04-28
 ---
 
 `nvm` stands for Node Version Manager and is a tool used to switch between different versions of Node.js. It's a great way to ensure that you are always running the latest version of Node.js, or to switch between different versions of Node.js for different projects.

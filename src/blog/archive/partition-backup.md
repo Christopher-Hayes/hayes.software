@@ -1,5 +1,5 @@
 ---
-layout: layouts/post.html
+layout: layouts/post-archived.html
 title: 💽 How to backup and restore Linux partition tables
 meta:
   desc: How to backup and restore Linux partition tables
@@ -13,6 +13,13 @@ aiassist: This post was was written in part by <a href='https://chat.openai.com/
 devto:
 tags:
   - linux
+archived:
+  title: Archived due to substantial ai writing.
+  desc:
+    As part of an effort to raise the quality of my blog, I'm distancing myself from posts that were partially written by AI. Besides devaluing the rest of the site, I want my site to show my best work and these posts read like a 300-word essay.
+    
+    I may later rewrite this, as using `fdisk` / `sfdisk` to make partition backups felt like a less documented Linux skill.
+  date: 2026-04-28
 ---
 
 <figure

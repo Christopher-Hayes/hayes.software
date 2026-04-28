@@ -9,7 +9,7 @@
       },
       {
         "where": {
-          "href_matches": ["/blog/*"]
+          "href_matches": ["/blog/archives/*"]
         },
         "eagerness": "immediate"
       }
@@ -58,21 +58,21 @@
             <button
               class="py-1 px-2 inline-flex dark:bg-opacity-10 rounded-md font-bold dark:hover:bg-fg-dark dark:focus:bg-fg-dark dark:hover:bg-opacity-20  dark:focus:bg-opacity-20"
               @click="
-                tags = tags.includes('{{ tag.name }}') || '{{ tag.name }}' == 'blog' ? [] : ['{{ tag.name }}']
+                tags = tags.includes('{{ tag.name }}') || '{{ tag.name }}' == 'blog-archives' ? [] : ['{{ tag.name }}']
                 // Update URL
                 const url = new URL(window.location.href)
                 url.searchParams.set('tags', tags.join(','))
                 window.history.pushState({}, '', url)
               "
               :class="
-                tags.includes('{{ tag.name }}') || ('{{ tag.name }}' == 'blog' && tags.length === 0) ?
+                tags.includes('{{ tag.name }}') || ('{{ tag.name }}' == 'blog-archives' && tags.length === 0) ?
                   'text-white dark:text-fg bg-primary dark:bg-fg-dark' :
                   'text-bg dark:text-white hover:bg-primary hover:transition-none ease-out hover:bg-opacity-10 focus:bg-primary focus:transition-none focus:bg-opacity-10'
               "
               x-show="showAllTags"
               aria-label="Filter by {{ tag.name }}"
             >
-              {% if tag.name == 'blog' %}
+              {% if tag.name == 'blog-archives' %}
                 everything
                 <div class="text-2xs ml-1 -mt-0.5 opacity-60">{{ tag.count }}</div>
               {% else %}
@@ -86,9 +86,9 @@
     </header>
     <div
       class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {% for post in collections.blog %}
+      {% for post in collections['blog-archives'] %}
         <div
-          class="border-2 border-primary border-opacity-10 dark:border-opacity-40 rounded-xl text-secondary dark:bg-primary-dark dark:text-white hover:text-white hover:bg-primary transition duration-300 hover:transition-none ease-out"
+          class="border-2 border-primary border-opacity-10 dark:border-opacity-40 rounded-xl text-secondary-dark dark:bg-primary-dark dark:text-white hover:text-white hover:bg-primary transition duration-300 hover:transition-none ease-out"
           x-data="{ postTags: '{{ post.data.tags }}' }"
           x-show="tags.length === 0 || tags.some(tag => postTags.includes(tag))"
           >
@@ -106,9 +106,6 @@
           </a>
         </div>
       {% endfor %}
-    </div>
-    <div class="mt-8 text-sm text-black dark:text-white opacity-40 underline">
-      <a href="/blog-archives/" class="hover:underline">View archived blog posts</a>
     </div>
   </div>
 </main>

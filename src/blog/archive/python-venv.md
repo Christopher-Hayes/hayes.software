@@ -1,5 +1,5 @@
 ---
-layout: layouts/post.html
+layout: layouts/post-archived.html
 title: 🐍 Python Virtual Environments
 meta:
   desc: How to manage Python virtual environments.
@@ -13,6 +13,13 @@ aiassist: This post was was written in part by <a href='https://beta.openai.com/
 devto:
 tags:
   - python
+archived:
+  title: Archived due to substantial ai writing.
+  desc:
+    As part of an effort to raise the quality of my blog, I'm distancing myself from posts that were partially written by AI. Besides devaluing the rest of the site, I want my site to show my best work and these posts read like a 300-word essay.
+    
+    I probably won't rewrite this article. Conda, anaconda, venv drive me nuts as a web developer, but venv is the one I still use 4 years later.
+  date: 2026-04-28
 ---
 
 `venv` is a module that comes with Python 3. It provides an easy way to create and manage virtual environments for different Python projects. Using virtual environments is a great way to keep your projects isolated from each other, and to ensure that everyone on a team is using the same version of Python and packages.
