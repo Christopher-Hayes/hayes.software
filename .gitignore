@@ -21,3 +21,6 @@ report.html
 .obsidian
 .husky
 .DS_Store
+
+# Obsidian
+src/blog/.obsidian
