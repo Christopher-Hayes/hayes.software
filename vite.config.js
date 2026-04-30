@@ -125,7 +125,7 @@ const getPosts = () => {
 
 const posts = getPosts()
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   root: '_site',
   build: {
     outDir: '../dist',
@@ -210,8 +210,6 @@ export default defineConfig({
         ],
       },
     }),
-    createHtmlPlugin({
-      minify: true, // Enables HTML minification
-    }),
+    ...(command === 'build' ? [createHtmlPlugin({ minify: true })] : []),
   ],
-})
+}))

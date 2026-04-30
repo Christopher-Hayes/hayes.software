@@ -58,7 +58,10 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Helvetica', ...defaultTheme.fontFamily.sans],
+        sans: ['Luciole', ...defaultTheme.fontFamily.sans],
+        serif: ['Rakkas', ...defaultTheme.fontFamily.serif],
+        luciole: ['Luciole', ...defaultTheme.fontFamily.sans],
+        rakkas: ['Rakkas', ...defaultTheme.fontFamily.serif],
       },
       fontSize: {
         '2xs': '.625rem',

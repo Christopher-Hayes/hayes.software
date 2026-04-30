@@ -2,38 +2,6 @@
   <header
     class="sticky top-4 px-4"
     >
-    <!-- Feels jank on mobile, disable for now
-    x-data="{ collapsed: false, startedGoingUp: 0, goingUp: false }"
-    x-init="() => {
-      // When to collapse the header
-
-      if (window.innerWidth < 768) {
-        window.addEventListener('scroll', () => {
-          const goingUpNow = window.scrollY <= window.scrollYPrev
-
-          if ((goingUpNow && !goingUp) || (!goingUpNow && goingUp)) {
-            // Just reverse direction
-            startedGoingUp = window.scrollY
-          } else if (goingUpNow) {
-            // Scrolling up
-            if (!goingUp) {
-              startedGoingUp = window.scrollY
-            } else if ((window.scrollY - startedGoingUp < -100 || window.scrollY < 100) && collapsed) {
-              collapsed = false
-            }
-          } else if (!goingUpNow && window.scrollY > 150) {
-            // Scrolling down
-            if (window.scrollY - startedGoingUp > 20) {
-              collapsed = true
-            }
-          }
-
-          goingUp = goingUpNow
-          window.scrollYPrev = window.scrollY
-        })
-      }
-    }"
-  -->
     <nav
       class="mx-auto max-w-2xl rounded-t-xl bg-primary-lightest dark:bg-primary-dark bg-opacity-50 px-4 sm:px-6 lg:px-8 md:py-4 text-secondary-fg backdrop-blur dark:bg-opacity-80 border-b border-primary"
     >
@@ -164,17 +132,6 @@
               </div>
             </div>
           </div>
-          <!-- <a
-            href="/"
-            class="flex flex-shrink-0 items-center gap-4 group"
-            aria-label="Home"
-          >
-            <h1
-              class="block space-x-1 rounded-md px-4 md:px-3 py-2.5 font-bold underline text-bg dark:text-white group-focus-within:text-white group-hover:text-white group-focus-within:bg-bg group-hover:bg-bg"
-            >
-              Chris Hayes
-            </h1>
-          </a> -->
         </div>
         <ul class="flex space-x-4"
           x-data="{
