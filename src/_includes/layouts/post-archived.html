@@ -76,7 +76,7 @@
     <section class="min-w-full prose prose-lg dark:prose-invert">
       {% if archived %}
         <div class="not-prose mb-8 rounded-lg border border-alert-error dark:border-alert-error bg-alert-error/5 dark:bg-alert-error/5 p-4 text-sm text-primary dark:text-fg">
-          <strong class="block font-semibold text-alert-error mb-2">
+          <strong class="block font-semibold text-primary-muted mb-2">
             This post was archived on {{ archived.date | date: "%B %d, %Y" }}.
           </strong>
           {% if archived.title %}

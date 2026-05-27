@@ -1,11 +1,10 @@
 ---
 layout: layouts/project-post.html
-title: 🕹️ Cubefield with Three.JS
+title: Cubefield with Three.JS
 meta:
   desc: "Classic flash game, Cubefield, recreated with THREE.js"
 intro:
   title: "Cubefield with Three.JS"
-  emoji: 🕹️
   desc: "Classic flash game, Cubefield, recreated with THREE.js"
   image:
     light: "/images/projects/cubefield-clone/screenshot-1.png"

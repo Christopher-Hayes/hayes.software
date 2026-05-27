@@ -17,58 +17,45 @@
     ]
   }
 </script>
-<main id="main-content" tabindex="-1">
-  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-    <header
-      class="my-8 flex flex-row flex-wrap gap-4 pt-12 pb-16 font-bold leading-8 text-secondary dark:text-fg"
-    >
-      <p class="flex h-16 w-16 items-center text-5xl leading-none">
-        {{ intro.emoji }}
-      </p>
-      <p class="self-center pt-1 text-xl">{{ intro.desc }}</p>
+<main id="main-content" tabindex="-1" class="pt-8">
+  <!-- bg gradient behind post-header -->
+  <div
+    class="fixed top-0 left-0 min-w-[100vw] h-[14rem] bg-gradient-to-b from-50% from-bg to-transparent pointer-events-none z-20">
+  </div>
+  <article class="mt-[25vh] mx-auto max-w-2xl border border-bg-raised">
+    <header class="w-full flex justify-center mb-8 border border-primary-highlight">
+      <h1 class="lg:max-w-[38rem] px-10 pt-8 pb-6 self-center text-fg font-rakkas text-5xl leading-tight border-none">
+        <emp class="text-fg-highlight">{{ intro.emp }}</emp>
+        <span>{{ intro.desc }}</span>
+      </h1>
     </header>
-    <section class="mb-8">
-      <header class="mb-4">
-        <h2
-          class="inline-block rounded-md bg-primary bg-opacity-10 py-1 px-2 text-3xl font-bold text-primary dark:bg-fg-dark dark:bg-opacity-10 dark:text-fg"
-        >
-          featured
+    <section>
+      <header class="prose prose-lg">
+        <h2 class="border-t-0">
+          Writing
         </h2>
       </header>
-      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2">
+      <div class="my-1 grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 divide-y divide-bg-raised">
         {% assign taglist = collections['featured'] %}
         {% assign taglist = taglist | sort: 'date' | reverse %}
         {% for post in taglist %}
-        <div
-          class="text-secondary-dark rounded-xl border-2 border-primary border-opacity-10 transition duration-300 ease-out hover:bg-primary hover:text-white hover:transition-none dark:border-opacity-40 dark:bg-primary-dark dark:text-white"
-        >
-          <a
-            class="flex h-full w-full flex-col justify-between p-3"
-            href="{{ post.url }}"
-            rel="prefetch"
-            onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ post.url }}') }"
-          >
-            <header>
-              <h2 class="text-2xl font-bold">{{ post.data.title }}</h2>
-              <p class="text-base">{{ post.data.description }}</p>
-            </header>
-            <p class="mt-2 text-sm opacity-70">
-              {{ post.date | date: "%B %d, %Y" }}
-            </p>
-          </a>
-        </div>
+        <a class="group px-4 py-1.5 flex h-full w-full justify-between items-center text-fg hover:text-bg hover:bg-primary-highlight"
+          href="{{ post.url }}" rel="prefetch"
+          onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ post.url }}') }">
+          <span class=" text-2xl font-rakkas">{{ post.data.title }}</span>
+          <p class="pt-1 text-sm opacity-50">
+            {{ post.date | date: "%B %d, %Y" }}
+          </p>
+        </a>
         {% endfor %}
       </div>
     </section>
-    <div class="prose prose-lg dark:prose-invert">{{ content }}</div>
+    <div class="prose prose-lg dark:prose-invert">
+      {{ content }}
+    </div>
     <footer class="mt-6">
-      <div class="prose prose-md mt-4 no-underline p-4 bg-white dark:text-white dark:bg-white bg-opacity-50 dark:bg-opacity-5 rounded-2xl">
-        <p class="mb-2">
-          This site's <a class="dark:text-white" href="https://www.11ty.dev/speedlify/hayes-software/" target="_blank" rel="noopener">speedlify score:</a>
-        </p>
-        {{ speedlify }}
-      </div>
+      {{ speedlify }}
     </footer>
-  </div>
+  </article>
 </main>
 {% endblock %}

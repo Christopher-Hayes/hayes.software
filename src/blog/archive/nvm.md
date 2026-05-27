@@ -1,13 +1,12 @@
 ---
 layout: layouts/post-archived.html
-title: 📱 Managing multiple node versions
+title: Managing multiple node versions
 meta:
   desc: How to manage multiple node versions
   tag:
 date: 2022-11-30
 intro:
-  title: Managing multiple node versions
-  emoji: 📱
+  # title: Managing multiple node versions
   desc: How to manage multiple node versions
   image:
     light: /images/blog/nvm/cgi-technology.jpg

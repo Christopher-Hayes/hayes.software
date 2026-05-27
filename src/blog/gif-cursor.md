@@ -1,13 +1,12 @@
 ---
 layout: layouts/post.html
-title: 🐹 Making a GIF your cursor in Chrome
+title: Making a GIF your cursor in Chrome
 meta:
   desc: How to use a GIF as your cursor in Chrome
   tag:
 date: 2022-04-04
 intro:
-  title: Making a GIF your cursor in Chrome
-  emoji: 🐹
+  # title: Making a GIF your cursor in Chrome
   desc: How to use a GIF as your cursor in Chrome
 aiassist:
 devto: This post was originally published on <a href='https://dev.to/chris_hayes/make-a-gif-your-cursor-in-chrome-4odo' target='_blank'>dev.to</a>.

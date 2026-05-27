@@ -1,7 +1,13 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  content: ['./src/**/*.html', './src/**/*.md', './src/speedlify.js'],
+  content: [
+    './src/**/*.html',
+    './src/**/*.md',
+    './src/speedlify.js',
+    './.eleventy.js',
+  ],
+  darkMode: ['class', '[data-theme="dark"]'],
   theme: {
     extend: {
       screens: {
@@ -10,40 +16,37 @@ module.exports = {
         sm: '640px',
       },
       colors: {
-        // Mignight blues - background
+        /*
+
+    --bg: #1f1a16;
+    --bg-raised: #27211d;
+
+    --fg: #fdfacb;
+    --fg-highlight: #fbcd5c;
+    --fg-muted: #b78447;
+
+    --primary: #fbcd5c;
+    --primary-muted: #b78447;
+        */
+
+        // background
         bg: {
-          light: '#271d58',
-          DEFAULT: '#100c24',
-          dark: '#080612',
+          DEFAULT: 'var(--bg)',
+          raised: 'var(--bg-raised)',
         },
-        // Icey blues - text
+        // text
         fg: {
-          light: '#e7f8ff',
-          DEFAULT: '#81dbff',
-          dark: '#17b0ed',
+          DEFAULT: 'var(--fg)',
+          highlight: 'var(--fg-highlight)',
+          muted: 'var(--fg-muted)',
         },
-        // Purples - also for buttons, ctas
+        // primary color accent
         primary: {
-          fg: 'white',
-          light: '#af86ff',
-          lightest: '#d4d5f3',
-          bg: '#340099',
-          DEFAULT: '#340099',
-          dark: '#1d0240',
+          DEFAULT: 'var(--primary)',
+          highlight: 'var(--primary-highlight)',
+          muted: 'var(--primary-muted)',
         },
-        // More saturated blues - buttons, nav, ctas
-        secondary: {
-          bg: '#111240',
-          DEFAULT: '#181a38',
-          fg: '#95e1ff',
-        },
-        fire: '#ea5a47',
-        // error, warning, success
-        alert: {
-          error: '#ff0033',
-          warning: '#ffcc00',
-          success: '#00cc00',
-        },
+        // Colors for Speedlify performance scores
         speedlify: {
           light: {
             good: 'rgb(2, 100, 49)',
@@ -62,6 +65,8 @@ module.exports = {
         serif: ['Rakkas', ...defaultTheme.fontFamily.serif],
         luciole: ['Luciole', ...defaultTheme.fontFamily.sans],
         rakkas: ['Rakkas', ...defaultTheme.fontFamily.serif],
+        display: ['Rakkas', ...defaultTheme.fontFamily.serif],
+        body: ['Luciole', ...defaultTheme.fontFamily.sans],
       },
       fontSize: {
         '2xs': '.625rem',

@@ -50,7 +50,7 @@
         {%- for tag in tagList -%}
           {% if tag.name != 'featured' %}
             <button
-              class="py-1 px-2 inline-flex dark:bg-opacity-10 rounded-md font-bold dark:hover:bg-fg-dark dark:focus:bg-fg-dark dark:hover:bg-opacity-20  dark:focus:bg-opacity-20"
+              class="py-1 px-2 inline-flex dark:bg-opacity-10 rounded-md font-bold dark:hover:bg-bg-raised dark:focus:bg-bg-raised dark:hover:bg-opacity-20  dark:focus:bg-opacity-20"
               @click="
                 tags = tags.includes('{{ tag.name }}') || '{{ tag.name }}' == 'projects' ? [] : ['{{ tag.name }}']
                 // Update URL
@@ -60,7 +60,7 @@
               "
               :class="
                 tags.includes('{{ tag.name }}') || ('{{ tag.name }}' == 'projects' && tags.length === 0) ?
-                  'text-white dark:text-fg bg-primary dark:bg-fg-dark' :
+                  'text-white dark:text-fg bg-primary dark:bg-bg-raised' :
                   'text-bg dark:text-white hover:bg-primary hover:transition-none ease-out hover:bg-opacity-10 focus:bg-primary focus:transition-none focus:bg-opacity-10'
               "
               x-show="showAllTags"

@@ -1,27 +1,56 @@
 <!DOCTYPE html>
-<html class="leading-tight text-secondary antialiased" lang="en">
-  <head>
-    {% include "partials/site-head.html" %}
-  </head>
-  <body
-    class="min-h-screen flex flex-col bg-fg-light dark:bg-bg"
-    data-env="{{ node.env }}"
+<html class="leading-tight antialiased" lang="en" data-theme="dark">
+
+<head>
+  {% include "partials/site-head.html" %}
+</head>
+
+<body
+  class="min-h-screen flex flex-col bg-bg dark:bg-bg text-fg dark:text-fg{% if page.url == '/' %} page-home{% endif %}"
+  data-env="{{ node.env }}"
+  data-page="{{ page.url }}"
   >
-    <div class="flex-grow relative">
-      {% include "partials/site-header.html" %}
-      <div id="main-content-wrapper" class="pt-4 md:pt-10 pb-8 md:pb-12">{% block content %}{% endblock %}</div>
+  <div class="flex-grow relative">
+    {% include "partials/navigation.html" %}
+    <div id="main-content-wrapper" class="pt-4 md:pt-10 pb-8 md:pb-12">{% block content %}{% endblock %}</div>
+  </div>
+  <footer class="mb-20 w-full max-w-2xl mx-auto flex gap-2">
+    <button
+      class="group aspect-square flex justify-center items-center text-fg border border-bg-raised hover:bg-primary-highlight hover:border-primary-highlight"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" aria-label="Back to top">
+      <svg class="h-6 fill-current text-primary group-hover:text-bg" aria-hidden="true"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   width="15.315115"
+   height="27.077187"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><g
+     id="layer1"
+     transform="matrix(3.7795276,0,0,3.7795276,-17581.117,-9729.6409)"><path
+       style="font-size:9.87561px;line-height:1.6;font-family:Rakkas;-inkscape-font-specification:Rakkas;letter-spacing:0.0374829px;word-spacing:0px;baseline-shift:baseline;text-anchor:middle;fill:currentColor;stroke-width:7.76087;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.421201;paint-order:stroke markers fill"
+       d="m 4649.8319,2583.4568 v -5.3328 l -1.4221,1.1752 -0.3259,-0.3061 2.0146,-1.9357 2.0344,1.9357 -0.3259,0.3061 -1.4221,-1.1752 v 5.3328 z m -1.748,-6.6166 v -0.5531 h 4.049 v 0.5531 z"
+       id="text47-6-0-6-8-5-8-6-2-2-3-8"
+       transform="scale(1.0007716,0.999229)"
+       /></g></svg>
+
+
+    </button>
+    <div class="grow relative border border-bg-raised">
+      <p class="px-6 pt-4 pb-3 prose prose-sm dark:text-fg-muted mx-auto w-full max-w-3xl">
+        Edit this page
+        <a class="dark:text-fg-highlight dark:hover:text-fg dark:hover:decoration-fg"
+          href="https://github.com/Christopher-Hayes/hayes.software/edit/main/{{ page.inputPath }}" target="_blank"
+          rel="noopener" id="edit-link">
+          on GitHub
+        </a>
+      </p>
+
+      <img src="/images/footer-sig.svg" alt="" class="absolute -right-6 -top-5 w-48 h-auto mx-auto">
     </div>
-    <p class="mb-8 prose dark:text-primary-light mx-auto w-full max-w-3xl px-4 sm:px-6 lg:px-8">
-      Edit this page 
-      <a
-        class="dark:text-primary-lightest"
-        href="https://github.com/Christopher-Hayes/hayes.software/edit/main/{{ page.inputPath }}"
-        target="_blank"
-        rel="noopener"
-        id="edit-link"
-        >
-        on github
-      </a>.
-    </p>
-  </body>
+  </footer>
+</body>
+
 </html>

@@ -5,7 +5,7 @@
 @font-face {
   font-family: 'Luciole';
   src: url('/fonts/luciole/Luciole-Regular.woff2') format('woff2'),
-       url('/fonts/luciole/Luciole-Regular.woff') format('woff');
+    url('/fonts/luciole/Luciole-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -13,7 +13,7 @@
 @font-face {
   font-family: 'Luciole';
   src: url('/fonts/luciole/Luciole-Bold.woff2') format('woff2'),
-       url('/fonts/luciole/Luciole-Bold.woff') format('woff');
+    url('/fonts/luciole/Luciole-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -31,120 +31,256 @@ Alpine feature that allows you to hide elements until Alpine is ready.
 Used for FOUC and to hide elements that require JavaScript to function.
 */
 [x-cloak] {
-	display: none !important;
+  display: none !important;
 }
 
 /* (NEW) View Animation API */
 @supports (view-transition-name: new-name) {
-	:root {
-		--transition-direction: 1;
-	}
-	
-	::view-transition-old(root),
-	::view-transition-new(root) {
-		animation: none;
-	}
-	
-	::view-transition-old(main-content-wrapper) {
-		animation: 120ms ease-in-out both view-out;
-	}
-	::view-transition-new(main-content-wrapper) {
-		animation: 120ms ease-in-out both view-in;
-	}
-	
-	@keyframes view-out {
-		0% {
-			opacity: 1;
-			transform: translate3d(0, 0, 0);
-		}
-		100% {
-			opacity: 0;
-			transform: translate3d(0, calc(var(--transition-direction) * -60px), 0);
-		}
-	}
-	@keyframes view-in {
-		0% {
-			opacity: 0;
-			transform: translate3d(0, calc(var(--transition-direction) * 60px), 0);
-		}
-		100% {
-			opacity: 1;
-			transform: translate3d(0, 0, 0);
-		}
-	}
+  :root {
+    --transition-direction: 1;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+
+  ::view-transition-old(main-content-wrapper) {
+    animation: 120ms ease-in-out both view-out;
+  }
+  ::view-transition-new(main-content-wrapper) {
+    animation: 120ms ease-in-out both view-in;
+  }
+
+  @keyframes view-out {
+    0% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      opacity: 0;
+      transform: translate3d(0, calc(var(--transition-direction) * -60px), 0);
+    }
+  }
+  @keyframes view-in {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, calc(var(--transition-direction) * 60px), 0);
+    }
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
 }
 
 /*
 Post header transitions on mobile (the header changes when you scroll)
 */
 @media (max-width: 1023px) {
-	.post-header .post-emo {
-		transition: max-width 300ms ease-out, opacity 300ms ease-out;
-	}
-	.post-header .post-tags {
-		transition: max-height 200ms ease-out, opacity 200ms ease-out;
-	}
+  .post-header .post-emo {
+    transition: max-width 300ms ease-out, opacity 300ms ease-out;
+  }
+  .post-header .post-tags {
+    transition: max-height 200ms ease-out, opacity 200ms ease-out;
+  }
 }
 
 /* customize scrollbar for browsers that support WebKit scrollbar */
 @supports selector(::-webkit-scrollbar) {
-	@media (min-width: 1024px) {
-		::-webkit-scrollbar {
-			@apply w-4 border-2 dark:border-primary border-fg dark:border-opacity-60;
-		}
-		::-webkit-scrollbar-thumb {
-			@apply bg-fg-dark dark:bg-primary dark:bg-opacity-60 cursor-pointer;
-		}
-		::-webkit-scrollbar-track {
-			@apply px-1 bg-fg bg-opacity-40 dark:bg-bg-dark dark:bg-opacity-70;
-		}
-	}
+  @media (min-width: 1024px) {
+    ::-webkit-scrollbar {
+      @apply w-4 border-2 border-fg dark:border-primary dark:border-opacity-60;
+    }
+    ::-webkit-scrollbar-thumb {
+      @apply cursor-pointer bg-bg-raised dark:bg-primary dark:bg-opacity-60;
+    }
+    ::-webkit-scrollbar-track {
+      @apply bg-fg bg-opacity-40 px-1 dark:bg-bg dark:bg-opacity-70;
+    }
+  }
 }
 
 /* customize scrollbar for browsers that support the CSS scrollbar properties */
 @media (min-width: 1024px) {
-	* {
-		scrollbar-width: thick;
-		scrollbar-color: #17b0ed #e7f8ff;
-		/* Avoid jumps in layout from scrollbar showing or disappearing. */
-		scrollbar-gutter: stable both-edges;
-	}
-	@media (prefers-color-scheme: dark) {
-		* {
-			scrollbar-color: #340099 #080612;
-		}
-	}
+  * {
+    scrollbar-width: thick;
+    scrollbar-color: #17b0ed #e7f8ff;
+    /* Avoid jumps in layout from scrollbar showing or disappearing. */
+    scrollbar-gutter: stable both-edges;
+  }
+  @media (prefers-color-scheme: dark) {
+    * {
+      scrollbar-color: #340099 #080612;
+    }
+  }
+}
+
+/* customize text selection */
+::selection {
+  @apply bg-primary text-bg;
+}
+
+:root {
+  --bg: #1f1a16;
+  --bg-raised: #27211d;
+
+  --fg: #fdfacb;
+  --fg-highlight: #fbcd5c;
+  --fg-muted: #b78447;
+
+  --primary: #fbcd5c;
+  --primary-highlight: #fdfacb;
+  --primary-muted: #b78447;
+}
+
+html,
+body {
+  @apply text-fg;
 }
 
 /* Tailwind prose customization */
-.prose a {
-	@apply underline font-bold;
+.prose {
+  @apply text-fg;
+
+  strong {
+    @apply text-fg;
+  }
 }
 
-.prose a:hover, .prose a:focus {
-	@apply text-fg-dark dark:text-fg;
+.prose a:not(.no-prose a) {
+  @apply text-fg-highlight decoration-fg-highlight underline decoration-dashed decoration-2 underline-offset-[6px];
+
+  &:hover,
+  &:focus {
+    @apply text-fg-muted decoration-fg-muted;
+  }
 }
 
-.prose ol li::marker{
-	@apply font-bold;
+/* style anchor links different */
+a[href^='#'] {
+  @apply text-sm text-fg-muted no-underline dark:text-fg-muted;
+}
+
+.prose ol li::marker {
+  @apply font-bold text-fg-muted;
 }
 
 .prose li,
 .prose p,
 .prose span {
-	@apply break-words;
+  @apply break-words;
+}
+
+h1,
+h2,
+h3 {
+  @apply text-fg-highlight mb-2 mt-0 border-y border-bg-raised pb-2 pl-3.5 pt-6;
+}
+h2 {
+  @apply scale-110 transform pb-3 pl-12 pt-10 text-4xl;
+}
+
+a:hover,
+a:focus {
+  @apply text-fg-muted decoration-fg-muted;
+}
+
+.prose {
+  h1, h2, h3 {
+    @apply text-fg-highlight tracking-[0.035em];
+  }
+
+  p {
+    @apply mb-2 px-4 pt-1 text-justify tracking-tight;
+  }
+
+  em {
+    @apply font-rakkas not-italic leading-none tracking-wide text-fg-highlight dark:text-fg-highlight;
+    font-size: 22px;
+  }
+  ul,
+  ol {
+    @apply pl-12 pr-4;
+  }
+  small {
+    @apply text-xs text-fg-muted;
+
+    strong {
+      @apply text-fg-highlight;
+    }
+
+    a {
+      @apply text-fg-highlight decoration-1 underline-offset-2;
+
+      &:hover,
+      &:focus {
+        @apply text-fg decoration-fg;
+      }
+    }
+  }
+  figure {
+    @apply py-8; /* border-y border-bg-raised; */
+    figcaption {
+      @apply absolute -right-[25rem] top-1/3 max-w-[18rem];
+
+      p {
+        @apply text-fg-muted border-2 border-bg-raised px-4 pb-3 pt-3.5;
+      }
+    }
+  }
+  .content-wrapper > p > img {
+    @apply my-20 w-full scale-[120%] transform border-y border-bg-raised py-2;
+  }
+}
+
+/* First paragraph */
+.content-wrapper > img + p:nth-child(2) {
+  @apply relative z-10 -mt-4;
+  /* First letter of first paragraph */
+  &::first-letter {
+    @apply float-left mb-1 mr-3 mt-1 border-2 border-solid border-primary px-2 pb-2 pt-2 font-rakkas text-8xl text-primary;
+  }
+}
+
+/* For use outside of .prose */
+.big-letter::first-letter {
+  @apply float-left mb-1 mr-3 border-2 border-solid border-primary px-2 pb-2 pt-2 font-rakkas text-8xl text-primary;
 }
 
 /* only on desktop */
 @media (min-width: 1024px) {
-	.prose figure {
-		min-height: 417px;
-	}
+  .prose figure {
+    min-height: 417px;
+  }
 }
 
 /* pretty text wrapping */
-h1, h2, h3, h4, h5, h6, p {
-	text-wrap: pretty;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  text-wrap: pretty;
+}
+/* heading font */
+h1,
+h2,
+h3 {
+  @apply font-rakkas tracking-wide text-fg-highlight;
+}
+
+/* Blog */
+.blog-card {
+  /* Not a tailwind feature until v4 */
+  &:nth-child(3n+1) {
+    @apply pl-4 -ml-4;
+  }
+  &:nth-child(3n) {
+    @apply border-r-0 pr-4 -mr-4;
+  }
 }
 
 /*
@@ -153,58 +289,95 @@ Speedlify styles
 This was needed to fix a11y issues due to the background color.
 */
 .speedlify {
-	--_circle: var(--speedlify-circle);
-	--speedlify-green: #0cce6b;
+  --_circle: var(--speedlify-circle);
+  --speedlify-green: #0cce6b;
 }
 .speedlify a {
-	@apply dark:text-white;
+  @apply text-fg-highlight;
 }
 .speedlify .circle {
-	font-size: 0.8125em; /* 13px /16 */
-	min-width: 2.6em;
-	height: 2.6em;
-	line-height: 1;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 50%;
-	border: 0.15384615em solid currentColor; /* 2px /13 */
-	color: var(--_circle, #666);
+  font-size: 0.8125em; /* 13px /16 */
+  min-width: 2.6em;
+  height: 2.6em;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 0.15384615em solid currentColor; /* 2px /13 */
+  color: var(--_circle, #666);
 }
 .speedlify .circle-good {
-	@apply text-speedlify-light-good dark:text-speedlify-dark-good border-current;
+  @apply border-current text-speedlify-light-good dark:text-speedlify-dark-good;
 }
 .speedlify .circle-ok {
-	@apply text-speedlify-light-ok dark:text-speedlify-dark-ok border-current;
+  @apply border-current text-speedlify-light-ok dark:text-speedlify-dark-ok;
 }
 .speedlify .circle-bad {
-	@apply text-speedlify-light-bad dark:text-speedlify-dark-bad border-current;
+  @apply border-current text-speedlify-light-bad dark:text-speedlify-dark-bad;
 }
 .speedlify .meta {
-	@apply flex items-center gap-2;
+  @apply flex items-center gap-2;
 }
 .speedlify .circle + .meta {
-	@apply ml-1;
+  @apply ml-1;
 }
 .speedlify .rank:before {
-	content: "Rank #";
+  content: 'Rank #';
 }
 .speedlify .rank-change:before {
-	line-height: 1;
+  line-height: 1;
 }
 .speedlify .rank-change.up {
-	@apply text-speedlify-light-good dark:text-speedlify-dark-good;
+  @apply text-speedlify-light-good dark:text-speedlify-dark-good;
 }
 .speedlify .rank-change.up:before {
-	@apply text-xl;
-	
-	content: "⬆";
+  @apply text-xl;
+
+  content: '⬆';
 }
 .speedlify .rank-change.down {
-	@apply text-alert-error dark:text-red-500;
+  @apply text-primary-muted dark:text-red-500;
 }
 .speedlify .rank-change.down:before {
-	@apply text-xl;
-	
-	content: "⬇";
+  @apply text-xl;
+
+  content: '⬇';
 }
+
+header-container {
+  nav {
+    @apply bg-bg-raised border border-fg;
+
+    ul a {
+      @apply bg-bg-raised text-fg no-underline font-bold decoration-2 decoration-primary decoration-dashed underline-offset-4 hover:text-primary hover:underline focus-within:underline focus-within:text-primary;
+    }
+
+    a.nav-home-logo {
+      @apply text-fg hover:text-primary;
+    }
+  }
+}
+
+body[data-page='/'] header-container {
+  top: 20vh;
+
+  nav {
+    @apply bg-fg;
+
+    ul a.nav-home-link {
+      @apply bg-fg text-bg font-rakkas text-xl tracking-wide;
+    }
+
+    a.nav-home-logo {
+      @apply text-bg hover:text-primary;
+    }
+  }
+}
+
+body[data-page^='/projects/'] header-container nav a[href='/projects/'],
+body[data-page^='/blog/'] header-container nav a[href='/blog/'],
+body[data-page='/contact/'] header-container nav a[href='/contact/'] {
+  @apply text-bg bg-fg no-underline font-rakkas text-xl tracking-wide;
+}
+

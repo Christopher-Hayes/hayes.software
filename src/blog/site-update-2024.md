@@ -1,14 +1,10 @@
 ---
 layout: layouts/post.html
-title: 🌊 Why I chose 11ty over NextJS for this site
+title: Why I chose 11ty over NextJS for this site
 meta:
   desc: Why a developer that uses NextJS every day chose 11ty for their personal site.
   tag:
 date: 2024-03-31
-intro:
-  title: Why I chose 11ty over NextJS for this site
-  emoji: 🌊
-  desc: Why I chose 11ty over NextJS for this site.
 aiassist:
 devto:
 tags:

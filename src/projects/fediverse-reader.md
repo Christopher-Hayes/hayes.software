@@ -1,11 +1,10 @@
 ---
 layout: layouts/project-post.html
-title: 🍃 A Minimal Fediverse Reader Experiment
+title: A Minimal Fediverse Reader Experiment
 meta:
   desc: "A minimal read-only Fediverse Mastodon post viewer built with Next.js and Fedify, focusing on design and stable prototyping in Inkscape."
 intro:
   title: Building a Minimal Fediverse Reader
-  emoji: 🌐
   desc: "Experimenting with a read-only Mastodon post viewer using Next.js and Fedify. Balancing code and design, pushing SVG paths, and embracing a handcrafted Inkscape workflow."
   image:
     light: /images/projects/fediverse-reader/screenshot-1.png

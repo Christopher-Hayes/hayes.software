@@ -1,11 +1,10 @@
 ---
 layout: layouts/project-post.html
-title: "🎶 Portal Ending Credits in JS"
+title: "Portal Ending Credits in JS"
 meta:
   desc: "An in-depth look into how I recreated the Portal series ending credits with web technologies."
 intro:
   title: "Portal Ending Credits in JS"
-  emoji: 🎶
   desc: "An in-depth look into how I recreated the Portal series ending credits with web technologies."
   image:
     light: "/images/projects/portal-credits/portal-2-screenshot.png"

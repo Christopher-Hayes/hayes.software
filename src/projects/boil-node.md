@@ -1,11 +1,10 @@
 ---
 layout: layouts/project-post.html
-title: 📦 A simple Node.JS template
+title: A simple Node.JS template
 meta:
   desc: A super simple, but capable Node.JS template
 intro:
   title: A simple Node.JS template
-  emoji: 📦
   desc: A super simple, but capable Node.JS template
 projectlink: https://github.com/Christopher-Hayes/boil-node
 date: 2024-04-19

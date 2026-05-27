@@ -24,3 +24,7 @@ report.html
 
 # Obsidian
 src/blog/.obsidian
+
+# llms
+.claude
+

@@ -5,32 +5,42 @@ meta:
   desc: Personal site of creative frontend developer, Chris Hayes.
 intro:
   title: Chris Hayes
-  emoji: 👋
-  desc: I'm Chris Hayes, a creative, freelance web developer.
+  emp: Hellooo!
+  desc: I'm Chris Hayes, a creative web developer.
 ---
 
-## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">whoami</span>
+## About me
 
-🚧 **I build..** site rebrands, Shopify stores, and 3D web experiences in Next, React, 11ty, Alpine, Tailwind, Shopify, and WebGL.
+**I build..** site rebrands, Shopify stores, and 3D web experiences in Next, React, 11ty, Alpine, Tailwind, Shopify, and WebGL.
 
-🔥 **Big fan of..** open-source, design, AI, and F1.
+**Fan of..** open-source, design, and history.
 
-🌱 **Currently learning..** ActivityPub to build Fediverse-connected websites.
+**Currently learning..** GEDCOM to build a geoneology museum exhibit.
 
-🔭 **Lastest project is a..** fun-designed Fediverse post reader with Fedify - [fediverse.hayes.software](https://fosstodon.org/@chris_hayes/113607677028451916)
+**Lastest project is a..** [C# music player](https://github.com/Christopher-Hayes/osuplayer/releases) for the game, osu!
 
-## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">social</span>
+<div class="-mt-6"></div>
 
-<a rel="me" href="https://nutmeg.social/@chris">🐘 mastodon</a> - <a href="https://pixelfed.social/chris-hayes" rel="me">📸 pixelfed</a> - <a href="https://bookwyrm.social/user/chris-hayes" rel="me">🐉 bookwyrm</a>
+## Projects
 
-## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">projects</span>
+You can read about my work in [/ projects](/projects/).
 
-I wrote about a few hobby projects in [💻 projects](/projects/). Most are on my <a href="https://github.com/Christopher-Hayes" rel="me">🐙 github</a>.
+Most of my open-source projects are on <a href="https://github.com/Christopher-Hayes" rel="me">github</a>, a couple new ones are on <a href="https://codeberg.org/chris-hayes" rel="me">codeberg</a>.
 
-## <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">hayes.software</span>
+{% forges %}
 
-This site is built with [11ty](https://www.11ty.dev/), styled by [tailwind](https://tailwindcss.com/), made dynamic with [alpine](https://github.com/alpinejs/alpine/).
+<div class="-mt-16"></div>
 
-Managed with [coolify.io](https://coolify.io/), hosted on [hetzner](https://www.hetzner.com/), behind [cloudflare](https://www.cloudflare.com/).
+## Fediverse
 
-Read about [why 11ty with alpine](/blog/site-update-2024), or my [move to hetzner and coolify](/blog/hetzner-with-coolify).
+I'm a big believer in the work happening on the *fediverse*. It's an interconnected network of social media servers using an open-standard.
+
+I run [nutmeg.social](https://nutmeg.social/about), a Mastodon server for Connecticut, USA.
+
+{% social %}
+
+<div class="-mt-16"></div>
+
+## This site
+
+This site is built with **11ty**, styled by **Tailwind**, made dynamic with **Alpine**. Managed with **Coolify**, hosted on **Hetzner**, behind **Cloudflare**. Read about [“Why 11ty with Alpine”](/blog/site-update-2024), or my [“Move to Hetzner and Coolify”](/blog/hetzner-with-coolify).

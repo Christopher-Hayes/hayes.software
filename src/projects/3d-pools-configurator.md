@@ -1,11 +1,10 @@
 ---
 layout: layouts/project-post.html
-title: 🏊‍ Building a WebGL Pool Configurator
+title: Building a WebGL Pool Configurator
 meta:
   desc: "A 3D product configurator for endless pools using Vue.js and PlayCanvas3D"
 intro:
   title: My experience building the Endless Pools 3D pool configurator
-  emoji: 🏊‍♂️
   desc: "An interactive 3d product configurator for endless pools, blending Vue.js and PlayCanvas3D."
   image:
     light: /images/projects/3d-pools-configurator/screenshot-1.webp
@@ -19,36 +18,11 @@ aiassist: In the process of writing this post, <a href='https://chat.openai.com'
 
 ## Bringing Endless Pools to Life in 3D
 
-In 2020, I took on the illuminating challenge of crafting a [3D product configurator](https://www.endlesspools.com/build) for Endless Pools. This digital endeavor involved wrangling the power of Vue.js for the interface and the immersive PlayCanvas3D engine for 3D visualization.
+In 2020, I took on the challenge of building a [3D product configurator](https://www.endlesspools.com/build) for Endless Pools.
 
 PlayCanvas3D won our favor with its robust scene editor and superior physically based rendering (PBR) capabilities at the time. The configurator not only showcases various pool options but also permits users to adorn their chosen pools with accessories, toggle water display, and adjust dimensions and depths on select models – all in real-time 3D.
 
-<figure
-  x-data="{
-    imageSrc: '/images/projects/3d-pools-configurator/screenshot-2.webp',
-    imageAlt: 'Another screenshot, this time inside and with a resizeable pool.',
-    showImageOverlay: function (imageElem) {
-      this.$dispatch('show-image-overlay', imageElem.src);
-    },
-  }">
-  <button
-    @click="showImageOverlay($event.target)"
-    class="group h-52 md:h-96 w-full"
-    >
-    <img
-      :src="imageSrc"
-      :alt="imageAlt"
-      src="/images/projects/3d-pools-configurator/screenshot-2.webp"
-      alt="Another screenshot, this time inside and with a resizeable pool."
-      width="100%"
-      class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity"
-      loading="lazy">
-    <figcaption
-      class="w-full text-sm text-black dark:text-white text-right mt-2 -mb-2 pr-4"
-      x-text="imageAlt"
-    ></figcaption>
-  </button>
-</figure>
+{% figure "/images/projects/3d-pools-configurator/screenshot-2.webp", "Another screenshot, this time inside and with a resizeable pool." %}
 
 ### Modeling and Rendering Techniques
 
@@ -56,32 +30,7 @@ To handle pools of variable geometries, I used morph targets, allowing for seaml
 
 The development screenshot below shows the result of building a dynamic cubemap at runtime, and applying that to an object to simulate realistic reflections.
 
-<figure
-  x-data="{
-    imageSrc: '/images/projects/3d-pools-configurator/screenshot-4.webp',
-    imageAlt: 'A screenshot from when the dynamic cubemap lighting system was getting built.',
-    showImageOverlay: function (imageElem) {
-      this.$dispatch('show-image-overlay', imageElem.src);
-    },
-  }">
-  <button
-    @click="showImageOverlay($event.target)"
-    class="group h-52 md:h-96 w-full"
-    >
-    <img
-      :src="imageSrc"
-      :alt="imageAlt"
-      src="/images/projects/3d-pools-configurator/screenshot-4.webp"
-      alt="A screenshot from when the dynamic cubemap lighting system was getting built."
-      width="100%"
-      class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity"
-      loading="lazy">
-    <figcaption
-      class="w-full text-sm text-black dark:text-white text-right mt-2 -mb-2 pr-4"
-      x-text="imageAlt"
-    ></figcaption>
-  </button>
-</figure>
+{% figure "/images/projects/3d-pools-configurator/screenshot-4.webp", "A screenshot from when the dynamic cubemap lighting system was getting built." %}
 
 ### Overcoming Performance Hurdles
 
@@ -89,32 +38,7 @@ Early on, a significant challenge emerged: performance, especially on mobile. Th
 
 Moreover, by judiciously controlling render cycles—suspending frame rendering when the camera is static and only updating frames upon changes—we further boosted performance.
 
-<figure
-  x-data="{
-    imageSrc: '/images/projects/3d-pools-configurator/screenshot-3.webp',
-    imageAlt: 'Screenshot of the Endless Pools 3D Product Configurator',
-    showImageOverlay: function (imageElem) {
-      this.$dispatch('show-image-overlay', imageElem.src);
-    },
-  }">
-  <button
-    @click="showImageOverlay($event.target)"
-    class="group h-52 md:h-96 w-full"
-    >
-    <img
-      :src="imageSrc"
-      :alt="imageAlt"
-      src="/images/projects/3d-pools-configurator/screenshot-3.webp"
-      alt="Screenshot of the Endless Pools 3D Product Configurator"
-      width="100%"
-      class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity"
-      loading="lazy">
-    <figcaption
-      class="w-full text-sm text-black dark:text-white text-right mt-2 -mb-2 pr-4"
-      x-text="imageAlt"
-    ></figcaption>
-  </button>
-</figure>
+{% figure "/images/projects/3d-pools-configurator/screenshot-3.webp", "Screenshot of the Endless Pools 3D Product Configurator" %}
 
 ### Project Impact
 
@@ -152,29 +76,4 @@ I need to specifically shout-out [Max](https://forum.playcanvas.com/u/max/summar
 
 If you're planning to work with PlayCanvas3D, use the forum!
 
-<figure
-  x-data="{
-    imageSrc: '/images/projects/3d-pools-configurator/screenshot-5.webp',
-    imageAlt: 'Screenshot of my forum profile, 195 days on there and 5,000 posts read, the forum was my bible.',
-    showImageOverlay: function (imageElem) {
-      this.$dispatch('show-image-overlay', imageElem.src);
-    },
-  }">
-  <button
-    @click="showImageOverlay($event.target)"
-    class="group h-52 md:h-96 w-full"
-    >
-    <img
-      :src="imageSrc"
-      :alt="imageAlt"
-      src="/images/projects/3d-pools-configurator/screenshot-5.webp"
-      alt="Screenshot of my forum profile, 195 days on there and 5,000 posts read, the forum was my bible."
-      width="100%"
-      class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity"
-      loading="lazy">
-    <figcaption
-      class="w-full text-sm text-black dark:text-white text-right mt-2 -mb-2 pr-4"
-      x-text="imageAlt"
-    ></figcaption>
-  </button>
-</figure>
+{% figure "/images/projects/3d-pools-configurator/screenshot-5.webp", "Screenshot of my forum profile, 195 days on there and 5,000 posts read, the forum was my bible." %}

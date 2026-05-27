@@ -1,13 +1,12 @@
 ---
 layout: layouts/post-archived.html
-title: 🐍 Python Virtual Environments
+title: Python Virtual Environments
 meta:
   desc: How to manage Python virtual environments.
   tag:
 date: 2022-12-01
 intro:
-  title: Python Virtual Environments
-  emoji: 🐍
+  # title: Python Virtual Environments
   desc: How to manage Python virtual environments.
 aiassist: This post was was written in part by <a href='https://beta.openai.com/playground' target='_blank'>GPT-3</a>.
 devto:

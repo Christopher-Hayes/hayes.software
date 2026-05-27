@@ -1,13 +1,12 @@
 ---
 layout: layouts/post-archived.html
-title: 💾 Recovering Files from a Corrupt Linux Partition 
+title: Recovering Files from a Corrupt Linux Partition 
 meta:
   desc: How to recover files from a corrupt Linux partition
   tag: 
 date: 2022-11-18
 intro:
-  title: Recovering Files from a Corrupt Linux Partition
-  emoji: 💾
+  # title: Recovering Files from a Corrupt Linux Partition
   desc: How to recover files from a corrupt Linux partition
 aiassist: This post was Slack thread on <a href='https://newhaven.io' target='_blank'>newhaven.io</a> that was converted to a blog post using GPT-3.
 devto:

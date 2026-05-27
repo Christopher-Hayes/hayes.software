@@ -1,13 +1,11 @@
 ---
 layout: layouts/post.html
-title: 🛠 Where is RCS??
+title: Where is RCS??
 meta:
   desc: We were promised an RCS future, so where is it?
   tag:
 date: 2026-MM-DD
 intro:
-  title: Where is RCS??
-  emoji: 🛠️
   # image:
     # light: /images/blog/
     # dark: /images/blog/

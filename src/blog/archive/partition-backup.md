@@ -1,13 +1,12 @@
 ---
 layout: layouts/post-archived.html
-title: 💽 How to backup and restore Linux partition tables
+title: How to backup and restore Linux partition tables
 meta:
   desc: How to backup and restore Linux partition tables
   tag: 
 date: 2022-12-05
 intro:
-  title: How to backup, restore, and partition tables
-  emoji: 💽
+  # title: How to backup, restore, and partition tables
   desc: How to backup and restore Linux partition tables
 aiassist: This post was was written in part by <a href='https://chat.openai.com/chat' target='_blank'>ChatGPT</a>.
 devto:
@@ -52,7 +51,7 @@ archived:
 
 First, let's talk about the `fdisk` and `sfdisk` commands. These tools allow you to view and manage partitions on a disk. 💽
 
-### <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">fdisk</span>
+### <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-bg-raised dark:bg-opacity-10 rounded-md font-bold">fdisk</span>
 
 To list the partitions of each device, you can use the following commands:
 
@@ -61,7 +60,7 @@ fdisk -l
 fdisk -l /dev/sda
 ```
 
-### <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">sfdisk</span>
+### <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-bg-raised dark:bg-opacity-10 rounded-md font-bold">sfdisk</span>
 
 Alternatively, you can use `sfdisk` like this:
 
@@ -123,7 +122,7 @@ fdisk -l /dev/sda
 fdisk -l /dev/sdd
 ```
 
-### <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">mdadm</span>
+### <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-bg-raised dark:bg-opacity-10 rounded-md font-bold">mdadm</span>
 
 You can also use `mdadm` to manage and rebuild your RAID device:
 
@@ -141,7 +140,7 @@ You can use the watch command to see the progress of the RAID array sync:
 watch cat /proc/mdstat
 ```
 
-### <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-fg-dark dark:bg-opacity-10 rounded-md font-bold">gdisk</span>
+### <span class="text-primary dark:text-fg inline-block py-1 px-2 bg-primary bg-opacity-10 dark:bg-bg-raised dark:bg-opacity-10 rounded-md font-bold">gdisk</span>
 
 But what if your disk uses GPT (GUID Partition Table)? No problem! You can use the gdisk command to manage those disks. The difference between gdisk and `fdisk` is that `gdisk` supports GPT partitions, while `fdisk` does not.
 

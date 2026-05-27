@@ -1,13 +1,12 @@
 ---
 layout: layouts/post.html
-title: 🎠 Top 5 JavaScript Sliders
+title: Top 5 JavaScript Sliders
 meta:
   desc: Top 5 JavaScript Sliders for 2022
   tag:
 date: 2021-11-28
 intro:
-  title: Top 5 JavaScript Sliders
-  emoji: 🎠
+  # title: Top 5 JavaScript Sliders
   desc: Top 5 JavaScript Sliders for 2022
 aiassist:
 devto: This post was originally published on <a href='https://dev.to/chris_hayes/top-5-modern-js-sliders-for-2022-1f3k' target='_blank'>dev.to</a>.

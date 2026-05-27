@@ -1,11 +1,10 @@
 ---
 layout: layouts/project-post.html
-title: "✍️ A light and fast personal blog"
+title: "A light and fast personal blog"
 meta:
   desc: "Insights into building my lightweight personal blog."
 intro:
   title: "A light and fast personal blog"
-  emoji: ✍️
   desc: "Insights into building my lightweight personal blog."
 date: 2024-04-07
 tags: [11ty, alpine, tailwind]

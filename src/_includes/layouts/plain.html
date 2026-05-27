@@ -18,16 +18,15 @@
   }
 </script>
 <main id="main-content" tabindex="-1">
-  <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-    <header
-      class="mt-4 mb-4 flex flex-row flex-wrap gap-4 py-8 font-bold leading-8 text-secondary dark:text-fg"
-    >
-      <p class="flex h-16 w-16 items-center text-5xl leading-none">
-        {{ intro.emoji }}
-      </p>
-      <p class="self-center pt-1 text-xl">{{ intro.desc }}</p>
+  <!-- bg gradient behind post-header -->
+  <div class="fixed top-0 left-0 min-w-[100vw] h-[12rem] bg-gradient-to-b from-70% from-bg to-transparent pointer-events-none z-20"></div>
+  <article class="relative z-10 mx-auto max-w-2xl border border-bg-raised">
+    <header>
+      <h1 class="mt-12 mb-4 pt-12 pb-6 px-12 self-center text-fg text-5xl leading-normal transform scale-110">
+        {{ intro.desc }}
+      </h1>
     </header>
-    <div class="prose prose-lg dark:prose-invert">{{ content }}</div>
-  </div>
+    <div class="py-2 prose prose-lg dark:prose-invert">{{ content }}</div>
+  </article>
 </main>
 {% endblock %}

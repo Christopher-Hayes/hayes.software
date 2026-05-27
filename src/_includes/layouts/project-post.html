@@ -242,9 +242,12 @@
         </div>
       </div>
     </header>
-    <section class="min-w-full prose prose-lg dark:prose-invert">
+    <section class="min-w-full prose prose-lg dark:prose-invert pt-8 pb-2 border border-bg-raised">
       {% include "partials/post-top-image.html" %}
-      {{ content }}
+      <div class="content-wrapper relative">
+        <img src="/images/first-letter-bg-1.svg" alt="" class="absolute z-0 -left-8 -top-20 w-32 h-32 pointer-events-none">
+        {{ content }}
+      </div>
     </section>
     <div
       id="image-overlay"
