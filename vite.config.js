@@ -83,24 +83,7 @@ const getPosts = () => {
               : resolve(__dirname, '_site', 'blog', post, 'index.html'),
         }
       })
-    // Blog archives
-    const archives = fs
-      .readdirSync(resolve(__dirname, '_site', 'blog', 'archive'))
-      .map((post) => {
-        return {
-          [post.replace('.html', '')]:
-            post === 'index.html'
-              ? resolve(__dirname, '_site', 'blog', 'archive', 'index.html')
-              : resolve(
-                  __dirname,
-                  '_site',
-                  'blog',
-                  'archive',
-                  post,
-                  'index.html',
-                ),
-        }
-      })
+
     // Projects
     const projects = fs
       .readdirSync(resolve(__dirname, '_site', 'projects'))
@@ -115,7 +98,6 @@ const getPosts = () => {
     return {
       ...pages,
       ...Object.assign({}, ...posts),
-      ...Object.assign({}, ...archives),
       ...Object.assign({}, ...projects),
     }
   } else {
