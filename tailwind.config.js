@@ -1,5 +1,15 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
+const proseColors = {
+  color: 'var(--fg)',
+  strong: {
+    color: 'inherit',
+  },
+  code: {
+    color: 'var(--fg-highlight)',
+  },
+}
+
 module.exports = {
   content: [
     './src/**/*.html',
@@ -71,44 +81,18 @@ module.exports = {
       fontSize: {
         '2xs': '.625rem',
       },
-      typography: ({ theme }) => ({
+      typography: {
         DEFAULT: {
           css: {
-            '--tw-prose-body': theme('colors.bg.dark'),
-            '--tw-prose-headings': theme('colors.primary.DEFAULT'),
-            '--tw-prose-lead': theme('colors.bg.dark'),
-            '--tw-prose-links': theme('colors.primary.dark'),
-            '--tw-prose-bold': theme('black'),
-            '--tw-prose-counters': theme('colors.secondary.DEFAULT'),
-            '--tw-prose-bullets': theme('colors.secondary.DEFAULT'),
-            '--tw-prose-hr': theme('colors.secondary.dark'),
-            '--tw-prose-quotes': theme('colors.bg.dark'),
-            '--tw-prose-quote-borders': theme('colors.bg.dark'),
-            '--tw-prose-captions': theme('colors.bg.dark'),
-            '--tw-prose-code': theme('colors.primary.DEFAULT'),
-            '--tw-prose-pre-code': theme('colors.fg.light'),
-            '--tw-prose-pre-bg': theme('colors.bg.light'),
-            '--tw-prose-th-borders': theme('colors.bg.dark'),
-            '--tw-prose-td-borders': theme('colors.bg.dark'),
-            '--tw-prose-invert-body': theme('colors.fg.light'),
-            '--tw-prose-invert-headings': theme('colors.fg.DEFAULT'),
-            '--tw-prose-invert-lead': theme('colors.fg.light'),
-            '--tw-prose-invert-links': theme('white'),
-            '--tw-prose-invert-bold': theme('white'),
-            '--tw-prose-invert-counters': theme('colors.fg.dark'),
-            '--tw-prose-invert-bullets': theme('colors.fg.dark'),
-            '--tw-prose-invert-hr': theme('colors.secondary.DEFAULT'),
-            '--tw-prose-invert-quotes': theme('colors.fg.dark'),
-            '--tw-prose-invert-quote-borders': theme('colors.fg.DEFAULT'),
-            '--tw-prose-invert-captions': theme('colors.fg.DEFAULT'),
-            '--tw-prose-invert-code': theme('colors.primary.light'),
-            '--tw-prose-invert-pre-code': theme('colors.primary.light'),
-            '--tw-prose-invert-pre-bg': theme('colors.secondary.DEFAULT'),
-            '--tw-prose-invert-th-borders': theme('colors.fg.DEFAULT'),
-            '--tw-prose-invert-td-borders': theme('colors.fg.DEFAULT'),
+            ...proseColors,
           },
         },
-      }),
+        lg: {
+          css: {
+            ...proseColors,
+          },
+        },
+      },
     },
   },
   variants: {},

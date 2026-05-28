@@ -3,7 +3,7 @@ layout: layouts/post.html
 title: Redirecting music audio to my phone
 meta:
   desc: 
-date: 2026-05-06 # Remember to put an actual date here
+date: 2026-05-28
 read_time: 8 min
 artwork:
   above_fold: /images/blog/sending-music-to-phone/artwork-above-fold.svg
@@ -42,13 +42,7 @@ I'm writing this post _because_ I have an odd setup, but for context you might n
 </span>
 </small>
 
-![Subtracks and YouAMP side-by-side](/images/blog/sending-music-to-phone/subtracks-youamp.svg)
-
-<small><span id="alt-text-2">
-
-**Two Subsonic mobile apps,** Subtracks on the left, and YouAMP on the right. Both of them are connected to my Nextcloud. Btw, the pixel artist shown is on [Mastodon.](https://mastodon.art/@nonamenosocks)
-
-</span></small>
+{% figure "/images/blog/sending-music-to-phone/subtracks-youamp.svg", "**Two Subsonic mobile apps,** Subtracks on the left, and YouAMP on the right. Both of them are connected to my Nextcloud. Btw, the pixel artist shown is on [Mastodon.](https://mastodon.art/@nonamenosocks)" %}
 
 ## The Limitation
 

@@ -147,14 +147,14 @@ body {
 
 /* Tailwind prose customization */
 .prose {
-  @apply text-fg;
+  /* @apply text-fg; */
 
-  strong {
+  /* strong {
     @apply text-inherit;
-  }
-  code {
+  } */
+  /* code {
     @apply text-fg-highlight;
-  }
+  } */
 }
 
 .prose a:not(.no-prose a) {

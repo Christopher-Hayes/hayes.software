@@ -1,7 +1,9 @@
 const { getSpeedlifyComponent } = require('./src/speedlify.js')
 const eleventyAutoCacheBuster = require('eleventy-auto-cache-buster')
+const markdownIt = require('markdown-it')
 
 const html = String.raw
+const md = markdownIt({ html: true })
 
 module.exports = function (config) {
   config.addPlugin(eleventyAutoCacheBuster)
@@ -12,6 +14,8 @@ module.exports = function (config) {
 
   config.addShortcode('figure', function (src, alt) {
     const escapedAlt = alt.replace(/"/g, '&quot;')
+    const renderedAlt = md.render(alt)
+
     return html`<figure
       x-data="{ showImageOverlay() { this.$dispatch('show-image-overlay', this.$refs.img.currentSrc); } }"
       class="group relative"
@@ -34,7 +38,7 @@ module.exports = function (config) {
           class="mt-8 h-7 w-7"
         />
         <div class="flex flex-col items-start gap-1">
-          <p>${escapedAlt}</p>
+          <div class="prose prose-sm prose-strong:text-fg-highlight">${renderedAlt.trim()}</div>
           <button
             @click="showImageOverlay()"
             class="border-2 border-bg-raised px-3 pb-1 pt-2 text-fg-highlight hover:border-bg hover:bg-primary hover:text-bg"
