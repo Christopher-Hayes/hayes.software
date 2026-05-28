@@ -1,19 +1,27 @@
 ---
 layout: layouts/post.html
-title: 📱 Switch monitor display source from your phone
+title: Switch monitor display source from your phone
 meta:
   desc: Using ddcutil to switch monitor display source from your phone
   tag:
 date: 2022-11-29
 intro:
-  title: Switch monitor display source from your phone
-  emoji: 📱
+  # title: Switch monitor display source from your phone
   desc: Using ddcutil to switch monitor display source from your phone
 aiassist: This post was Slack thread on <a href='https://newhaven.io' target='_blank'>newhaven.io</a> that was converted to a blog post using GPT-3.
 devto:
 tags:
   - linux
   - automation
+archived:
+  title: Archived due to substantial ai writing.
+  desc:
+    As part of an effort to raise the quality of my blog, I'm distancing myself from posts that were partially written by AI. Besides devaluing the rest of the site, I want my site to show my best work and these posts read like a 300-word essay.
+
+    This post started as Slack thread about my setup and converted to a blog post with GPT-3. I'm pretty opinionated about writing style, so this article didn't end up how I would write it.
+    
+    I really did use this ddcutil script quite a bit for a couple years. Today my setup doesn't require frequent input switching. But, this script was also just a good lesson on how I could write a C++ script that ran with elevated permissions that could still be executed by a less privileged KDE Connect application.
+  date: 2026-05-27
 ---
 
 If you're like me and you have multiple external monitors connected to two different computers, you know what a pain it can be to manually switch the display source every time you want to switch between them. But, with some clever use of ddcutil, a utility that allows you to interact with monitors via the I2C protocol, you can programmatically switch the display source with just a few button pushes on your phone.

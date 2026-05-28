@@ -1,16 +1,22 @@
 ---
 layout: layouts/post.html
-title: 🎠 Top 5 JavaScript Sliders
+title: Top 5 JavaScript Sliders
 meta:
   desc: Top 5 JavaScript Sliders for 2022
   tag:
 date: 2021-11-28
 intro:
-  title: Top 5 JavaScript Sliders
-  emoji: 🎠
+  # title: Top 5 JavaScript Sliders
   desc: Top 5 JavaScript Sliders for 2022
 aiassist:
 devto: This post was originally published on <a href='https://dev.to/chris_hayes/top-5-modern-js-sliders-for-2022-1f3k' target='_blank'>dev.to</a>.
+archived:
+  title: Archived due to being out-of-date.
+  desc:
+    This post was written in late 2021, going into 2022.
+
+    It's a bit too outdated to look like a recent tech recommendation. Though Swiper and Splide remain dominant libraries.
+  date: 2026-05-27
 ---
 
 I find I'm always looking for a new JS slider library for one reason or another. Here's a roughly ordered list of the top libraries that I've come across going into 2022.

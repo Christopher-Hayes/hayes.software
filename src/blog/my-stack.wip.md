@@ -1,13 +1,11 @@
 ---
 layout: layouts/post.html
-title: 🛠 Tools I use everyday
+title: Tools I use everyday
 meta:
   desc: The tools I use everyday.
 date: 2024-04-20
 intro:
-  # Separate from SEO meta, used for internally for content rendering
-  title: Tools I use everyday
-  emoji: 🛠️
+  # title: Tools I use everyday
 tags:
 #  - featured # Show on homepage
 #  - vue

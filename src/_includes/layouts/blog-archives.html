@@ -1,0 +1,85 @@
+{% layout "layouts/base.html" %}
+{% block content %}
+<script type="speculationrules">
+  {
+    "prerender": [
+      {
+        "urls": ["/", "/projects/"],
+        "eagerness": "eager"
+      },
+      {
+        "where": {
+          "href_matches": ["/blog/archives/*"]
+        },
+        "eagerness": "immediate"
+      }
+    ],
+    "prefetch": [
+      {
+        "where": {
+          "href_matches": ["/projects/*"]
+        },
+        "eagerness": "moderate"
+      }
+    ]
+  }
+</script>
+<main id="main-content" tabindex="-1"
+>
+  <!-- bg gradient behind post-header -->
+  <div
+    class="fixed top-0 left-0 min-w-[100vw] h-[14rem] bg-gradient-to-b from-50% from-bg to-transparent pointer-events-none z-20">
+  </div>
+  <article class="flex flex-col mx-auto max-w-2xl border-x border-bg-raised">
+    <header class="mt-16">
+      <h1 class="px-12 pt-8 pb-2 self-center text-fg font-rakkas text-6xl leading-normal border-t-0 transform scale-110">
+        {{ title }}
+      </h1>
+      <div class="prose prose-lg mt-8 -mb-7 px-6 pb-0 pt-2">
+        <p class="big-letter relative mt-2">
+          <img src="/images/first-letter-bg-1.svg" alt="" class="absolute z-0 -left-4 -top-20 w-32 h-32 pointer-events-none">
+          <span class="relative z-10">{{ intro.desc }}</span>
+        </p>
+      </div>
+    </header>
+    <section class="mt-12 pb-12 border-b border-bg-raised">
+      <div class="grid grid-cols-1 md:grid-cols-3 border-x border-primary">
+        {% for post in collections['blog-archives'] %}
+          <a
+            href="{{ post.url }}"
+            class="blog-card group my-4 border border-l-0 border-primary flex no-underline"
+            rel="prefetch"
+            onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ post.url }}') }"
+            >
+            <div class="flex flex-col divide-y divide-primary bg-bg-raised group-hover:bg-fg-highlight group-hover:text-bg group-hover:divide-bg">
+              <div class="grow px-2 py-2.5 flex items-center">
+                <span
+                  class="text-3xl leading-7 font-display text-fg line-clamp-3 group-hover:text-bg">
+                  {{ post.data.title }}
+                </span>
+              </div>
+              <div class="flex divide-x divide-primary text-xs text-fg-highlight group-hover:divide-bg">
+                <div class="px-2 pt-1 pb-0.5 group-hover:text-bg">
+                  {{ post.date | date: "%B %d, %Y" }}
+                </div>
+                <div class="grow px-2 pt-1 pb-0.5 text-end group-hover:text-bg">
+                  5 min read
+                </div>
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+
+        <!-- Fill last row with empty cells if not divisible by 3 -->
+        {% assign lastMod = collections['blog-archives'].size | modulo: 3 %}
+        {% if lastMod == 1 %}
+          <div class="my-4 border-y border-bg-raised"></div>
+          <div class="my-4 border-y border-bg-raised"></div>
+        {% elsif lastMod == 2 %}
+          <div class="my-4 border-y border-bg-raised"></div>
+        {% endif %}
+      </div>
+    </section>
+  </article>
+</main>
+{% endblock %}

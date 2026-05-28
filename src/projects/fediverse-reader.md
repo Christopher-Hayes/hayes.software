@@ -1,19 +1,16 @@
 ---
 layout: layouts/project-post.html
-title: 🍃 A Minimal Fediverse Reader Experiment
+title: A Custom Fediverse Frontend
 meta:
   desc: "A minimal read-only Fediverse Mastodon post viewer built with Next.js and Fedify, focusing on design and stable prototyping in Inkscape."
 intro:
-  title: Building a Minimal Fediverse Reader
-  emoji: 🌐
-  desc: "Experimenting with a read-only Mastodon post viewer using Next.js and Fedify. Balancing code and design, pushing SVG paths, and embracing a handcrafted Inkscape workflow."
   image:
     light: /images/projects/fediverse-reader/screenshot-1.png
     dark: /images/projects/fediverse-reader/screenshot-1.png
     alt: "Screenshot of the Fediverse Reader UI"
 projectlink: https://fediverse.hayes.software/
 date: 2024-12-16
-tags: [nextjs, fedify, tailwind, featured]
+tags: [next, fedify, tailwind, featured]
 aiassist: In the process of writing this post, <a href='https://chat.openai.com' target='_blank'>ChatGPT</a> was used to help verbalize my stream of consciousness. If some parts sound a little fancy, that would be why.
 ---
 ## 📚 Why Build a Fediverse Reader?

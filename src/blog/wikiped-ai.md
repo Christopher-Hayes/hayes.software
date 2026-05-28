@@ -1,18 +1,26 @@
 ---
 layout: layouts/post.html
-title: 📚 AI is changing how I use Wikipedia
+title: AI is changing how I use Wikipedia
 meta:
   desc: How AI is changing how I use Wikipedia
   tag: 
 date: 2022-12-11
 intro:
-  title: AI is changing how I use Wikipedia
-  emoji: 📚
+  # title: AI is changing how I use Wikipedia
   desc: How AI is changing how I use Wikipedia
 aiassist: This post was written with the help of <a href='https://chat.openai.com/chat' target='_blank'>ChatGPT</a>.
 devto: 
 tags:
   - ai
+archived:
+  title: Archived due to substantial ai writing.
+  desc:
+    As part of an effort to raise the quality of my blog, I'm distancing myself from posts that were partially written by AI. Besides devaluing the rest of the site, I want my site to show my best work and these posts read like a 300-word essay.
+    
+    I won't be rewriting this article—in fact I don't even use Wikiwand anymore (for other reasons). Having been around AI for a few years now, even when generated content is not strictly inaccurate it's just imprecise.
+    
+    I find I really favor the precision and density of knowledge in Wikipedia articles, so I always prefer just reading Wikipedia than some wordy, subpar AI overview.
+  date: 2026-04-28
 ---
 
 <figure

@@ -1,0 +1,111 @@
+{% layout "layouts/base.html" %} {% block content %}
+<script type="speculationrules">
+  {
+    "prerender": [
+      {
+        "urls": ["/", "/blog/", "/projects/"],
+        "eagerness": "eager"
+      }
+    ],
+    "prefetch": [
+      {
+        "where": {
+          "href_matches": ["/blog/*", "/projects/*"]
+        },
+        "eagerness": "moderate"
+      }
+    ]
+  }
+</script>
+<main id="main-content" tabindex="-1">
+  <div class="mx-auto px-4 sm:px-6 lg:px-8">
+    <header class="relative mt-36 mb-12 flex flex-row flex-wrap gap-4 leading-8 text-fg dark:text-fg">
+      <div class="relative">
+        <picture>
+          <source srcset="{{ intro.headline.art.light }}" type="image/svg+xml" media="(prefers-color-scheme: light)" />
+          <source srcset="{{ intro.headline.art.dark }}" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
+          <img src="{{ intro.headline.art.light }}" alt=""
+            class="absolute left-[-25%] top-[-85%] min-w-[130%] h-[220%] object-contain" />
+        </picture>
+        <h1 class="relative z-10 flex items-center text-6xl leading-none font-rakkas">
+          {{ intro.title }}
+        </h1>
+      </div>
+
+      <picture>
+        <source srcset="/images/feta/arrow-1-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)" />
+        <source srcset="/images/feta/arrow-1-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
+        <img src="/images/feta/arrow-1-light.svg" alt="" class="absolute left-20 top-48 w-[79%] h-[77%]" />
+      </picture>
+      <picture>
+        <source srcset="/images/feta/arrow-2-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)" />
+        <source srcset="/images/feta/arrow-2-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
+        <img src="/images/feta/arrow-2-light.svg" alt="" class="absolute left-[38%] top-[92%] w-[12%]" />
+      </picture>
+      <p
+        class="relative z-10 mt-2 text-black dark:text-white font-luciole max-w-lg self-center text-xl leading-relaxed">
+        {{ intro.desc }}
+      </p>
+      <picture>
+        <source srcset="{{ intro.art.light }}" type="image/svg+xml" media="(prefers-color-scheme: light)" />
+        <source srcset="{{ intro.art.dark }}" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
+        <img src="{{ intro.art.light }}" alt=""
+          class="absolute left-[calc(50%+9em)] -top-52 min-w-[40vw] h-[60vh] object-contain object-left-top" />
+      </picture>
+    </header>
+    <section class="mt-12 mb-56 relative">
+      <header class="relative ">
+        <a href="#good-reads">
+          <picture>
+            <source srcset="/images/feta/anchor-light.svg" type="image/svg+xml" media="(prefers-color-scheme: light)" />
+            <source srcset="/images/feta/anchor-dark.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
+            <img src="/images/feta/anchor-light.svg" alt="" class="absolute -left-20 top-0" width="64" />
+          </picture>
+        </a>
+        <div id="good-reads" class="absolute -top-48"></div>
+        <h2 class="sr-only">
+          Good reads from the fediverse
+        </h2>
+      </header>
+      <picture>
+        <source srcset="/images/feta/good-reads-headline-light.svg" type="image/svg+xml"
+          media="(prefers-color-scheme: light)" />
+        <source srcset="/images/feta/good-reads-headline-dark.svg" type="image/svg+xml"
+          media="(prefers-color-scheme: dark)" />
+        <img src="/images/feta/good-reads-headline-light.svg" alt="" class="-ml-4" width="248" />
+      </picture>
+      <div class="absolute left-36 top-20 flex flex-row flex-wrap gap-6">
+        {% for good_read in good_reads %}
+        <a href="{{ good_read.link }}"
+          class="group relative block w-64 aspect-square rounded-lg border border-primary overflow-hidden transition-shadow hover:shadow-lg">
+          <img src="{{ good_read.photo }}" alt="{{ good_read.title }} cover"
+            class="absolute inset-0 w-full h-full object-cover">
+          <div class="h-full flex flex-col justify-between items-start p-4 relative z-10">
+            <h3 class="text-lg leading-relaxed font-semibold text-gray-900 dark:text-white group-hover:text-primary">
+              <span class="bg-primary text-white px-2">
+                {{ good_read.title }}
+              </span>
+            </h3>
+            <p
+              class="inline-block text-sm font-semibold bg-white px-2 py-1 rounded-md text-gray-600 dark:text-primary-dark">
+              {{ good_read.author }}
+            </p>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+    {% assign contentSections = content | split: '[SECTION_BREAK]' %}
+    <section class="mt-32 mb-8">
+      <div class="prose prose-lg dark:prose-invert">
+        {{ contentSections[0] }}
+      </div>
+    </section>
+    <section class="mt-32 mb-8">
+      <div class="prose prose-lg dark:prose-invert">
+        {{ contentSections[1] }}
+      </div>
+    </section>
+  </div>
+</main>
+{% endblock %}

@@ -1,13 +1,9 @@
 ---
 layout: layouts/post.html
-title: 🖥️ Local scripts in PlayCanvas Preview
+title: Local scripts in PlayCanvas Preview
 meta:
   desc: How to use localhost hot-reloading scripts in your PlayCanvas project preview.
 date: 2025-05-01
-intro:
-  # Separate from SEO meta, used for internally for content rendering
-  title: Local Scripts in PlayCanvas Preview
-  emoji: 🖥️
 tags:
   - playcanvas
 aiassist: The article was reviewed and fact-checked by Copilot AI.

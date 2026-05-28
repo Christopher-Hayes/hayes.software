@@ -1,13 +1,10 @@
 ---
 layout: layouts/post.html
-title: 📱 seo_blog_pos_title
+title: seo_blog_pos_title
 meta:
   desc: seo_blog_meta_desc
 date: YYYY-MM-DD # Remember to put an actual date here
 intro:
-  # Separate from SEO meta, used for internally for content rendering
-  title: internal_site_title
-  emoji: 📱
   image:
     light: /images/blog/slug/screenshot-1-light.png
     dark: /images/blog/slug/screenshot-1-dark.png

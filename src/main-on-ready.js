@@ -2,6 +2,8 @@ window.mainContentWrapper = document.querySelector('#main-content-wrapper')
 window.pageListeners = []
 
 const setupPage = () => {
+  document.body.dataset.page = window.location.pathname
+
   // Load Alpine
   window.loadAlpine()
 
@@ -92,6 +94,11 @@ const setupPage = () => {
       window.pageListeners.push(scrollListen)
     }
   }
+
+  // Defocus any focused elements
+  if (document.activeElement) {
+    document.activeElement.blur()
+  }
 }
 
 const showPage = async (link, { event, reverse, forget }) => {
@@ -171,12 +178,12 @@ const showPage = async (link, { event, reverse, forget }) => {
         setupPage()
       }
 
+      // if (!document.startViewTransition) {
       // View Transition API not supported
-      if (!document.startViewTransition) {
-        console.warn('View Transition API not supported')
-        const { newDocument, newContent } = await downloadNewPage()
-        await swapContent(newContent, newDocument)
-      } else {
+      console.warn('View Transition API not supported')
+      const { newDocument, newContent } = await downloadNewPage()
+      await swapContent(newContent, newDocument)
+      /*} else {
         // set the direction of the transition
         const isTopLevelPage = ['/', '/blog/', '/projects/'].includes(
           link.pathname,
@@ -188,11 +195,11 @@ const showPage = async (link, { event, reverse, forget }) => {
 
         const downloadPromise = downloadNewPage()
 
-        /* Manually assign view transition to the body content
-         * This is needed due to a chrome bug with backdrop blur
-         * not applying correctly when view transition is present.
-         * For that reason, it gets removed immediately after the transition.
-         */
+        // Manually assign view transition to the body content
+        // This is needed due to a chrome bug with backdrop blur
+        // not applying correctly when view transition is present.
+        // For that reason, it gets removed immediately after the transition.
+        //
         if (window.mainContentWrapper) {
           window.mainContentWrapper.style.viewTransitionName =
             'main-content-wrapper'
@@ -217,7 +224,7 @@ const showPage = async (link, { event, reverse, forget }) => {
             }
           }, 500)
         }
-      }
+      } */
 
       // If a blog page or project page is loaded, rebuild comment section.
       if (document.querySelector('comment-section')) {

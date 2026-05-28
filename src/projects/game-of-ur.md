@@ -1,11 +1,10 @@
 ---
 layout: layouts/project-post.html
-title: "🎲 The Ancient Game of Ur"
+title: "The Ancient Game of Ur"
 meta:
   desc: "The classic Game of Ur recreated in the modern web."
 intro:
   title: "The Ancient Game of Ur"
-  emoji: 🎲
   desc: "The classic Game of Ur recreated in the modern web."
   image:
     light: "/images/projects/game-of-ur/screenshot-1.png"

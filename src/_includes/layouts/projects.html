@@ -20,7 +20,7 @@
 </script>
 <main id="main-content" tabindex="-1"
 >
-  <div
+  <!-- <div
     class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8"
     x-data="{
       tags: [],
@@ -41,7 +41,6 @@
       <p class="text-xl md:text-2xl self-center pt-1">{{ intro.desc }}</p>
     </div>
     <header class="mb-4 flex flex-col md:flex-row gap-4 text-white min-h-[28px]">
-      <!-- ALL TAGS -->
       <div
         class="flex flex-wrap gap-2"
         x-show="showAllTags"
@@ -50,7 +49,7 @@
         {%- for tag in tagList -%}
           {% if tag.name != 'featured' %}
             <button
-              class="py-1 px-2 inline-flex dark:bg-opacity-10 rounded-md font-bold dark:hover:bg-fg-dark dark:focus:bg-fg-dark dark:hover:bg-opacity-20  dark:focus:bg-opacity-20"
+              class="py-1 px-2 inline-flex dark:bg-opacity-10 rounded-md font-bold dark:hover:bg-bg-raised dark:focus:bg-bg-raised dark:hover:bg-opacity-20  dark:focus:bg-opacity-20"
               @click="
                 tags = tags.includes('{{ tag.name }}') || '{{ tag.name }}' == 'projects' ? [] : ['{{ tag.name }}']
                 // Update URL
@@ -60,7 +59,7 @@
               "
               :class="
                 tags.includes('{{ tag.name }}') || ('{{ tag.name }}' == 'projects' && tags.length === 0) ?
-                  'text-white dark:text-fg bg-primary dark:bg-fg-dark' :
+                  'text-white dark:text-fg bg-primary dark:bg-bg-raised' :
                   'text-bg dark:text-white hover:bg-primary hover:transition-none ease-out hover:bg-opacity-10 focus:bg-primary focus:transition-none focus:bg-opacity-10'
               "
               x-show="showAllTags"
@@ -98,11 +97,9 @@
               <p class="text-base">{{ post.data.description }}</p>
             </header>
 
-            <!-- card tags -->
             <ul
               class="mt-2 text-sm opacity-70"
               >
-              <!-- show a special tag for each tech stack -->
               {% for tag in post.data.tags %}
                 {% if tag == 'react' %}
                   <li class="inline-block mr-2">React</li>
@@ -145,6 +142,119 @@
         </div>
       {% endfor %}
     </div>
+  </div> -->
+
+  <!-- bg gradient behind post-header -->
+  <div
+    class="fixed top-0 left-0 min-w-[100vw] h-[14rem] bg-gradient-to-b from-50% from-bg to-transparent pointer-events-none z-20">
   </div>
+  <article class="flex flex-col mx-auto max-w-2xl border-x border-bg-raised">
+    <header class="mt-16">
+      <h1 class="px-12 pt-8 self-center text-fg font-rakkas text-6xl leading-normal border-t-0 transform scale-110">
+        Projects
+      </h1>
+      <div class="prose prose-lg mt-8 -mb-7 px-6 pb-0 pt-2">
+        <p class="big-letter relative mt-2">
+          <img src="/images/first-letter-bg-1.svg" alt="" class="absolute z-0 -left-4 -top-20 w-32 h-32 pointer-events-none">
+          <span class="relative z-10">
+            {{ intro.desc }}
+          </span>
+        </p>
+      </div>
+    </header>
+    <section class="mt-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 border-x border-primary">
+        {% for post in collections.projects %}
+          <a
+            href="{{ post.url }}"
+            class="blog-card group my-4 border border-l-0 border-primary flex no-underline"
+            rel="prefetch"
+            onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ post.url }}') }"
+            >
+            <div class="flex flex-col divide-y divide-primary bg-bg-raised group-hover:bg-fg-highlight group-hover:text-bg group-hover:divide-bg">
+              <div class="grow px-2 py-2.5 flex items-center">
+                <span
+                  class="text-3xl leading-7 font-display text-fg group-hover:text-bg">
+                  {{ post.data.title }}
+                </span>
+              </div>
+              <div class="flex divide-x divide-primary text-xs text-fg-highlight group-hover:divide-bg">
+                <div class="grow px-2 pt-1 pb group-hover:text-bg">
+                  {{ post.date | date: "%Y" }}
+                </div>
+
+                <div class="py-0 flex items-center divide-x divide-primary group-hover:text-bg group-hover:divide-bg">
+                  {% for tag in post.data.tags limit:2 %}
+                    {% if tag == 'three' %}
+                      <div class="px-2 pt-1 pb">THREE.js</div>
+                    {% elsif tag == 'js' %}
+                      <div class="px-2 pt-1 pb">Vanilla JS</div>
+                    {% elsif tag == 'alpine' %}
+                      <div class="px-2 pt-1 pb">Alpine.js</div>
+                    {% elsif tag == 'webgl' %}
+                      <div class="px-2 pt-1 pb">WebGL</div>
+                    {% elsif tag == 'webgpu' %}
+                      <div class="px-2 pt-1 pb">WebGPU</div>
+                    {% elsif tag == 'playcanvas' %}
+                      <div class="px-2 pt-1 pb">PlayCanvas3D</div>
+                    {% elsif tag == 'node' %}
+                      <div class="px-2 pt-1 pb">Node.js</div>
+                    {% elsif tag != 'featured' %}
+                      <div class="capitalize px-2 pt-1 pb">{{ tag }}</div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+
+        <!-- Fill last row with empty cells if not divisible by 3 -->
+        {% assign lastMod = collections.blog.size | modulo: 3 %}
+        {% if lastMod == 1 %}
+          <div class="my-4 border-y border-bg-raised"></div>
+          <div class="my-4 border-y border-bg-raised"></div>
+        {% elsif lastMod == 2 %}
+          <div class="my-4 border-y border-bg-raised"></div>
+        {% endif %}
+      </div>
+    </section>
+    <section class="-mt-3 pb-6 border-b border-bg-raised">
+      <header>
+        <h1 class="px-12 pt-12 border-t-0 self-center text-fg font-rakkas text-6xl leading-normal transform scale-110">
+          Add yours
+        </h1>
+      </header>
+      <div class="flex gap-4">
+        <div class="grow w-full">
+          <p class="max-w-[24rem] mt-5 mb-2 px-6 pb-0 prose">
+            I work on all kinds of projects. Feel free to reach out if you have something I can lend my skills to.
+          </p>
+        </div>
+        <!-- <div class="mr-8 mt-6 w-full max-w-[12rem] border border-primary-highlight">
+          <a href="https://nutmeg.social/@chris" target="_blank" rel="noopener"
+            class="group block no-underline bg-bg-raised hover:bg-fg hover:text-bg">
+            <div class="flex flex-col divide-y divide-primary-highlight group-hover:divide-bg">
+              <div class="flex">
+                <img src="/images/mastodon-logo-fg-highlight.svg" alt="Mastodon logo"
+                  class="group-hover:hidden w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
+                <img src="/images/mastodon-logo-bg.svg" alt="Mastodon logo"
+                  class="hidden group-hover:block w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
+                <span
+                  class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-primary-highlight group-hover:text-bg group-hover:border-bg">Mastodon</span>
+              </div>
+              <div class="px-2 pt-1 pb-0.5 text-sm text-fg group-hover:text-bg">
+                <span class="text-fg-highlight group-hover:text-bg">@chris</span>@nutmeg.social
+              </div>
+              <div class="flex divide-x divide-primary-highlight text-xs group-hover:divide-bg">
+                <div class="px-2 pt-1 pb-0.5 text-fg group-hover:text-bg">3.3k posts</div>
+                <div class="grow px-2 pt-1 pb-0.5 text-end text-fg group-hover:text-bg">196 followers</div>
+              </div>
+            </div>
+          </a>
+        </div> -->
+      </div>
+    </section>
+  </article>
 </main>
 {% endblock %}
