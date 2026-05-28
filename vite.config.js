@@ -68,7 +68,9 @@ const getPosts = () => {
     const pages = {
       404: resolve(__dirname, '_site', '404.html'),
       main: resolve(__dirname, '_site', 'index.html'),
-      toolbox: resolve(__dirname, '_site', 'toolbox', 'index.html'),
+      contact: resolve(__dirname, '_site', 'contact', 'index.html'),
+      blogArchives: resolve(__dirname, '_site', 'blog-archives', 'index.html'),
+      // toolbox: resolve(__dirname, '_site', 'toolbox', 'index.html'),
       // For some reason blog index.html not being generated further down
       blog: resolve(__dirname, '_site', 'blog', 'index.html'),
     }
