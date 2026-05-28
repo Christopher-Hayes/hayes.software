@@ -68,7 +68,7 @@
         </div>
       </div>
     </header>
-    <section class="min-w-full prose prose-lg dark:prose-invert pt-8 pb-2 border border-t-0 border-fg dark:border-bg-raised">
+    <section class="min-w-full prose prose-lg dark:prose-invert pt-8 pb-2 border border-t-0 border-border dark:border-bg-raised">
       {% if intro.image %}
         {% include "partials/post-top-image.html" %}
       {% else %}
@@ -140,9 +140,9 @@
         </div>
       </div>
       <button
-        class="z-60 absolute top-8 right-8 m-4 p-4 text-lg text-white focus-within:bg-gray-800 focus-within:text-gray-300 focus-within:outline-2 focus-within:outline-gray-300 hover:bg-gray-800 hover:text-gray-300 hover:outline-2"
+        class="z-60 absolute top-8 right-8 m-4 p-4 text-lg text-fg border-fg bg-primary hover:bg-fg hover:text-bg"
         @click="showImage = false; showVideo = false">
-        close
+        Close
       </button>
     </div>
     <footer class="text-opacity-85 mt-16 text-sm text-primary dark:text-primary-light">

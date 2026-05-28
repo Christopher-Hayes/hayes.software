@@ -121,8 +121,9 @@ module.exports = function (config) {
 
   config.addShortcode('forges', function () {
     return html`
-      <div class="no-prose mt-2 -mb-4 w-full flex justify-center border-y border-fg dark:border-bg-raised">
-        <social-wrapper class="flex divide-x divide-fg dark:divide-bg-raised border-x border-fg dark:border-bg-raised">
+      <div class="no-prose mt-2 -mb-4 w-full flex justify-center">
+        <div class="grow border-y border-border"></div>
+        <social-wrapper class="flex divide-x divide-fg dark:divide-bg-raised border border-fg dark:border-bg-raised">
           <a href="https://github.com/Christopher-Hayes" target="_blank" rel="noopener"
             class="group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
             <div class="flex flex-col divide-y divide-fg dark:divide-bg-raised">
@@ -184,6 +185,7 @@ module.exports = function (config) {
             </div>
           </a>
         </social-wrapper>
+        <div class="grow border-y border-border"></div>
       </div>
     `
   })

@@ -19,15 +19,11 @@ intro:
 
 *Latest project is..* building a [desktop music player](https://github.com/Christopher-Hayes/osuplayer/releases) for the game, osu!
 
-<div class="-mt-6"></div>
-
 ## Projects
 
 You can read about my work in [/projects](/projects/). Most **FOSS** stuff is on <a href="https://github.com/Christopher-Hayes" rel="me">github</a>, a few new ones on <a href="https://codeberg.org/chris-hayes" rel="me">codeberg</a>.
 
 {% forges %}
-
-<div class="-mt-16"></div>
 
 ## Fediverse
 
@@ -38,8 +34,6 @@ It's on open-source software, with servers maintained by volunteers and funded b
 I run [nutmeg.social](https://nutmeg.social/about), a Mastodon server for [#Connecticut](https://nutmeg.social/tags/Connecticut), USA.
 
 {% social %}
-
-<div class="-mt-16"></div>
 
 ## This site
 

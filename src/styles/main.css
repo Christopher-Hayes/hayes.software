@@ -134,6 +134,8 @@ Post header transitions on mobile (the header changes when you scroll)
   --primary-highlight: #1f1a16;
   --primary-muted: #b78447;
 
+  --border: #e9e5b9;
+
   @media (prefers-color-scheme: dark) {
     --bg: #1f1a16;
     --bg-raised: #27211d;
@@ -145,6 +147,8 @@ Post header transitions on mobile (the header changes when you scroll)
     --primary: #fbcd5c;
     --primary-highlight: #fdfacb;
     --primary-muted: #b78447;
+
+    --border: #27211d;
   }
 }
 
@@ -158,24 +162,15 @@ body {
   @apply text-fg;
 }
 
-/* Tailwind prose customization */
-.prose {
-  /* @apply text-fg; */
-
-  /* strong {
-    @apply text-inherit;
-  } */
-  /* code {
-    @apply text-fg-highlight;
-  } */
-}
-
 .prose a:not(.no-prose a) {
-  @apply text-fg-muted dark:text-fg-highlight decoration-fg-muted dark:decoration-fg-highlight underline decoration-dashed decoration-2 underline-offset-[6px];
+  @apply bg-primary dark:bg-bg-raised text-fg dark:text-fg-highlight decoration-fg decoration-dotted dark:decoration-fg-highlight underline decoration-2 underline-offset-[6px];
+
+  padding: 0.4rem 0.4rem 0.25rem;
+  margin: 0 0.1rem;
 
   &:hover,
   &:focus {
-    @apply text-fg-muted decoration-fg-muted;
+    @apply bg-fg text-bg decoration-fg;
   }
 }
 
@@ -185,7 +180,7 @@ a[href^='#'] {
 }
 
 .prose ol li::marker {
-  @apply font-bold text-fg-muted;
+  @apply font-bold text-fg dark:text-fg-highlight;
 }
 
 .prose li,
@@ -197,10 +192,24 @@ a[href^='#'] {
 h1,
 h2,
 h3 {
-  @apply text-fg dark:text-fg-highlight mb-2 mt-0 border-y border-fg dark:border-bg-raised pb-2 pl-3.5 pt-6;
+  @apply text-fg dark:text-fg-highlight mb-2 mt-0 border-b border-b-fg pb-2 pl-3.5 pt-6;
+
+  .prose & {
+    @apply mt-6;
+  }
+}
+/* Add a border above if following paragraph */
+h1,
+p:not(:empty) + h2, small + h2, ul + h2, ol + h2,
+p:not(:empty) + h3, small + h3, ul + h3, ol + h3 {
+  @apply border-t border-t-border;
+
+  .prose & {
+    @apply mt-10 pt-10;
+  }
 }
 h2 {
-  @apply scale-110 transform pb-3 pl-12 pt-10 text-4xl;
+  @apply scale-110 transform pb-3 pl-12 text-4xl;
 }
 
 a:hover,
@@ -218,7 +227,7 @@ a:focus {
   }
 
   em {
-    @apply font-rakkas not-italic leading-none tracking-wide text-fg-muted dark:text-fg-highlight dark:text-fg-highlight;
+    @apply px-1 dark:px-0 font-rakkas not-italic leading-none tracking-wide bg-bg-raised dark:bg-transparent text-fg dark:text-fg-highlight;
     font-size: 22px;
   }
   ul,
@@ -242,17 +251,17 @@ a:focus {
     }
   }
   figure {
-    @apply py-8; /* border-y border-bg-raised; */
+    @apply py-8;
     figcaption {
       @apply absolute -right-[25rem] top-1/3 max-w-[18rem];
 
       p {
-        @apply text-fg-muted border-2 border-fg-muted dark:border-bg-raised px-4 pb-3 pt-3.5;
+        @apply text-fg-muted border-2 border-fg-muted dark:border-border px-4 pb-3 pt-3.5;
       }
     }
   }
   hr {
-    @apply border-0 border-t-2 border-bg-raised my-12;
+    @apply border-0 border-t-2 my-12;
   }
   table {
     @apply w-full border-collapse border border-primary;
@@ -265,7 +274,7 @@ a:focus {
     @apply font-bold bg-bg-raised text-fg-highlight border border-primary-highlight rounded-none;
   }
   .content-wrapper > p > img {
-    @apply my-20 w-full scale-[120%] transform border-y border-bg-raised py-2;
+    @apply my-20 w-full scale-[120%] transform border-y py-2;
   }
 }
 
@@ -274,13 +283,13 @@ a:focus {
   @apply relative z-10 -mt-4;
   /* First letter of first paragraph */
   &::first-letter {
-    @apply float-left mb-1 mr-3 mt-1 border-2 border-solid border-primary px-2 pb-2 pt-2 font-rakkas text-8xl text-primary;
+    @apply float-left mb-1 mr-3 mt-1 bg-primary dark:bg-transparent border-2 border-solid border-fg-muted dark:border-primary px-2 pb-2 pt-2 font-rakkas text-8xl text-fg dark:text-primary;
   }
 }
 
 /* For use outside of .prose */
 .big-letter::first-letter {
-  @apply float-left mb-1 mr-3 border-2 border-solid border-fg-muted dark:border-primary px-2 pb-2 pt-2 font-rakkas text-8xl text-fg-muted dark:text-primary;
+  @apply float-left mb-1 mr-3 bg-primary border-2 border-solid border-fg-muted dark:border-primary px-2 pb-2 pt-2 font-rakkas text-8xl text-fg dark:text-primary;
 }
 
 /* only on desktop */

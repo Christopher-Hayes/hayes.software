@@ -22,20 +22,20 @@
   <div
     class="fixed top-0 left-0 min-w-[100vw] h-[14rem] bg-gradient-to-b from-50% from-bg to-transparent pointer-events-none z-20">
   </div>
-  <article class="mt-[25vh] mx-auto max-w-2xl border border-fg dark:border-bg-raised">
-    <header class="w-full bg-bg-raised flex justify-center mb-8 border border-b-2 border-primary-highlight">
-      <h1 class="lg:max-w-[38rem] px-10 pt-8 pb-6 self-center text-fg font-rakkas text-5xl leading-tight border-none">
-        <emp class="text-fg-muted dark:text-fg-highlight mr-1">{{ intro.emp }}</emp>
+  <article class="mt-[25vh] mx-auto max-w-2xl flex flex-col">
+    <header class="w-full bg-fg dark:bg-bg-raised flex justify-center border border-fg dark:border-primary-highlight">
+      <h1 class="lg:max-w-[38rem] px-10 pt-8 pb-6 self-center text-bg dark:text-fg font-rakkas text-5xl leading-tight border-none">
+        <emp class="text-primary mr-1">{{ intro.emp }}</emp>
         <span>{{ intro.desc }}</span>
       </h1>
     </header>
-    <section>
+    <section class="pt-8 border-x border-border">
       <header class="prose prose-lg">
         <h2 class="border-t-0">
           Writing
         </h2>
       </header>
-      <div class="my-1 grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 divide-y divide-fg dark:divide-bg-raised">
+      <div class="my-1 ml-[-1px] mr-[-1px] grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 border border-t-0 border-fg divide-y divide-fg dark:divide-bg-raised">
         {% assign taglist = collections['featured'] %}
         {% assign taglist = taglist | sort: 'date' | reverse %}
         {% for post in taglist %}
@@ -43,17 +43,17 @@
           href="{{ post.url }}" rel="prefetch"
           onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ post.url }}') }">
           <span class=" text-2xl font-rakkas">{{ post.data.title }}</span>
-          <p class="pt-1 text-sm opacity-50">
+          <p class="pt-1 text-xs tracking-wide">
             {{ post.date | date: "%B %d, %Y" }}
           </p>
         </a>
         {% endfor %}
       </div>
     </section>
-    <div class="prose prose-lg dark:prose-invert">
+    <div class="pb-6 prose prose-lg dark:prose-invert border-x border-border">
       {{ content }}
     </div>
-    <footer class="mt-6">
+    <footer class="border border-t-0 border-fg">
       {{ speedlify }}
     </footer>
   </article>
