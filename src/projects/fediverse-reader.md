@@ -13,7 +13,7 @@ date: 2024-12-16
 tags: [next, fedify, tailwind, featured]
 aiassist: In the process of writing this post, <a href='https://chat.openai.com' target='_blank'>ChatGPT</a> was used to help verbalize my stream of consciousness. If some parts sound a little fancy, that would be why.
 ---
-## 📚 Why Build a Fediverse Reader?
+## Why Build a Fediverse Reader?
 
 I wanted to learn how to consume **Mastodon content** in a “read-only” way—no posting, boosting, or liking, just viewing.
 
@@ -21,7 +21,7 @@ Enter **Fedify**. I started with a minimal **Next.js** example that taps into Fe
 
 Initially planned as a boilerplate for other developers, but as I explored, the design aspect drew me in.
 
-## 🔨 The Approach
+## The Approach
 
 This project queries a Mastodon post by URL and displays it on a custom page.
 
@@ -59,7 +59,7 @@ I aimed for a consistent, fun appearance, battling messy floating shapes and SVG
   </button>
 </figure>
 
-## 🎨 Designing in Inkscape for a Web App?
+## Designing in Inkscape for a Web App?
 
 Yes, Inkscape. While dedicated web design tools are common, Inkscape is effective for prototyping. You can draw and iterate quickly, then recreate shapes in code.
 
@@ -125,7 +125,7 @@ Trial-and-error in React is time-consuming, so polished designs saved time. It k
   </button>
 </figure>
 
-### 🎨 SVG Paths for Style
+### SVG Paths for Style
 
 The highlight and link backgrounds utilize SVG paths, making it easy to control path lengths and create subtle animations. These animations include highlights that "underline" hashtags or links.
 
@@ -191,18 +191,18 @@ I also experimented with animated clouds, where each blob is a separate path, ad
   </button>
 </figure>
 
-## 🛠️ Considering Other Tools
+## Considering Other Tools
 
 I considered using Penpot (a FOSS alternative to Figma) but faced stability issues and limited VM resources. Inkscape's stability and drawing tools were more reliable for now, though Penpot remains a future option as it develops further.
 
-## 💻 Code and Availability
+## Code and Availability
 
 This project was a learning experience rather than a polished final product. In the spirit of open-source, all the code is available here:
 
 [GitHub: Christopher-Hayes/basic-fediverse-reader](https://github.com/Christopher-Hayes/basic-fediverse-reader)
 
-## 🏁 Wrapping It Up
+## Wrapping It Up
 
 This Fediverse reader was a quick experiment to learn Fedify and ActivityPub, and to iterate on designs in Inkscape. It's not perfect but serves as a working example for exploring the Fediverse without full social interaction. Give it a try and share your thoughts!
 
-👉 [Try it out at fediverse.hayes.software](https://fediverse.hayes.software/)
+Try it out at [fediverse.hayes.software](https://fediverse.hayes.software/)

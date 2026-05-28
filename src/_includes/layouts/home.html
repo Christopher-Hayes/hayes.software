@@ -22,10 +22,10 @@
   <div
     class="fixed top-0 left-0 min-w-[100vw] h-[14rem] bg-gradient-to-b from-50% from-bg to-transparent pointer-events-none z-20">
   </div>
-  <article class="mt-[25vh] mx-auto max-w-2xl border border-bg-raised">
-    <header class="w-full bg-bg-raised flex justify-center mb-8 border border-primary-highlight">
+  <article class="mt-[25vh] mx-auto max-w-2xl border border-fg dark:border-bg-raised">
+    <header class="w-full bg-bg-raised flex justify-center mb-8 border border-b-2 border-primary-highlight">
       <h1 class="lg:max-w-[38rem] px-10 pt-8 pb-6 self-center text-fg font-rakkas text-5xl leading-tight border-none">
-        <emp class="text-fg-highlight">{{ intro.emp }}</emp>
+        <emp class="text-fg-muted dark:text-fg-highlight mr-1">{{ intro.emp }}</emp>
         <span>{{ intro.desc }}</span>
       </h1>
     </header>
@@ -35,11 +35,11 @@
           Writing
         </h2>
       </header>
-      <div class="my-1 grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 divide-y divide-bg-raised">
+      <div class="my-1 grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 divide-y divide-fg dark:divide-bg-raised">
         {% assign taglist = collections['featured'] %}
         {% assign taglist = taglist | sort: 'date' | reverse %}
         {% for post in taglist %}
-        <a class="group px-4 py-1.5 flex h-full w-full justify-between items-center text-fg hover:text-bg hover:bg-primary-highlight"
+        <a class="group px-4 py-1.5 flex h-full w-full justify-between items-center text-fg bg-bg-raised dark:bg-bg hover:text-fg dark:hover:text-bg hover:bg-primary dark:hover:bg-primary-highlight"
           href="{{ post.url }}" rel="prefetch"
           onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ post.url }}') }">
           <span class=" text-2xl font-rakkas">{{ post.data.title }}</span>
