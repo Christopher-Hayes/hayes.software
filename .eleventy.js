@@ -242,6 +242,7 @@ module.exports = function (config) {
   config.addCollection('blog', function (collectionApi) {
     return collectionApi
       .getFilteredByGlob('./src/blog/*.md')
+      .filter((item) => !item.data.archived)
       .sort(function (a, b) {
         return b.date - a.date
       })
@@ -249,7 +250,8 @@ module.exports = function (config) {
 
   config.addCollection('blog-archives', function (collectionApi) {
     return collectionApi
-      .getFilteredByGlob('./src/blog/archive/*.md')
+      .getAll()
+      .filter((item) => item.data.archived)
       .sort(function (a, b) {
         return b.date - a.date
       })

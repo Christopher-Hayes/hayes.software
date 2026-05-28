@@ -1,5 +1,5 @@
 ---
-layout: layouts/post-archived.html
+layout: layouts/post.html
 title: AI is changing how I use Wikipedia
 meta:
   desc: How AI is changing how I use Wikipedia

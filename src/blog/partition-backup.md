@@ -1,5 +1,5 @@
 ---
-layout: layouts/post-archived.html
+layout: layouts/post.html
 title: How to backup and restore Linux partition tables
 meta:
   desc: How to backup and restore Linux partition tables

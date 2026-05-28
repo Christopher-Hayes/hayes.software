@@ -1,5 +1,5 @@
 ---
-layout: layouts/post-archived.html
+layout: layouts/post.html
 title: Recovering Files from a Corrupt Linux Partition 
 meta:
   desc: How to recover files from a corrupt Linux partition

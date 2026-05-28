@@ -1,5 +1,5 @@
 ---
-layout: layouts/post-archived.html
+layout: layouts/post.html
 title: Python Virtual Environments
 meta:
   desc: How to manage Python virtual environments.

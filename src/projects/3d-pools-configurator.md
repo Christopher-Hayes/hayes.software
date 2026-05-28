@@ -1,11 +1,9 @@
 ---
 layout: layouts/project-post.html
-title: Building a WebGL Pool Configurator
+title: Building a 3D Product Builder
 meta:
   desc: "A 3D product configurator for endless pools using Vue.js and PlayCanvas3D"
 intro:
-  title: My experience building the Endless Pools 3D pool configurator
-  desc: "An interactive 3d product configurator for endless pools, blending Vue.js and PlayCanvas3D."
   image:
     light: /images/projects/3d-pools-configurator/screenshot-1.webp
     dark: /images/projects/3d-pools-configurator/screenshot-1.webp

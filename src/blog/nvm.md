@@ -1,5 +1,5 @@
 ---
-layout: layouts/post-archived.html
+layout: layouts/post.html
 title: Managing multiple node versions
 meta:
   desc: How to manage multiple node versions

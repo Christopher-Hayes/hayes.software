@@ -96,7 +96,7 @@ Post header transitions on mobile (the header changes when you scroll)
       @apply cursor-pointer bg-bg-raised dark:bg-primary dark:bg-opacity-60;
     }
     ::-webkit-scrollbar-track {
-      @apply bg-fg bg-opacity-40 px-1 dark:bg-bg dark:bg-opacity-70;
+      @apply bg-fg px-1 dark:bg-bg;
     }
   }
 }
@@ -105,13 +105,14 @@ Post header transitions on mobile (the header changes when you scroll)
 @media (min-width: 1024px) {
   * {
     scrollbar-width: thick;
-    scrollbar-color: #17b0ed #e7f8ff;
+    /* scrollbar-color: #17b0ed #e7f8ff; */
+    scrollbar-color: var(--bg) var(--primary-highlight);
     /* Avoid jumps in layout from scrollbar showing or disappearing. */
     scrollbar-gutter: stable both-edges;
   }
   @media (prefers-color-scheme: dark) {
     * {
-      scrollbar-color: #340099 #080612;
+      scrollbar-color: var(--bg) var(--primary-highlight);
     }
   }
 }
@@ -134,6 +135,11 @@ Post header transitions on mobile (the header changes when you scroll)
   --primary-muted: #b78447;
 }
 
+/* todo set this up when on tailwind v4 */
+/* @utility prose-gray {
+  --tw-prose-body: var(--fg);
+} */
+
 html,
 body {
   @apply text-fg;
@@ -144,7 +150,10 @@ body {
   @apply text-fg;
 
   strong {
-    @apply text-fg;
+    @apply text-inherit;
+  }
+  code {
+    @apply text-fg-highlight;
   }
 }
 
@@ -228,6 +237,19 @@ a:focus {
         @apply text-fg-muted border-2 border-bg-raised px-4 pb-3 pt-3.5;
       }
     }
+  }
+  hr {
+    @apply border-0 border-t-2 border-bg-raised my-12;
+  }
+  table {
+    @apply w-full border-collapse border border-primary;
+    th,
+    td {
+      @apply border border-primary px-4 py-2;
+    }
+  }
+  pre {
+    @apply font-bold bg-bg-raised text-fg-highlight border border-primary-highlight rounded-none;
   }
   .content-wrapper > p > img {
     @apply my-20 w-full scale-[120%] transform border-y border-bg-raised py-2;

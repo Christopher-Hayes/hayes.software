@@ -65,11 +65,35 @@
     </header>
     <section class="min-w-full prose prose-lg dark:prose-invert pt-8 pb-2 border border-bg-raised">
       {% if intro.image %}
-      {% include "partials/post-top-image.html" %}
+        {% include "partials/post-top-image.html" %}
       {% else %}
         <!-- if no intro image, add some padding to the top of the content to compensate for
         the missing image height -->
         <div class="h-16"></div>
+      {% endif %}
+      {% if archived %}
+        <section class="prose prose-sm min-w-full flex flex-col -mt-8 mb-16 border border-bg dark:border-bg text-bg dark:text-bg bg-primary-highlight">
+          {% if archived.title %}
+            <h2 class="no-prose mt-0 px-4 text-2xl font-semibold border-0 border-b-2 border-bg-raised text-bg dark:text-bg bg-primary transform-none">
+              {{ archived.title }}
+            </h2>
+          {% endif %}
+            {% if archived.desc %}
+              <div class="-mt-4 mb-0 text-bg dark:text-bg">
+                {% assign desc_paras = archived.desc | split: "\n" %}
+                {% for para in desc_paras %}
+                  {% if para != "" %}<p class="my-3">{{ para }}</p>{% endif %}
+                {% endfor %}
+              </div>
+            {% endif %}
+            <div class="mt-1 pt-2 pb-1 border-t border-bg-raised">
+              <p class="my-0">
+                <strong>
+                  This post was archived on {{ archived.date | date: "%B %d, %Y" }}.
+                </strong>
+              </p>
+            </div>
+        </section>
       {% endif %}
       <div class="content-wrapper relative">
         <img src="/images/first-letter-bg-1.svg" alt="" class="absolute z-0 -left-8 -top-20 w-32 h-32 pointer-events-none">

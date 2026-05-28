@@ -136,6 +136,8 @@ I found a pretty decent work-around, but it **requires KDE Connect.** I already 
 
 This happens to be exactly what we need here, and I've found the combination of playing the stream with VLC and controllin playback with KDE Connect works pretty great.
 
+![KDE Connect on mobile shows that "Easy" by LE SSERAFIM is playing. The album art is center screen. Audio playback controls are along the bottom: next/back, play/pause, shuffle.](/images/blog/sending-music-to-phone/screenshot-2.svg)
+
 A bonus feature with KDE Connect is you can add bash scripts you can run remotely from your phone. So, it's possible to remotely launch your music application and start the audio streaming server without ever touching the PC.
 
 <small>
