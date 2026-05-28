@@ -110,9 +110,9 @@ If you wanted to just send any and all audio to your phone, you can just skip th
 
 There are a couple missing puzzle pieces with just a simple audio server. Luckily I was able to solve them with tools I already use. It really depends on what software you already using.
 
-**VLC for Android—**To actually play the music on your phone, VLC works pretty well. MPV or a mobile browser may also work. With VLC you just provide the (VPN) IP of your PC with `:8080` for port 8080.
+**VLC for Android**—To actually play the music on your phone, VLC works pretty well. MPV or a mobile browser may also work. With VLC you just provide the (VPN) IP of your PC with `:8080` for port 8080.
 
-**Accessing your server—**One challenge is how your phone reaches your PC over the internet. That's kinda out of the scope of this post, but unless you're on LAN, it's pretty hard to do without using a VPN or a tunneling service like ngrok. [3] I already use Tailscale for my VPN, so that did the trick.
+**Accessing your server**—One challenge is how your phone reaches your PC over the internet. That's kinda out of the scope of this post, but unless you're on LAN, it's pretty hard to do without using a VPN or a tunneling service like ngrok. [3] I already use Tailscale for my VPN, so that did the trick.
 
 <small>
 <span id="footnote-3">

@@ -17,7 +17,7 @@ module.exports = {
     './src/speedlify.js',
     './.eleventy.js',
   ],
-  darkMode: ['class', '[data-theme="dark"]'],
+  // darkMode: ['class', '[data-theme="dark"]'],
   theme: {
     extend: {
       screens: {

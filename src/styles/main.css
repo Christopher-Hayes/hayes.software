@@ -119,20 +119,33 @@ Post header transitions on mobile (the header changes when you scroll)
 
 /* customize text selection */
 ::selection {
-  @apply bg-primary text-bg;
+  @apply bg-primary dark:bg-primary text-fg dark:text-bg;
 }
 
 :root {
-  --bg: #1f1a16;
-  --bg-raised: #27211d;
+  --bg: #fdfacb;
+  --bg-raised: #fefbe2;
 
-  --fg: #fdfacb;
-  --fg-highlight: #fbcd5c;
+  --fg: #27211d;
+  --fg-highlight: var(--fg);
   --fg-muted: #b78447;
 
   --primary: #fbcd5c;
-  --primary-highlight: #fdfacb;
+  --primary-highlight: #1f1a16;
   --primary-muted: #b78447;
+
+  @media (prefers-color-scheme: dark) {
+    --bg: #1f1a16;
+    --bg-raised: #27211d;
+
+    --fg: #fdfacb;
+    --fg-highlight: #fbcd5c;
+    --fg-muted: #b78447;
+
+    --primary: #fbcd5c;
+    --primary-highlight: #fdfacb;
+    --primary-muted: #b78447;
+  }
 }
 
 /* todo set this up when on tailwind v4 */
@@ -158,7 +171,7 @@ body {
 }
 
 .prose a:not(.no-prose a) {
-  @apply text-fg-highlight decoration-fg-highlight underline decoration-dashed decoration-2 underline-offset-[6px];
+  @apply text-fg-muted dark:text-fg-highlight decoration-fg-muted dark:decoration-fg-highlight underline decoration-dashed decoration-2 underline-offset-[6px];
 
   &:hover,
   &:focus {
@@ -184,7 +197,7 @@ a[href^='#'] {
 h1,
 h2,
 h3 {
-  @apply text-fg-highlight mb-2 mt-0 border-y border-bg-raised pb-2 pl-3.5 pt-6;
+  @apply text-fg dark:text-fg-highlight mb-2 mt-0 border-y border-fg dark:border-bg-raised pb-2 pl-3.5 pt-6;
 }
 h2 {
   @apply scale-110 transform pb-3 pl-12 pt-10 text-4xl;
@@ -197,7 +210,7 @@ a:focus {
 
 .prose {
   h1, h2, h3 {
-    @apply text-fg-highlight tracking-[0.035em];
+    @apply text-fg dark:text-fg-highlight tracking-[0.035em];
   }
 
   p {
@@ -205,7 +218,7 @@ a:focus {
   }
 
   em {
-    @apply font-rakkas not-italic leading-none tracking-wide text-fg-highlight dark:text-fg-highlight;
+    @apply font-rakkas not-italic leading-none tracking-wide text-fg-muted dark:text-fg-highlight dark:text-fg-highlight;
     font-size: 22px;
   }
   ul,
@@ -216,7 +229,7 @@ a:focus {
     @apply text-xs text-fg-muted;
 
     strong {
-      @apply text-fg-highlight;
+      @apply text-fg-muted dark:text-fg-highlight;
     }
 
     a {
@@ -234,7 +247,7 @@ a:focus {
       @apply absolute -right-[25rem] top-1/3 max-w-[18rem];
 
       p {
-        @apply text-fg-muted border-2 border-bg-raised px-4 pb-3 pt-3.5;
+        @apply text-fg-muted border-2 border-fg-muted dark:border-bg-raised px-4 pb-3 pt-3.5;
       }
     }
   }
@@ -267,7 +280,7 @@ a:focus {
 
 /* For use outside of .prose */
 .big-letter::first-letter {
-  @apply float-left mb-1 mr-3 border-2 border-solid border-primary px-2 pb-2 pt-2 font-rakkas text-8xl text-primary;
+  @apply float-left mb-1 mr-3 border-2 border-solid border-fg-muted dark:border-primary px-2 pb-2 pt-2 font-rakkas text-8xl text-fg-muted dark:text-primary;
 }
 
 /* only on desktop */
@@ -305,74 +318,24 @@ h3 {
   }
 }
 
-/*
-Speedlify styles
-(shamelessly copied from the Speedlify package)
-This was needed to fix a11y issues due to the background color.
-*/
-.speedlify {
-  --_circle: var(--speedlify-circle);
-  --speedlify-green: #0cce6b;
-}
-.speedlify a {
-  @apply text-fg-highlight;
-}
-.speedlify .circle {
-  font-size: 0.8125em; /* 13px /16 */
-  min-width: 2.6em;
-  height: 2.6em;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  border: 0.15384615em solid currentColor; /* 2px /13 */
-  color: var(--_circle, #666);
-}
-.speedlify .circle-good {
-  @apply border-current text-speedlify-light-good dark:text-speedlify-dark-good;
-}
-.speedlify .circle-ok {
-  @apply border-current text-speedlify-light-ok dark:text-speedlify-dark-ok;
-}
-.speedlify .circle-bad {
-  @apply border-current text-speedlify-light-bad dark:text-speedlify-dark-bad;
-}
-.speedlify .meta {
-  @apply flex items-center gap-2;
-}
-.speedlify .circle + .meta {
-  @apply ml-1;
-}
-.speedlify .rank:before {
-  content: 'Rank #';
-}
-.speedlify .rank-change:before {
-  line-height: 1;
-}
-.speedlify .rank-change.up {
-  @apply text-speedlify-light-good dark:text-speedlify-dark-good;
-}
-.speedlify .rank-change.up:before {
-  @apply text-xl;
-
-  content: '⬆';
-}
-.speedlify .rank-change.down {
-  @apply text-primary-muted dark:text-red-500;
-}
-.speedlify .rank-change.down:before {
-  @apply text-xl;
-
-  content: '⬇';
-}
-
 header-container {
   nav {
-    @apply bg-bg-raised border border-fg;
+    @apply bg-bg-raised dark:bg-bg-raised border-2 border-fg;
+
+    & > * {
+      @apply relative z-30;
+    }
+
+    &::before {
+      @apply content-[''] absolute top-[calc(-5rem-2px)] h-20 left-0 w-full bg-bg dark:bg-bg z-10;
+    }
 
     ul a {
-      @apply bg-bg-raised text-fg no-underline font-bold decoration-2 decoration-primary decoration-dashed underline-offset-4 hover:text-primary hover:underline focus-within:underline focus-within:text-primary;
+      @apply bg-bg-raised dark:bg-bg-raised text-fg no-underline font-bold decoration-2 decoration-primary decoration-dashed underline-offset-4 hover:bg-primary hover:text-fg dark:hover:bg-fg dark:hover:text-bg hover:underline focus-within:underline focus-within:text-primary;
+    }
+
+    a.nav-home-link {
+      @apply hover:bg-inherit dark:hover:text-primary;
     }
 
     a.nav-home-logo {
