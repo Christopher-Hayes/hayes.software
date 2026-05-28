@@ -171,7 +171,10 @@ body {
 }
 
 .prose a:not(.no-prose a) {
-  @apply text-fg-muted dark:text-fg-highlight decoration-fg-muted dark:decoration-fg-highlight underline decoration-dashed decoration-2 underline-offset-[6px];
+  @apply font-bold bg-primary dark:bg-transparent text-fg dark:text-fg-highlight decoration-fg dark:decoration-fg-highlight underline decoration-dashed decoration-2 underline-offset-[6px];
+
+  padding: 0.4rem 0.3rem 0.29rem;
+  margin: 0 0.1rem;
 
   &:hover,
   &:focus {
@@ -218,7 +221,7 @@ a:focus {
   }
 
   em {
-    @apply font-rakkas not-italic leading-none tracking-wide text-fg-muted dark:text-fg-highlight dark:text-fg-highlight;
+    @apply font-rakkas not-italic leading-none tracking-wide bg-bg-raised dark:bg-transparent text-fg dark:text-fg-highlight;
     font-size: 22px;
   }
   ul,
@@ -274,7 +277,7 @@ a:focus {
   @apply relative z-10 -mt-4;
   /* First letter of first paragraph */
   &::first-letter {
-    @apply float-left mb-1 mr-3 mt-1 border-2 border-solid border-primary px-2 pb-2 pt-2 font-rakkas text-8xl text-primary;
+    @apply float-left mb-1 mr-3 mt-1 bg-primary dark:bg-transparent border-2 border-solid border-fg-muted dark:border-primary px-2 pb-2 pt-2 font-rakkas text-8xl text-fg dark:text-primary;
   }
 }
 
