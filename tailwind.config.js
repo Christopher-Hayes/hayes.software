@@ -8,6 +8,9 @@ const proseColors = {
   code: {
     color: 'var(--fg-highlight)',
   },
+  figcaption: {
+    color: 'var(--fg-muted)',
+  },
 }
 
 module.exports = {
@@ -56,18 +59,9 @@ module.exports = {
           highlight: 'var(--primary-highlight)',
           muted: 'var(--primary-muted)',
         },
-        // Colors for Speedlify performance scores
-        speedlify: {
-          light: {
-            good: 'rgb(2, 100, 49)',
-            ok: '#ffa400',
-            bad: '#ff4e42',
-          },
-          dark: {
-            good: 'rgb(68, 225, 144)',
-            ok: '#ffa400',
-            bad: 'rgb(255, 134, 134)',
-          },
+        // border
+        border: {
+          DEFAULT: 'var(--border)',
         },
       },
       fontFamily: {

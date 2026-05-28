@@ -7,12 +7,13 @@ intro:
   image:
     light: /images/projects/fediverse-reader/screenshot-1.png
     dark: /images/projects/fediverse-reader/screenshot-1.png
-    alt: "Screenshot of the Fediverse Reader UI"
+    alt: "**The app UI** one in desktop format, one in mobile format. The design is very yellow and sepia-ish showing a toot and an image next to it. A lot of brush and marker strokes are incorporated into the design. Otherwise the design is minimal."
 projectlink: https://fediverse.hayes.software/
 date: 2024-12-16
 tags: [next, fedify, tailwind, featured]
 aiassist: In the process of writing this post, <a href='https://chat.openai.com' target='_blank'>ChatGPT</a> was used to help verbalize my stream of consciousness. If some parts sound a little fancy, that would be why.
 ---
+
 ## Why Build a Fediverse Reader?
 
 I wanted to learn how to consume **Mastodon content** in a “read-only” way—no posting, boosting, or liking, just viewing.
@@ -31,33 +32,7 @@ While the main feature is simple—**show a single Mastodon post**—styling and
 
 I aimed for a consistent, fun appearance, battling messy floating shapes and SVG elements. The React code might not be perfect, but it served its purpose.
 
-<figure
-  x-data="{
-    imageSrc: '/images/projects/fediverse-reader/screenshot-2.png',
-    imageAlt: 'A screenshot showing 2 browser windows, one in landscape format, one in portrait format, to represent desktop and mobile viewports. The design is very yellow and sepia-ish showing a toot and an image next to it. A lot of brush and marker strokes are incorporated into the design. Otherwise the design is minimal.',
-    showImageOverlay: function (imageElem) {
-      this.$dispatch('show-image-overlay', imageElem.src);
-    },
-  }">
-  <button
-    @click="showImageOverlay($event.target)"
-    class="group h-52 md:h-96 w-full"
-    >
-    <img
-      :src="imageSrc"
-      :alt="imageAlt"
-      src="/images/projects/fediverse-reader/screenshot-2.png"
-      alt="Another screenshot, this time inside and with a resizeable pool."
-      width="100%"
-      class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity"
-      loading="lazy">
-    <figcaption
-      class="w-full text-left text-sm text-black dark:text-white mt-2 -mb-2 pr-4"
-    >
-      Desktop and mobile page designs laid out in Inkscape.
-    </figcaption>
-  </button>
-</figure>
+{% figure "/images/projects/fediverse-reader/screenshot-2.png", "Inkscape design of the app with mobile and desktop layouts. Everything is rather beige with occasional yellow highlights. The app uses a black and white filter on any photos in the post." %}
 
 ## Designing in Inkscape for a Web App?
 
@@ -101,7 +76,7 @@ Trial-and-error in React is time-consuming, so polished designs saved time. It k
     class="h-52 md:h-96 w-full"
   >
     <video
-      class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0"
+      class="w-full h-full object-cover object-centerm-0"
       autoplay
       loop
       muted
@@ -112,7 +87,7 @@ Trial-and-error in React is time-consuming, so polished designs saved time. It k
     </video>
     <button
       @click="togglePlayPause()"
-      class="text-sm bg-primary text-white px-2 py-1 rounded-md"
+      class="text-sm bg-primary text-fg border-2 border-fg px-2 pt-1 pb-0.5"
       style="margin: -3.5em 0 1.5em -1em; display: block; position: relative;"
     >
       <span x-text="isPlaying ? 'Pause' : 'Play'">Pause</span>
@@ -167,7 +142,7 @@ I also experimented with animated clouds, where each blob is a separate path, ad
     class="h-52 md:h-96 w-full"
   >
     <video
-      class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0"
+      class="w-full h-full object-cover object-center m-0"
       autoplay
       loop
       muted
@@ -178,7 +153,7 @@ I also experimented with animated clouds, where each blob is a separate path, ad
     </video>
     <button
       @click="togglePlayPause()"
-      class="text-sm bg-primary text-white px-2 py-1 rounded-md"
+      class="text-sm bg-primary text-fg border-2 border-fg px-2 pt-1 pb-0.5"
       style="margin: -3.5em 0 1.5em -1em; display: block; position: relative;"
     >
       <span x-text="isPlaying ? 'Pause' : 'Play'">Pause</span>

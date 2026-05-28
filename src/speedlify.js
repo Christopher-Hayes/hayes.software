@@ -19,9 +19,9 @@ function renderHTML(d) {
 
   return html`
     <div
-      class="mt-8 flex w-full flex-col divide-y divide-fg dark:divide-bg-raised border-t border-fg dark:border-bg-raised text-sm"
+      class="mt-8 flex w-full flex-col bg-bg-raised divide-y divide-fg border-t border-fg text-sm"
     >
-      <div class="flex divide-x divide-fg dark:divide-bg-raised">
+      <div class="flex divide-x divide-fg">
         <div class="flex grow justify-between gap-2 px-4 pb-2 pt-2.5">
           <a
             class="group"
@@ -92,7 +92,7 @@ function renderHTML(d) {
           <label class="text-sm" id="seo-score-label"> SEO </label>
         </div>
       </div>
-      <div class="flex w-full divide-x divide-fg dark:divide-bg-raised text-fg">
+      <div class="flex w-full divide-x divide-fg text-fg">
         <div class="px-3 pb-1 pt-2">${d.requests}</div>
         <div class="px-3 pb-1 pt-2">${d.weight}</div>
         <div class="grow px-3 pb-1 pt-2 text-end">Tested on ${d.date}</div>
