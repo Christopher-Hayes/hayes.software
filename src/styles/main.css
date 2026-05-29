@@ -4,23 +4,24 @@
 
 @font-face {
   font-family: 'Luciole';
-  src: url('/fonts/luciole/Luciole-Regular.woff2') format('woff2'),
-    url('/fonts/luciole/Luciole-Regular.woff') format('woff');
+  src: url('/fonts/luciole/minified/luciole-regular.min.woff2') format('woff2'),
+    url('/fonts/luciole/minified/luciole-regular.min.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Luciole';
-  src: url('/fonts/luciole/Luciole-Bold.woff2') format('woff2'),
-    url('/fonts/luciole/Luciole-Bold.woff') format('woff');
+  src: url('/fonts/luciole/minified/luciole-bold.min.woff2') format('woff2'),
+    url('/fonts/luciole/minified/luciole-bold.min.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Rakkas';
-  src: url('/fonts/rakkas/Rakkas-Regular.woff2') format('woff2');
+  src: url('/fonts/rakkas/minified/rakkas-regular.min.woff2') format('woff2'),
+    url('/fonts/rakkas/minified/rakkas-regular.min.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
