@@ -106,10 +106,9 @@ module.exports = function (config) {
             class="min-w-[27cqw] group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg">
               <div class="flex">
-                <img src="/images/github-logo-fg-highlight.svg" alt="GitHub logo"
-                  class="hidden dark:block dark:group-hover:hidden w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
-                <img src="/images/github-logo-bg.svg" alt="GitHub logo"
-                  class="dark:hidden dark:group-hover:block w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
+                <svg class="w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
+                  <use href="#github-logo" />
+                </svg>
                 <span
                   class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg group-hover:text-fg dark:group-hover:text-bg">GitHub</span>
               </div>
@@ -126,10 +125,9 @@ module.exports = function (config) {
             class="min-w-[27cqw] group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg">
               <div class="flex items-center">
-                <img src="/images/codeberg-logo-fg-highlight.svg" alt="Codeberg logo"
-                  class="hidden dark:block dark:group-hover:hidden w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
-                <img src="/images/codeberg-logo-bg.svg" alt="Codeberg logo"
-                  class="dark:hidden dark:group-hover:block w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
+                <svg class="w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
+                  <use href="#codeberg-logo" />
+                </svg>
                 <span
                   class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg group-hover:text-fg dark:group-hover:text-bg">Codeberg</span>
               </div>
@@ -146,10 +144,9 @@ module.exports = function (config) {
             class="min-w-[27cqw] group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg">
               <div class="flex">
-                <img src="/images/gitlab-logo-fg-highlight.svg" alt="GitLab logo"
-                  class="hidden dark:block dark:group-hover:hidden w-10 aspect-square m-0 px-1.5 object-contain object-center">
-                <img src="/images/gitlab-logo-bg.svg" alt="GitLab logo"
-                  class="dark:hidden dark:group-hover:block w-10 aspect-square m-0 px-1.5 object-contain object-center">
+                <svg class="w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
+                  <use href="#gitlab-logo" />
+                </svg>
                 <span
                   class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg group-hover:text-fg dark:group-hover:text-bg">GitLab</span>
               </div>
@@ -179,10 +176,9 @@ module.exports = function (config) {
             class="group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg">
               <div class="flex">
-                <img src="/images/mastodon-logo-fg-highlight.svg" alt="Mastodon logo"
-                  class="hidden dark:block dark:group-hover:hidden w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
-                <img src="/images/mastodon-logo-bg.svg" alt="Mastodon logo"
-                  class="dark:hidden dark:group-hover:block w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
+                <svg class="w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
+                  <use href="#mastodon-logo" />
+                </svg>
                 <span
                   class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg group-hover:text-fg dark:group-hover:text-bg">Mastodon</span>
               </div>
@@ -199,10 +195,9 @@ module.exports = function (config) {
             class="group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg">
               <div class="flex items-center">
-                <img src="/images/pixelfed-logo-fg-highlight.svg" alt="Pixelfed logo"
-                  class="hidden dark:block dark:group-hover:hidden w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
-                <img src="/images/pixelfed-logo-bg.svg" alt="Pixelfed logo"
-                  class="dark:hidden dark:group-hover:block w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
+                <svg class="w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
+                  <use href="#pixelfed-logo" />
+                </svg>
                 <span
                   class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg group-hover:text-fg dark:group-hover:text-bg">Pixelfed</span>
               </div>
@@ -219,10 +214,9 @@ module.exports = function (config) {
             class="group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg">
               <div class="flex">
-                <img src="/images/bookwyrm-logo-fg-highlight.svg" alt="BookWyrm logo"
-                  class="hidden dark:block dark:group-hover:hidden w-10 aspect-square m-0 px-1.5 object-contain object-center">
-                <img src="/images/bookwyrm-logo-bg.svg" alt="BookWyrm logo"
-                  class="dark:hidden dark:group-hover:block w-10 aspect-square m-0 px-1.5 object-contain object-center">
+                <svg class="w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
+                  <use href="#bookwyrm-logo" />
+                </svg>
                 <span
                   class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg group-hover:text-fg dark:group-hover:text-bg">BookWyrm</span>
               </div>

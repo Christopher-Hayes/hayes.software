@@ -9,8 +9,8 @@ artwork:
   above_fold: /images/blog/sending-music-to-phone/artwork-above-fold.svg
 intro:
   image:
-    light: /images/blog/sending-music-to-phone/screenshot-1.png
-    dark: /images/blog/sending-music-to-phone/screenshot-1.png
+    light: /images/blog/sending-music-to-phone/screenshot-1.webp
+    dark: /images/blog/sending-music-to-phone/screenshot-1.webp
     alt: "**Music player playing TWICE** on the left, Ubuntu terminal in the middle, and on the right is a phone screen with VLC open."
 tags:
   - featured # Show on homepage
