@@ -9,7 +9,7 @@
           <li class="h-full">
             <a href="{{ item.url }}"
               class="
-                h-full text-base flex items-center px-4 py-1 pb-0.5"
+                h-full text-base flex items-center px-4 py-1 pb-0.5 hover:decoration-fg dark:hover:decoration-bg"
               :aria-current="activeLink === '{{ item.url }}' ? 'page' : null"
               rel="prefetch"
               onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ item.url }}') }">
@@ -19,7 +19,7 @@
           {% endfor %}
           <li class="h-full text-base">
             <a href="/" class="nav-home-link
-                h-full flex items-center px-4 py-1 pb-0.5
+                h-full flex items-center px-4 py-1 pb-0.5 hover:decoration-bg dark:hover:decoration-bg
                 " :class="{
                 'bg-fg text-bg': activeLink === '/',
               }" rel="prefetch" onmouseover="if (window.htmlPreload) { window.htmlPreload('/') }">
@@ -28,7 +28,8 @@
           </li>
         </ul>
       </div>
-      <a href="/" alt="Go to homepage" class="nav-home-logo absolute -right-2 -top-3">
+      <a href="/" class="nav-home-logo absolute -right-2 -top-3">
+        <span class="sr-only">Go to homepage</span>
         <!-- The script for switching pages is not good at detecting links where the clicked element is nested several layers.
           Hack: turn off pointer events on svg. -->
         <svg class="h-[4rem] fill-current pointer-events-none" viewBox="0 0 34.640002 14.586449" version="1.1" id="svg1" xml:space="preserve"

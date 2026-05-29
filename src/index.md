@@ -29,7 +29,7 @@ You can read about my work in [/projects](/projects/). Most **FOSS** stuff is on
 
 I'm a *big believer* in the work happening on the fediverse. It's a “new” place where people from different social networks can see, chat, and follow each other.
 
-It's on open-source software, with servers maintained by volunteers and funded by the community. The tech that allows this is an official web standard.
+It's using open-source software, with servers maintained by volunteers, funded by the community—all on the social web standard.
 
 I run [nutmeg.social](https://nutmeg.social/about), a Mastodon server for [#Connecticut](https://nutmeg.social/tags/Connecticut), USA.
 

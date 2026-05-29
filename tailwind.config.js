@@ -9,7 +9,7 @@ const proseColors = {
     color: 'var(--fg-highlight)',
   },
   figcaption: {
-    color: 'var(--fg-muted)',
+    color: 'var(--fg)',
   },
 }
 

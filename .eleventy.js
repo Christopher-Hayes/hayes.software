@@ -50,25 +50,146 @@ module.exports = function (config) {
     </figure>`
   })
 
+  config.addShortcode('figureThemed', function (srcLight, srcDark, alt = "") {
+    if (!alt) { console.warn(`Warning: Missing alt text for image with src "${srcLight}". Please provide alt text for accessibility.`) }
+
+    const escapedAlt = alt.replace(/"/g, '&quot;')
+    const renderedAlt = md.render(alt)
+
+    return html`<figure
+      x-data="{ showImageOverlay() { this.$dispatch('show-image-overlay', this.$refs.img.currentSrc); } }"
+      class="group relative"
+    >
+      <picture>
+        <source srcset="${srcDark}" media="(prefers-color-scheme: dark)" />
+        <source srcset="${srcLight}" media="(prefers-color-scheme: light)" />
+        <img
+          x-ref="img"
+          src="${srcLight}"
+          alt="${escapedAlt}"
+          width="100%"
+          class="m-0 h-full w-full rounded-2xl object-cover object-center transition-opacity md:rounded-xl"
+          loading="lazy"
+        />
+      </picture>
+      <figcaption
+        class="-mb-3 -mt-0 flex w-full gap-4 pr-4 text-justify text-xs"
+      >
+        <img
+          src="/images/alt-text-icon.svg"
+          loading="lazy"
+          alt=""
+          class="mt-8 h-7 w-7"
+        />
+        <div class="flex flex-col items-start gap-1">
+          <div class="prose prose-sm prose-strong:text-fg dark:prose-strong:text-fg-highlight">${renderedAlt.trim()}</div>
+          <button
+            @click="showImageOverlay()"
+            class="border-2 border-fg-muted dark:border-bg-raised px-3 pb-1 pt-2 text-fg-muted dark:text-fg-highlight hover:text-fg hover:border-fg hover:bg-primary dark:hover:border-bg dark:hover:bg-primary dark:hover:text-bg"
+          >
+            Enbiggen image
+          </button>
+        </div>
+      </figcaption>
+    </figure>`
+  })
+
+  config.addShortcode('forges', function () {
+    return html`
+      <div
+        class="no-prose mt-2 -mb-4 w-full flex justify-center"
+        style="container-type: inline-size;"
+        >
+        <div class="grow border-y border-border"></div>
+        <social-wrapper class="flex divide-x divide-fg border border-fg">
+          <a href="https://github.com/Christopher-Hayes" target="_blank" rel="noopener"
+            class="min-w-[27cqw] group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
+            <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg">
+              <div class="flex">
+                <img src="/images/github-logo-fg-highlight.svg" alt="GitHub logo"
+                  class="hidden dark:block dark:group-hover:hidden w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
+                <img src="/images/github-logo-bg.svg" alt="GitHub logo"
+                  class="dark:hidden dark:group-hover:block w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
+                <span
+                  class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg group-hover:text-fg dark:group-hover:text-bg">GitHub</span>
+              </div>
+              <div class="px-2 pt-1 pb-0.5 text-sm text-fg group-hover:text-fg dark:group-hover:text-bg">
+                <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg">@Christopher-Hayes</span>
+              </div>
+              <div class="flex divide-x divide-fg dark:group-hover:divide-bg text-xs">
+                <div class="px-2 pt-1 pb-0.5 text-fg group-hover:text-fg dark:group-hover:text-bg">94 repos</div>
+                <div class="grow px-2 pt-1 pb-0.5 text-end text-fg group-hover:text-fg dark:group-hover:text-bg">311 stars</div>
+              </div>
+            </div>
+          </a>
+          <a href="https://codeberg.org/Chris-Hayes" target="_blank" rel="noopener"
+            class="min-w-[27cqw] group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
+            <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg">
+              <div class="flex items-center">
+                <img src="/images/codeberg-logo-fg-highlight.svg" alt="Codeberg logo"
+                  class="hidden dark:block dark:group-hover:hidden w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
+                <img src="/images/codeberg-logo-bg.svg" alt="Codeberg logo"
+                  class="dark:hidden dark:group-hover:block w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
+                <span
+                  class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg group-hover:text-fg dark:group-hover:text-bg">Codeberg</span>
+              </div>
+              <div class="px-2 pt-1 pb-0.5 text-sm text-fg group-hover:text-fg dark:group-hover:text-bg">
+                <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg">@Chris-Hayes</span>
+              </div>
+              <div class="flex divide-x divide-fg dark:group-hover:divide-bg text-xs text-fg group-hover:text-fg dark:group-hover:text-bg">
+                <div class="px-2 pt-1 pb-0.5">6 repos</div>
+                <div class="grow px-2 pt-1 pb-0.5 text-end">1 star</div>
+              </div>
+            </div>
+          </a>
+          <a href="https://gitlab.com/Chris-Hayes" target="_blank" rel="noopener"
+            class="min-w-[27cqw] group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
+            <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg">
+              <div class="flex">
+                <img src="/images/gitlab-logo-fg-highlight.svg" alt="GitLab logo"
+                  class="hidden dark:block dark:group-hover:hidden w-10 aspect-square m-0 px-1.5 object-contain object-center">
+                <img src="/images/gitlab-logo-bg.svg" alt="GitLab logo"
+                  class="dark:hidden dark:group-hover:block w-10 aspect-square m-0 px-1.5 object-contain object-center">
+                <span
+                  class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg group-hover:text-fg dark:group-hover:text-bg">GitLab</span>
+              </div>
+              <div class="px-2 pt-1 pb-0.5 text-sm text-fg group-hover:text-fg dark:group-hover:text-bg">
+                <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg">@Chris-Hayes</span>
+              </div>
+              <div class="flex divide-x divide-fg dark:group-hover:divide-bg text-xs text-fg group-hover:text-fg dark:group-hover:text-bg">
+                <div class="px-2 pt-1 pb-0.5">4 repos</div>
+                <div class="grow px-2 pt-1 pb-0.5 text-end">0 stars</div>
+              </div>
+            </div>
+          </a>
+        </social-wrapper>
+        <div class="grow border-y border-border"></div>
+      </div>
+    `
+  })
+
   config.addShortcode('social', function () {
     return html`
-      <div class="no-prose mt-2 -mb-4 w-full flex justify-center border-y border-fg dark:border-bg-raised">
-        <social-wrapper class="flex divide-x divide-fg dark:divide-bg-raised border-x border-fg dark:border-bg-raised">
+      <div
+        class="no-prose mt-2 -mb-4 w-full flex justify-center"
+        style="container-type: inline-size;">
+        <div class="grow border-y border-border"></div>
+        <social-wrapper class="flex divide-x divide-fg dark:group-hover:divide-bg border border-fg">
           <a href="https://nutmeg.social/@chris" target="_blank" rel="noopener"
             class="group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
-            <div class="flex flex-col divide-y divide-fg dark:divide-bg-raised">
+            <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg">
               <div class="flex">
                 <img src="/images/mastodon-logo-fg-highlight.svg" alt="Mastodon logo"
                   class="hidden dark:block dark:group-hover:hidden w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
                 <img src="/images/mastodon-logo-bg.svg" alt="Mastodon logo"
                   class="dark:hidden dark:group-hover:block w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
                 <span
-                  class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:border-bg-raised group-hover:text-fg dark:group-hover:text-bg">Mastodon</span>
+                  class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg group-hover:text-fg dark:group-hover:text-bg">Mastodon</span>
               </div>
               <div class="px-2 pt-1 pb-0.5 text-sm text-fg group-hover:text-fg dark:group-hover:text-bg">
                 <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg">@chris</span>@nutmeg.social
               </div>
-              <div class="flex divide-x divide-fg dark:divide-bg-raised text-xs">
+              <div class="flex divide-x divide-fg dark:group-hover:divide-bg text-xs">
                 <div class="px-2 pt-1 pb-0.5 text-fg group-hover:text-fg dark:group-hover:text-bg">3.3k posts</div>
                 <div class="grow px-2 pt-1 pb-0.5 text-end text-fg group-hover:text-fg dark:group-hover:text-bg">196 followers</div>
               </div>
@@ -76,19 +197,19 @@ module.exports = function (config) {
           </a>
           <a href="https://pixelfed.social/chris-hayes" target="_blank" rel="noopener"
             class="group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
-            <div class="flex flex-col divide-y divide-fg dark:divide-bg-raised">
+            <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg">
               <div class="flex items-center">
                 <img src="/images/pixelfed-logo-fg-highlight.svg" alt="Pixelfed logo"
                   class="hidden dark:block dark:group-hover:hidden w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
                 <img src="/images/pixelfed-logo-bg.svg" alt="Pixelfed logo"
                   class="dark:hidden dark:group-hover:block w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
                 <span
-                  class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:border-bg-raised group-hover:text-fg dark:group-hover:text-bg">Pixelfed</span>
+                  class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg group-hover:text-fg dark:group-hover:text-bg">Pixelfed</span>
               </div>
               <div class="px-2 pt-1 pb-0.5 text-sm text-fg group-hover:text-fg dark:group-hover:text-bg">
                 <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg">@chris-hayes</span>@pixelfed.social
               </div>
-              <div class="flex divide-x divide-fg dark:divide-bg-raised text-xs text-fg group-hover:text-fg dark:group-hover:text-bg">
+              <div class="flex divide-x divide-fg dark:group-hover:divide-bg text-xs text-fg group-hover:text-fg dark:group-hover:text-bg">
                 <div class="px-2 pt-1 pb-0.5">29 posts</div>
                 <div class="grow px-2 pt-1 pb-0.5 text-end">17 followers</div>
               </div>
@@ -96,91 +217,21 @@ module.exports = function (config) {
           </a>
           <a href="https://bookwyrm.social/user/chris-hayes" target="_blank" rel="noopener"
             class="group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
-            <div class="flex flex-col divide-y divide-fg dark:divide-bg-raised">
+            <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg">
               <div class="flex">
                 <img src="/images/bookwyrm-logo-fg-highlight.svg" alt="BookWyrm logo"
                   class="hidden dark:block dark:group-hover:hidden w-10 aspect-square m-0 px-1.5 object-contain object-center">
                 <img src="/images/bookwyrm-logo-bg.svg" alt="BookWyrm logo"
                   class="dark:hidden dark:group-hover:block w-10 aspect-square m-0 px-1.5 object-contain object-center">
                 <span
-                  class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:border-bg-raised group-hover:text-fg dark:group-hover:text-bg">BookWyrm</span>
+                  class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg group-hover:text-fg dark:group-hover:text-bg">BookWyrm</span>
               </div>
               <div class="px-2 pt-1 pb-0.5 text-sm text-fg group-hover:text-fg dark:group-hover:text-bg">
                 <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg">@chris-hayes</span>@bookwyrm.social
               </div>
-              <div class="flex divide-x divide-fg dark:divide-bg-raised text-xs text-fg group-hover:text-fg dark:group-hover:text-bg">
+              <div class="flex divide-x divide-fg dark:group-hover:divide-bg text-xs text-fg group-hover:text-fg dark:group-hover:text-bg">
                 <div class="px-2 pt-1 pb-0.5">30 books</div>
                 <div class="grow px-2 pt-1 pb-0.5 text-end">5 followers</div>
-              </div>
-            </div>
-          </a>
-        </social-wrapper>
-      </div>
-    `
-  })
-
-  config.addShortcode('forges', function () {
-    return html`
-      <div class="no-prose mt-2 -mb-4 w-full flex justify-center">
-        <div class="grow border-y border-border"></div>
-        <social-wrapper class="flex divide-x divide-fg dark:divide-bg-raised border border-fg dark:border-bg-raised">
-          <a href="https://github.com/Christopher-Hayes" target="_blank" rel="noopener"
-            class="group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
-            <div class="flex flex-col divide-y divide-fg dark:divide-bg-raised">
-              <div class="flex">
-                <img src="/images/github-logo-fg-highlight.svg" alt="GitHub logo"
-                  class="hidden dark:block dark:group-hover:hidden w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
-                <img src="/images/github-logo-bg.svg" alt="GitHub logo"
-                  class="dark:hidden dark:group-hover:block w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
-                <span
-                  class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:border-bg-raised group-hover:text-fg dark:group-hover:text-bg">GitHub</span>
-              </div>
-              <div class="px-2 pt-1 pb-0.5 text-sm text-fg group-hover:text-fg dark:group-hover:text-bg">
-                <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg">@Christopher-Hayes</span>
-              </div>
-              <div class="flex divide-x divide-fg dark:divide-bg-raised text-xs">
-                <div class="px-2 pt-1 pb-0.5 text-fg group-hover:text-fg dark:group-hover:text-bg">94 repos</div>
-                <div class="grow px-2 pt-1 pb-0.5 text-end text-fg group-hover:text-fg dark:group-hover:text-bg">311 stars</div>
-              </div>
-            </div>
-          </a>
-          <a href="https://codeberg.org/Chris-Hayes" target="_blank" rel="noopener"
-            class="group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
-            <div class="flex flex-col divide-y divide-fg dark:divide-bg-raised">
-              <div class="flex items-center">
-                <img src="/images/codeberg-logo-fg-highlight.svg" alt="Codeberg logo"
-                  class="hidden dark:block dark:group-hover:hidden w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
-                <img src="/images/codeberg-logo-bg.svg" alt="Codeberg logo"
-                  class="dark:hidden dark:group-hover:block w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
-                <span
-                  class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:border-bg-raised group-hover:text-fg dark:group-hover:text-bg">Codeberg</span>
-              </div>
-              <div class="px-2 pt-1 pb-0.5 text-sm text-fg group-hover:text-fg dark:group-hover:text-bg">
-                <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg">@Chris-Hayes</span>
-              </div>
-              <div class="flex divide-x divide-fg dark:divide-bg-raised text-xs text-fg group-hover:text-fg dark:group-hover:text-bg">
-                <div class="px-2 pt-1 pb-0.5">6 repos</div>
-                <div class="grow px-2 pt-1 pb-0.5 text-end">1 star</div>
-              </div>
-            </div>
-          </a>
-          <a href="https://gitlab.com/Chris-Hayes" target="_blank" rel="noopener"
-            class="group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
-            <div class="flex flex-col divide-y divide-fg dark:divide-bg-raised">
-              <div class="flex">
-                <img src="/images/gitlab-logo-fg-highlight.svg" alt="GitLab logo"
-                  class="hidden dark:block dark:group-hover:hidden w-10 aspect-square m-0 px-1.5 object-contain object-center">
-                <img src="/images/gitlab-logo-bg.svg" alt="GitLab logo"
-                  class="dark:hidden dark:group-hover:block w-10 aspect-square m-0 px-1.5 object-contain object-center">
-                <span
-                  class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:border-bg-raised group-hover:text-fg dark:group-hover:text-bg">GitLab</span>
-              </div>
-              <div class="px-2 pt-1 pb-0.5 text-sm text-fg group-hover:text-fg dark:group-hover:text-bg">
-                <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg">@Chris-Hayes</span>
-              </div>
-              <div class="flex divide-x divide-fg dark:divide-bg-raised text-xs text-fg group-hover:text-fg dark:group-hover:text-bg">
-                <div class="px-2 pt-1 pb-0.5">4 repos</div>
-                <div class="grow px-2 pt-1 pb-0.5 text-end">0 stars</div>
               </div>
             </div>
           </a>

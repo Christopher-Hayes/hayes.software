@@ -105,14 +105,13 @@ Post header transitions on mobile (the header changes when you scroll)
 @media (min-width: 1024px) {
   * {
     scrollbar-width: thick;
-    /* scrollbar-color: #17b0ed #e7f8ff; */
-    scrollbar-color: var(--bg) var(--primary-highlight);
+    scrollbar-color: var(--fg) var(--border);
     /* Avoid jumps in layout from scrollbar showing or disappearing. */
     scrollbar-gutter: stable both-edges;
   }
   @media (prefers-color-scheme: dark) {
     * {
-      scrollbar-color: var(--bg) var(--primary-highlight);
+      scrollbar-color: var(--fg) var(--border);
     }
   }
 }
@@ -148,7 +147,7 @@ Post header transitions on mobile (the header changes when you scroll)
     --primary-highlight: #fdfacb;
     --primary-muted: #b78447;
 
-    --border: #27211d;
+    --border: #312a25;
   }
 }
 
@@ -252,11 +251,12 @@ a:focus {
   }
   figure {
     @apply py-8;
+      
     figcaption {
       @apply absolute -right-[25rem] top-1/3 max-w-[18rem];
 
       p {
-        @apply text-fg-muted border-2 border-fg-muted dark:border-border px-4 pb-3 pt-3.5;
+        @apply text-fg border-2 border-fg-muted dark:border-border px-4 pb-3 pt-3.5;
       }
     }
   }
@@ -289,7 +289,7 @@ a:focus {
 
 /* For use outside of .prose */
 .big-letter::first-letter {
-  @apply float-left mb-1 mr-3 bg-primary border-2 border-solid border-fg-muted dark:border-primary px-2 pb-2 pt-2 font-rakkas text-8xl text-fg dark:text-primary;
+  @apply float-left mb-1 mr-3 bg-primary dark:bg-transparent border-2 border-solid border-fg-muted dark:border-primary px-2 pb-2 pt-2 font-rakkas text-8xl text-fg dark:text-primary;
 }
 
 /* only on desktop */

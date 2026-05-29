@@ -12,14 +12,14 @@ function renderHTML(d) {
   const rankEl = d.rank
     ? `<${
         RANK_URL ? `a href="${RANK_URL}"` : 'span'
-      } target="_blank" rel="noopener" class="rank">#${d.rank}</${
-        RANK_URL ? 'a' : 'span'
-      }>`
+      } target="_blank" rel="noopener" class="hover:text-fg underline-offset-4 hover:decoration-fg decoration-dotted decoration-2 hover:underline">#${
+        d.rank
+      }</${RANK_URL ? 'a' : 'span'}>`
     : ''
 
   return html`
     <div
-      class="mt-8 flex w-full flex-col bg-bg-raised divide-y divide-fg border-t border-fg text-sm"
+      class="mt-8 flex w-full flex-col divide-y divide-fg border-t border-fg bg-border text-sm dark:bg-bg-raised"
     >
       <div class="flex divide-x divide-fg">
         <div class="flex grow justify-between gap-2 px-4 pb-2 pt-2.5">
@@ -30,7 +30,7 @@ function renderHTML(d) {
             rel="noopener"
           >
             <h2
-              class="m-0 transform-none border-none p-0 text-4xl text-fg decoration-fg-highlight decoration-dashed decoration-4 underline-offset-4 group-focus-within:text-fg-highlight group-focus-within:underline group-hover:text-fg-highlight group-hover:underline"
+              class="m-0 transform-none border-none p-0 text-4xl text-fg decoration-fg-highlight decoration-dotted decoration-4 underline-offset-4 group-focus-within:text-fg-highlight group-focus-within:underline group-hover:text-fg-highlight group-hover:underline"
             >
               Speedlify<br />
               Score
@@ -95,7 +95,17 @@ function renderHTML(d) {
       <div class="flex w-full divide-x divide-fg text-fg">
         <div class="px-3 pb-1 pt-2">${d.requests}</div>
         <div class="px-3 pb-1 pt-2">${d.weight}</div>
-        <div class="grow px-3 pb-1 pt-2 text-end">Tested on ${d.date}</div>
+        <div class="flex grow justify-between">
+          <a
+            class="px-3 pb-1 pt-2 decoration-dotted decoration-2 underline-offset-4 hover:text-fg hover:underline hover:decoration-fg"
+            href="https://www.11ty.dev/speedlify/hayes-software/"
+            target="_blank"
+            rel="noopener"
+          >
+            View details
+          </a>
+          <div class="grow px-3 pb-1 pt-2 text-end">Tested on ${d.date}</div>
+        </div>
       </div>
     </div>
   `

@@ -21,13 +21,11 @@
 <main id="main-content" tabindex="-1">
   <!-- artwork at top of page -->
   {% if artwork.above_fold %}
-  <div class="absolute top-0 left-0 w-[100vw] h-[80vh] pointer-events-none z-30">
+  <div class="absolute top-0 left-0 w-full h-[80vh] pointer-events-none z-30">
     <img
       src="{{ artwork.above_fold }}" alt=""
-      class="w-full h-full object-cover object-center opacity-0 transition-opacity duration-1000"
-      onload="this.classList.remove('opacity-0');this.classList.add('opacity-10', 'dark:opacity-100')"
-      loading="lazy">
-      >
+      class="w-full max-w-[100vw] h-full object-cover object-center opacity-10 dark:opacity-100"
+      loading="eager">
   </div>
   {% endif %}
   <article class="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-12">
