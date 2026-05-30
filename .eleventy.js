@@ -103,10 +103,10 @@ module.exports = function (config) {
         <div class="grow border-y border-border"></div>
         <social-wrapper class="flex divide-x divide-fg border border-fg">
           <a href="https://github.com/Christopher-Hayes" target="_blank" rel="noopener"
-            class="min-w-[27cqw] group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
+            class="min-w-[27cqw] group block no-underline bg-bg-raised hover:bg-primary dark:hover:bg-fg hover:text-bg">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg">
               <div class="flex">
-                <svg class="w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
+                <svg class="overflow-visible w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
                   <use href="#github-logo" />
                 </svg>
                 <span
@@ -122,10 +122,10 @@ module.exports = function (config) {
             </div>
           </a>
           <a href="https://codeberg.org/Chris-Hayes" target="_blank" rel="noopener"
-            class="min-w-[27cqw] group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
+            class="min-w-[27cqw] group block no-underline bg-bg-raised hover:bg-primary dark:hover:bg-fg hover:text-bg">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg">
               <div class="flex items-center">
-                <svg class="w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
+                <svg class="overflow-visible w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
                   <use href="#codeberg-logo" />
                 </svg>
                 <span
@@ -141,10 +141,10 @@ module.exports = function (config) {
             </div>
           </a>
           <a href="https://gitlab.com/Chris-Hayes" target="_blank" rel="noopener"
-            class="min-w-[27cqw] group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
+            class="min-w-[27cqw] group block no-underline bg-bg-raised hover:bg-primary dark:hover:bg-fg hover:text-bg">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg">
               <div class="flex">
-                <svg class="w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
+                <svg class="overflow-visible w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
                   <use href="#gitlab-logo" />
                 </svg>
                 <span
@@ -173,10 +173,10 @@ module.exports = function (config) {
         <div class="grow border-y border-border"></div>
         <social-wrapper class="flex divide-x divide-fg dark:group-hover:divide-bg border border-fg">
           <a href="https://nutmeg.social/@chris" target="_blank" rel="noopener"
-            class="group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
+            class="group block no-underline bg-bg-raised hover:bg-primary dark:hover:bg-fg hover:text-bg">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg">
               <div class="flex">
-                <svg class="w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
+                <svg class="overflow-visible w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
                   <use href="#mastodon-logo" />
                 </svg>
                 <span
@@ -192,10 +192,10 @@ module.exports = function (config) {
             </div>
           </a>
           <a href="https://pixelfed.social/chris-hayes" target="_blank" rel="noopener"
-            class="group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
+            class="group block no-underline bg-bg-raised hover:bg-primary dark:hover:bg-fg hover:text-bg">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg">
               <div class="flex items-center">
-                <svg class="w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
+                <svg class="overflow-visible w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
                   <use href="#pixelfed-logo" />
                 </svg>
                 <span
@@ -211,10 +211,10 @@ module.exports = function (config) {
             </div>
           </a>
           <a href="https://bookwyrm.social/user/chris-hayes" target="_blank" rel="noopener"
-            class="group block no-underline bg-bg-raised dark:bg-inherit hover:bg-primary dark:hover:bg-fg hover:text-bg">
+            class="group block no-underline bg-bg-raised hover:bg-primary dark:hover:bg-fg hover:text-bg">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg">
               <div class="flex">
-                <svg class="w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
+                <svg class="overflow-visible w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
                   <use href="#bookwyrm-logo" />
                 </svg>
                 <span
