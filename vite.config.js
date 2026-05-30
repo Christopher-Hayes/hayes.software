@@ -146,42 +146,22 @@ export default defineConfig(({ command }) => ({
         background_color: '#fdfacb',
         icons: [
           {
-            src: 'pwa-72x72.webp',
-            sizes: '72x72',
+            src: 'favicon-16x16.webp',
+            sizes: '16x16',
             type: 'image/webp',
           },
           {
-            src: 'pwa-96x96.webp',
-            sizes: '96x96',
+            src: 'favicon-32x32.webp',
+            sizes: '32x32',
             type: 'image/webp',
           },
           {
-            src: 'pwa-128x128.webp',
-            sizes: '128x128',
-            type: 'image/webp',
-          },
-          {
-            src: 'pwa-144x144.webp',
-            sizes: '144x144',
-            type: 'image/webp',
-          },
-          {
-            src: 'pwa-152x152.webp',
-            sizes: '152x152',
-            type: 'image/webp',
-          },
-          {
-            src: 'pwa-192x192.webp',
+            src: 'android-chrome-192x192.webp',
             sizes: '192x192',
             type: 'image/webp',
           },
           {
-            src: 'pwa-384x384.webp',
-            sizes: '384x384',
-            type: 'image/webp',
-          },
-          {
-            src: 'pwa-512x512.webp',
+            src: 'favicon-512x512.webp',
             sizes: '512x512',
             type: 'image/webp',
           },
