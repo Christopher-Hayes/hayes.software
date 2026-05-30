@@ -21,7 +21,7 @@
 <style>
   /* Critical fonts. Non-critical are in main.css */
   @font-face {
-    font-family: 'Rakkas', Georgia, serif;
+    font-family: 'Rakkas';
     src: url('/fonts/minified/rakkas/rakkas-regular.min.woff2') format('woff2'),
       url('/fonts/minified/rakkas/rakkas-regular.min.woff') format('woff');
     font-weight: 400;
@@ -29,7 +29,7 @@
     font-display: optional;
   }
   @font-face {
-    font-family: 'Luciole', Verdana, sans-serif;
+    font-family: 'Luciole';
     src: url('/fonts/minified/luciole/luciole-regular.min.woff2') format('woff2'),
       url('/fonts/minified/luciole/luciole-regular.min.woff') format('woff');
     font-weight: 400;
@@ -37,9 +37,14 @@
     font-display: optional;
   }
 
+  /* Set up fallback fonts */
   html,
   body {
     font-family: 'Luciole', Verdana, sans-serif;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Rakkas', Georgia, serif;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -53,29 +58,6 @@
       background-color: #fdfacb;
     }
   }
-
-  /*
-  header > nav {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 42rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  #main-content > div {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 48rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  @media only screen and (min-width: 768px) {
-    header > nav,
-    #main-content > div {
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
-  }*/
 </style>
 
 <link type="text/css" href="/styles/main.css" rel="stylesheet" />

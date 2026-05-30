@@ -4,7 +4,7 @@
 
 /* Non-critical fonts. Critical are in site-head.html */
 @font-face {
-  font-family: 'Luciole', Verdana, sans-serif;
+  font-family: 'Luciole';
   src: url('/fonts/minified/luciole/luciole-bold.min.woff2') format('woff2'),
     url('/fonts/minified/luciole/luciole-bold.min.woff') format('woff');
   font-weight: 700;
