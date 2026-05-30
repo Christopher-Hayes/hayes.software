@@ -19,14 +19,21 @@
 </script>
 <main id="main-content" tabindex="-1">
   <!-- bg gradient behind post-header -->
-  <div class="fixed top-0 left-0 min-w-[100vw] h-[12rem] bg-gradient-to-b from-70% from-bg to-transparent pointer-events-none z-20"></div>
-  <article class="relative z-10 mx-auto max-w-2xl border border-fg dark:border-bg-raised">
+  <div
+    class="fixed top-0 left-0 min-w-[100vw] h-[15rem] bg-gradient-to-b from-40% from-bg to-transparent pointer-events-none z-20">
+  </div>
+  <article class="relative z-10 mx-auto max-w-2xl border border-t-0 border-border">
     <header>
-      <h1 class="mt-12 mb-4 pt-12 pb-6 px-12 self-center text-fg text-5xl leading-normal transform scale-110">
+      <h1 class="mb-4 pt-20 px-12 self-center text-fg text-6xl leading-normal border-t-0 transform scale-110">
         {{ intro.desc }}
       </h1>
     </header>
-    <div class="py-2 prose prose-lg dark:prose-invert">{{ content }}</div>
+    <div class="relative big-letter py-2 px-4 prose prose-lg dark:prose-invert">
+      <img src="/images/first-letter-bg-1.svg" alt="" class="absolute z-0 left-2 -top-4 w-32 h-32 pointer-events-none opacity-10 dark:opacity-100">
+      <div class="relative z-10">
+        {{ content }}
+      </div>
+    </div>
   </article>
 </main>
 {% endblock %}

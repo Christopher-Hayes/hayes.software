@@ -8,23 +8,21 @@
 <body
   class="min-h-screen flex flex-col bg-bg dark:bg-bg text-fg dark:text-fg{% if page.url == '/' %} page-home{% endif %}"
   data-env="{{ node.env }}" data-page="{{ page.url }}">
+  <div id="to-top-of-page-anchor" class="absolute top-0"></div>
   <div class="flex-grow relative">
     {% include "partials/navigation.html" %}
-    <div id="main-content-wrapper" class="pt-4 md:pt-10 pb-8 md:pb-12">{% block content %}{% endblock %}</div>
+    <div id="main-content-wrapper" class="pt-4 md:pt-16 pb-8 md:pb-12">{% block content %}{% endblock %}</div>
   </div>
   <footer class="mt-16 mb-20 w-full max-w-2xl mx-auto flex gap-3">
-    <button
-      class="px-3.5 group flex justify-center items-center text-fg border border-fg dark:border-border bg-border dark:bg-bg hover:bg-primary-highlight hover:border-primary-highlight"
-      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+    <a class="px-3.5 group flex justify-center items-center text-fg border border-fg dark:border-border bg-border dark:bg-bg hover:bg-primary-highlight hover:border-primary-highlight"
+      href="#to-top-of-page-anchor"
+      onclick="(event) => { event.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }">
       <span class="sr-only">Jump back to top</span>
       <!-- overflow-visible is required to get Chrome to render the SVG correctly. -->
-      <svg
-        class="overflow-visible h-6 w-5 fill-current text-fg dark:text-fg group-hover:text-bg"
-        alt=""
-        >
+      <svg class="overflow-visible h-6 w-5 fill-current text-fg dark:text-fg group-hover:text-bg" alt="">
         <use href="#back-to-top-icon" />
       </svg>
-    </button>
+    </a>
     <div class="grow relative bg-border dark:bg-bg-raised border border-fg dark:border-none">
       <p class="px-6 pt-4 pb-3 prose prose-sm mx-auto w-full max-w-3xl">
         Edit this page
@@ -37,10 +35,9 @@
 
       <a href="/" class="group">
         <span class="sr-only">Go to homepage</span>
-        <svg
-          height="5rem" width="10rem" class="absolute -right-3 -top-3.5 mx-auto text-fg dark:text-bg group-hover:text-primary dark:group-hover:text-fg"
-          alt=""
-          >
+        <svg height="5rem" width="10rem"
+          class="absolute -right-3 -top-3.5 mx-auto text-fg dark:text-bg group-hover:text-primary dark:group-hover:text-fg"
+          alt="">
           <use href="#logo" />
         </svg>
       </a>
@@ -55,11 +52,23 @@
 
     // On idle
     window.addEventListener('load', () => {
+      // Inject favicons after load to avoid font requests block render
+      // Probably evil.
+      [
+        { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+        { rel: 'alternate icon', href: '/favicon.ico', type: 'image/png', sizes: '48x48' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.webp', sizes: '192x192' },
+        { rel: 'mask-icon', href: '/favicon.svg' },
+      ].forEach(attrs => {
+        const link = Object.assign(document.createElement('link'), attrs)
+        document.head.appendChild(link)
+      })
+
       if ('requestIdleCallback' in window) {
         requestIdleCallback(runDeferredScripts)
       } else {
         // Fallback for Safari 15.6
-        setTimeout(runDeferredScripts, 1)
+        setTimeout(runDeferredScripts, 200)
       }
     })
   </script>

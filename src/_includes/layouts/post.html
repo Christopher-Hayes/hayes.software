@@ -75,21 +75,25 @@
         <div class="h-16"></div>
       {% endif %}
       {% if archived %}
-        <section class="prose prose-sm min-w-full flex flex-col -mt-8 mb-16 border border-fg dark:border-bg text-bg dark:text-bg bg-primary-highlight">
+        <section class="prose prose-sm min-w-full flex flex-col -mt-8 mb-16 border border-fg dark:border-fg dark:text-bg bg-border dark:bg-fg">
           {% if archived.title %}
-            <h2 class="no-prose mt-0 px-4 text-2xl font-semibold border-0 border-b-2 border-fg dark:border-bg-raised text-bg dark:text-bg bg-primary transform-none">
-              {{ archived.title }}
-            </h2>
+            <header>
+              <h2 class="px-4 text-2xl font-semibold border-0 border-b-2 border-fg dark:border-bg-raised text-bg dark:text-bg bg-primary dark:bg-bg-raised transform-none"
+                style="margin-top:0;"
+              >
+                {{ archived.title }}
+              </h2>
+          </header>
           {% endif %}
             {% if archived.desc %}
-              <div class="-mt-4 mb-0 text-bg dark:text-bg">
+              <div class="-mt-4 mb-0">
                 {% assign desc_paras = archived.desc | split: "\n" %}
                 {% for para in desc_paras %}
                   {% if para != "" %}<p class="my-3">{{ para }}</p>{% endif %}
                 {% endfor %}
               </div>
             {% endif %}
-            <div class="mt-1 pt-2 pb-1 border-t border-bg-raised">
+            <div class="mt-1 pt-2 pb-1 border-t border-fg dark:border-bg">
               <p class="my-0">
                 <strong>
                   This post was archived on {{ archived.date | date: "%B %d, %Y" }}.

@@ -30,22 +30,22 @@
   <div
     class="fixed top-0 left-0 min-w-[100vw] h-[14rem] bg-gradient-to-b from-50% from-bg to-transparent pointer-events-none z-20">
   </div>
-  <article class="flex flex-col mx-auto max-w-2xl border-x border-fg dark:border-bg-raised">
-    <header class="mt-16">
-      <h1 class="px-12 pt-8 self-center text-fg font-rakkas text-6xl leading-normal border-t-0 transform scale-110">
+  <article class="flex flex-col mx-auto max-w-2xl border-x border-border">
+    <header>
+      <h1 class="px-12 pt-20 self-center text-fg font-rakkas text-6xl leading-normal border-t-0 transform scale-110">
           Writing
       </h1>
       <div class="prose prose-lg mt-8 -mb-7 px-6 pb-0 pt-2">
-        <p class="big-letter relative mt-2">
+        <div class="big-letter relative mt-2">
           <img src="/images/first-letter-bg-1.svg" alt="" class="absolute z-0 -left-4 -top-20 w-32 h-32 pointer-events-none opacity-10 dark:opacity-100">
-          <span class="relative z-10">
+          <p class="relative z-10 mt-0">
             {{ intro.desc }}
-          </span>
-        </p>
+          </p>
+        </div>
       </div>
     </header>
     <section class="mt-12">
-      <div class="grid grid-cols-1 md:grid-cols-3 dark:border-x border-fg dark:border-primary">
+      <div class="ml-[-1px] mr-[-1px] grid grid-cols-1 md:grid-cols-3 border-x border-fg dark:border-primary">
         {% for post in collections.blog %}
           <a
             href="{{ post.url }}"
@@ -75,10 +75,10 @@
         <!-- Fill last row with empty cells if not divisible by 3 -->
         {% assign lastMod = collections.blog.size | modulo: 3 %}
         {% if lastMod == 1 %}
-          <div class="my-4 border-y border-fg dark:border-bg-raised"></div>
-          <div class="my-4 border-y border-fg dark:border-bg-raised"></div>
+          <div class="my-4 border-y border-border"></div>
+          <div class="my-4 border-y border-border"></div>
         {% elsif lastMod == 2 %}
-          <div class="my-4 border-y border-fg dark:border-bg-raised"></div>
+          <div class="my-4 border-y border-border"></div>
         {% endif %}
       </div>
 
@@ -86,7 +86,7 @@
         <a href="/blog-archives/" class="text-fg opacity-70 hover:decoration-fg hover:underline hover:text-fg">View archived blog posts</a>
       </div>
     </section>
-    <section class="-mt-3 pb-6 border-b border-fg dark:border-bg-raised">
+    <section class="-mt-3 pb-6 border-b border-border">
       <header>
         <h1 class="px-12 pt-12 border-t-0 self-center text-fg font-rakkas text-6xl leading-normal transform scale-110">
           Thoughts
@@ -102,11 +102,10 @@
           <a href="https://nutmeg.social/@chris" target="_blank" rel="noopener"
             class="group block no-underline bg-bg-raised hover:bg-primary dark:hover:bg-fg hover:text-fg dark:hover:text-bg">
             <div class="flex flex-col divide-y divide-fg dark:divide-primary-highlight group-hover:divide-fg dark:group-hover:divide-bg">
-              <div class="flex">
-                <img src="/images/mastodon-logo-fg-highlight.svg" alt="Mastodon logo"
-                  class="hidden dark:block group-hover:hidden w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
-                <img src="/images/mastodon-logo-bg.svg" alt="Mastodon logo"
-                  class="dark:hidden dark:group-hover:block w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
+              <div class="flex items-center">
+                <svg class="overflow-visible w-10 h-8 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
+                  <use href="#mastodon-logo" />
+                </svg>
                 <span
                   class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:border-primary-highlight hover:text-fg dark:group-hover:text-bg group-hover:border-fg dark:group-hover:border-bg">Mastodon</span>
               </div>

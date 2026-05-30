@@ -38,7 +38,7 @@ module.exports = function (config) {
           class="mt-8 h-7 w-7"
         />
         <div class="flex flex-col items-start gap-1">
-          <div class="prose prose-sm prose-strong:text-fg dark:prose-strong:text-fg-highlight">${renderedAlt.trim()}</div>
+          <div class="prose prose-sm text-fg-muted prose-strong:text-fg-muted dark:prose-strong:text-fg-highlight">${renderedAlt.trim()}</div>
           <button
             @click="showImageOverlay()"
             class="border-2 border-fg-muted dark:border-bg-raised px-3 pb-1 pt-2 text-fg-muted dark:text-fg-highlight hover:text-fg hover:border-fg hover:bg-primary dark:hover:border-bg dark:hover:bg-primary dark:hover:text-bg"
@@ -82,7 +82,7 @@ module.exports = function (config) {
           class="mt-8 h-7 w-7"
         />
         <div class="flex flex-col items-start gap-1">
-          <div class="prose prose-sm prose-strong:text-fg dark:prose-strong:text-fg-highlight">${renderedAlt.trim()}</div>
+          <div class="prose prose-sm text-fg-muted prose-strong:text-fg-muted dark:prose-strong:text-fg-highlight">${renderedAlt.trim()}</div>
           <button
             @click="showImageOverlay()"
             class="border-2 border-fg-muted dark:border-bg-raised px-3 pb-1 pt-2 text-fg-muted dark:text-fg-highlight hover:text-fg hover:border-fg hover:bg-primary dark:hover:border-bg dark:hover:bg-primary dark:hover:text-bg"
@@ -175,8 +175,8 @@ module.exports = function (config) {
           <a href="https://nutmeg.social/@chris" target="_blank" rel="noopener"
             class="group block no-underline bg-bg-raised hover:bg-primary dark:hover:bg-fg hover:text-bg">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg">
-              <div class="flex">
-                <svg class="overflow-visible w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
+              <div class="flex items-center">
+                <svg class="overflow-visible w-10 h-8 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg">
                   <use href="#mastodon-logo" />
                 </svg>
                 <span
@@ -288,7 +288,6 @@ module.exports = function (config) {
   config.addPassthroughCopy('./src/public')
   config.addPassthroughCopy('./src/styles')
   config.addPassthroughCopy('./src/scripts')
-  config.addPassthroughCopy('./src/main.js')
   config.addPassthroughCopy('./src/main-on-ready.js')
   config.addPassthroughCopy('./src/setup-utterances.js')
 

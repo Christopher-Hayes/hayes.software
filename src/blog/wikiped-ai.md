@@ -6,8 +6,10 @@ meta:
   tag: 
 date: 2022-12-11
 intro:
-  # title: AI is changing how I use Wikipedia
-  desc: How AI is changing how I use Wikipedia
+  image:
+    light: /images/blog/wikiped-ai/wordtune-light.png
+    dark: /images/blog/wikiped-ai/wordtune.png
+    alt: WordTune summary in Wikipedia
 aiassist: This post was written with the help of <a href='https://chat.openai.com/chat' target='_blank'>ChatGPT</a>.
 devto: 
 tags:
@@ -23,40 +25,13 @@ archived:
   date: 2026-04-28
 ---
 
-<figure
-  x-data="{
-    imageSrc: '/images/blog/wikiped-ai/wordtune-light.png',
-    imageAlt: 'WordTune summary in Wikipedia',
-    showImageOverlay: function (imageElem) {
-      this.$dispatch('show-image-overlay', imageElem.src);
-    },
-    }">
-  <button
-    @click="showImageOverlay($event.target)"
-    class="group h-52 md:h-96 w-full"
-    >
-    <img
-      :src="imageSrc"
-      :alt="imageAlt"
-      src="/images/blog/wikiped-ai/wordtune-light.png"
-      alt="WordTune summary in Wikipedia"
-      width="100%"
-      class="w-full h-full object-cover object-center rounded-2xl md:rounded-xl m-0 transition-opacity group-hover:opacity-50 group-focus:opacity-50"
-      loading="eager">
-    <figcaption
-      class="opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity text-white font-bold text-xs text-right -mt-10 mb-12 mr-8"
-      x-text="imageAlt"
-    ></figcaption>
-  </button>
-</figure>
-
 The rise of artificial intelligence (AI) has had a profound impact on how we use and access information. In particular, AI is changing how people learn about something and how they use Wikipedia. By providing smarter search capabilities, improved accuracy, automated summaries, and personalized content recommendations, AI is making it easier than ever before for us to access reliable information quickly and accurately whenever we need it most.
 
-## 📓 Reading Wikipedia in 2021
+## Reading Wikipedia in 2021
 
 Wikipedia's default user interface (UI) can be plain and unappealing. Luckily, there are alternatives like Wikiwand that offer a more aesthetically pleasing experience. To find information, users can skim articles for relevant information or click on links to other articles. If Wikipedia does not have an article on a particular topic, users can turn to search engines like Google to find answers on other websites like Quora or specialized websites in the relevant field.
 
-## 🧠 Reading Wikipedia in the Age of AI
+## Reading Wikipedia in the Age of AI
 
 <figure
   x-data="{
@@ -130,7 +105,7 @@ Additionally, the [Bearly.ai](https://bearly.ai) app allows users to ask any que
 
 Overall, AI has made reading Wikipedia even more efficient and user-friendly.
 
-## 🤖 Potential drawbacks of AI-powered tools and integrations
+## Potential drawbacks of AI-powered tools and integrations
 
 The integration of AI-powered tools and integrations like WordTune and Bearly.ai into the Wikipedia experience has both positive and negative effects on how people get their information. On the positive side, these tools make it easier and more efficient for users to find and understand information on Wikipedia. Summaries created by WordTune, for example, can help users quickly grasp the main points of an article, and Bearly.ai allows users to ask specific questions and receive answers from GPT-3 in real-time.
 
