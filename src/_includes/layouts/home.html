@@ -23,10 +23,10 @@
     class="fixed top-0 left-0 min-w-[100vw] h-[14rem] bg-gradient-to-b from-50% from-bg to-transparent pointer-events-none z-20">
   </div>
   <article class="mt-[25vh] mx-auto max-w-2xl flex flex-col">
-    <header class="w-full bg-fg dark:bg-bg-raised flex justify-center border border-fg dark:border-primary-highlight">
-      <h1 class="lg:max-w-[38rem] px-10 pt-8 pb-6 self-center text-bg dark:text-fg font-rakkas text-5xl leading-tight border-none">
-        <emp class="text-primary mr-1">{{ intro.emp }}</emp>
-        <span>{{ intro.desc }}</span>
+    <header class="w-full bg-border dark:bg-bg-raised flex justify-center border border-fg dark:border-primary-highlight">
+      <h1 class="lg:max-w-[38rem] px-10 pt-8 pb-6 self-center font-rakkas text-5xl leading-normal border-none">
+        <emp class="bg-primary dark:bg-fg dark:text-bg px-2">{{ intro.emp }}</emp>
+        <span class="text-fg">{{ intro.desc | replace: "Chris Hayes", "<span class='text-fg-highlight'>Chris Hayes</span>" }}</span>
       </h1>
     </header>
     <section class="pt-8 border-x border-border">
@@ -35,7 +35,7 @@
           Writing
         </h2>
       </header>
-      <div class="my-1 ml-[-1px] mr-[-1px] grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 border border-t-0 border-fg divide-y divide-fg dark:divide-bg-raised">
+      <div class="my-1 ml-[-1px] mr-[-1px] grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 border border-t-0 border-fg divide-y divide-fg">
         {% assign taglist = collections['featured'] %}
         {% assign taglist = taglist | sort: 'date' | reverse %}
         {% for post in taglist %}

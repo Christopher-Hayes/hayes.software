@@ -2,15 +2,15 @@
 layout: layouts/post.html
 title: Redirecting music audio to my phone
 meta:
-  desc: 
+  desc: How to redirect music from Linux to your phone with VLC and KDE Connect.
 date: 2026-05-28
 read_time: 8 min
 artwork:
   above_fold: /images/blog/sending-music-to-phone/artwork-above-fold.svg
 intro:
   image:
-    light: /images/blog/sending-music-to-phone/screenshot-1.png
-    dark: /images/blog/sending-music-to-phone/screenshot-1.png
+    light: /images/blog/sending-music-to-phone/screenshot-1.webp
+    dark: /images/blog/sending-music-to-phone/screenshot-1.webp
     alt: "**Music player playing TWICE** on the left, Ubuntu terminal in the middle, and on the right is a phone screen with VLC open."
 tags:
   - featured # Show on homepage
@@ -130,7 +130,7 @@ I found a pretty decent work-around, but it **requires KDE Connect.** I already 
 
 This happens to be exactly what we need here, and I've found the combination of playing the stream with VLC and controllin playback with KDE Connect works pretty great.
 
-![KDE Connect on mobile shows that "Easy" by LE SSERAFIM is playing. The album art is center screen. Audio playback controls are along the bottom: next/back, play/pause, shuffle.](/images/blog/sending-music-to-phone/screenshot-2.svg)
+{% figureThemed "/images/blog/sending-music-to-phone/screenshot-2-light.svg", "/images/blog/sending-music-to-phone/screenshot-2-dark.svg", "**KDE Connect on mobile** shows that \"Easy\" by LE SSERAFIM is playing. The album art is center screen. Audio playback controls are along the bottom: next/back, play/pause, shuffle." %}
 
 A bonus feature with KDE Connect is you can add bash scripts you can run remotely from your phone. So, it's possible to remotely launch your music application and start the audio streaming server without ever touching the PC.
 

@@ -339,8 +339,10 @@ const run = async () => {
   window.addEventListener('scroll', handleScroll, { passive: true })
 
   // Init the comment section
-  console.log('initUtterances')
-  import('./setup-utterances.js')
+  if (document.querySelector('comment-section')) {
+    console.log('initUtterances')
+    import('./setup-utterances.js')
+  }
 }
 
 export { run }
