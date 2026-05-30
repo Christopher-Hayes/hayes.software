@@ -2,16 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Non-critical fonts. Critical are in site-head.html */
-@font-face {
-  font-family: 'Luciole';
-  src: url('/fonts/minified/luciole/luciole-bold.min.woff2') format('woff2'),
-    url('/fonts/minified/luciole/luciole-bold.min.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 /*
 Alpine feature that allows you to hide elements until Alpine is ready.
 Used for FOUC and to hide elements that require JavaScript to function.
