@@ -24,7 +24,8 @@
   </div>
   <article class="mt-[25vh] mx-auto max-w-2xl flex flex-col">
     <header class="w-full lg:h-60 lg:max-h-60 bg-border dark:bg-bg-raised flex justify-center border border-fg dark:border-primary-highlight">
-      <h1 class="lg:max-w-[40.1rem] px-10 self-center font-rakkas text-5xl leading-normal border-none">
+      <h1 class="lg:max-w-[39.5rem] px-10 self-center font-rakkas text-5xl leading-normal border-none">
+        <!-- This whitespace only shows up in dev, goes MIA on prod build. :S -->
         <emp class="bg-primary dark:bg-fg dark:text-bg px-2 mr-2">{{ intro.emp }}</emp>{{ " " }}<span class="text-fg">{{ intro.desc | replace: "Chris Hayes", "<span class='text-fg-highlight'>Chris Hayes</span>" }}</span>
       </h1>
     </header>
