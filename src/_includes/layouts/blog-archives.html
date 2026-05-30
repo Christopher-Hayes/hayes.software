@@ -36,9 +36,13 @@
         {{ title }}
       </h1>
       <div class="prose prose-lg mt-8 -mb-7 px-6 pb-0 pt-2">
-        <p class="big-letter relative mt-2">
+        <div class="relative mt-2">
           <img src="/images/first-letter-bg-1.svg" alt="" class="absolute z-0 -left-4 -top-20 w-32 h-32 pointer-events-none opacity-10 dark:opacity-100">
-          <span class="relative z-10">{{ intro.desc }}</span>
+          <div class="big-letter relative z-10 mt-0">
+            <p>
+              {{ intro.desc }}
+            </p>
+          </div>
         </p>
       </div>
     </header>

@@ -254,18 +254,32 @@ a:focus {
   }
 }
 
-/* First paragraph */
+/* First paragraph (post.html format) */
 .content-wrapper > img + p:nth-child(2) {
   @apply relative z-10 -mt-4;
   /* First letter of first paragraph */
   &::first-letter {
     @apply float-left mb-0.5 mr-3 mt-1.5 bg-primary dark:bg-transparent border-2 border-solid border-fg-muted dark:border-primary px-3.5 pt-1.5 font-rakkas text-7xl text-fg dark:text-primary;
+
+    /* For some reason Chrome and Firefox render the line-height of ::first-letter differently. */
+    @supports (-moz-appearance: none) {
+      & {
+        @apply pt-3 pb-4;
+      }
+    }
   }
 }
 
 /* For use outside of .prose */
-.big-letter::first-letter {
+.big-letter > p:first-child::first-letter {
   @apply float-left mb-0.5 mr-3 mt-1.5 bg-primary dark:bg-transparent border-2 border-solid border-fg-muted dark:border-primary px-3.5 pt-1.5 font-rakkas text-7xl text-fg dark:text-primary;
+
+  /* For some reason Chrome and Firefox render the line-height of ::first-letter differently. */
+  @supports (-moz-appearance: none) {
+    & {
+      @apply pt-3 pb-4;
+    }
+  }
 }
 
 /* only on desktop */
