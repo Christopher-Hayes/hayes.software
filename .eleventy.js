@@ -38,7 +38,7 @@ module.exports = function (config) {
           class="mt-8 h-7 w-7"
         />
         <div class="flex flex-col items-start gap-1">
-          <div class="prose prose-sm prose-strong:text-fg dark:prose-strong:text-fg-highlight">${renderedAlt.trim()}</div>
+          <div class="prose prose-sm text-fg-muted prose-strong:text-fg-muted dark:prose-strong:text-fg-highlight">${renderedAlt.trim()}</div>
           <button
             @click="showImageOverlay()"
             class="border-2 border-fg-muted dark:border-bg-raised px-3 pb-1 pt-2 text-fg-muted dark:text-fg-highlight hover:text-fg hover:border-fg hover:bg-primary dark:hover:border-bg dark:hover:bg-primary dark:hover:text-bg"
@@ -82,7 +82,7 @@ module.exports = function (config) {
           class="mt-8 h-7 w-7"
         />
         <div class="flex flex-col items-start gap-1">
-          <div class="prose prose-sm prose-strong:text-fg dark:prose-strong:text-fg-highlight">${renderedAlt.trim()}</div>
+          <div class="prose prose-sm text-fg-muted prose-strong:text-fg-muted dark:prose-strong:text-fg-highlight">${renderedAlt.trim()}</div>
           <button
             @click="showImageOverlay()"
             class="border-2 border-fg-muted dark:border-bg-raised px-3 pb-1 pt-2 text-fg-muted dark:text-fg-highlight hover:text-fg hover:border-fg hover:bg-primary dark:hover:border-bg dark:hover:bg-primary dark:hover:text-bg"

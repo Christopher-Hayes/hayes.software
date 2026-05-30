@@ -30,7 +30,7 @@
   <div
     class="fixed top-0 left-0 min-w-[100vw] h-[14rem] bg-gradient-to-b from-50% from-bg to-transparent pointer-events-none z-20">
   </div>
-  <article class="flex flex-col mx-auto max-w-2xl border-x border-bg-raised">
+  <article class="flex flex-col mx-auto max-w-2xl border-x border-border">
     <header class="mt-16">
       <h1 class="px-12 pt-8 pb-2 self-center text-fg font-rakkas text-6xl leading-normal border-t-0 transform scale-110">
         {{ title }}
@@ -42,23 +42,23 @@
         </p>
       </div>
     </header>
-    <section class="mt-12 pb-12 border-b border-bg-raised">
-      <div class="grid grid-cols-1 md:grid-cols-3 border-x border-primary">
+    <section class="mt-12 pb-12 border-b border-border">
+      <div class="ml-[-1px] mr-[-1px] grid grid-cols-1 md:grid-cols-3 border-x border-fg dark:border-primary">
         {% for post in collections['blog-archives'] %}
           <a
             href="{{ post.url }}"
-            class="blog-card group my-4 border border-l-0 border-primary flex no-underline"
+            class="blog-card group my-4 border border-l-0 border-fg dark:border-primary flex no-underline"
             rel="prefetch"
             onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ post.url }}') }"
             >
-            <div class="flex flex-col divide-y divide-primary bg-bg-raised group-hover:bg-fg-highlight group-hover:text-bg group-hover:divide-bg">
+            <div class="flex flex-col divide-y divide-fg dark:divide-primary bg-bg-raised group-hover:bg-fg-highlight group-hover:text-bg group-hover:divide-bg">
               <div class="grow px-2 py-2.5 flex items-center">
                 <span
                   class="text-3xl leading-7 font-display text-fg line-clamp-3 group-hover:text-bg">
                   {{ post.data.title }}
                 </span>
               </div>
-              <div class="flex divide-x divide-primary text-xs text-fg-highlight group-hover:divide-bg">
+              <div class="flex divide-x divide-fg dark:divide-primary text-xs text-fg-highlight group-hover:divide-bg">
                 <div class="px-2 pt-1 pb-0.5 group-hover:text-bg">
                   {{ post.date | date: "%B %d, %Y" }}
                 </div>

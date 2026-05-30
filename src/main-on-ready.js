@@ -231,6 +231,11 @@ const showPage = async (link, { event, /* reverse, */ forget }) => {
 
       // If a blog page or project page is loaded, rebuild comment section.
       if (document.querySelector('comment-section')) {
+        // Init the comment section
+        if (document.querySelector('comment-section')) {
+          console.log('initUtterances')
+          import('./setup-utterances.js')
+        }
         window.initUtterances()
       }
     }
@@ -368,12 +373,6 @@ const run = async () => {
   }, 200)
 
   window.addEventListener('scroll', handleScroll, { passive: true })
-
-  // Init the comment section
-  if (document.querySelector('comment-section')) {
-    console.log('initUtterances')
-    import('./setup-utterances.js')
-  }
 }
 
 export { run }
