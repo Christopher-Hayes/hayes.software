@@ -289,6 +289,8 @@ module.exports = function (config) {
   config.addPassthroughCopy('./src/styles')
   config.addPassthroughCopy('./src/scripts')
   config.addPassthroughCopy('./src/main.js')
+  config.addPassthroughCopy('./src/main-on-ready.js')
+  config.addPassthroughCopy('./src/setup-utterances.js')
 
   config.addCollection('blog', function (collectionApi) {
     return collectionApi

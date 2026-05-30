@@ -1,3 +1,6 @@
+// This import is only needed for running in dev mode
+import.meta.env.DEV && import('./styles/main.css')
+
 window.mainContentWrapper = document.querySelector('#main-content-wrapper')
 window.pageListeners = []
 
@@ -101,7 +104,7 @@ const setupPage = () => {
   }
 }
 
-const showPage = async (link, { event, reverse, forget }) => {
+const showPage = async (link, { event, /* reverse, */ forget }) => {
   // If the user clicked on an internal link
   if (link.host === window.location.host) {
     // If the user clicked on a link that isn't a hash link
@@ -234,7 +237,31 @@ const showPage = async (link, { event, reverse, forget }) => {
   }
 }
 
+// Service Worker
+async function createSW() {
+  // Check that service workers are supported
+  if ('serviceWorker' in navigator && import.meta.env.PROD) {
+    try {
+      const registration = await navigator.serviceWorker.register('/sw.js', {
+        immediate: true,
+      })
+
+      if (registration.waiting) {
+        registration.waiting.postMessage({ type: 'SKIP_WAITING' })
+      }
+
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        window.location.reload()
+      })
+    } catch (error) {
+      console.error('Service worker registration failed: ', error)
+    }
+  }
+}
+
 const run = async () => {
+  createSW()
+
   // Load AlpineJS
   window.loadAlpine = async () => {
     window.Alpine = (await import('alpinejs')).default
@@ -319,7 +346,11 @@ const run = async () => {
 
   // Load page if the user navigates back or forward
   window.addEventListener('popstate', (event) => {
-    showPage(new URL(window.location), { reverse: true, forget: true, event })
+    showPage(new URL(window.location), {
+      // reverse: true,
+      forget: true,
+      event,
+    })
   })
 
   const debounce = (func, delay) => {
