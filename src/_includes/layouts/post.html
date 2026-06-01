@@ -147,18 +147,13 @@
         Close
       </button>
     </div>
-    <footer class="text-opacity-85 mt-16 text-sm text-primary dark:text-primary-light">
-      <style>
-        a {
-          text-decoration: underline;
-        }
-      </style>
+    <footer class="mt-12 text-sm">
       {% if devto %}
-      <span class="prose mr-2 text-lg">👨‍💻</span>{{ devto }} {% endif %} {% if
-      aiassist%} <span class="prose mr-2 text-lg">🤖</span>{{ aiassist }} {% endif %}
+      {{ devto }} {% endif %} {% if
+      aiassist%} {{ aiassist }} {% endif %}
       {% if edits %}
       <div class="py-2" x-data="{ show: false }">
-        <header class="mb-4">
+        <header class="mb-2">
           <button @click="show = !show"
             class="text-fg dark:text-primary-light focus:text-primary-light dark:focus:text-white hover:text-primary-light dark:hover:text-white">
             <h2 class="text">

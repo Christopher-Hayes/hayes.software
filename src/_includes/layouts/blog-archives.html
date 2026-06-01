@@ -55,18 +55,18 @@
             rel="prefetch"
             onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ post.url }}') }"
             >
-            <div class="flex flex-col divide-y divide-fg dark:divide-primary bg-bg-raised group-hover:bg-fg-highlight group-hover:text-bg group-hover:divide-bg">
+            <div class="flex flex-col divide-y divide-fg dark:divide-primary bg-bg-raised group-hover:bg-fg-highlight group-hover:text-bg group-hover:divide-bg group-focus:bg-fg-highlight group-focus:text-bg group-focus:divide-bg">
               <div class="grow px-2 py-2.5 flex items-center">
                 <span
-                  class="text-3xl leading-7 font-display text-fg line-clamp-3 group-hover:text-bg">
+                  class="text-3xl leading-7 font-display text-fg line-clamp-3 group-hover:text-bg group-focus:text-bg">
                   {{ post.data.title }}
                 </span>
               </div>
-              <div class="flex divide-x divide-fg dark:divide-primary text-xs text-fg-highlight group-hover:divide-bg">
-                <div class="px-2 pt-1 pb-0.5 group-hover:text-bg">
+              <div class="flex divide-x divide-fg dark:divide-primary text-xs text-fg-highlight group-hover:divide-bg group-focus:divide-bg">
+                <div class="px-2 pt-1 pb-0.5 group-hover:text-bg group-focus:text-bg">
                   {{ post.date | date: "%B %d, %Y" }}
                 </div>
-                <div class="grow px-2 pt-1 pb-0.5 text-end group-hover:text-bg">
+                <div class="grow px-2 pt-1 pb-0.5 text-end group-hover:text-bg group-focus:text-bg">
                   5 min read
                 </div>
               </div>

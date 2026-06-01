@@ -14,29 +14,25 @@
     <div id="main-content-wrapper" class="pt-4 md:pt-16 pb-8 md:pb-12">{% block content %}{% endblock %}</div>
   </div>
   <footer class="mt-16 mb-20 w-full max-w-2xl mx-auto flex gap-3">
-    <a class="px-3.5 group flex justify-center items-center text-fg border border-fg dark:border-border bg-border dark:bg-bg hover:bg-primary-highlight hover:border-primary-highlight"
+    <a class="px-3.5 group flex justify-center items-center text-fg border border-fg dark:border-border bg-border dark:bg-bg hover:bg-primary-highlight hover:border-primary-highlight focus:bg-primary-highlight focus:border-primary-highlight"
       href="#to-top-of-page-anchor"
       onclick="(event) => { event.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }">
       <span class="sr-only">Jump back to top</span>
       <!-- overflow-visible is required to get Chrome to render the SVG correctly. -->
-      <svg class="overflow-visible h-6 w-5 fill-current text-fg dark:text-fg group-hover:text-bg" alt="">
+      <svg class="overflow-visible h-6 w-5 fill-current text-fg dark:text-fg group-hover:text-bg group-focus:text-bg" alt="">
         <use href="#back-to-top-icon" />
       </svg>
     </a>
     <div class="grow relative bg-border dark:bg-bg-raised border border-fg dark:border-none">
-      <p class="px-6 pt-4 pb-3 prose prose-sm mx-auto w-full max-w-3xl">
+      <p class="px-6 pt-4 pb-3 mx-auto w-full max-w-3xl text-sm">
         Edit this page
-        <a class="dark:text-fg-highlight dark:hover:text-fg dark:hover:decoration-fg"
-          href="https://github.com/Christopher-Hayes/hayes.software/edit/main/{{ page.inputPath }}" target="_blank"
-          rel="noopener" id="edit-link">
-          on GitHub
-        </a>
+        {% link "https://github.com/Christopher-Hayes/hayes.software/edit/main/{{ page.inputPath }}", "on GitHub" %}
       </p>
 
       <a href="/" class="group">
         <span class="sr-only">Go to homepage</span>
         <svg height="5rem" width="10rem"
-          class="absolute -right-3 -top-3.5 mx-auto text-fg dark:text-bg group-hover:text-primary dark:group-hover:text-fg"
+          class="absolute -right-3 -top-3.5 mx-auto text-fg dark:text-bg group-hover:text-primary dark:group-hover:text-fg group-focus:text-primary dark:group-focus:text-fg"
           alt="">
           <use href="#logo" />
         </svg>

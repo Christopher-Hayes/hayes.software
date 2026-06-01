@@ -49,19 +49,19 @@
             rel="prefetch"
             onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ post.url }}') }"
             >
-            <div class="flex flex-col divide-y divide-fg dark:divide-primary bg-bg-raised group-hover:bg-fg-highlight group-hover:text-bg group-hover:divide-bg">
+            <div class="flex flex-col divide-y divide-fg dark:divide-primary bg-bg-raised group-hover:bg-primary dark:group-hover:bg-fg-highlight group-hover:text-bg dark:group-hover:divide-bg group-focus:bg-fg-highlight group-focus:text-bg dark:group-focus:divide-bg">
               <div class="grow px-2 py-2.5 flex items-center">
                 <span
-                  class="text-3xl leading-7 font-display text-fg group-hover:text-bg">
+                  class="text-3xl leading-7 font-display text-fg dark:group-hover:text-bg group-focus:text-bg">
                   {{ post.data.title }}
                 </span>
               </div>
-              <div class="flex divide-x divide-fg dark:divide-primary text-xs text-fg-highlight group-hover:divide-bg">
-                <div class="grow px-2 pt-1 pb group-hover:text-bg">
+              <div class="flex divide-x divide-fg dark:divide-primary text-xs text-fg-highlight group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
+                <div class="grow px-2 pt-1 pb group-focus:text-bg">
                   {{ post.date | date: "%Y" }}
                 </div>
 
-                <div class="py-0 flex items-center divide-x divide-fg dark:divide-primary group-hover:text-bg group-hover:divide-bg">
+                <div class="py-0 flex items-center divide-x divide-fg dark:divide-primary dark:group-hover:divide-bg dark:group-focus:divide-bg">
                   {% for tag in post.data.tags limit:2 %}
                     {% if tag == 'three' %}
                       <div class="px-2 pt-1 pb">THREE.js</div>
@@ -99,38 +99,46 @@
     </section>
     <section class="-mt-3 pb-6 border-b border-border">
       <header>
-        <h1 class="px-12 pt-12 border-t-0 self-center text-fg font-rakkas text-6xl leading-normal transform scale-110">
+        <h2 class="px-12 pt-12 border-t-0 self-center text-fg font-rakkas text-6xl leading-normal transform scale-110">
           Add yours
-        </h1>
+        </h2>
       </header>
-      <div class="flex gap-4">
-        <div class="grow w-full">
-          <p class="max-w-[24rem] mt-5 mb-2 px-6 pb-0 prose">
+      <div class="flex items-start">
+        <div class="grow w-full big-letter">
+          <p class="max-w-[24rem] mt-5 mb-2 px-6 pb-0 prose prose-lg text-justify">
             I work on all kinds of projects. Feel free to reach out if you have something I can lend my skills to.
           </p>
         </div>
-        <!-- <div class="mr-8 mt-6 w-full max-w-[12rem] border border-primary-highlight">
-          <a href="https://nutmeg.social/@chris" target="_blank" rel="noopener"
-            class="group block no-underline bg-bg-raised hover:bg-fg hover:text-bg">
-            <div class="flex flex-col divide-y divide-primary-highlight group-hover:divide-bg">
-              <div class="flex">
-                <img src="/images/mastodon-logo-fg-highlight.svg" alt="Mastodon logo"
-                  class="group-hover:hidden w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
-                <img src="/images/mastodon-logo-bg.svg" alt="Mastodon logo"
-                  class="hidden group-hover:block w-10 aspect-square m-0 px-2 pt-0.5 object-contain object-center">
-                <span
-                  class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-primary-highlight group-hover:text-bg group-hover:border-bg">Mastodon</span>
-              </div>
-              <div class="px-2 pt-1 pb-0.5 text-sm text-fg group-hover:text-bg">
-                <span class="text-fg-highlight group-hover:text-bg">@chris</span>@nutmeg.social
-              </div>
-              <div class="flex divide-x divide-primary-highlight text-xs group-hover:divide-bg">
-                <div class="px-2 pt-1 pb-0.5 text-fg group-hover:text-bg">3.3k posts</div>
-                <div class="grow px-2 pt-1 pb-0.5 text-end text-fg group-hover:text-bg">196 followers</div>
-              </div>
-            </div>
-          </a>
-        </div> -->
+        <div class="mr-8 mt-6 w-full max-w-[18rem] bg-bg-raised flex flex-col border border-primary-highlight divide-y divide-fg">
+          <header class="no-prose w-full relative flex border-b border-fg bg-fg text-bg">
+            <h3 class="px-4 pt-1.5 pb-1 mb-0 border-none text-bg text-2xl">
+              Contact
+            </h3>
+            <svg height="4rem" width="8rem"
+              class="absolute -right-2 -top-3 mx-auto group-hover:text-primary dark:group-hover:text-fg group-focus:text-primary dark:group-focus:text-fg"
+              alt="">
+              <use href="#logo" />
+            </svg>
+          </header>
+          <div class="flex divide-x divide-fg">
+            <label class="px-2 pt-1 pb-0.5 font-bold">
+              Email
+            </label>
+            <a href="mailto:hello+h.s@hayes.software"
+              class="grow px-2 pt-1 pb-0.5 hover:bg-primary hover:text-fg dark:hover:text-bg">
+              hello@hayes.software
+            </a>
+          </div>
+          <div class="flex divide-x divide-fg">
+            <label class="px-2 pt-1 pb-0.5 font-bold">
+              Fediverse
+            </label>
+            <a href="https://nutmeg.social/@chris" target="_blank" rel="noopener"
+              class="px-2 pt-1 pb-0.5 hover:bg-primary hover:text-fg dark:hover:text-bg">
+              @chris@nutmeg.social
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   </article>

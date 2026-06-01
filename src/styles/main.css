@@ -137,15 +137,48 @@ body {
   @apply text-fg;
 }
 
-.prose a:not(.no-prose a) {
-  @apply bg-primary dark:bg-bg-raised text-fg dark:text-fg-highlight decoration-fg decoration-dotted dark:decoration-fg-highlight underline decoration-2 underline-offset-[6px];
+.prose a:not(.no-prose a), .box-link {
+  @apply inline-flex -ml-0.5 mr-1.5 -mt-1 bg-bg-raised dark:bg-bg-raised text-fg dark:text-fg no-underline border border-fg divide-x divide-fg;
 
-  padding: 0.4rem 0.4rem 0.25rem;
-  margin: 0 0.1rem;
+  &.box-link {
+    @apply ml-0.5;
+  }
+
+  .link-text {
+    @apply -mt-0.5 -mb-1 pt-0.5 px-1.5;
+  }
+  &.box-link .link-text {
+    @apply pt-1.5 pb-1;
+  }
+
+  .link-icon {
+    @apply inline-flex items-center px-1;
+
+    svg {
+      /* Fix for Chrome svg rendering bug. */
+      @apply overflow-visible;
+
+      height: 1em;
+      width: 1.2em;
+    }
+  }
 
   &:hover,
   &:focus {
-    @apply bg-fg text-bg decoration-fg;
+    @apply bg-primary dark:bg-fg text-fg dark:text-bg border-fg;
+
+    .link-icon {
+      @apply dark:text-bg dark:border-bg;
+    }
+  }
+
+  &[href^='#'] .link-icon,
+  &[href^='/'] .link-icon {
+    @apply hidden;
+  }
+
+  &[href^='https://en.wikipedia.org'] .link-icon svg {
+    @apply transform scale-125;
   }
 }
 
@@ -202,7 +235,8 @@ a:focus {
   }
 
   em {
-    @apply px-1 dark:px-0 font-rakkas not-italic leading-none tracking-wide bg-bg-raised dark:bg-transparent text-fg dark:text-fg-highlight;
+    @apply px-2 dark:px-0 font-rakkas not-italic leading-none tracking-wide bg-primary dark:bg-transparent text-fg dark:text-fg-highlight;
+
     font-size: 22px;
   }
   ul,
@@ -213,26 +247,17 @@ a:focus {
     @apply text-xs text-fg-muted;
 
     strong {
-      @apply text-fg-muted dark:text-fg-highlight;
-    }
-
-    a {
-      @apply text-fg font-bold decoration-1 underline-offset-2 bg-border;
-
-      &:hover,
-      &:focus {
-        @apply text-fg decoration-fg;
-      }
+      @apply text-fg dark:text-fg-highlight;
     }
   }
   figure {
     @apply py-8;
       
     figcaption {
-      @apply absolute -right-[25rem] top-1/3 max-w-[18rem];
+      @apply absolute top-1/3 max-w-[20rem];
 
       p {
-        @apply text-fg-muted dark:text-fg border-2 border-fg-muted dark:border-border px-4 pb-3 pt-3.5;
+        @apply block bg-border text-fg dark:text-fg border border-fg dark:border-border px-4 pb-3 pt-3.5;
       }
     }
   }
@@ -330,15 +355,15 @@ header-container {
     }
 
     ul a {
-      @apply bg-bg-raised dark:bg-bg-raised text-fg no-underline font-bold decoration-2 decoration-primary decoration-dashed underline-offset-4 hover:bg-primary hover:text-fg dark:hover:bg-fg dark:hover:text-bg hover:underline focus-within:underline focus-within:text-primary;
+      @apply bg-bg-raised dark:bg-bg-raised text-fg no-underline font-bold decoration-2 decoration-primary decoration-dashed underline-offset-4 hover:bg-primary hover:text-fg dark:hover:bg-fg dark:hover:text-bg hover:underline focus:bg-primary focus:text-fg dark:focus:bg-fg dark:focus:text-bg focus:underline;
     }
 
     a.nav-home-link {
-      @apply hover:bg-inherit dark:hover:text-primary;
+      @apply hover:bg-inherit dark:hover:text-primary focus:bg-inherit dark:focus:text-primary;
     }
 
     a.nav-home-logo {
-      @apply text-fg hover:text-primary;
+      @apply text-fg hover:text-primary focus:text-primary;
     }
   }
 }

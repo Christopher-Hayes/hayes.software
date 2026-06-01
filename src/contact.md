@@ -12,7 +12,7 @@ I am a creative, freelance web developer with a wide range of experience buildin
 
 Drop a line and let's see how I can help. Non-business emails are cool too.
 
-**You can reach me at:** [hello@hayes.software](mailto:hello@hayes.software)
+**You can reach me at:** [hello@hayes.software](mailto:hello+h.s@hayes.software)
 
 ## Fediverse
 
