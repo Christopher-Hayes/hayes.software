@@ -77,11 +77,11 @@
       <div class="absolute left-36 top-20 flex flex-row flex-wrap gap-6">
         {% for good_read in good_reads %}
         <a href="{{ good_read.link }}"
-          class="group relative block w-64 aspect-square rounded-lg border border-primary overflow-hidden transition-shadow hover:shadow-lg">
+          class="group relative block w-64 aspect-square rounded-lg border border-primary overflow-hidden transition-shadow hover:shadow-lg focus:shadow-lg">
           <img src="{{ good_read.photo }}" alt="{{ good_read.title }} cover"
             class="absolute inset-0 w-full h-full object-cover">
           <div class="h-full flex flex-col justify-between items-start p-4 relative z-10">
-            <h3 class="text-lg leading-relaxed font-semibold group-hover:text-primary">
+            <h3 class="text-lg leading-relaxed font-semibold group-hover:text-primary group-focus:text-primary">
               <span class="bg-primary px-2">
                 {{ good_read.title }}
               </span>

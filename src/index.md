@@ -21,7 +21,7 @@ intro:
 
 ## Projects
 
-You can read about my work in [/projects](/projects/). Most **FOSS** stuff is on <a href="https://github.com/Christopher-Hayes" rel="me">github</a>, a few new ones on <a href="https://codeberg.org/chris-hayes" rel="me">codeberg</a>.
+You can read about my work in [/projects.](/projects/) Most **FOSS** stuff is on [GitHub,](https://github.com/Christopher-Hayes) a few new ones on [Codeberg.](https://codeberg.org/chris-hayes)
 
 {% forges %}
 
@@ -31,10 +31,10 @@ I'm a *big believer* in the work happening on the fediverse. It's a “new” pl
 
 It's using open-source software, with servers maintained by volunteers, funded by the community—all on the social web standard.
 
-I run [nutmeg.social](https://nutmeg.social/about), a Mastodon server for [#Connecticut](https://nutmeg.social/tags/Connecticut), USA.
+I run [nutmeg.social,](https://nutmeg.social/about) a Mastodon server for [#Connecticut,](https://nutmeg.social/tags/Connecticut) USA.
 
 {% social %}
 
 ## This site
 
-This site is built on **11ty**, styled in **Tailwind**, made dynamic with **Alpine**. Managed with **Coolify**, hosted on **Hetzner**, behind **Cloudflare**. I have articles on [“Why 11ty with Alpine”](/blog/site-update-2024) and my [“Move to Hetzner and Coolify”](/blog/hetzner-with-coolify).
+This site is built on **11ty**, styled in **Tailwind**, made dynamic with **Alpine**. Managed with **Coolify**, hosted on **Hetzner**, behind **Cloudflare**. I've posted about [“Why 11ty with Alpine”](/blog/site-update-2024) and my [“Move to Hetzner and Coolify.”](/blog/hetzner-with-coolify)

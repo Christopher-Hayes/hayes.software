@@ -9,7 +9,7 @@
           <li class="h-full">
             <a href="{{ item.url }}"
               class="
-                h-full w-[6.5rem] text-center text-base flex justify-center items-center px-4 py-1 pb-0.5 hover:decoration-fg dark:hover:decoration-bg"
+                h-full w-[6.5rem] text-center text-base flex justify-center items-center px-4 py-1 pb-0.5 hover:decoration-fg dark:hover:decoration-bg focus:decoration-fg dark:focus:decoration-bg"
               :aria-current="activeLink === '{{ item.url }}' ? 'page' : null"
               rel="prefetch"
               onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ item.url }}') }">
@@ -19,7 +19,7 @@
           {% endfor %}
           <li class="h-full text-base">
             <a href="/" class="nav-home-link
-                h-full flex items-center px-6 py-1 pb-0.5 hover:decoration-bg dark:hover:decoration-bg
+                h-full flex items-center px-6 py-1 pb-0.5 hover:decoration-bg dark:hover:decoration-bg focus:decoration-bg dark:focus:decoration-bg
                 " :class="{
                 'bg-fg text-bg': activeLink === '/',
               }" rel="prefetch" onmouseover="if (window.htmlPreload) { window.htmlPreload('/') }">

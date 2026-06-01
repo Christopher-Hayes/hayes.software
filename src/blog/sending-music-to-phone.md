@@ -42,7 +42,7 @@ I'm writing this post _because_ I have an odd setup, but for context you might n
 </span>
 </small>
 
-{% figure "/images/blog/sending-music-to-phone/subtracks-youamp.svg", "**Two Subsonic mobile apps,** Subtracks on the left, and YouAMP on the right. Both of them are connected to my Nextcloud. Btw, the pixel artist shown is on [Mastodon.](https://mastodon.art/@nonamenosocks)" %}
+{% figure "/images/blog/sending-music-to-phone/subtracks-youamp.svg", "**Two Subsonic mobile apps,** Subtracks on the left, and YouAMP on the right. Both of them are connected to my Nextcloud. Btw, the pixel artist shown is on [Mastodon.](https://mastodon.art/@nonamenosocks)", true %}
 
 ## The Limitation
 
@@ -130,7 +130,7 @@ I found a pretty decent work-around, but it **requires KDE Connect.** I already 
 
 This happens to be exactly what we need here, and I've found the combination of playing the stream with VLC and controllin playback with KDE Connect works pretty great.
 
-{% figureThemed "/images/blog/sending-music-to-phone/screenshot-2-light.svg", "/images/blog/sending-music-to-phone/screenshot-2-dark.svg", "**KDE Connect on mobile** shows that \"Easy\" by LE SSERAFIM is playing. The album art is center screen. Audio playback controls are along the bottom: next/back, play/pause, shuffle." %}
+{% figureThemed "/images/blog/sending-music-to-phone/screenshot-2-light.svg", "/images/blog/sending-music-to-phone/screenshot-2-dark.svg", "**KDE Connect on mobile** shows that \"Easy\" by LE SSERAFIM is playing. The album art is center screen. Audio playback controls are along the bottom: next/back, play/pause, shuffle.", true %}
 
 A bonus feature with KDE Connect is you can add bash scripts you can run remotely from your phone. So, it's possible to remotely launch your music application and start the audio streaming server without ever touching the PC.
 

@@ -35,13 +35,14 @@
             alt="{{ intro.image.alt }}"
           {% endif %}
           width="100%"
-          class="relative z-0 w-full h-full object-cover object-center m-0 mt-4 mb-12 transform scale-125"
+          class="relative z-0 w-full h-full object-cover object-center mx-0 mt-16 mb-24 border-2 border-border transform scale-150"
           loading="eager"
           >
       </picture>
     </button>
       <figcaption
-        class="w-full flex gap-4 text-xs text-justify -mt-0 -mb-3 pr-4"
+        class="w-full flex gap-4 text-sm text-justify -mt-0 -mb-3 pr-4"
+        style="right: -34rem;"
         >
         <img src="/images/alt-text-icon.svg" alt="" class="w-7 h-7 mt-8">
         <div class="flex flex-col items-start gap-1">
@@ -62,7 +63,7 @@
           </span>
         </p>
     <button @click="showImageOverlay()"
-      class="text-fg-muted dark:text-fg-highlight border-2 border-fg-muted dark:border-bg-raised px-3 pt-2 pb-1 hover:bg-primary hover:border-fg dark:hover:border-bg hover:text-fg dark:hover:text-bg">
+      class="text-fg dark:text-fg-highlight border border-fg dark:border-bg-raised px-3 pt-2 pb-1 hover:bg-primary hover:border-fg dark:hover:border-bg hover:text-fg dark:hover:text-bg focus:bg-primary focus:border-fg dark:focus:border-bg focus:text-fg dark:focus:text-bg">
       Enbiggen image
     </button>
   </div>

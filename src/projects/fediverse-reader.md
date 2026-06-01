@@ -40,65 +40,7 @@ Yes, Inkscape. While dedicated web design tools are common, Inkscape is effectiv
 
 Trial-and-error in React is time-consuming, so polished designs saved time. It kept me motivated and provided direction, even with complex SVG paths in code.
 
-<figure class="relative"
-  x-data="{
-    videoSrc: '/videos/projects/fediverse-reader/screencast-1.mp4',
-    isPlaying: true,
-    togglePlayPause: function () {
-      if (this.isPlaying) {
-        $refs.video.pause();
-      } else {
-        $refs.video.play();
-      }
-      this.isPlaying = !this.isPlaying;
-    },
-    showVideoOverlay: function () {
-      this.$dispatch('show-video-overlay', this.videoSrc);
-      $refs.video.pause();
-    },
-    init: function () {
-      // wait until the user has scrolled down to this element before loading the video
-      const observer = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-          if (!$refs.video.src) {
-            $refs.video.innerHTML = `<source src='${this.videoSrc}' type='video/${this.videoSrc.split('.').pop()}'>`;
-            observer.disconnect();
-          }
-        }
-      });
-      observer.observe($refs.video);
-    },
-  }"
-  @hide-video-overlay.window="$refs.video.play()"
->
-  <button
-    @click="showVideoOverlay()"
-    class="h-52 md:h-96 w-full"
-  >
-    <video
-      class="w-full h-full object-cover object-centerm-0"
-      autoplay
-      loop
-      muted
-      playsinline
-      loading="lazy"
-      x-ref="video"
-    >
-    </video>
-    <button
-      @click="togglePlayPause()"
-      class="text-sm bg-primary text-fg border-2 border-fg px-2 pt-1 pb-0.5"
-      style="margin: -3.5em 0 1.5em -1em; display: block; position: relative;"
-    >
-      <span x-text="isPlaying ? 'Pause' : 'Play'">Pause</span>
-    </button>
-    <figcaption
-    class="text-sm"
-    >
-      A closeup of the toot text where you can hover the hashtags to see a yellow highlight, like a yellow highlighter. Drag selecting text also highlights text, though it's just yellow and doesn't have the marker shape to it.
-    </figcaption>
-  </button>
-</figure>
+{% video "/videos/projects/fediverse-reader/screencast-1.mp4", "A closeup of the toot text where you can hover the hashtags to see a yellow highlight, like a yellow highlighter. Drag selecting text also highlights text, though it's just yellow and doesn't have the marker shape to it." %}
 
 ### SVG Paths for Style
 
@@ -106,65 +48,7 @@ The highlight and link backgrounds utilize SVG paths, making it easy to control 
 
 I also experimented with animated clouds, where each blob is a separate path, adding a playful touch. This whimsical design element distinguishes it from a standard "just text and links" interface.
 
-<figure class="relative"
-  x-data="{
-    videoSrc: '/videos/projects/fediverse-reader/screencast-2.mp4',
-    isPlaying: true,
-    togglePlayPause: function () {
-      if (this.isPlaying) {
-        $refs.video.pause();
-      } else {
-        $refs.video.play();
-      }
-      this.isPlaying = !this.isPlaying;
-    },
-    showVideoOverlay: function () {
-      this.$dispatch('show-video-overlay', this.videoSrc);
-      $refs.video.pause();
-    },
-    init: function () {
-      // wait until the user has scrolled down to this element before loading the video
-      const observer = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-          if (!$refs.video.src) {
-            $refs.video.innerHTML = `<source src='${this.videoSrc}' type='video/${this.videoSrc.split('.').pop()}'>`;
-            observer.disconnect();
-          }
-        }
-      });
-      observer.observe($refs.video);
-    },
-  }"
-  @hide-video-overlay.window="$refs.video.play()"
->
-  <button
-    @click="showVideoOverlay()"
-    class="h-52 md:h-96 w-full"
-  >
-    <video
-      class="w-full h-full object-cover object-center m-0"
-      autoplay
-      loop
-      muted
-      playsinline
-      loading="lazy"
-      x-ref="video"
-    >
-    </video>
-    <button
-      @click="togglePlayPause()"
-      class="text-sm bg-primary text-fg border-2 border-fg px-2 pt-1 pb-0.5"
-      style="margin: -3.5em 0 1.5em -1em; display: block; position: relative;"
-    >
-      <span x-text="isPlaying ? 'Pause' : 'Play'">Pause</span>
-    </button>
-    <figcaption
-    class="text-sm"
-    >
-      Hovering the author username shows a nice little cloud pop in and below that the full username is displayed. The author avatar is also shown in sepia.
-    </figcaption>
-  </button>
-</figure>
+{% video "/videos/projects/fediverse-reader/screencast-2.mp4", "Hovering the author username shows a nice little cloud pop in and below that the full username is displayed. The author avatar is also shown in sepia." %}
 
 ## Considering Other Tools
 
@@ -174,7 +58,7 @@ I considered using Penpot (a FOSS alternative to Figma) but faced stability issu
 
 This project was a learning experience rather than a polished final product. In the spirit of open-source, all the code is available here:
 
-[GitHub: Christopher-Hayes/basic-fediverse-reader](https://github.com/Christopher-Hayes/basic-fediverse-reader)
+The code is [on GitHub](https://github.com/Christopher-Hayes/basic-fediverse-reader)
 
 ## Wrapping It Up
 
