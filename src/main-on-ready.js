@@ -244,6 +244,12 @@ const showPage = async (link, { event, /* reverse, */ forget }) => {
 
 // Service Worker
 async function createSW() {
+  // When a new build deploys, cached HTML may reference old asset hashes that
+  // no longer exist on the server. Reload immediately so the page gets fresh assets.
+  window.addEventListener('vite:preloadError', () => {
+    window.location.reload()
+  })
+
   // Check that service workers are supported
   if ('serviceWorker' in navigator && import.meta.env.PROD) {
     try {
@@ -251,9 +257,22 @@ async function createSW() {
         immediate: true,
       })
 
+      const activateWaiting = (sw) => sw.postMessage({ type: 'SKIP_WAITING' })
+
+      // SW was already waiting when the page loaded
       if (registration.waiting) {
-        registration.waiting.postMessage({ type: 'SKIP_WAITING' })
+        activateWaiting(registration.waiting)
       }
+
+      // SW finished installing while the user was already on the page
+      registration.addEventListener('updatefound', () => {
+        const installing = registration.installing
+        installing?.addEventListener('statechange', () => {
+          if (installing.state === 'installed' && navigator.serviceWorker.controller) {
+            activateWaiting(installing)
+          }
+        })
+      })
 
       navigator.serviceWorker.addEventListener('controllerchange', () => {
         window.location.reload()
