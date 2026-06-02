@@ -228,7 +228,10 @@ module.exports = function (config) {
         playsinline
         x-ref="video"
       ></video>
-      <figcaption class="-mb-3 -mt-0 flex w-full gap-4 pr-4 text-justify text-xs">
+      <figcaption
+        class="-mb-3 -mt-0 flex w-full gap-4 pr-4 text-justify text-xs"
+        style="right: -34rem;"
+        >
         <div class="flex flex-col items-start gap-1">
           ${renderedCaption ? html`<div class="prose prose-sm text-fg-muted prose-strong:text-fg dark:prose-strong:text-fg-highlight">${renderedCaption.trim()}</div>` : ''}
           <div class="flex gap-2">
