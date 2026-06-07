@@ -1,39 +1,37 @@
 <header-container class="relative z-50">
   <header class="sticky top-16">
-    <nav
-      class="relative mx-auto max-w-2xl h-12 px-0">
+    <nav class="relative mx-auto max-w-2xl h-12 px-0">
       <div
-        class="h-full flex flex-row-reverse md:flex-row md:flex-wrap md:items-center justify-between gap-y-2 py-2 md:py-0">
+        class="h-full flex flex-row-reverse md:flex-row md:flex-wrap md:items-center justify-between divide-x-2 divide-fg">
         <ul class="h-full flex divide-x-2 divide-fg">
           {% for item in navigation.items %}
           <li class="h-full">
             <a href="{{ item.url }}"
               class="
                 h-full w-[6.5rem] text-center text-base flex justify-center items-center px-4 py-1 pb-0.5 hover:decoration-fg dark:hover:decoration-bg focus:decoration-fg dark:focus:decoration-bg"
-              :aria-current="activeLink === '{{ item.url }}' ? 'page' : null"
-              rel="prefetch"
+              :aria-current="activeLink === '{{ item.url }}' ? 'page' : null" rel="prefetch"
               onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ item.url }}') }">
               {{ item.text }}
             </a>
           </li>
           {% endfor %}
-          <li class="h-full text-base">
-            <a href="/" class="nav-home-link
-                h-full flex items-center px-6 py-1 pb-0.5 hover:decoration-bg dark:hover:decoration-bg focus:decoration-bg dark:focus:decoration-bg
-                " :class="{
-                'bg-fg text-bg': activeLink === '/',
-              }" rel="prefetch" onmouseover="if (window.htmlPreload) { window.htmlPreload('/') }">
-              Home
-            </a>
-          </li>
         </ul>
+        <a
+          href="/" class="nav-home grow h-full block"
+          rel="prefetch"
+          onmouseover="if (window.htmlPreload) { window.htmlPreload('/') }"
+          >
+          <span class="h-full flex items-center px-6 py-1 pb-0.5">
+            Home
+          </span>
+          <div class="absolute -right-2 -top-3">
+            <span class="sr-only">Go to homepage</span>
+            <svg height="4rem" width="9rem">
+              <use href="#logo" />
+            </svg>
+          </div>
+        </a>
       </div>
-      <a href="/" class="nav-home-logo absolute -right-2 -top-3">
-        <span class="sr-only">Go to homepage</span>
-        <svg height="4rem" width="9rem">
-          <use href="#logo" />
-        </svg>
-      </a>
     </nav>
   </header>
 </header-container>

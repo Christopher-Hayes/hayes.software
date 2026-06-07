@@ -49,15 +49,15 @@
             rel="prefetch"
             onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ post.url }}') }"
             >
-            <div class="flex flex-col divide-y divide-fg dark:divide-primary bg-bg-raised group-hover:bg-primary dark:group-hover:bg-fg-highlight group-hover:text-bg dark:group-hover:divide-bg group-focus:bg-fg-highlight group-focus:text-bg dark:group-focus:divide-bg">
+            <div class="flex flex-col divide-y divide-fg dark:divide-primary bg-bg-raised group-hover:bg-primary dark:group-hover:bg-fg-highlight group-hover:text-bg dark:group-hover:divide-bg group-focus:bg-primary dark:group-focus:bg-fg-highlight dark:group-focus:divide-bg group-focus:outline-2 group-focus:outline-offset-4 group-focus:outline-dashed group-focus:outline-fg group-focus:relative group-focus:z-10">
               <div class="grow px-2 py-2.5 flex items-center">
                 <span
-                  class="text-3xl leading-7 font-display text-fg dark:group-hover:text-bg group-focus:text-bg">
+                  class="text-3xl leading-7 font-display text-fg dark:group-hover:text-bg">
                   {{ post.data.title }}
                 </span>
               </div>
               <div class="flex divide-x divide-fg dark:divide-primary text-xs text-fg-highlight group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
-                <div class="grow px-2 pt-1 pb group-focus:text-bg">
+                <div class="grow px-2 pt-1 pb">
                   {{ post.date | date: "%Y" }}
                 </div>
 
@@ -125,7 +125,7 @@
               Email
             </label>
             <a href="mailto:hello+h.s@hayes.software"
-              class="grow px-2 pt-1 pb-0.5 hover:bg-primary hover:text-fg dark:hover:text-bg">
+              class="grow px-2 pt-1 pb-0.5 hover:bg-primary hover:text-fg dark:hover:text-bg focus:bg-primary focus:text-fg dark:focus:text-bg">
               hello@hayes.software
             </a>
           </div>
@@ -134,7 +134,7 @@
               Fediverse
             </label>
             <a href="https://nutmeg.social/@chris" target="_blank" rel="noopener"
-              class="px-2 pt-1 pb-0.5 hover:bg-primary hover:text-fg dark:hover:text-bg">
+              class="px-2 pt-1 pb-0.5 hover:bg-primary hover:text-fg dark:hover:text-bg focus:bg-primary focus:text-fg dark:focus:text-bg">
               @chris@nutmeg.social
             </a>
           </div>

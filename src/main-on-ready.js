@@ -1,6 +1,3 @@
-// This import is only needed for running in dev mode
-import.meta.env.DEV && import('./styles/main.css')
-
 window.mainContentWrapper = document.querySelector('#main-content-wrapper')
 window.pageListeners = []
 
@@ -104,7 +101,7 @@ const setupPage = () => {
   }
 }
 
-const showPage = async (link, { event, /* reverse, */ forget }) => {
+const showPage = async (link, { event, reverse, forget }) => {
   // If the user clicked on an internal link
   if (link.host === window.location.host) {
     // If the user clicked on a link that isn't a hash link
@@ -181,53 +178,8 @@ const showPage = async (link, { event, /* reverse, */ forget }) => {
         setupPage()
       }
 
-      // if (!document.startViewTransition) {
-      // View Transition API not supported
-      console.warn('View Transition API not supported')
       const { newDocument, newContent } = await downloadNewPage()
       await swapContent(newContent, newDocument)
-      /*} else {
-        // set the direction of the transition
-        const isTopLevelPage = ['/', '/blog/', '/projects/'].includes(
-          link.pathname,
-        )
-        document.documentElement.style.setProperty(
-          '--transition-direction',
-          isTopLevelPage || reverse ? -1 : 1,
-        )
-
-        const downloadPromise = downloadNewPage()
-
-        // Manually assign view transition to the body content
-        // This is needed due to a chrome bug with backdrop blur
-        // not applying correctly when view transition is present.
-        // For that reason, it gets removed immediately after the transition.
-        //
-        if (window.mainContentWrapper) {
-          window.mainContentWrapper.style.viewTransitionName =
-            'main-content-wrapper'
-        }
-
-        // View Transition API
-        const transitionPromise = document.startViewTransition()
-
-        // Wait for all promises to resolve using Promise.all
-        try {
-          const [{ newDocument, newContent }] = await Promise.all([
-            downloadPromise,
-            transitionPromise,
-          ])
-          await swapContent(newContent, newDocument)
-        } catch (error) {
-          console.error('Error transitioning views', error)
-        } finally {
-          setTimeout(() => {
-            if (window.mainContentWrapper) {
-              window.mainContentWrapper.style.viewTransitionName = ''
-            }
-          }, 500)
-        }
-      } */
 
       // If a blog page or project page is loaded, rebuild comment section.
       if (document.querySelector('comment-section')) {
@@ -268,7 +220,10 @@ async function createSW() {
       registration.addEventListener('updatefound', () => {
         const installing = registration.installing
         installing?.addEventListener('statechange', () => {
-          if (installing.state === 'installed' && navigator.serviceWorker.controller) {
+          if (
+            installing.state === 'installed' &&
+            navigator.serviceWorker.controller
+          ) {
             activateWaiting(installing)
           }
         })
@@ -371,7 +326,7 @@ const run = async () => {
   // Load page if the user navigates back or forward
   window.addEventListener('popstate', (event) => {
     showPage(new URL(window.location), {
-      // reverse: true,
+      reverse: true,
       forget: true,
       event,
     })

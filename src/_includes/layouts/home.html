@@ -26,7 +26,7 @@
     <header class="w-full lg:h-60 lg:max-h-60 bg-border dark:bg-bg-raised flex justify-center border border-fg dark:border-primary-highlight">
       <h1 class="lg:max-w-[39.5rem] px-10 self-center font-rakkas text-5xl leading-normal border-none">
         <!-- This whitespace only shows up in dev, goes MIA on prod build. :S -->
-        <emp class="bg-primary dark:bg-fg dark:text-bg px-2 mr-2">{{ intro.emp }}</emp>{{ " " }}<span class="text-fg">{{ intro.desc | replace: "Chris Hayes", "<span class='text-fg-highlight'>Chris Hayes</span>" }}</span>
+        <emp class="inline-block h-[1.3em] bg-primary dark:bg-fg dark:text-bg px-2 mr-2">{{ intro.emp }}{{ " " }}</emp><span class="text-fg">{{ intro.desc | replace: "Chris Hayes", "<span class='dark:text-fg-highlight'>Chris Hayes</span>" }}</span>
       </h1>
     </header>
     <section class="pt-8 border-x border-border">
@@ -39,7 +39,7 @@
         {% assign taglist = collections['featured'] %}
         {% assign taglist = taglist | sort: 'date' | reverse %}
         {% for post in taglist %}
-        <a class="group px-4 py-1.5 flex h-full w-full justify-between items-center text-fg bg-bg-raised hover:text-fg dark:hover:text-bg hover:bg-primary dark:hover:bg-primary-highlight focus:text-fg dark:focus:text-bg focus:bg-primary dark:focus:bg-primary-highlight"
+        <a class="group px-4 py-1.5 flex h-full w-full justify-between items-center text-fg bg-bg-raised hover:text-fg dark:hover:text-bg hover:bg-primary dark:hover:bg-primary-highlight focus:text-fg dark:focus:text-bg focus:bg-primary dark:focus:bg-primary-highlight focus:outline-none focus:outline-dashed focus:outline-2 focus:outline-fg focus:relative focus:z-10"
           href="{{ post.url }}" rel="prefetch"
           onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ post.url }}') }">
           <span class=" text-2xl font-rakkas">{{ post.data.title }}</span>
