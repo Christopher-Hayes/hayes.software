@@ -1,6 +1,3 @@
-// This import is only needed for running in dev mode
-import.meta.env.DEV && import('./styles/main.css')
-
 window.mainContentWrapper = document.querySelector('#main-content-wrapper')
 window.pageListeners = []
 

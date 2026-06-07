@@ -123,7 +123,8 @@ export default defineConfig(({ command }) => ({
     vitePluginForUtterances(),
     VitePWA({
       registerType: 'autoUpdate',
-      injectRegister: 'auto',
+      // We manually register the service worker on delay in main-on-ready.js
+      injectRegister: false,
       // Enable service worker for offline caching and faster repeat visits
       workbox: {
         // Precache important assets for instant loading
