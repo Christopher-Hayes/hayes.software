@@ -5,6 +5,14 @@ const markdownIt = require('markdown-it')
 const html = String.raw
 const md = markdownIt({ html: true })
 
+// Tagged template literal for Tailwind CSS classes
+// Enables IntelliSense for Tailwind classes in Lit components
+function tw(strings, ...values) {
+  return strings.reduce((result, str, i) => {
+    return result + str + (values[i] ?? '');
+  }, '');
+}
+
 const defaultLinkOpen = md.renderer.rules.link_open || ((tokens, idx, options, env, self) => self.renderToken(tokens, idx, options))
 
 const REL_ME_LINKS = [
@@ -254,6 +262,10 @@ module.exports = function (config) {
   })
 
   config.addShortcode('forges', function () {
+    const css = {
+      card: tw`min-w-[27cqw] group block no-underline bg-bg-raised hover:bg-primary dark:hover:bg-fg hover:text-bg focus:bg-primary dark:focus:bg-fg focus:text-bg focus:relative focus:z-10  focus:outline-2 focus:outline-dashed focus:outline-fg focus:outline-none`,
+    }
+
     return html`
       <div
         class="no-prose mt-2 -mb-4 w-full flex justify-center"
@@ -262,7 +274,7 @@ module.exports = function (config) {
         <div class="grow border-y border-border"></div>
         <social-wrapper class="flex divide-x divide-fg border border-fg">
           <a href="https://github.com/Christopher-Hayes" target="_blank" rel="noopener"
-            class="min-w-[27cqw] group block no-underline bg-bg-raised hover:bg-primary dark:hover:bg-fg hover:text-bg focus:bg-primary dark:focus:bg-fg focus:text-bg">
+            class="${css.card}">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
               <div class="flex">
                 <svg class="overflow-visible w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg dark:group-focus:text-bg">
@@ -281,7 +293,7 @@ module.exports = function (config) {
             </div>
           </a>
           <a href="https://codeberg.org/Chris-Hayes" target="_blank" rel="noopener"
-            class="min-w-[27cqw] group block no-underline bg-bg-raised hover:bg-primary dark:hover:bg-fg hover:text-bg focus:bg-primary dark:focus:bg-fg focus:text-bg">
+            class="${css.card}">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
               <div class="flex items-center">
                 <svg class="overflow-visible w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg dark:group-focus:text-bg">
@@ -300,7 +312,7 @@ module.exports = function (config) {
             </div>
           </a>
           <a href="https://gitlab.com/Chris-Hayes" target="_blank" rel="noopener"
-            class="min-w-[27cqw] group block no-underline bg-bg-raised hover:bg-primary dark:hover:bg-fg hover:text-bg focus:bg-primary dark:focus:bg-fg focus:text-bg">
+            class="${css.card}">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
               <div class="flex">
                 <svg class="overflow-visible w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg dark:group-focus:text-bg">
@@ -325,6 +337,10 @@ module.exports = function (config) {
   })
 
   config.addShortcode('social', function () {
+    const css = {
+      card: tw`group block no-underline bg-bg-raised hover:bg-primary dark:hover:bg-fg hover:text-bg focus:bg-primary dark:focus:bg-fg focus:text-bg  focus:relative focus:z-10  focus:outline-2 focus:outline-dashed focus:outline-fg focus:outline-none`,
+    }
+
     return html`
       <div
         class="no-prose mt-2 -mb-4 w-full flex justify-center"
@@ -332,7 +348,7 @@ module.exports = function (config) {
         <div class="grow border-y border-border"></div>
         <social-wrapper class="flex divide-x divide-fg dark:group-hover:divide-bg border border-fg">
           <a href="https://nutmeg.social/@chris" target="_blank" rel="noopener"
-            class="group block no-underline bg-bg-raised hover:bg-primary dark:hover:bg-fg hover:text-bg focus:bg-primary dark:focus:bg-fg focus:text-bg">
+            class="${css.card}">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
               <div class="flex items-center">
                 <svg class="overflow-visible w-10 h-8 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg dark:group-focus:text-bg">
@@ -351,7 +367,7 @@ module.exports = function (config) {
             </div>
           </a>
           <a href="https://pixelfed.social/chris-hayes" target="_blank" rel="noopener"
-            class="group block no-underline bg-bg-raised hover:bg-primary dark:hover:bg-fg hover:text-bg focus:bg-primary dark:focus:bg-fg focus:text-bg">
+            class="${css.card}">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
               <div class="flex items-center">
                 <svg class="overflow-visible w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg dark:group-focus:text-bg">
@@ -370,7 +386,7 @@ module.exports = function (config) {
             </div>
           </a>
           <a href="https://bookwyrm.social/user/chris-hayes" target="_blank" rel="noopener"
-            class="group block no-underline bg-bg-raised hover:bg-primary dark:hover:bg-fg hover:text-bg focus:bg-primary dark:focus:bg-fg focus:text-bg">
+            class="${css.card}">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
               <div class="flex">
                 <svg class="overflow-visible w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg dark:group-focus:text-bg">

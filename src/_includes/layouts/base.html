@@ -11,10 +11,12 @@
   <div id="to-top-of-page-anchor" class="absolute top-0"></div>
   <div class="flex-grow relative">
     {% include "partials/navigation.html" %}
-    <div id="main-content-wrapper" class="pt-4 md:pt-16 pb-8 md:pb-12">{% block content %}{% endblock %}</div>
+    <div id="main-content-wrapper" class="pt-4 md:pt-16 pb-8 md:pb-12">
+      {% block content %}{% endblock %}
+    </div>
   </div>
   <footer class="mt-16 mb-20 w-full max-w-2xl mx-auto flex gap-3">
-    <a class="px-3.5 group flex justify-center items-center text-fg border border-fg dark:border-border bg-border dark:bg-bg hover:bg-primary-highlight hover:border-primary-highlight focus:bg-primary-highlight focus:border-primary-highlight"
+    <a class="px-3.5 group flex justify-center items-center text-fg border border-fg dark:border-border bg-border dark:bg-bg hover:bg-primary-highlight hover:border-primary-highlight focus:bg-primary-highlight focus:border-primary-highlight focus:outline-2 focus:outline-offset-4 focus:outline-fg focus:outline-dashed"
       href="#to-top-of-page-anchor"
       onclick="(event) => { event.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }">
       <span class="sr-only">Jump back to top</span>
@@ -32,7 +34,7 @@
       <a href="/" class="group">
         <span class="sr-only">Go to homepage</span>
         <svg height="5rem" width="10rem"
-          class="absolute -right-3 -top-3.5 mx-auto text-fg dark:text-bg group-hover:text-primary dark:group-hover:text-fg group-focus:text-primary dark:group-focus:text-fg"
+          class="absolute -right-3 -top-3.5 mx-auto text-fg dark:text-bg group-hover:text-primary dark:group-hover:text-fg group-focus:text-primary dark:group-focus:text-fg group-focus:outline-2 group-focus:outline-fg group-focus:outline-offset-4 group-focus:outline-dashed"
           alt="">
           <use href="#logo" />
         </svg>
