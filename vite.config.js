@@ -63,6 +63,28 @@ function vitePluginForUtterances() {
   }
 }
 
+// Eleventy renders these straight into _site/ root, but Vite only copies
+// files it finds through its HTML entry graph or its public dir (_site/public
+// here, since root is _site - see the passthrough-copied favicons/robots.txt
+// for that path). A plain <link rel="alternate" href="/feed.xml"> doesn't
+// make Vite treat feed.xml as an asset to copy, so these two would
+// otherwise get silently dropped from the production build.
+function vitePluginForRootXmlFiles() {
+  const files = ['sitemap.xml', 'feed.xml']
+
+  return {
+    name: 'vite-plugin-root-xml-files',
+    closeBundle() {
+      for (const file of files) {
+        const src = resolve(__dirname, '_site', file)
+        if (fs.existsSync(src)) {
+          fs.copyFileSync(src, resolve(__dirname, 'dist', file))
+        }
+      }
+    },
+  }
+}
+
 const getPosts = () => {
   if (fs.existsSync('_site')) {
     const pages = {
@@ -121,6 +143,7 @@ export default defineConfig(({ command }) => ({
   },
   plugins: [
     vitePluginForUtterances(),
+    vitePluginForRootXmlFiles(),
     VitePWA({
       registerType: 'autoUpdate',
       // We manually register the service worker on delay in main-on-ready.js

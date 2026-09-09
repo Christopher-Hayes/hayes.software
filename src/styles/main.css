@@ -228,7 +228,7 @@ p:not(:empty) + h3, small + h3, ul + h3, ol + h3 {
   }
 }
 h2 {
-  @apply pb-3 pl-8 text-5xl scale-105 transform;
+  @apply pb-1 pl-8 text-5xl scale-105 transform;
 
   /* Scaling a full-width block pushes 5% past each edge, which overflows
      narrow viewports. Horizontal overflow widens the mobile layout viewport
@@ -257,29 +257,54 @@ a:focus {
   }
 
   em {
-    @apply inline-block px-1 pt-1 dark:px-0 font-rakkas not-italic leading-none tracking-wide bg-primary dark:bg-transparent text-fg dark:text-fg-highlight;
+    @apply inline-block relative top-[1px] pt-[1px] px-1.5 dark:px-0 font-display not-italic leading-[0.65] tracking-wide bg-primary dark:bg-transparent text-fg dark:text-fg-highlight;
 
-    font-size: 22px;
+    font-size: 20px;
+
+    @media (min-width: 768px) {
+      font-size: 23px;
+    }
+  }
+  strong {
+    @apply font-rakkas text-[115%] tracking-wide;
   }
   ul,
   ol {
     @apply pl-12 pr-4;
   }
   small {
-    @apply text-xs text-fg-muted;
+    @apply text-xl text-fg-muted font-sharpie uppercase;
 
     strong {
-      @apply text-fg dark:text-fg-highlight;
+      @apply text-[100%] text-fg dark:text-fg-highlight font-sharpie;
+    }
+    a:not(.no-prose a) {
+      @apply ml-0.5 text-fg-muted border-fg-muted divide-fg-muted bg-bg;
+
+      .link-text {
+        @apply leading-[1.2] mb-[-2px];
+      }
+      .link-icon svg {
+        height: 0.9em;
+        width: 1.1em;
+      }
     }
   }
   figure {
     @apply py-8;
       
     figcaption {
-      @apply absolute top-1/3 max-w-[20rem];
+      @apply hidden md:flex absolute top-1/3 max-w-[20rem] font-sharpie uppercase leading-snug;
 
       p {
-        @apply block bg-border text-fg dark:text-fg border border-fg dark:border-border px-4 pb-3 pt-3.5;
+        @apply block bg-bg-raised text-xl text-fg dark:text-fg border border-fg dark:border-border px-4 pb-3 pt-3.5;
+
+        strong {
+          @apply font-sharpie text-xl;
+        }
+      }
+      button {
+        @apply bg-bg-raised font-luciole text-sm;
       }
     }
   }
@@ -297,7 +322,7 @@ a:focus {
     @apply font-bold bg-bg-raised text-fg-highlight border border-primary-highlight rounded-none;
   }
   .content-wrapper > p > img {
-    @apply my-20 w-full scale-[120%] transform border-y py-2;
+    @apply my-20 w-full md:scale-[120%] md:transform border-y py-2;
   }
 }
 
@@ -306,7 +331,7 @@ a:focus {
   @apply relative z-10 -mt-4;
   /* First letter of first paragraph */
   &::first-letter {
-    @apply float-left mb-0.5 mr-3 mt-1.5 bg-primary dark:bg-transparent border-2 border-solid border-fg-muted dark:border-primary px-3.5 pt-1.5 font-rakkas text-7xl text-fg dark:text-primary;
+    @apply float-left mb-0.5 mr-3 mt-1.5 bg-primary dark:bg-transparent border-2 border-solid border-fg-muted dark:border-primary px-3.5 pt-1.5 font-display text-7xl text-fg dark:text-primary;
 
     /* For some reason Chrome and Firefox render the line-height of ::first-letter differently. */
     @supports (-moz-appearance: none) {
@@ -319,7 +344,7 @@ a:focus {
 
 /* For use outside of .prose */
 .big-letter > p:first-child::first-letter {
-  @apply float-left mb-0.5 mr-3 mt-1.5 bg-primary dark:bg-transparent border-2 border-solid border-fg-muted dark:border-primary px-3.5 pt-1.5 font-rakkas text-7xl text-fg dark:text-primary;
+  @apply float-left mb-0.5 mr-3 mt-1.5 bg-primary dark:bg-transparent border-2 border-solid border-fg-muted dark:border-primary px-3.5 pt-1.5 font-display text-7xl text-fg dark:text-primary;
 
   /* For some reason Chrome and Firefox render the line-height of ::first-letter differently. */
   @supports (-moz-appearance: none) {
@@ -350,7 +375,7 @@ p {
 h1,
 h2,
 h3 {
-  @apply font-rakkas tracking-wide text-fg-highlight;
+  @apply font-display tracking-wide text-fg-highlight;
 }
 
 /* Blog */
@@ -370,7 +395,8 @@ h3 {
 
 header-container {
   nav {
-    @apply bg-bg-raised dark:bg-bg-raised border-2 border-fg;
+    /* Left border set to 0 width on mobile due to "divide" nonsense. */
+    @apply bg-bg-raised dark:bg-bg-raised border-2 border-fg border-l-0;
 
     & > * {
       @apply relative z-30;
@@ -381,7 +407,11 @@ header-container {
     }
 
     ul a, a.nav-home {
-      @apply bg-bg-raised dark:bg-bg-raised text-fg no-underline font-bold decoration-2 decoration-primary decoration-dashed underline-offset-4 hover:bg-primary hover:text-fg dark:hover:bg-fg dark:hover:text-bg hover:underline focus:bg-primary focus:text-fg dark:focus:bg-fg dark:focus:text-bg focus:relative focus:z-10 focus:underline focus:outline-2 focus:outline-offset-4 focus:outline-dashed focus:outline-fg;
+      @apply text-fg no-underline font-bold decoration-2 decoration-primary decoration-dashed underline-offset-4 hover:bg-primary hover:text-fg dark:hover:bg-fg dark:hover:text-bg hover:underline focus:bg-primary focus:text-fg dark:focus:bg-fg dark:focus:text-bg focus:relative focus:z-10 focus:underline focus:outline-2 focus:outline-offset-4 focus:outline-dashed focus:outline-fg;
+    }
+
+    @media (min-width: 768px) {
+      @apply border-l-2;
     }
   }
 }
@@ -389,26 +419,15 @@ header-container {
 body[data-page='/'] header-container {
   top: 0;
 
-  nav {
-    @apply bg-fg;
-
-    a.nav-home {
-      @apply bg-fg text-bg focus:decoration-bg dark:focus:decoration-bg decoration-bg dark:decoration-bg;
-
-      &:hover svg {
-        @apply text-primary;
-      }
-    }
-  }
-
   @media (min-width: 768px) {
     top: 20vh;
   }
 }
 
+body[data-page='/'] header-container nav a[href='/'],
 body[data-page^='/projects/'] header-container nav a[href='/projects/'],
 body[data-page^='/blog/'] header-container nav a[href='/blog/'],
 body[data-page='/contact/'] header-container nav a[href='/contact/'] {
-  @apply text-bg bg-fg no-underline font-rakkas text-xl tracking-wide;
+  @apply text-fg bg-primary no-underline font-display text-xl tracking-wide;
 }
 

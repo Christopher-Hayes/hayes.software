@@ -70,6 +70,7 @@ module.exports = {
         luciole: ['Luciole', ...defaultTheme.fontFamily.sans],
         rakkas: ['Rakkas', ...defaultTheme.fontFamily.serif],
         display: ['Rakkas', ...defaultTheme.fontFamily.serif],
+        sharpie: ['Fat Sharpie', ...defaultTheme.fontFamily.serif],
         body: ['Luciole', ...defaultTheme.fontFamily.sans],
       },
       fontSize: {

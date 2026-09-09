@@ -211,7 +211,7 @@ module.exports = function (config) {
           src="${src}"
           alt=""
           ${dims ? `width="${dims.width}" height="${dims.height}"` : ''}
-          class="mx-0 mt-24 mb-20 h-full w-full object-cover object-center transition-opacity ${hideBorder ? '' : 'border-2 border-border'} transform scale-150"
+          class="mx-0 mt-24 mb-20 h-full w-full object-cover object-center transition-opacity ${hideBorder ? '' : 'border-2 border-border'} transform scale-105 md:scale-150"
           loading="lazy"
         />
       </picture>
@@ -261,7 +261,7 @@ module.exports = function (config) {
           src="${srcLight}"
           alt=""
           ${dims ? `width="${dims.width}" height="${dims.height}"` : ''}
-          class="mx-0 my-20 h-full w-full object-cover object-center transition-opacity ${hideBorder ? '' : 'border-2 border-border'} transform scale-125"
+          class="mx-0 my-20 h-full w-full object-cover object-center transition-opacity ${hideBorder ? '' : 'border-2 border-border'} transform scale-105 md:scale-125"
           loading="lazy"
         />
       </picture>
@@ -323,7 +323,7 @@ module.exports = function (config) {
       @hide-video-overlay.window="$refs.video.play()"
     >
       <video
-        class="m-0 my-20 w-full h-full object-cover object-center border-2 border-border transform scale-150"
+        class="m-0 my-20 w-full h-full object-cover object-center border-2 border-border transform scale-105 md:scale-150"
         autoplay
         loop
         muted
@@ -377,18 +377,18 @@ module.exports = function (config) {
                 <span
                   class="px-2 pt-1.5 pb-0.5 text-2xl md:text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg dark:group-focus:border-bg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">GitHub</span>
               </div>
-              <div class="px-2 pt-1 pb-0.5 text-sm text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
+              <div class="px-2 pt-1 text-lg font-sharpie uppercase text-fg leading-snug group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
                 <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">@Christopher-Hayes</span>
               </div>
-              <div class="flex divide-x divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg text-xs">
-                <div class="px-2 pt-1 pb-0.5 text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">94 repos</div>
-                <div class="grow px-2 pt-1 pb-0.5 text-end text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">311 stars</div>
+              <div class="font-sharpie uppercase flex divide-x divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg text-base">
+                <div class="px-2 pt-0.5 text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">94 repos</div>
+                <div class="grow px-2 pt-0.5 text-end text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">311 stars</div>
               </div>
             </div>
           </a>
           <a href="https://codeberg.org/Chris-Hayes" target="_blank" rel="noopener"
             class="${css.card} border-l border-fg">
-            <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
+            <div class="h-full flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
               <div class="flex items-center">
                 <svg class="overflow-visible w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg dark:group-focus:text-bg">
                   <use href="#codeberg-logo" />
@@ -396,18 +396,18 @@ module.exports = function (config) {
                 <span
                   class="px-2 pt-1.5 pb-0.5 text-2xl md:text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg dark:group-focus:border-bg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">Codeberg</span>
               </div>
-              <div class="px-2 pt-1 pb-0.5 text-sm text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
+              <div class="grow flex items-center px-2 pt-1 text-lg font-sharpie uppercase leading-snug text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
                 <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">@Chris-Hayes</span>
               </div>
-              <div class="flex divide-x divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg text-xs text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
-                <div class="px-2 pt-1 pb-0.5">6 repos</div>
-                <div class="grow px-2 pt-1 pb-0.5 text-end">1 star</div>
+              <div class="font-sharpie uppercase flex divide-x divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg text-base text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
+                <div class="px-2 pt-0.5">6 repos</div>
+                <div class="grow px-2 pt-0.5 text-end">1 star</div>
               </div>
             </div>
           </a>
           <a href="https://gitlab.com/Chris-Hayes" target="_blank" rel="noopener"
             class="${css.card} border-t md:border-t-0 md:border-l border-fg">
-            <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
+            <div class="h-full flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
               <div class="flex">
                 <svg class="overflow-visible w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg dark:group-focus:text-bg">
                   <use href="#gitlab-logo" />
@@ -415,12 +415,12 @@ module.exports = function (config) {
                 <span
                   class="px-2 pt-1.5 pb-0.5 text-2xl md:text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg dark:group-focus:border-bg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">GitLab</span>
               </div>
-              <div class="px-2 pt-1 pb-0.5 text-sm text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
+              <div class="grow flex items-center px-2 pt-1 text-lg font-sharpie uppercase leading-snug text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
                 <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">@Chris-Hayes</span>
               </div>
-              <div class="flex divide-x divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg text-xs text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
-                <div class="px-2 pt-1 pb-0.5">4 repos</div>
-                <div class="grow px-2 pt-1 pb-0.5 text-end">0 stars</div>
+              <div class="font-sharpie uppercase flex divide-x divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg text-base text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
+                <div class="px-2 pt-0.5">4 repos</div>
+                <div class="grow px-2 pt-0.5 text-end">0 stars</div>
               </div>
             </div>
           </a>
@@ -447,24 +447,24 @@ module.exports = function (config) {
             class="${css.card}">
             <div class="h-full flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
               <div class="flex items-center">
-                <svg class="overflow-visible w-10 h-8 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg dark:group-focus:text-bg">
+                <svg class="overflow-visible w-10 h-7 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg dark:group-focus:text-bg">
                   <use href="#mastodon-logo" />
                 </svg>
                 <span
                   class="px-2 pt-1.5 pb-0.5 text-2xl md:text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg dark:group-focus:border-bg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">Mastodon</span>
               </div>
-              <div class="grow flex flex-wrap items-center px-2 pt-1.5 pb-1 text-xs text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
+              <div class="grow flex flex-wrap items-center content-center px-2 pt-1.5 pb-1 text-lg font-sharpie uppercase leading-[1.1] text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
                 <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">@chris</span>@nutmeg.social
               </div>
-              <div class="flex divide-x divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg text-xs">
-                <div class="px-2 pt-1 pb-0.5 text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">3.3k posts</div>
-                <div class="grow px-2 pt-1 pb-0.5 text-end text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">196 followers</div>
+              <div class="flex divide-x divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg text-base font-sharpie uppercase">
+                <div class="px-2 pt-0.5 pb-0.5 text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">3.3k posts</div>
+                <div class="grow px-2 pt-0.5 pb-0.5 text-end text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">196 followers</div>
               </div>
             </div>
           </a>
           <a href="https://pixelfed.social/chris-hayes" target="_blank" rel="noopener"
             class="${css.card} border-l border-fg">
-            <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
+            <div class="h-full flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
               <div class="flex items-center">
                 <svg class="overflow-visible w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg dark:group-focus:text-bg">
                   <use href="#pixelfed-logo" />
@@ -472,18 +472,18 @@ module.exports = function (config) {
                 <span
                   class="px-2 pt-1.5 pb-0.5 text-2xl md:text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg dark:group-focus:border-bg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">Pixelfed</span>
               </div>
-              <div class="flex flex-wrap items-center px-2 pt-1.5 pb-1 text-xs text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
+              <div class="grow flex flex-wrap items-center content-center px-2 pt-1.5 pb-1 text-lg font-sharpie uppercase leading-[1.1] text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
                 <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">@chris-hayes</span>@pixelfed.social
               </div>
-              <div class="flex divide-x divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg text-xs text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
-                <div class="px-2 pt-1 pb-0.5">29 posts</div>
-                <div class="grow px-2 pt-1 pb-0.5 text-end">17 followers</div>
+              <div class="flex divide-x divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg text-base font-sharpie uppercase text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
+                <div class="px-2 pt-0.5 pb-0.5">29 posts</div>
+                <div class="grow px-2 pt-0.5 pb-0.5 text-end">17 followers</div>
               </div>
             </div>
           </a>
           <a href="https://bookwyrm.social/user/chris-hayes" target="_blank" rel="noopener"
             class="${css.card} border-t border-fg md:border-t-0 md:border-l">
-            <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
+            <div class="h-full flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
               <div class="flex">
                 <svg class="overflow-visible w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg dark:group-focus:text-bg">
                   <use href="#bookwyrm-logo" />
@@ -491,12 +491,12 @@ module.exports = function (config) {
                 <span
                   class="px-2 pt-1.5 pb-0.5 text-2xl md:text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg dark:group-focus:border-bg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">BookWyrm</span>
               </div>
-              <div class="flex flex-wrap items-center px-2 pt-1.5 pb-1 text-xs text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
+              <div class="grow flex flex-wrap items-center content-center px-2 pt-1.5 pb-1 text-lg font-sharpie uppercase leading-[1.1] text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
                 <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">@chris-hayes</span>@bookwyrm.social
               </div>
-              <div class="flex divide-x divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg text-xs text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
-                <div class="px-2 pt-1 pb-0.5">30 books</div>
-                <div class="grow px-2 pt-1 pb-0.5 text-end">5 followers</div>
+              <div class="flex divide-x divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg text-base font-sharpie uppercase text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
+                <div class="px-2 pt-0.5 pb-0.5">30 books</div>
+                <div class="grow px-2 pt-0.5 pb-0.5 text-end">5 followers</div>
               </div>
             </div>
           </a>
