@@ -133,6 +133,10 @@ export default defineConfig(({ command }) => ({
           '**/*.{js,css,ico,png,jpg,jpeg,webp,webm,svg,mp3,ttf,woff,woff2}',
         ],
         maximumFileSizeToCacheInBytes: 25097152,
+        // Without this, an activated SW only takes over on the next
+        // uncontrolled navigation (e.g. a hard refresh) - already-open tabs
+        // keep being served by the old worker on a normal reload.
+        clientsClaim: true,
       },
       includeAssets: ['favicon.ico', 'robots.txt'],
       manifest: {
