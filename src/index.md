@@ -5,23 +5,23 @@ meta:
   desc: Personal site of creative frontend developer, Chris Hayes.
 intro:
   title: Chris Hayes
-  emp: Hellooo!
-  desc: I'm Chris Hayes, a creative web developer.
+  emp: Hey!
+  desc: Im Chris Hayes, welcome to my site.
 ---
 
 ## About me
 
-*Maker of..* brand websites, Shopify stores, and 3D web experiences with tech like Next, React, 11ty, Alpine, Tailwind, Shopify, and WebGL.
+*Maker of..* brand sites, Shopify stores, 3D web experiences, museum exhibits, desktop apps, and VS Code extensions.
 
-*Fan of..* open-source, design, old films and history.
+*I enjoy..* open-source, design, old films and history.
 
-*Learning atm..* to work with [GEDCOM](https://en.wikipedia.org/wiki/GEDCOM) for a geoneology museum exhibit.
+*Currently learning..* how to design and build my own fonts.
 
 *Latest project is..* building a [desktop music player](https://github.com/Christopher-Hayes/osuplayer/releases) for the game, osu!
 
 ## Projects
 
-You can read about my work in [/projects.](/projects/) Most **FOSS** stuff is on [GitHub,](https://github.com/Christopher-Hayes) a few new ones on [Codeberg.](https://codeberg.org/chris-hayes)
+You can read about my work in [/projects.](/projects/) Most of the **FOSS** work is on [GitHub.](https://github.com/Christopher-Hayes)
 
 {% forges %}
 
@@ -37,4 +37,4 @@ I run [nutmeg.social,](https://nutmeg.social/about) a Mastodon server for [#Conn
 
 ## This site
 
-This site is built on **11ty**, styled in **Tailwind**, made dynamic with **Alpine**. Managed with **Coolify**, hosted on **Hetzner**, behind **Cloudflare**. I've posted about [“Why 11ty with Alpine”](/blog/site-update-2024) and my [“Move to Hetzner and Coolify.”](/blog/hetzner-with-coolify)
+Built on **11ty** with **Tailwind** and **Alpine**. Managed with **Coolify**, on **Hetzner**, behind **Cloudflare**. Typed in **Luciole** and my font, **“Fat Sharpie.”** I've documented some of this in [“Why 11ty with Alpine”](/blog/site-update-2024) and my [“Move to Hetzner and Coolify.”](/blog/hetzner-with-coolify)

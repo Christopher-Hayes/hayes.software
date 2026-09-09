@@ -4,7 +4,7 @@ title: Redirecting music audio to my phone
 meta:
   desc: How to redirect music from Linux to your phone with VLC and KDE Connect.
 date: 2026-05-28
-read_time: 8 min
+read_time: 15 min
 artwork:
   above_fold: /images/blog/sending-music-to-phone/artwork-above-fold.svg
 intro:
@@ -16,8 +16,9 @@ tags:
   - featured # Show on homepage
   - linux
 ---
+<!-- First line emphasis cannot include first letter, to avoid breaking first-letter style. -->
 
-*Recently I wanted to stream music from my PC to my phone.* Quirks in my setup meant I couldn't just play the original music files, I could only play the music through this desktop application.
+R*ecently I wanted to stream music from my PC* to my phone. Quirks in my setup meant I couldn't just play the original music files, I could only play the music through this desktop application.
 
 Streaming to my phone proved *possible*, but not without challenges.
 
@@ -32,12 +33,12 @@ I'm writing this post _because_ I have an odd setup, but for context you might n
 <small>
 <span id="footnote-1">
 
-**[1]** My favorite Subsonic app was [Subtracks](https://github.com/austinried/subtracks), but it hasn't been updated in 4 years. As a replacement, [Chora](github.com/CraftWorksMC/Chora) seems pretty nice.
+**1.** My favorite Subsonic app was [Subtracks](https://github.com/austinried/subtracks), but it hasn't been updated in 4 years. As a replacement, [Chora](github.com/CraftWorksMC/Chora) seems pretty nice.
 
 </span>
 <span id="footnote-2">
 
-**[2]** Nextcloud Music also supports Subsonic, so you can use a Subsonic mobile app instead of the Nextcloud app if desired.
+**2.** Nextcloud Music also supports Subsonic, so you can use a Subsonic mobile app instead of the Nextcloud app if desired.
 
 </span>
 </small>
@@ -117,7 +118,7 @@ There are a couple missing puzzle pieces with just a simple audio server. Luckil
 <small>
 <span id="footnote-3">
 
-**[3]** If you have fiber, your network is probably behind a [CGNAT](https://en.wikipedia.org/wiki/Carrier-grade_NAT). Unless you pay for a static IP, there's no chance your phone is finding the audio server.
+**3.** If you have fiber, your network is probably behind a [CGNAT](https://en.wikipedia.org/wiki/Carrier-grade_NAT). Unless you pay for a static IP, there's no chance your phone is finding the audio server.
 
 </span>
 </small>
@@ -137,7 +138,7 @@ A bonus feature with KDE Connect is you can add bash scripts you can run remotel
 <small>
 <span id="footnote-4">
 
-**[4]** Linux applications use "MPRIS" to allow your keyboard to have buttons that control playback. MPRIS allows KDE Connect to not just control playback, but also fetch cover art. I maintain the music player shown, and MPRIS was a bit of a pain, but rewarding to see it working.
+**4.** Linux applications use "MPRIS" to allow your keyboard to have buttons that control playback. MPRIS allows KDE Connect to not just control playback, but also fetch cover art. I maintain the music player shown, and MPRIS was a bit of a pain, but rewarding to see it working.
 
 Link: https://wiki.archlinux.org/title/MPRIS
 

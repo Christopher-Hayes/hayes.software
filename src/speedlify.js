@@ -22,9 +22,11 @@ function renderHTML(d) {
     <div
       class="mt-8 flex w-full flex-col divide-y divide-fg border-t border-fg bg-border text-xs dark:bg-bg-raised md:text-sm"
     >
-      <div class="flex flex-wrap divide-x divide-y divide-fg md:flex-nowrap">
+      <div
+        class="flex flex-wrap md:divide-x divide-y divide-fg md:flex-nowrap md:divide-y-0"
+      >
         <div
-          class="flex w-full grow items-center md:items-end justify-between gap-2 px-4 pb-2 pt-2 md:w-auto"
+          class="flex w-full grow items-center justify-between gap-2 px-4 pb-2 pt-2 md:w-auto md:items-end"
         >
           <a class="group" href="${d.rankUrl}" target="_blank" rel="noopener">
             <h2
@@ -35,7 +37,7 @@ function renderHTML(d) {
             </h2>
           </a>
           <div
-            class="mt-1.5 flex max-w-[2rem] flex-col items-end justify-end md:mb-1 md:mt-0"
+            class="mt-2 flex max-w-[2rem] flex-col items-end justify-end font-sharpie font-uppercase text-base md:text-lg md:mb-1 md:mt-0"
           >
             <p class="text-xs text-fg">
               ${d.rankChange
@@ -56,7 +58,7 @@ function renderHTML(d) {
           >
             ${d.scores.performance.value}%
           </div>
-          <label class="text-xs" id="perf-score-label"> Performance </label>
+          <label class="text-sm font-sharpie" id="perf-score-label"> Performance </label>
         </div>
         <div
           class="flex w-1/4 flex-col justify-center gap-1 px-1 py-3 text-center md:w-auto md:px-3"
@@ -69,7 +71,7 @@ function renderHTML(d) {
           >
             ${d.scores.accessibility.value}%
           </div>
-          <label class="text-xs" id="accessibility-score-label">
+          <label class="text-sm font-sharpie" id="accessibility-score-label">
             Accessibility
           </label>
         </div>
@@ -85,7 +87,7 @@ function renderHTML(d) {
             ${d.scores.bestPractices.value}%
           </div>
           <label
-            class="truncate whitespace-nowrap text-xs"
+            class="whitespace-nowrap text-sm font-sharpie"
             id="best-practices-score-label"
             >Best Practices</label
           >
@@ -101,15 +103,15 @@ function renderHTML(d) {
           >
             ${d.scores.seo.value}%
           </div>
-          <label class="text-xs" id="seo-score-label"> SEO </label>
+          <label class="text-sm font-sharpie" id="seo-score-label"> SEO </label>
         </div>
       </div>
-      <div class="flex w-full divide-x divide-fg text-fg">
+      <div class="flex w-full md:divide-x divide-fg text-fg text-base md:text-lg font-sharpie">
         <div class="hidden px-3 pb-1 pt-2 md:block">${d.requests}</div>
         <div class="hidden px-3 pb-1 pt-2 md:block">
           ${d.axe} AXE issue${d.axe !== 1 ? 's' : ''}
         </div>
-        <div class="px-3 pb-1 pt-2">${d.weight}</div>
+        <div class="px-3 pb-1 pt-2 border-r border-fg md:border-r-0">${d.weight}</div>
         <div class="flex grow justify-between">
           <a
             class="px-3 pb-1 pt-2 decoration-dotted decoration-2 underline-offset-4 hover:text-fg hover:underline hover:decoration-fg"
@@ -119,7 +121,7 @@ function renderHTML(d) {
           >
             View details
           </a>
-          <div class="grow px-3 pb-1 pt-2 text-end">Tested on ${d.date}</div>
+          <div class="grow px-3 pb-1 pt-2 text-end">Tested ${d.date}</div>
         </div>
       </div>
     </div>

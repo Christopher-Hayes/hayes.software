@@ -53,14 +53,28 @@
     font-style: normal;
     font-display: block;
   }
+  /* Disabled - I don't use bold often and I don't love how it looks with Luciole.
   @font-face {
     font-family: 'Luciole';
     src: url('/fonts/minified/luciole/luciole-bold.min.woff2') format('woff2'),
       url('/fonts/minified/luciole/luciole-bold.min.woff') format('woff');
     font-weight: 700;
     font-style: normal;
-    /* Luciole bold is used very little, so we can afford to shorten the block period to get text on screen faster. */
+    / * Luciole bold is used very little, so we can afford to shorten the block period to get text on screen faster. * /
     font-display: swap;
+  }
+  */
+  @font-face {
+    font-family: 'Fat Sharpie';
+    src: url('/fonts/fat-sharpie/fat-sharpie.woff2') format('woff2'),
+      url('/fonts/fat-sharpie/fat-sharpie.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: block;
+  }
+
+  .font-sharpie {
+    text-transform: uppercase;
   }
 
   /* Set up fallback fonts */
