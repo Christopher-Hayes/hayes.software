@@ -271,6 +271,10 @@ a:focus {
   ul,
   ol {
     @apply pl-12 pr-4;
+
+    li::marker {
+      @apply text-fg dark:text-fg-highlight;
+    }
   }
   small {
     @apply text-xl text-fg-muted font-sharpie uppercase;
