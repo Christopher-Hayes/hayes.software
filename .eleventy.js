@@ -272,7 +272,7 @@ module.exports = function (config) {
         style="container-type: inline-size;"
         >
         <div class="grow border-y border-border"></div>
-        <social-wrapper class="flex divide-x divide-fg border border-fg">
+        <social-wrapper class="grid grid-cols-2 md:grid-cols-3 border border-fg">
           <a href="https://github.com/Christopher-Hayes" target="_blank" rel="noopener"
             class="${css.card}">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
@@ -281,7 +281,7 @@ module.exports = function (config) {
                   <use href="#github-logo" />
                 </svg>
                 <span
-                  class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg dark:group-focus:border-bg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">GitHub</span>
+                  class="px-2 pt-1.5 pb-0.5 text-2xl md:text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg dark:group-focus:border-bg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">GitHub</span>
               </div>
               <div class="px-2 pt-1 pb-0.5 text-sm text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
                 <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">@Christopher-Hayes</span>
@@ -293,14 +293,14 @@ module.exports = function (config) {
             </div>
           </a>
           <a href="https://codeberg.org/Chris-Hayes" target="_blank" rel="noopener"
-            class="${css.card}">
+            class="${css.card} border-l border-fg">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
               <div class="flex items-center">
                 <svg class="overflow-visible w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg dark:group-focus:text-bg">
                   <use href="#codeberg-logo" />
                 </svg>
                 <span
-                  class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg dark:group-focus:border-bg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">Codeberg</span>
+                  class="px-2 pt-1.5 pb-0.5 text-2xl md:text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg dark:group-focus:border-bg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">Codeberg</span>
               </div>
               <div class="px-2 pt-1 pb-0.5 text-sm text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
                 <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">@Chris-Hayes</span>
@@ -312,14 +312,14 @@ module.exports = function (config) {
             </div>
           </a>
           <a href="https://gitlab.com/Chris-Hayes" target="_blank" rel="noopener"
-            class="${css.card}">
+            class="${css.card} border-t md:border-t-0 md:border-l border-fg">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
               <div class="flex">
                 <svg class="overflow-visible w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg dark:group-focus:text-bg">
                   <use href="#gitlab-logo" />
                 </svg>
                 <span
-                  class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg dark:group-focus:border-bg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">GitLab</span>
+                  class="px-2 pt-1.5 pb-0.5 text-2xl md:text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg dark:group-focus:border-bg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">GitLab</span>
               </div>
               <div class="px-2 pt-1 pb-0.5 text-sm text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
                 <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">@Chris-Hayes</span>
@@ -330,6 +330,8 @@ module.exports = function (config) {
               </div>
             </div>
           </a>
+          <!-- Mobile placeholder -->
+          <div class="block md:hidden border-l border-fg border-t"></div>
         </social-wrapper>
         <div class="grow border-y border-border"></div>
       </div>
@@ -346,18 +348,18 @@ module.exports = function (config) {
         class="no-prose mt-2 -mb-4 w-full flex justify-center"
         style="container-type: inline-size;">
         <div class="grow border-y border-border"></div>
-        <social-wrapper class="flex divide-x divide-fg dark:group-hover:divide-bg border border-fg">
+        <social-wrapper class="grid grid-cols-2 md:grid-cols-3 dark:group-hover:divide-bg border border-fg">
           <a href="https://nutmeg.social/@chris" target="_blank" rel="noopener"
             class="${css.card}">
-            <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
+            <div class="h-full flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
               <div class="flex items-center">
                 <svg class="overflow-visible w-10 h-8 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg dark:group-focus:text-bg">
                   <use href="#mastodon-logo" />
                 </svg>
                 <span
-                  class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg dark:group-focus:border-bg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">Mastodon</span>
+                  class="px-2 pt-1.5 pb-0.5 text-2xl md:text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg dark:group-focus:border-bg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">Mastodon</span>
               </div>
-              <div class="px-2 pt-1 pb-0.5 text-sm text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
+              <div class="grow flex flex-wrap items-center px-2 pt-1.5 pb-1 text-xs text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
                 <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">@chris</span>@nutmeg.social
               </div>
               <div class="flex divide-x divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg text-xs">
@@ -367,16 +369,16 @@ module.exports = function (config) {
             </div>
           </a>
           <a href="https://pixelfed.social/chris-hayes" target="_blank" rel="noopener"
-            class="${css.card}">
+            class="${css.card} border-l border-fg">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
               <div class="flex items-center">
                 <svg class="overflow-visible w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg dark:group-focus:text-bg">
                   <use href="#pixelfed-logo" />
                 </svg>
                 <span
-                  class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg dark:group-focus:border-bg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">Pixelfed</span>
+                  class="px-2 pt-1.5 pb-0.5 text-2xl md:text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg dark:group-focus:border-bg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">Pixelfed</span>
               </div>
-              <div class="px-2 pt-1 pb-0.5 text-sm text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
+              <div class="flex flex-wrap items-center px-2 pt-1.5 pb-1 text-xs text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
                 <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">@chris-hayes</span>@pixelfed.social
               </div>
               <div class="flex divide-x divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg text-xs text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
@@ -386,16 +388,16 @@ module.exports = function (config) {
             </div>
           </a>
           <a href="https://bookwyrm.social/user/chris-hayes" target="_blank" rel="noopener"
-            class="${css.card}">
+            class="${css.card} border-t border-fg md:border-t-0 md:border-l">
             <div class="flex flex-col divide-y divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg">
               <div class="flex">
                 <svg class="overflow-visible w-10 aspect-square m-0 px-1.5 text-fg dark:group-hover:text-bg dark:group-focus:text-bg">
                   <use href="#bookwyrm-logo" />
                 </svg>
                 <span
-                  class="px-2 pt-1.5 pb-0.5 text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg dark:group-focus:border-bg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">BookWyrm</span>
+                  class="px-2 pt-1.5 pb-0.5 text-2xl md:text-3xl font-display text-fg border-l border-fg dark:group-hover:border-bg dark:group-focus:border-bg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">BookWyrm</span>
               </div>
-              <div class="px-2 pt-1 pb-0.5 text-sm text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
+              <div class="flex flex-wrap items-center px-2 pt-1.5 pb-1 text-xs text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
                 <span class="text-fg-highlight group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">@chris-hayes</span>@bookwyrm.social
               </div>
               <div class="flex divide-x divide-fg dark:group-hover:divide-bg dark:group-focus:divide-bg text-xs text-fg group-hover:text-fg dark:group-hover:text-bg group-focus:text-fg dark:group-focus:text-bg">
@@ -404,6 +406,8 @@ module.exports = function (config) {
               </div>
             </div>
           </a>
+          <!-- Mobile placeholder -->
+          <div class="block md:hidden border-l border-fg border-t"></div>
         </social-wrapper>
         <div class="grow border-y border-border"></div>
       </div>

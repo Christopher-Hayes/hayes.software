@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(find /home/chris/src/github/osuplayer -type f -name \"*.rs\" -o -name \"*.toml\" -o -name \"*.c\" -o -name \"*.cpp\" -o -name \"*.h\" | head -20)",
-      "Read(//home/chris/src/github/osuplayer/**)"
-    ]
-  }
-}

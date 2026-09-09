@@ -18,22 +18,24 @@
   }
 </script>
 <main id="main-content" tabindex="-1">
+  <div class="px-4 md:px-0">
   <!-- bg gradient behind post-header -->
   <div
-    class="fixed top-0 left-0 min-w-[100vw] h-[15rem] bg-gradient-to-b from-40% from-bg to-transparent pointer-events-none z-20">
+    class="fixed top-0 left-0 min-w-[100vw] h-40 md:h-[14rem] bg-gradient-to-b from-40% from-bg to-transparent pointer-events-none z-20">
   </div>
-  <article class="relative z-10 mx-auto max-w-2xl border border-t-0 border-border">
+  <article class="relative z-10 md:mx-auto max-w-2xl border border-t-0 border-border">
     <header>
-      <h1 class="mb-4 pt-20 px-12 self-center text-fg text-6xl leading-normal border-t-0 transform scale-110">
+      <h1 class="mb-4 pt-20 px-8 md:px-12 self-center text-fg text-5xl md:text-6xl leading-normal border-t-0 transform scale-105 md:scale-110">
         {{ intro.desc }}
       </h1>
     </header>
-    <div class="relative py-2 px-4 prose prose-lg dark:prose-invert">
+    <div class="relative py-2 prose prose-lg dark:prose-invert">
       <img src="/images/first-letter-bg-1.svg" alt="" class="absolute z-0 left-2 -top-4 w-32 h-32 pointer-events-none opacity-10 dark:opacity-100">
       <div class="big-letter relative z-10">
         {{ content }}
       </div>
     </div>
   </article>
+  </div>
 </main>
 {% endblock %}

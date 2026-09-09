@@ -74,7 +74,11 @@
 
   /* Avoid specific layout jumping */
   header-container nav ul li a {
-    min-width: 6.5rem;
+    min-width: 4rem;
+
+    @media (min-width: 768px) {
+      min-width: 6.5rem;
+    }
   }
 </style>
 
