@@ -20,37 +20,37 @@
 <main id="main-content" tabindex="-1" class="pt-8">
   <!-- bg gradient behind post-header -->
   <div
-    class="fixed top-0 left-0 min-w-[100vw] h-[14rem] bg-gradient-to-b from-50% from-bg to-transparent pointer-events-none z-20">
+    class="fixed top-0 left-0 min-w-[100vw] h-40 md:h-[14rem] bg-gradient-to-b from-50% from-bg to-transparent pointer-events-none z-20">
   </div>
-  <article class="mt-[25vh] mx-auto max-w-2xl flex flex-col">
+  <article class="mt-16 md:mt-[25vh] mx-auto px-4 max-w-2xl flex flex-col">
     <header class="w-full lg:h-60 lg:max-h-60 bg-border dark:bg-bg-raised flex justify-center border border-fg dark:border-primary-highlight">
-      <h1 class="lg:max-w-[39.5rem] px-10 self-center font-rakkas text-5xl leading-normal border-none">
+      <h1 class="lg:max-w-[39.5rem] px-4 md:px-10 self-center font-rakkas text-3xl md:text-5xl leading-normal border-none">
         <!-- This whitespace only shows up in dev, goes MIA on prod build. :S -->
         <emp class="inline-block h-[1.3em] bg-primary dark:bg-fg dark:text-bg px-2 mr-2">{{ intro.emp }}{{ " " }}</emp><span class="text-fg">{{ intro.desc | replace: "Chris Hayes", "<span class='dark:text-fg-highlight'>Chris Hayes</span>" }}</span>
       </h1>
     </header>
-    <section class="pt-8 border-x border-border">
+    <section class="md:px-4 md:pt-8 border-x border-border">
       <header class="prose prose-lg">
         <h2 class="border-t-0">
           Writing
         </h2>
       </header>
-      <div class="my-1 ml-[-1px] mr-[-1px] grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 border border-t-0 border-fg divide-y divide-fg">
+      <div class="md:my-1 ml-[-1px] mr-[-1px] grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 border border-t-0 border-fg divide-y divide-fg">
         {% assign taglist = collections['featured'] %}
         {% assign taglist = taglist | sort: 'date' | reverse %}
         {% for post in taglist %}
         <a class="group px-4 py-1.5 flex h-full w-full justify-between items-center text-fg bg-bg-raised hover:text-fg dark:hover:text-bg hover:bg-primary dark:hover:bg-primary-highlight focus:text-fg dark:focus:text-bg focus:bg-primary dark:focus:bg-primary-highlight focus:outline-none focus:outline-dashed focus:outline-2 focus:outline-fg focus:relative focus:z-10"
           href="{{ post.url }}" rel="prefetch"
           onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ post.url }}') }">
-          <span class=" text-2xl font-rakkas">{{ post.data.title }}</span>
-          <p class="pt-1 text-xs tracking-wide">
+          <span class="text-xl md:text-2xl font-rakkas">{{ post.data.title }}</span>
+          <p class="pt-1 text-xs tracking-wide hidden md:block">
             {{ post.date | date: "%B %d, %Y" }}
           </p>
         </a>
         {% endfor %}
       </div>
     </section>
-    <div class="pb-6 prose prose-lg dark:prose-invert border-x border-border">
+    <div class="pb-6 prose md:prose-lg dark:prose-invert border-x border-border">
       {{ content }}
     </div>
     <footer class="border border-t-0 border-fg">

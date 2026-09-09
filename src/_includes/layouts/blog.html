@@ -26,16 +26,17 @@
 </script>
 <main id="main-content" tabindex="-1"
 >
+<div class="px-4 md:px-0">
   <!-- bg gradient behind post-header -->
   <div
-    class="fixed top-0 left-0 min-w-[100vw] h-[14rem] bg-gradient-to-b from-50% from-bg to-transparent pointer-events-none z-20">
+    class="fixed top-0 left-0 min-w-[100vw] h-40 md:h-[14rem] bg-gradient-to-b from-50% from-bg to-transparent pointer-events-none z-20">
   </div>
   <article class="flex flex-col mx-auto max-w-2xl border-x border-border">
     <header>
-      <h1 class="px-12 pt-20 self-center text-fg font-rakkas text-6xl leading-normal border-t-0 transform scale-110">
+      <h1 class="px-8 md:px-12 pt-20 self-center text-fg font-rakkas text-5xl md:text-6xl leading-normal border-t-0 transform scale-105 md:scale-110">
           Writing
       </h1>
-      <div class="prose prose-lg mt-8 -mb-7 px-6 pb-0 pt-2">
+      <div class="prose prose-lg mt-8 -mb-7 px-2 md:px-6 pb-0 pt-2">
         <div class="relative mt-2">
           <img src="/images/first-letter-bg-1.svg" alt="" class="absolute z-0 -left-4 -top-20 w-32 h-32 pointer-events-none opacity-10 dark:opacity-100">
           <div class="big-letter relative z-10 mt-0">
@@ -77,10 +78,10 @@
         <!-- Fill last row with empty cells if not divisible by 3 -->
         {% assign lastMod = collections.blog.size | modulo: 3 %}
         {% if lastMod == 1 %}
-          <div class="my-4 border-y border-border"></div>
-          <div class="my-4 border-y border-border"></div>
+          <div class="hidden md:block my-4 border-y border-border"></div>
+          <div class="hidden md:block my-4 border-y border-border"></div>
         {% elsif lastMod == 2 %}
-          <div class="my-4 border-y border-border"></div>
+          <div class="hidden md:block my-4 border-y border-border"></div>
         {% endif %}
       </div>
 
@@ -90,17 +91,17 @@
     </section>
     <section class="-mt-3 pb-6 border-b border-border">
       <header>
-        <h1 class="px-12 pt-12 border-t-0 self-center text-fg font-rakkas text-6xl leading-normal transform scale-110">
+        <h1 class="px-8 md:px-12 pt-16 md:pt-12 border-t-0 self-center text-fg font-rakkas text-5xl md:text-6xl leading-normal transform scale-105 md:scale-110">
           Thoughts
         </h1>
       </header>
-      <div class="flex gap-4">
+      <div class="flex flex-col md:flex-row gap-4">
         <div class="grow w-full">
           <p class="max-w-[24rem] mt-5 -mb-7 px-6 pb-0 prose">
             I share {% link "https://nutmeg.social/@chris/tagged/wip", "#WIP" %} shots, fun links, and photos on Mastodon. Really, <em>most</em> of my writing are toots.
           </p>
         </div>
-        <div class="mr-8 mt-6 w-full max-w-[12rem] border border-fg dark:border-primary-highlight">
+        <div class="mx-6 md:mx-0 md:mr-8 mt-6 w-full max-w-[12rem] border border-fg dark:border-primary-highlight">
           <a href="https://nutmeg.social/@chris" target="_blank" rel="noopener"
             class="group block no-underline bg-bg-raised hover:bg-primary dark:hover:bg-fg hover:text-fg dark:hover:text-bg focus:bg-primary dark:focus:bg-fg focus:text-fg dark:focus:text-bg">
             <div class="flex flex-col divide-y divide-fg dark:divide-primary-highlight group-hover:divide-fg dark:group-hover:divide-bg group-focus:divide-fg dark:group-focus:divide-bg">
@@ -124,5 +125,6 @@
       </div>
     </section>
   </article>
+      </div>
 </main>
 {% endblock %}

@@ -98,17 +98,17 @@ body {
 }
 
 .prose a:not(.no-prose a), .box-link {
-  @apply inline-flex -ml-0.5 mr-1.5 -mt-1 bg-bg-raised dark:bg-bg-raised text-fg dark:text-fg no-underline border border-fg divide-x divide-fg;
+  @apply inline-flex -ml-0.5 mr-1.5 -mt-0.5 bg-bg-raised dark:bg-bg-raised text-fg dark:text-fg no-underline border border-fg divide-x divide-fg;
 
   &.box-link {
     @apply ml-0.5;
   }
 
   .link-text {
-    @apply -mt-0.5 -mb-1 pt-0.5 px-1.5;
+    @apply mb-[-1px] px-1.5;
   }
   &.box-link .link-text {
-    @apply pt-1.5 pb-1;
+    @apply pt-1.5 pb-1 leading-none;
   }
 
   .link-icon {
@@ -118,8 +118,29 @@ body {
       /* Fix for Chrome svg rendering bug. */
       @apply overflow-visible;
 
-      height: 1em;
-      width: 1.2em;
+      height: 0.8em;
+      width: 1em;
+
+    }
+  }
+
+  @media (min-width: 768px) {
+    @apply mt-[-1px];
+
+    .link-text {
+      @apply pt-[1px] px-1.5;
+    }
+    &.box-link .link-text {
+      @apply pt-[0.25rem] pb-1;
+    }
+
+    .link-icon {
+      @apply px-1;
+
+      svg {
+        height: 1em;
+        width: 1.2em;
+      }
     }
   }
 
@@ -181,7 +202,14 @@ p:not(:empty) + h3, small + h3, ul + h3, ol + h3 {
   }
 }
 h2 {
-  @apply scale-110 transform pb-3 pl-12 text-4xl;
+  @apply pb-3 pl-8 text-5xl scale-105 transform;
+
+  /* Scaling a full-width block pushes 5% past each edge, which overflows
+     narrow viewports. Horizontal overflow widens the mobile layout viewport
+     and breaks the sticky nav's `top`. */
+  @media (min-width: 768px) {
+    @apply pl-12 text-4xl scale-110 transform;
+  }
 }
 
 a:hover,
@@ -195,7 +223,11 @@ a:focus {
   }
 
   p {
-    @apply mb-2 px-4 pt-1 text-justify tracking-tight;
+    @apply mb-2 px-4 pt-1 tracking-tight;
+
+    @media (min-width: 768px) {
+      @apply text-justify;
+    }
   }
 
   em {
@@ -297,12 +329,16 @@ h3 {
 
 /* Blog */
 .blog-card {
-  /* Not a tailwind feature until v4 */
-  &:nth-child(3n+1) {
-    @apply pl-4 -ml-4;
-  }
-  &:nth-child(3n) {
-    @apply border-r-0 pr-4 -mr-4;
+  /* Edge bleed for the 3-column grid. The grid is 1-column below md, where
+     these would push every card past the viewport. */
+  @media (min-width: 768px) {
+    /* Not a tailwind feature until v4 */
+    &:nth-child(3n+1) {
+      @apply pl-4 -ml-4;
+    }
+    &:nth-child(3n) {
+      @apply border-r-0 pr-4 -mr-4;
+    }
   }
 }
 
@@ -325,7 +361,7 @@ header-container {
 }
 
 body[data-page='/'] header-container {
-  top: 20vh;
+  top: 0;
 
   nav {
     @apply bg-fg;
@@ -337,6 +373,10 @@ body[data-page='/'] header-container {
         @apply text-primary;
       }
     }
+  }
+
+  @media (min-width: 768px) {
+    top: 20vh;
   }
 }
 

@@ -1,14 +1,15 @@
 <header-container class="relative z-50">
-  <header class="sticky top-16">
+  <header class="sticky top-4 md:top-16 px-4 md:px-0">
     <nav class="relative mx-auto max-w-2xl h-12 px-0">
       <div
         class="h-full flex flex-row-reverse md:flex-row md:flex-wrap md:items-center justify-between divide-x-2 divide-fg">
         <ul class="h-full flex divide-x-2 divide-fg">
           {% for item in navigation.items %}
           <li class="h-full">
+            <!-- NOTE: Width set in site-head.html to prevent layout shift -->
             <a href="{{ item.url }}"
               class="
-                h-full w-[6.5rem] text-center text-base flex justify-center items-center px-4 py-1 pb-0.5 hover:decoration-fg dark:hover:decoration-bg focus:decoration-fg dark:focus:decoration-bg"
+                h-full text-center text-sm md:text-base flex justify-center items-center px-4 py-1 pb-0.5 hover:decoration-fg dark:hover:decoration-bg focus:decoration-fg dark:focus:decoration-bg"
               :aria-current="activeLink === '{{ item.url }}' ? 'page' : null" rel="prefetch"
               onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ item.url }}') }">
               {{ item.text }}
@@ -21,10 +22,10 @@
           rel="prefetch"
           onmouseover="if (window.htmlPreload) { window.htmlPreload('/') }"
           >
-          <span class="h-full flex items-center px-6 py-1 pb-0.5">
+          <span class="h-full flex items-center px-4 md:px-6 py-1 pb-0.5 text-sm md:text-base">
             Home
           </span>
-          <div class="absolute -right-2 -top-3">
+          <div class="absolute hidden md:block -right-2 -top-3">
             <span class="sr-only">Go to homepage</span>
             <svg height="4rem" width="9rem">
               <use href="#logo" />
