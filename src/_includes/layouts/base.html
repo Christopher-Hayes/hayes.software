@@ -81,9 +81,32 @@
   </footer>
   <script type="module">
     const runDeferredScripts = async () => {
-      // Dynamic import after page load
-      const run = (await import('/main-on-ready.js')).run
-      run()
+      try {
+        // Dynamic import after page load
+        const run = (await import('/main-on-ready.js')).run
+        run()
+        sessionStorage.removeItem('deferred-script-recovery')
+      } catch (err) {
+        // A stale Service Worker can keep serving an old bundle that
+        // references chunk hashes from a previous deploy, which 404 and
+        // fail this import. The recovery logic normally lives inside the
+        // chunk we just failed to load, so it never gets a chance to run -
+        // recover here instead by dropping the stale worker and reloading
+        // once, so the reload is guaranteed to fetch the current deploy.
+        console.error('Failed to load deferred scripts, likely a stale cached build:', err)
+
+        if (sessionStorage.getItem('deferred-script-recovery')) {
+          return
+        }
+        sessionStorage.setItem('deferred-script-recovery', '1')
+
+        if ('serviceWorker' in navigator) {
+          const registrations = await navigator.serviceWorker.getRegistrations()
+          await Promise.all(registrations.map((registration) => registration.unregister()))
+        }
+
+        window.location.reload()
+      }
     }
 
     // On idle

@@ -1,7 +1,7 @@
 {
 	"name": "hayes-software",
 	"description": "My personal blog running 11ty",
-	"version": "2.1.0",
+	"version": "2.1.2",
 	"main": "index.js",
 	"repository": {
 		"type": "git",
