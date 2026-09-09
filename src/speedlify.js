@@ -26,7 +26,7 @@ function renderHTML(d) {
         class="flex flex-wrap md:divide-x divide-y divide-fg md:flex-nowrap md:divide-y-0"
       >
         <div
-          class="flex w-full grow items-center justify-between gap-2 px-4 pb-2 pt-2 md:w-auto md:items-end"
+          class="grow flex w-full grow items-center justify-between gap-2 px-4 pb-2 pt-2 md:w-auto md:items-end"
         >
           <a class="group" href="${d.rankUrl}" target="_blank" rel="noopener">
             <h2
@@ -37,7 +37,7 @@ function renderHTML(d) {
             </h2>
           </a>
           <div
-            class="mt-2 flex max-w-[2rem] flex-col items-end justify-end font-sharpie font-uppercase text-base md:text-lg md:mb-1 md:mt-0"
+            class="font-uppercase mt-2 flex max-w-[2rem] flex-col items-end justify-end font-sharpie text-base md:mb-1 md:mt-0 md:text-lg"
           >
             <p class="text-xs text-fg">
               ${d.rankChange
@@ -47,71 +47,81 @@ function renderHTML(d) {
             <p class="whitespace-nowrap text-fg-highlight">Rank ${rankEl}</p>
           </div>
         </div>
-        <div
-          class="flex w-1/4 flex-col justify-center gap-1 px-1 py-3 text-center md:w-auto md:px-3"
-        >
+        <div class="w-full md:w-auto flex divide-x divide-fg">
           <div
-            class="${d.scores.performance.value > 99
-              ? 'text-fg-highlight'
-              : 'text-fg'} pb-0.5 font-rakkas text-3xl"
-            labelledby="perf-score-label"
+            class="flex w-1/4 flex-col justify-center gap-1 px-1 py-3 text-center md:w-auto md:px-3"
           >
-            ${d.scores.performance.value}%
+            <div
+              class="${d.scores.performance.value > 99
+                ? 'text-fg-highlight'
+                : 'text-fg'} pb-0.5 font-rakkas text-3xl"
+              labelledby="perf-score-label"
+            >
+              ${d.scores.performance.value}%
+            </div>
+            <label class="font-sharpie text-sm" id="perf-score-label">
+              Performance
+            </label>
           </div>
-          <label class="text-sm font-sharpie" id="perf-score-label"> Performance </label>
-        </div>
-        <div
-          class="flex w-1/4 flex-col justify-center gap-1 px-1 py-3 text-center md:w-auto md:px-3"
-        >
           <div
-            class="${d.scores.accessibility.value > 99
-              ? 'text-fg-highlight'
-              : 'text-fg'} pb-0.5 font-rakkas text-3xl"
-            labelledby="accessibility-score-label"
+            class="flex w-1/4 flex-col justify-center gap-1 px-1 py-3 text-center md:w-auto md:px-3"
           >
-            ${d.scores.accessibility.value}%
+            <div
+              class="${d.scores.accessibility.value > 99
+                ? 'text-fg-highlight'
+                : 'text-fg'} pb-0.5 font-rakkas text-3xl"
+              labelledby="accessibility-score-label"
+            >
+              ${d.scores.accessibility.value}%
+            </div>
+            <label class="font-sharpie text-sm" id="accessibility-score-label">
+              Accessibility
+            </label>
           </div>
-          <label class="text-sm font-sharpie" id="accessibility-score-label">
-            Accessibility
-          </label>
-        </div>
-        <div
-          class="flex w-1/4 flex-col justify-center gap-1 px-1 py-3 text-center md:w-auto"
-        >
           <div
-            class="${d.scores.bestPractices.value > 99
-              ? 'text-fg-highlight'
-              : 'text-fg'} pb-0.5 font-rakkas text-3xl"
-            labelledby="best-practices-score-label"
+            class="flex w-1/4 flex-col justify-center gap-1 px-1 py-3 text-center md:w-auto"
           >
-            ${d.scores.bestPractices.value}%
+            <div
+              class="${d.scores.bestPractices.value > 99
+                ? 'text-fg-highlight'
+                : 'text-fg'} pb-0.5 font-rakkas text-3xl"
+              labelledby="best-practices-score-label"
+            >
+              ${d.scores.bestPractices.value}%
+            </div>
+            <label
+              class="whitespace-nowrap font-sharpie text-sm"
+              id="best-practices-score-label"
+              >Best Practices</label
+            >
           </div>
-          <label
-            class="whitespace-nowrap text-sm font-sharpie"
-            id="best-practices-score-label"
-            >Best Practices</label
-          >
-        </div>
-        <div
-          class="flex w-1/4 flex-col justify-center gap-1 px-1 py-3 text-center md:w-auto md:px-3"
-        >
           <div
-            class="${d.scores.seo.value > 99
-              ? 'text-fg-highlight'
-              : 'text-fg'} pb-0.5 font-rakkas text-3xl"
-            labelledby="seo-score-label"
+            class="flex w-1/4 flex-col justify-center gap-1 px-1 py-3 text-center md:w-auto md:px-3"
           >
-            ${d.scores.seo.value}%
+            <div
+              class="${d.scores.seo.value > 99
+                ? 'text-fg-highlight'
+                : 'text-fg'} pb-0.5 font-rakkas text-3xl"
+              labelledby="seo-score-label"
+            >
+              ${d.scores.seo.value}%
+            </div>
+            <label class="font-sharpie text-sm" id="seo-score-label">
+              SEO
+            </label>
           </div>
-          <label class="text-sm font-sharpie" id="seo-score-label"> SEO </label>
         </div>
       </div>
-      <div class="flex w-full md:divide-x divide-fg text-fg text-base md:text-lg font-sharpie">
+      <div
+        class="flex w-full divide-fg font-sharpie text-base text-fg md:divide-x md:text-lg"
+      >
         <div class="hidden px-3 pb-1 pt-2 md:block">${d.requests}</div>
         <div class="hidden px-3 pb-1 pt-2 md:block">
           ${d.axe} AXE issue${d.axe !== 1 ? 's' : ''}
         </div>
-        <div class="px-3 pb-1 pt-2 border-r border-fg md:border-r-0">${d.weight}</div>
+        <div class="border-r border-fg px-3 pb-1 pt-2 md:border-r-0">
+          ${d.weight}
+        </div>
         <div class="flex grow justify-between">
           <a
             class="px-3 pb-1 pt-2 decoration-dotted decoration-2 underline-offset-4 hover:text-fg hover:underline hover:decoration-fg"
