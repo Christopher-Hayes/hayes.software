@@ -4,7 +4,7 @@
     "prerender": [
       {
         "urls": ["/", "/blog/", "/projects/"],
-        "eagerness": "eager"
+        "eagerness": "moderate"
       }
     ],
     "prefetch": [
@@ -48,9 +48,9 @@
           }, 400)
         }
         ">
-        <h2 class="px-16 pt-6 text-xl lg:text-5xl text-fg tracking-wide border-none">
+        <h1 class="px-16 pt-6 pb-3 text-xl lg:text-5xl text-fg tracking-wide border-none scale-105 transform md:scale-110">
           <span class="leading-[1.3] text-justify">{{ title }}</span>
-        </h2>
+        </h1>
       </div>
       <div class="w-full dark:text-primary bg-bg dark:bg-bg-raised font-normal text-base border-l-2 border-r-2 border-b-2 border-fg dark:border-primary flex flex-row justify-between">
         <p class="px-3 pt-1 pb-0.5">
@@ -189,7 +189,6 @@
       {% endif %}
     </footer>
     <comment-section class="block mt-12"></comment-section>
-    </script>
   </article>
 </main>
 {% endblock %}

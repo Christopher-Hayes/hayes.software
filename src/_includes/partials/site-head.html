@@ -4,6 +4,19 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+{%- assign has_comments = false -%}
+{%- if layout == "layouts/post.html" or layout == "layouts/project-post.html" -%}
+  {%- assign has_comments = true -%}
+{%- endif -%}
+{%- if has_comments -%}
+  <!-- Utterances (comments) only loads on post pages, but its DNS/TLS
+    handshake happens right when it's needed - warm the connections early
+    so that doesn't sit on the critical path when it does. -->
+  <link rel="preconnect" href="https://utteranc.es" crossorigin />
+  <link rel="preconnect" href="https://api.utteranc.es" crossorigin />
+  <link rel="preconnect" href="https://api.github.com" crossorigin />
+{%- endif -%}
+
 {%- if page_title == '' -%}
 {%- assign page_title = site.name -%}
 {%- endif -%}
@@ -56,6 +69,14 @@
     font-family: 'Luciole', Verdana, sans-serif;
   }
 
+  /* Tell the browser this page supports both themes, so browser-drawn UI
+     (scrollbars, form controls, the pre-CSS paint) matches prefers-color-scheme
+     instead of defaulting to light. There's no user-facing toggle on this
+     site - it always follows the OS setting, same as the rest of this file. */
+  html {
+    color-scheme: light dark;
+  }
+
   h1, h2, h3 {
     font-family: 'Rakkas', Georgia, fantasy, serif;
   }
@@ -84,10 +105,6 @@
 
 <link type="text/css" href="/styles/main.css" rel="stylesheet" />
 
-<link rel="prerender" href="{{ site.domain }}/index.html" />
-<link rel="prerender" href="{{ site.domain }}/blog/index.html" />
-<link rel="prerender" href="{{ site.domain }}/projects/index.html" />
-
 {% assign page_title = title | append: ' :: ' | append: site.name %} {% if
 site.name == title %} {% assign page_title = title %} {% endif %} {% assign
 site_title = site.name %} {% assign current_url = site.url | append: page.url %}
@@ -96,6 +113,8 @@ site_title = site.name %} {% assign current_url = site.url | append: page.url %}
 page_title = meta.title %} {% endif %}
 
 <link rel="canonical" href="{{ current_url }}" />
+
+<link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="/feed.xml" />
 
 <meta property="og:site_name" content="{{ site_title }}" />
 <meta property="og:title" content="{{ page_title }}" />
@@ -114,10 +133,20 @@ page_title = meta.title %} {% endif %}
 <meta property="og:description" content="{{ meta.desc }}" />
 {% endif %}
 
-<meta name="theme-color" content="#fbcd5c" />
+<meta name="theme-color" content="#fdfacb" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#1f1a16" media="(prefers-color-scheme: dark)" />
 <meta name="msapplication-TileColor" content="#fbcd5c" />
 
 <meta name="generator" content="Eleventy" />
+
+<!-- Favicons are fetched at the browser's lowest priority regardless of
+  where the <link> sits in the head, so there's no render-blocking reason to
+  inject these with JS after load - that only delayed the tab icon for no
+  benefit. -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="alternate icon" href="/favicon.ico" type="image/x-icon" sizes="48x48" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.webp" sizes="180x180" />
+<link rel="mask-icon" href="/favicon.svg" />
 
 {% if node.env == 'development' %}
   <script type="module" src="/styles/main.dev.js"></script>

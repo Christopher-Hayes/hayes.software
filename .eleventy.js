@@ -1,9 +1,43 @@
+const fs = require('fs')
+const path = require('path')
 const { getSpeedlifyComponent } = require('./src/speedlify.js')
 const eleventyAutoCacheBuster = require('eleventy-auto-cache-buster')
 const markdownIt = require('markdown-it')
+const { imageSize } = require('image-size')
 
 const html = String.raw
 const md = markdownIt({ html: true })
+
+// Resolve a site-root-relative image URL (e.g. "/images/blog/x.webp") to a
+// file on disk and read its intrinsic dimensions, so <img> tags can carry
+// real width/height attributes. Browsers use those to reserve layout space
+// before the image loads, preventing CLS - a percentage width like "100%"
+// is invalid on the attribute and is ignored entirely.
+// Images live under either src/images or src/public/images depending on
+// which passthrough copy put them there; both land at the same /images/ URL.
+function getImageDimensions(srcUrl) {
+  if (!srcUrl || /^https?:\/\//.test(srcUrl)) return null
+
+  const rel = srcUrl.replace(/^\//, '').split('?')[0]
+  const candidates = [
+    path.join(__dirname, 'src', rel),
+    path.join(__dirname, 'src/public', rel),
+  ]
+
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) {
+      try {
+        return imageSize(fs.readFileSync(candidate))
+      } catch (error) {
+        console.warn(`Warning: Could not read dimensions for "${srcUrl}": ${error.message}`)
+        return null
+      }
+    }
+  }
+
+  console.warn(`Warning: Could not find image on disk for "${srcUrl}" - no width/height attributes will be added.`)
+  return null
+}
 
 // Tagged template literal for Tailwind CSS classes
 // Enables IntelliSense for Tailwind classes in Lit components
@@ -56,12 +90,18 @@ md.renderer.rules.link_close = function(tokens, idx, options, env, self) {
     icon = '#icon-external';
   }
 
+  // Every icon except the internal-link default means this link opens in a
+  // new tab (see link_open above) - say so for screen reader users, who get
+  // no benefit from the visual icon that signals this to everyone else.
+  const opensNewWindow = icon !== '#logo-square'
+
   return html`</span>
     <span class="link-icon">
       <svg aria-hidden="true" focusable="false">
         <use href="${icon}"/>
       </svg>
     </span>
+    ${opensNewWindow ? '<span class="sr-only"> (opens in a new window)</span>' : ''}
   </a>`
 }
 
@@ -71,6 +111,50 @@ module.exports = function (config) {
 
   config.setLiquidOptions({
     dynamicPartials: true,
+  })
+
+  // The icon sprite in base.html defines every icon symbol used anywhere on
+  // the site, inlined on every single page regardless of which icons that
+  // page actually uses. This trims each page's copy down to just the
+  // symbols its own markup references.
+  //
+  // Safe for the SPA router in main-on-ready.js: that router fetches full
+  // HTML documents (each carrying its own correctly-subsetted sprite) and
+  // merges in any symbols the incoming page needs that the current one
+  // doesn't already have - see the "icon-sprite" handling in showPage().
+  config.addTransform('subset-icon-sprite', function (content, outputPath) {
+    if (!outputPath || !outputPath.endsWith('.html')) {
+      return content
+    }
+
+    const spriteMatch = content.match(
+      /<svg id="icon-sprite"[^>]*>([\s\S]*?)<\/svg>/,
+    )
+    if (!spriteMatch) {
+      return content
+    }
+
+    const [fullSprite, spriteInner] = spriteMatch
+    const restOfPage = content.replace(fullSprite, '')
+
+    const usedIds = new Set()
+    for (const m of restOfPage.matchAll(/(?:xlink:href|href)="#([\w-]+)"/g)) {
+      usedIds.add(m[1])
+    }
+
+    const keptSymbols = spriteInner
+      .match(/<symbol\b[^]*?<\/symbol>/g)
+      ?.filter((symbol) => {
+        const idMatch = symbol.match(/id="([\w-]+)"/)
+        return idMatch && usedIds.has(idMatch[1])
+      })
+
+    if (!keptSymbols) {
+      return content
+    }
+
+    const subsetSprite = fullSprite.replace(spriteInner, keptSymbols.join('\n'))
+    return content.replace(fullSprite, subsetSprite)
   })
 
   config.addShortcode('link', function (href, text) {
@@ -108,9 +192,14 @@ module.exports = function (config) {
   })
 
   config.addShortcode('figure', function (src, alt, hideBorder = false) {
-    const escapedAlt = alt.replace(/"/g, '&quot;')
     const renderedAlt = md.render(alt)
+    const dims = getImageDimensions(src)
 
+    // The figcaption below always fully describes this image, so alt=""
+    // avoids reading the same description twice - screen readers announce
+    // the visible figcaption text right after this image regardless. This
+    // also sidesteps "alt" ever containing raw markdown syntax, since only
+    // the figcaption renders it now.
     return html`<figure
       x-data="{ showImageOverlay() { this.$dispatch('show-image-overlay', this.$refs.img.currentSrc); } }"
       class="group relative"
@@ -120,8 +209,8 @@ module.exports = function (config) {
         <img
           x-ref="img"
           src="${src}"
-          alt="${escapedAlt}"
-          width="100%"
+          alt=""
+          ${dims ? `width="${dims.width}" height="${dims.height}"` : ''}
           class="mx-0 mt-24 mb-20 h-full w-full object-cover object-center transition-opacity ${hideBorder ? '' : 'border-2 border-border'} transform scale-150"
           loading="lazy"
         />
@@ -152,9 +241,14 @@ module.exports = function (config) {
   config.addShortcode('figureThemed', function (srcLight, srcDark, alt, hideBorder = false) {
     if (!alt) { console.warn(`Warning: Missing alt text for image with src "${srcLight}". Please provide alt text for accessibility.`) }
 
-    const escapedAlt = alt.replace(/"/g, '&quot;')
     const renderedAlt = md.render(alt)
+    // srcLight is the <img> fallback src, so its dimensions are the ones
+    // that matter for the browser's aspect-ratio reservation.
+    const dims = getImageDimensions(srcLight)
 
+    // See the 'figure' shortcode above for why this is alt="" rather than
+    // alt="${alt}" - the figcaption below already fully describes the
+    // image, so a non-empty alt here would just be read out twice.
     return html`<figure
       x-data="{ showImageOverlay() { this.$dispatch('show-image-overlay', this.$refs.img.currentSrc); } }"
       class="group relative"
@@ -165,8 +259,8 @@ module.exports = function (config) {
         <img
           x-ref="img"
           src="${srcLight}"
-          alt="${escapedAlt}"
-          width="100%"
+          alt=""
+          ${dims ? `width="${dims.width}" height="${dims.height}"` : ''}
           class="mx-0 my-20 h-full w-full object-cover object-center transition-opacity ${hideBorder ? '' : 'border-2 border-border'} transform scale-125"
           loading="lazy"
         />
@@ -412,6 +506,14 @@ module.exports = function (config) {
         <div class="grow border-y border-border"></div>
       </div>
     `
+  })
+
+  // Read an image's intrinsic pixel size so templates can set real
+  // width/height attributes (see getImageDimensions for why that matters).
+  // Returns { width: 0, height: 0 } rather than null/undefined so a Liquid
+  // template can always dot into .width/.height without erroring.
+  config.addFilter('imageDimensions', (src) => {
+    return getImageDimensions(src) || { width: 0, height: 0 }
   })
 
   // Blog tags

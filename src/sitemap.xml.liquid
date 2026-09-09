@@ -1,0 +1,34 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ site.url }}/</loc>
+  </url>
+  <url>
+    <loc>{{ site.url }}/blog/</loc>
+  </url>
+  <url>
+    <loc>{{ site.url }}/blog-archives/</loc>
+  </url>
+  <url>
+    <loc>{{ site.url }}/projects/</loc>
+  </url>
+  <url>
+    <loc>{{ site.url }}/contact/</loc>
+  </url>
+  {%- for post in collections.blog %}
+  <url>
+    <loc>{{ site.url }}{{ post.url }}</loc>
+    <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
+  </url>
+  {%- endfor %}
+  {%- for project in collections.projects %}
+  <url>
+    <loc>{{ site.url }}{{ project.url }}</loc>
+    <lastmod>{{ project.date | date: "%Y-%m-%d" }}</lastmod>
+  </url>
+  {%- endfor %}
+</urlset>
