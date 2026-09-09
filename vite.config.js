@@ -140,7 +140,10 @@ export default defineConfig(({ command }) => ({
       },
       includeAssets: ['favicon.ico', 'robots.txt'],
       manifest: {
-        id: 'https://hayes.software/',
+        // Relative so it resolves against whatever origin actually serves
+        // the manifest - avoids an apex-vs-www origin mismatch (the site is
+        // served from www.hayes.software; hayes.software just redirects).
+        id: '/',
         name: 'hayes.software',
         short_name: 'hayes.software',
         description: 'The personal blog of Chris Hayes.',

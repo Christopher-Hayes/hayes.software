@@ -243,6 +243,15 @@ const run = async () => {
 
   // Load AlpineJS
   window.loadAlpine = async () => {
+    // setupPage() calls this on every SPA content swap, but Alpine only
+    // needs to start once - its MutationObserver already picks up new
+    // x-data elements swapped into #main-content. Calling Alpine.start()
+    // again re-initializes the whole page and logs "Alpine has already
+    // been initialized" for every navigation.
+    if (window.Alpine) {
+      return
+    }
+
     window.Alpine = (await import('alpinejs')).default
     const modulePromises = []
 
