@@ -8,7 +8,11 @@
 <body
   class="min-h-screen flex flex-col bg-bg dark:bg-bg text-fg dark:text-fg{% if page.url == '/' %} page-home{% endif %}"
   data-env="{{ node.env }}" data-page="{{ page.url }}">
-  <svg class="hidden" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+  <a href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-bg-raised focus:text-fg focus:border-2 focus:border-fg focus:px-4 focus:py-2">
+    Skip to content
+  </a>
+  <svg id="icon-sprite" class="hidden" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
     xmlns:svg="http://www.w3.org/2000/svg">
     <!-- The script for switching pages is not good at detecting links where the clicked element is nested several layers.
       Hack: turn off pointer events on all svgs. -->
@@ -55,8 +59,7 @@
   </div>
   <footer class="mt-8 md:mt-16 mb-8 md:mb-20 w-full px-4 max-w-2xl mx-auto flex gap-3">
     <a class="px-3.5 group flex justify-center items-center text-fg border border-fg dark:border-border bg-border dark:bg-bg hover:bg-primary-highlight hover:border-primary-highlight focus:bg-primary-highlight focus:border-primary-highlight focus:outline-2 focus:outline-offset-4 focus:outline-fg focus:outline-dashed"
-      href="#to-top-of-page-anchor"
-      onclick="(event) => { event.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }">
+      href="#to-top-of-page-anchor">
       <span class="sr-only">Jump back to top</span>
       <!-- overflow-visible is required to get Chrome to render the SVG correctly. -->
       <svg class="overflow-visible h-6 w-5 fill-current text-fg dark:text-fg group-hover:text-bg group-focus:text-bg" alt="">
@@ -70,10 +73,13 @@
       </p>
 
       <a href="/" class="group hidden md:block">
+        <!-- Unlike the nav's home link, this one has no visible text of its
+          own - this sr-only span is its only accessible name, not a
+          redundant echo of one, so it stays. -->
         <span class="sr-only">Go to homepage</span>
         <svg height="5rem" width="10rem"
           class="absolute -right-3 -top-3.5 mx-auto text-fg dark:text-bg group-hover:text-primary dark:group-hover:text-fg group-focus:text-primary dark:group-focus:text-fg group-focus:outline-2 group-focus:outline-fg group-focus:outline-offset-4 group-focus:outline-dashed"
-          alt="">
+          aria-hidden="true" focusable="false">
           <use href="#logo" />
         </svg>
       </a>
@@ -111,18 +117,6 @@
 
     // On idle
     window.addEventListener('load', () => {
-      // Inject favicons after load to avoid font requests block render
-      // Probably evil.
-      [
-        { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
-        { rel: 'alternate icon', href: '/favicon.ico', type: 'image/webp', sizes: '48x48' },
-        { rel: 'apple-touch-icon', href: '/apple-touch-icon.webp', sizes: '180x180' },
-        { rel: 'mask-icon', href: '/favicon.svg' },
-      ].forEach(attrs => {
-        const link = Object.assign(document.createElement('link'), attrs)
-        document.head.appendChild(link)
-      })
-
       if ('requestIdleCallback' in window) {
         requestIdleCallback(runDeferredScripts)
       } else {

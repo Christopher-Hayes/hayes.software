@@ -11,6 +11,32 @@ Used for FOUC and to hide elements that require JavaScript to function.
 }
 
 /*
+Smooth-scroll anchor jumps (e.g. the "back to top" link), but only for
+visitors who haven't asked for reduced motion.
+*/
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/*
+Respect prefers-reduced-motion everywhere else - this mainly affects the
+image/video overlay's scale+fade transition and the mobile post header's
+collapse animation.
+*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*
 Post header transitions on mobile (the header changes when you scroll)
 */
 @media (max-width: 1023px) {

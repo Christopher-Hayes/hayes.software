@@ -4,7 +4,7 @@
     "prerender": [
       {
         "urls": ["/", "/blog/", "/projects/"],
-        "eagerness": "eager"
+        "eagerness": "moderate"
       }
     ],
     "prefetch": [
@@ -26,7 +26,7 @@
     <header class="w-full lg:h-60 lg:max-h-60 bg-border dark:bg-bg-raised flex justify-center border border-fg dark:border-primary-highlight">
       <h1 class="lg:max-w-[39.5rem] px-4 md:px-10 self-center font-rakkas text-3xl md:text-5xl leading-normal border-none">
         <!-- This whitespace only shows up in dev, goes MIA on prod build. :S -->
-        <emp class="inline-block h-[1.3em] bg-primary dark:bg-fg dark:text-bg px-2 mr-2">{{ intro.emp }}{{ " " }}</emp><span class="text-fg">{{ intro.desc | replace: "Chris Hayes", "<span class='dark:text-fg-highlight'>Chris Hayes</span>" }}</span>
+        <em class="inline-block h-[1.3em] bg-primary dark:bg-fg dark:text-bg px-2 mr-2 not-italic">{{ intro.emp }}{{ " " }}</em><span class="text-fg">{{ intro.desc | replace: "Chris Hayes", "<span class='dark:text-fg-highlight'>Chris Hayes</span>" }}</span>
       </h1>
     </header>
     <section class="md:px-4 md:pt-8 border-x border-border">

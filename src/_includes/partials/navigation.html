@@ -7,10 +7,13 @@
           {% for item in navigation.items %}
           <li class="h-full">
             <!-- NOTE: Width set in site-head.html to prevent layout shift -->
+            {% assign is_current_page = false %}
+            {% if page.url == item.url %}{% assign is_current_page = true %}{% endif %}
             <a href="{{ item.url }}"
               class="
                 h-full text-center text-sm md:text-base flex justify-center items-center px-4 py-1 pb-0.5 hover:decoration-fg dark:hover:decoration-bg focus:decoration-fg dark:focus:decoration-bg"
-              :aria-current="activeLink === '{{ item.url }}' ? 'page' : null" rel="prefetch"
+              aria-current="{% if is_current_page %}page{% endif %}"
+              rel="prefetch"
               onmouseover="if (window.htmlPreload) { window.htmlPreload('{{ item.url }}') }">
               {{ item.text }}
             </a>
@@ -26,8 +29,7 @@
             Home
           </span>
           <div class="absolute hidden md:block -right-2 -top-3">
-            <span class="sr-only">Go to homepage</span>
-            <svg height="4rem" width="9rem">
+            <svg height="4rem" width="9rem" aria-hidden="true" focusable="false">
               <use href="#logo" />
             </svg>
           </div>

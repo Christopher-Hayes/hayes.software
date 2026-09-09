@@ -127,12 +127,49 @@ export default defineConfig(({ command }) => ({
       injectRegister: false,
       // Enable service worker for offline caching and faster repeat visits
       workbox: {
-        // Precache important assets for instant loading
-        // html purposefully omitted - caching issues
+        // Precache only the app shell (js/css/fonts/small icons) for
+        // instant loading - html purposefully omitted - caching issues.
+        // Images and video used to be globbed in here too, which meant
+        // every visitor downloaded the whole site's media in the
+        // background on their first visit (blog/project images included,
+        // despite those being kept out of the rest of the site on purpose).
+        // Actual images are handled by the runtimeCaching rule below
+        // instead: cached the first time a visitor actually views one.
         globPatterns: [
-          '**/*.{js,css,ico,png,jpg,jpeg,webp,webm,svg,mp3,ttf,woff,woff2}',
+          '**/*.{js,css,ico,svg,webp,mp3,ttf,woff,woff2}',
         ],
-        maximumFileSizeToCacheInBytes: 25097152,
+        // The favicon/app-icon .webp files live at the root (not under
+        // images/ or assets/), so this only excludes the blog/project
+        // photos and the homepage's decorative illustration SVGs - the
+        // actual PWA icons still get precached via the extension match
+        // above. Some blog images (e.g. the gif-cursor post) get hashed
+        // into assets/ by Vite's own asset pipeline rather than staying
+        // under images/, so that's excluded by name too.
+        globIgnores: ['**/images/**', '**/videos/**', 'assets/*.webp'],
+        runtimeCaching: [
+          {
+            urlPattern: ({ request }) => request.destination === 'image',
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'images',
+              expiration: {
+                maxEntries: 60,
+                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+              },
+            },
+          },
+          {
+            urlPattern: ({ request }) => request.destination === 'video',
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'videos',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 30, // 30 days
+              },
+            },
+          },
+        ],
         // Without this, an activated SW only takes over on the next
         // uncontrolled navigation (e.g. a hard refresh) - already-open tabs
         // keep being served by the old worker on a normal reload.
@@ -140,7 +177,10 @@ export default defineConfig(({ command }) => ({
       },
       includeAssets: ['favicon.ico', 'robots.txt'],
       manifest: {
-        id: 'https://hayes.software/',
+        // Relative so it resolves against whatever origin actually serves
+        // the manifest - avoids an apex-vs-www origin mismatch (the site is
+        // served from www.hayes.software; hayes.software just redirects).
+        id: '/',
         name: 'hayes.software',
         short_name: 'hayes.software',
         description: 'The personal blog of Chris Hayes.',
@@ -166,16 +206,17 @@ export default defineConfig(({ command }) => ({
             type: 'image/webp',
           },
           {
-            src: 'favicon-512x512.webp',
+            // Was 'favicon-512x512.webp', which doesn't exist - this is the
+            // real 512x512 icon file, matching the pattern above.
+            src: 'android-chrome-512x512.webp',
             sizes: '512x512',
             type: 'image/webp',
           },
-          {
-            src: 'maskable_icon.webp',
-            sizes: '1024x1024',
-            type: 'image/webp',
-            purpose: 'maskable',
-          },
+          // A maskable icon needs real safe-zone padding (the logo currently
+          // touches all four edges of its canvas), which is a design call,
+          // not a mechanical fix - so this entry is dropped rather than
+          // pointed at a file that doesn't exist. Add one back with
+          // purpose: 'maskable' if a padded variant gets designed.
         ],
       },
     }),

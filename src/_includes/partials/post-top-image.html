@@ -1,4 +1,6 @@
 {% if intro.image.light %}
+  {% assign dims_src = intro.image.light | default: intro.image.dark %}
+  {% assign dims = dims_src | imageDimensions %}
   <figure x-data="{ showImageOverlay() { this.$dispatch('show-image-overlay', this.$refs.img.currentSrc); } }"
     class="group relative z-30 post-top-image">
       <picture>
@@ -6,18 +8,12 @@
           <source
             media="(prefers-color-scheme: dark)"
             srcset="{{ intro.image.dark }}"
-            {% if intro.image.alt.dark %}
-              alt="{{ intro.image.alt.dark }}"
-            {% endif %}
             >
         {% endif %}
         {% if intro.image.light %}
           <source
             media="(prefers-color-scheme: light)"
             srcset="{{ intro.image.light }}"
-            {% if intro.image.alt.light %}
-              alt="{{ intro.image.alt.light }}"
-            {% endif %}
             >
         {% endif %}
         <img
@@ -27,19 +23,19 @@
           {% else %}
             src="{{ intro.image.dark }}"
           {% endif %}
-          {% if intro.image.alt.light %}
-            alt="{{ intro.image.alt.light }}"
-          {% elsif intro.image.alt.dark %}
-            alt="{{ intro.image.alt.dark }}"
-          {% else %}
-            alt="{{ intro.image.alt }}"
+          {% comment %}
+            The figcaption below always renders this same alt text visibly,
+            so alt="" here avoids a screen reader announcing it twice.
+          {% endcomment %}
+          alt=""
+          {% if dims.width > 0 %}
+            width="{{ dims.width }}"
+            height="{{ dims.height }}"
           {% endif %}
-          width="100%"
           class="relative z-0 w-full h-full object-cover object-center mx-0 mt-16 mb-24 border-2 border-border transform scale-150"
           loading="eager"
           >
       </picture>
-    </button>
       <figcaption
         class="w-full flex gap-4 text-sm text-justify -mt-0 -mb-3 pr-4"
         style="right: -34rem;"
