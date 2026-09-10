@@ -23,16 +23,16 @@
     class="fixed top-0 left-0 min-w-[100vw] h-40 md:h-[14rem] bg-gradient-to-b from-50% from-bg to-transparent pointer-events-none z-20">
   </div>
   <article class="mt-16 md:mt-[25vh] mx-auto px-4 max-w-2xl flex flex-col">
-    <header class="w-full bg-bg-raised dark:bg-bg-raised flex justify-center border border-fg dark:border-primary-highlight">
+    <header class="w-full bg-bg-raised dark:bg-bg flex justify-center border border-fg dark:border-primary-highlight">
       <h1 class="lg:max-w-[39.5rem] px-4 md:pl-4 md:pr-4 pt-4 pb-0 self-center font-sharpie uppercase text-5xl md:text-7xl leading-[1] md:leading-[1.1] tracking-tight border-none">
         <!-- This whitespace only shows up in dev, goes MIA on prod build. :S -->
-        <em class="relative dark:bg-fg dark:text-bg px-2 mr-2 not-italic">
+        <em class="relative px-2 mr-2 not-italic">
           <!-- decorative scribble -->
-          <svg class="absolute top-[-32%] left-[-35%] w-[150%] h-[145%] text-primary" fill="none" stroke="currentColor" stroke-width="2">
+          <svg class="absolute top-[-32%] left-[-35%] w-[150%] h-[145%] text-primary dark:text-bg-raised">
             <use href="#scribble" />
           </svg>
-          <span class="relative z-10">{{ intro.emp }}{{ " " }}</span>
-        </em><span class="text-fg">{{ intro.desc | replace: "Chris Hayes", "<span class='dark:text-fg-highlight'>Chris Hayes</span>" }}</span>
+          <span class="relative z-10 dark:text-primary">{{ intro.emp }}{{ " " }}</span>
+        </em><span class="text-fg">{{ intro.desc | replace: "Chris Hayes", "<span class=''>Chris Hayes</span>" }}</span>
       </h1>
     </header>
     <section class="md:px-4 md:pt-8 border-x border-border">

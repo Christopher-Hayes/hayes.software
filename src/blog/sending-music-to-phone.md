@@ -33,7 +33,7 @@ I'm writing this post _because_ I have an odd setup, but for context you might n
 <small>
 <span id="footnote-1">
 
-**1.** My favorite Subsonic app was [Subtracks](https://github.com/austinried/subtracks), but it hasn't been updated in 4 years. As a replacement, [Chora](github.com/CraftWorksMC/Chora) seems pretty nice.
+**1.** My favorite Subsonic app was [Subtracks](https://github.com/austinried/subtracks), but it hasn't been updated in 4 years. As a replacement, [Chora](https://github.com/CraftWorksMC/Chora) seems pretty nice.
 
 </span>
 <span id="footnote-2">
