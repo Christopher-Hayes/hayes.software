@@ -23,10 +23,10 @@ function renderHTML(d) {
       class="mt-8 flex w-full flex-col divide-y divide-fg border-t border-fg bg-border text-xs dark:bg-bg-raised md:text-sm"
     >
       <div
-        class="flex flex-wrap md:divide-x divide-y divide-fg md:flex-nowrap md:divide-y-0"
+        class="flex flex-wrap divide-y divide-fg md:flex-nowrap md:divide-x md:divide-y-0"
       >
         <div
-          class="grow flex w-full grow items-center justify-between gap-2 px-4 pb-2 pt-2 md:w-auto md:items-end"
+          class="flex w-full grow items-center justify-between gap-2 px-4 pb-2 pt-2 md:w-auto md:items-end"
         >
           <a class="group" href="${d.rankUrl}" target="_blank" rel="noopener">
             <h2
@@ -47,7 +47,7 @@ function renderHTML(d) {
             <p class="whitespace-nowrap text-fg-highlight">Rank ${rankEl}</p>
           </div>
         </div>
-        <div class="w-full md:w-auto flex divide-x divide-fg">
+        <div class="flex w-full divide-x divide-fg md:w-auto">
           <div
             class="flex w-1/4 flex-col justify-center gap-1 px-1 py-3 text-center md:w-auto md:px-3"
           >
