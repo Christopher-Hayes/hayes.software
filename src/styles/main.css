@@ -411,7 +411,7 @@ header-container {
     }
 
     ul a, a.nav-home {
-      @apply text-fg no-underline font-bold decoration-2 decoration-primary decoration-dashed underline-offset-4 hover:bg-primary hover:text-fg dark:hover:bg-fg dark:hover:text-bg hover:underline focus:bg-primary focus:text-fg dark:focus:bg-fg dark:focus:text-bg focus:relative focus:z-10 focus:underline focus:outline-2 focus:outline-offset-4 focus:outline-dashed focus:outline-fg;
+      @apply text-fg no-underline font-bold decoration-2 decoration-primary decoration-dashed underline-offset-4 hover:bg-primary hover:text-fg dark:hover:bg-primary dark:hover:text-bg hover:underline focus:bg-primary focus:text-fg dark:focus:bg-fg dark:focus:text-bg focus:relative focus:z-10 focus:underline focus:outline-2 focus:outline-offset-4 focus:outline-dashed focus:outline-fg;
     }
 
     @media (min-width: 768px) {
@@ -432,6 +432,6 @@ body[data-page='/'] header-container nav a[href='/'],
 body[data-page^='/projects/'] header-container nav a[href='/projects/'],
 body[data-page^='/blog/'] header-container nav a[href='/blog/'],
 body[data-page='/contact/'] header-container nav a[href='/contact/'] {
-  @apply text-fg bg-primary no-underline font-display text-xl tracking-wide;
+  @apply text-fg dark:text-bg bg-primary dark:bg-fg no-underline font-display text-xl tracking-wide;
 }
 
